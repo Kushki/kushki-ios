@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E74ABBADFFB17C2AC510F29D2D3515E /* SwiftyRSA-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB23D2D37BF1115B8267E0673E94B641 /* SwiftyRSA-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11C2721658ACFA9DA19210ED02CC1D1F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB645053A39B4E088C0BDA3A6C9F5D /* Security.framework */; };
+		17BDF118A3FDF18D05DF42242AD0E7FE /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DBE0C2B835A686A6DB8398CCD18515 /* SwiftyRSA.swift */; };
+		32A1149DF902C8FCE5C630544478AEAB /* NSData+SHA1.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE3A6799C7FD5FDD0D8392866CF66B8 /* NSData+SHA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6269FA1A308F98D6FDE71542089764D6 /* Pods-kushki-iosTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E32A5038FFE6841C4C22A1BE5E67079 /* Pods-kushki-iosTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BDCFE7904CF8510019F4D4AAF08A409 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D692051EF32C02A74F6A5706D54B828B /* Foundation.framework */; };
+		7CF99471877FC739067EA176C2BAB60B /* SwiftyRSA.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD9A8B552300E5CF6CE60A912E06E23 /* SwiftyRSA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2F0C3952A42EE506F64D6C31B1AFB4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D692051EF32C02A74F6A5706D54B828B /* Foundation.framework */; };
+		BEF600D531B71B4D1AD753407DA5C973 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D692051EF32C02A74F6A5706D54B828B /* Foundation.framework */; };
+		C1A7CB6666A57AB45CF06BB4B4612F99 /* Pods-kushki-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4F8B475EC457AC8CD107565BB82A91 /* Pods-kushki-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E723FA2E8681DD7730813582A18BBCD6 /* Pods-kushki-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C862613391FD22492AA4303460358E /* Pods-kushki-ios-dummy.m */; };
+		EBBD5EEBD3EEB0C5BFC507109037AAB4 /* Pods-kushki-iosTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C62B01BEABD1295679B7D48CB8A3AB /* Pods-kushki-iosTests-dummy.m */; };
+		F361D9794E6D973C24DF64793BC53493 /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B294D8A6767E3744ABB58419F81AA12 /* NSData+SHA1.m */; };
+		F8DF3F2F04486B48D869099E7525B39C /* SwiftyRSA-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E54A8AE7E4B756106CFC9593FA1CB9 /* SwiftyRSA-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70F7C2AC51D3637126BF7F3AB5FECED4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 053E37F8CDED6B17A5417331ED4CFD29;
+			remoteInfo = SwiftyRSA;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0931C7C71F80725DAD59F817DB1AD9B4 /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
+		0D52E4377128FF7D02C94D5AB721E85F /* Pods-kushki-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-kushki-ios.modulemap"; sourceTree = "<group>"; };
+		11C75CF18F108C77F3BAB3F502DD8A65 /* Pods-kushki-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		1ACFFC15EFB789F21600A2300382A21F /* Pods_kushki_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C5D394E8EAD71868D32F771EBD6BD3E /* Pods_kushki_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E32A5038FFE6841C4C22A1BE5E67079 /* Pods-kushki-iosTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-iosTests-umbrella.h"; sourceTree = "<group>"; };
+		1EA881B9C6654E117D7FABFFA5A6C7A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EE3A6799C7FD5FDD0D8392866CF66B8 /* NSData+SHA1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SHA1.h"; path = "SwiftyRSA/NSData+SHA1.h"; sourceTree = "<group>"; };
+		249A751AA36693EC37DEAFC0C5F36C0A /* Pods-kushki-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios.release.xcconfig"; sourceTree = "<group>"; };
+		255E007DDE573ACFF462A6C54F212A0A /* Pods-kushki-ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios-acknowledgements.plist"; sourceTree = "<group>"; };
+		29EB889B3347CC50BC63FE893C95072B /* Pods-kushki-ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2F1FF2EA3E0A1F943C8D5F52B19A959C /* Pods-kushki-iosTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-iosTests-frameworks.sh"; sourceTree = "<group>"; };
+		35EB645053A39B4E088C0BDA3A6C9F5D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		45625BE4EC410334DC238CAF983601AC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45DBE0C2B835A686A6DB8398CCD18515 /* SwiftyRSA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSA.swift; path = SwiftyRSA/SwiftyRSA.swift; sourceTree = "<group>"; };
+		4B294D8A6767E3744ABB58419F81AA12 /* NSData+SHA1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SHA1.m"; path = "SwiftyRSA/NSData+SHA1.m"; sourceTree = "<group>"; };
+		8B1DBEADEB526F2540E185EB4183020B /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95DC57DC45AA87A5DCC6AD1E79B9220D /* Pods-kushki-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		99C862613391FD22492AA4303460358E /* Pods-kushki-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios-dummy.m"; sourceTree = "<group>"; };
+		AFD9A8B552300E5CF6CE60A912E06E23 /* SwiftyRSA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = SwiftyRSA/SwiftyRSA.h; sourceTree = "<group>"; };
+		AFEF271FE0CE3C71875657CD2B025991 /* Pods-kushki-iosTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-iosTests-resources.sh"; sourceTree = "<group>"; };
+		B6E54A8AE7E4B756106CFC9593FA1CB9 /* SwiftyRSA-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyRSA-dummy.m"; sourceTree = "<group>"; };
+		BB23D2D37BF1115B8267E0673E94B641 /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
+		C9FCDBB09AB6EE1F992E75C941BC94A3 /* Pods-kushki-iosTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-iosTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CB35BEB92C9FB59ED2278699C302AF5A /* Pods-kushki-ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios-frameworks.sh"; sourceTree = "<group>"; };
+		CDC3E119F1D5C7C4AC924B96E7CAF0F5 /* SwiftyRSA.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyRSA.modulemap; sourceTree = "<group>"; };
+		D439D99B2F3F8E36B35183632406127F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D692051EF32C02A74F6A5706D54B828B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DA118FD6843B1ECA5EA6301B1A49F52B /* Pods-kushki-ios-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios-resources.sh"; sourceTree = "<group>"; };
+		DA4F8B475EC457AC8CD107565BB82A91 /* Pods-kushki-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios-umbrella.h"; sourceTree = "<group>"; };
+		E2279842B2E141751C409FEC8408CD67 /* Pods-kushki-iosTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-iosTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E34A79D90C3D510B1CCED81DFA07E93F /* Pods-kushki-iosTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-kushki-iosTests.modulemap"; sourceTree = "<group>"; };
+		F0E4B2CF969621AF306C58CE93DF8091 /* SwiftyRSA.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.xcconfig; sourceTree = "<group>"; };
+		F3C62B01BEABD1295679B7D48CB8A3AB /* Pods-kushki-iosTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-iosTests-dummy.m"; sourceTree = "<group>"; };
+		FA721804A61E4683E8452D732023F8C7 /* Pods-kushki-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76A72F727222C9AD3B5D3D1789597D51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BDCFE7904CF8510019F4D4AAF08A409 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3874FC11EB8DA15FA8473386F78F6C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2F0C3952A42EE506F64D6C31B1AFB4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E16520427593A827507FB7F081EA54FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEF600D531B71B4D1AD753407DA5C973 /* Foundation.framework in Frameworks */,
+				11C2721658ACFA9DA19210ED02CC1D1F /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0802AC9050CFFEBC99F27ACD22514DB2 /* Pods-kushki-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				1EA881B9C6654E117D7FABFFA5A6C7A2 /* Info.plist */,
+				E34A79D90C3D510B1CCED81DFA07E93F /* Pods-kushki-iosTests.modulemap */,
+				C9FCDBB09AB6EE1F992E75C941BC94A3 /* Pods-kushki-iosTests-acknowledgements.markdown */,
+				E2279842B2E141751C409FEC8408CD67 /* Pods-kushki-iosTests-acknowledgements.plist */,
+				F3C62B01BEABD1295679B7D48CB8A3AB /* Pods-kushki-iosTests-dummy.m */,
+				2F1FF2EA3E0A1F943C8D5F52B19A959C /* Pods-kushki-iosTests-frameworks.sh */,
+				AFEF271FE0CE3C71875657CD2B025991 /* Pods-kushki-iosTests-resources.sh */,
+				1E32A5038FFE6841C4C22A1BE5E67079 /* Pods-kushki-iosTests-umbrella.h */,
+				FA721804A61E4683E8452D732023F8C7 /* Pods-kushki-iosTests.debug.xcconfig */,
+				11C75CF18F108C77F3BAB3F502DD8A65 /* Pods-kushki-iosTests.release.xcconfig */,
+			);
+			name = "Pods-kushki-iosTests";
+			path = "Target Support Files/Pods-kushki-iosTests";
+			sourceTree = "<group>";
+		};
+		1F6AF064C633B0CD86D0532BCDBEE7C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCCD695089A1E9A89E39B66A831ABB69 /* SwiftyRSA */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		38BD0A92DB0ADC6FDDBEE3F8BB5E3C6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFFC15EFB789F21600A2300382A21F /* Pods_kushki_ios.framework */,
+				1C5D394E8EAD71868D32F771EBD6BD3E /* Pods_kushki_iosTests.framework */,
+				8B1DBEADEB526F2540E185EB4183020B /* SwiftyRSA.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EF229062F5357F1028165A423A4C68A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D692051EF32C02A74F6A5706D54B828B /* Foundation.framework */,
+				35EB645053A39B4E088C0BDA3A6C9F5D /* Security.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EF229062F5357F1028165A423A4C68A /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DDD3ADBF1FCA2B8DB2860250027E6A6 /* Pods-kushki-ios */ = {
+			isa = PBXGroup;
+			children = (
+				45625BE4EC410334DC238CAF983601AC /* Info.plist */,
+				0D52E4377128FF7D02C94D5AB721E85F /* Pods-kushki-ios.modulemap */,
+				29EB889B3347CC50BC63FE893C95072B /* Pods-kushki-ios-acknowledgements.markdown */,
+				255E007DDE573ACFF462A6C54F212A0A /* Pods-kushki-ios-acknowledgements.plist */,
+				99C862613391FD22492AA4303460358E /* Pods-kushki-ios-dummy.m */,
+				CB35BEB92C9FB59ED2278699C302AF5A /* Pods-kushki-ios-frameworks.sh */,
+				DA118FD6843B1ECA5EA6301B1A49F52B /* Pods-kushki-ios-resources.sh */,
+				DA4F8B475EC457AC8CD107565BB82A91 /* Pods-kushki-ios-umbrella.h */,
+				95DC57DC45AA87A5DCC6AD1E79B9220D /* Pods-kushki-ios.debug.xcconfig */,
+				249A751AA36693EC37DEAFC0C5F36C0A /* Pods-kushki-ios.release.xcconfig */,
+			);
+			name = "Pods-kushki-ios";
+			path = "Target Support Files/Pods-kushki-ios";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				1F6AF064C633B0CD86D0532BCDBEE7C8 /* Pods */,
+				38BD0A92DB0ADC6FDDBEE3F8BB5E3C6E /* Products */,
+				A1FA63EE48DF63C4777E3955835D8E0D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7EC13C47AF0E8F8F5375DA152ECFD758 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D439D99B2F3F8E36B35183632406127F /* Info.plist */,
+				CDC3E119F1D5C7C4AC924B96E7CAF0F5 /* SwiftyRSA.modulemap */,
+				F0E4B2CF969621AF306C58CE93DF8091 /* SwiftyRSA.xcconfig */,
+				B6E54A8AE7E4B756106CFC9593FA1CB9 /* SwiftyRSA-dummy.m */,
+				0931C7C71F80725DAD59F817DB1AD9B4 /* SwiftyRSA-prefix.pch */,
+				BB23D2D37BF1115B8267E0673E94B641 /* SwiftyRSA-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyRSA";
+			sourceTree = "<group>";
+		};
+		A1FA63EE48DF63C4777E3955835D8E0D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DDD3ADBF1FCA2B8DB2860250027E6A6 /* Pods-kushki-ios */,
+				0802AC9050CFFEBC99F27ACD22514DB2 /* Pods-kushki-iosTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DCCD695089A1E9A89E39B66A831ABB69 /* SwiftyRSA */ = {
+			isa = PBXGroup;
+			children = (
+				1EE3A6799C7FD5FDD0D8392866CF66B8 /* NSData+SHA1.h */,
+				4B294D8A6767E3744ABB58419F81AA12 /* NSData+SHA1.m */,
+				AFD9A8B552300E5CF6CE60A912E06E23 /* SwiftyRSA.h */,
+				45DBE0C2B835A686A6DB8398CCD18515 /* SwiftyRSA.swift */,
+				7EC13C47AF0E8F8F5375DA152ECFD758 /* Support Files */,
+			);
+			path = SwiftyRSA;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9F396E0000943FA4A2D2C793C429BEE8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6269FA1A308F98D6FDE71542089764D6 /* Pods-kushki-iosTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BADC1B47DA45044F3CBE6AA2BCA0627F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1A7CB6666A57AB45CF06BB4B4612F99 /* Pods-kushki-ios-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDE071500581BC9219FCCDCB7559F845 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A1149DF902C8FCE5C630544478AEAB /* NSData+SHA1.h in Headers */,
+				0E74ABBADFFB17C2AC510F29D2D3515E /* SwiftyRSA-umbrella.h in Headers */,
+				7CF99471877FC739067EA176C2BAB60B /* SwiftyRSA.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		053E37F8CDED6B17A5417331ED4CFD29 /* SwiftyRSA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD215886BE8D122C49B3217672769901 /* Build configuration list for PBXNativeTarget "SwiftyRSA" */;
+			buildPhases = (
+				639DF66021497A47ED42A8DC0C4436EB /* Sources */,
+				E16520427593A827507FB7F081EA54FB /* Frameworks */,
+				BDE071500581BC9219FCCDCB7559F845 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyRSA;
+			productName = SwiftyRSA;
+			productReference = 8B1DBEADEB526F2540E185EB4183020B /* SwiftyRSA.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9A77AFD430DB1D4614DBAFD27835B87D /* Pods-kushki-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A441F349B9BA872A1D06962D1AAAB56E /* Build configuration list for PBXNativeTarget "Pods-kushki-ios" */;
+			buildPhases = (
+				49C2614B3FC3E8958093A41BF6219524 /* Sources */,
+				A3874FC11EB8DA15FA8473386F78F6C5 /* Frameworks */,
+				BADC1B47DA45044F3CBE6AA2BCA0627F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6094BB1B09981F30BCD7EEC83882805 /* PBXTargetDependency */,
+			);
+			name = "Pods-kushki-ios";
+			productName = "Pods-kushki-ios";
+			productReference = 1ACFFC15EFB789F21600A2300382A21F /* Pods_kushki_ios.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B31637B423C3964108D5726F9562B0A4 /* Pods-kushki-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 614716C40AA504025A35AF8F98ED843C /* Build configuration list for PBXNativeTarget "Pods-kushki-iosTests" */;
+			buildPhases = (
+				BAEB6987BE4220CD05FB25B358568B02 /* Sources */,
+				76A72F727222C9AD3B5D3D1789597D51 /* Frameworks */,
+				9F396E0000943FA4A2D2C793C429BEE8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-kushki-iosTests";
+			productName = "Pods-kushki-iosTests";
+			productReference = 1C5D394E8EAD71868D32F771EBD6BD3E /* Pods_kushki_iosTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 38BD0A92DB0ADC6FDDBEE3F8BB5E3C6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A77AFD430DB1D4614DBAFD27835B87D /* Pods-kushki-ios */,
+				B31637B423C3964108D5726F9562B0A4 /* Pods-kushki-iosTests */,
+				053E37F8CDED6B17A5417331ED4CFD29 /* SwiftyRSA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49C2614B3FC3E8958093A41BF6219524 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E723FA2E8681DD7730813582A18BBCD6 /* Pods-kushki-ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		639DF66021497A47ED42A8DC0C4436EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F361D9794E6D973C24DF64793BC53493 /* NSData+SHA1.m in Sources */,
+				F8DF3F2F04486B48D869099E7525B39C /* SwiftyRSA-dummy.m in Sources */,
+				17BDF118A3FDF18D05DF42242AD0E7FE /* SwiftyRSA.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAEB6987BE4220CD05FB25B358568B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBD5EEBD3EEB0C5BFC507109037AAB4 /* Pods-kushki-iosTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E6094BB1B09981F30BCD7EEC83882805 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyRSA;
+			target = 053E37F8CDED6B17A5417331ED4CFD29 /* SwiftyRSA */;
+			targetProxy = 70F7C2AC51D3637126BF7F3AB5FECED4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1E5BC7C408B6C23D283A292C7558B21C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0E4B2CF969621AF306C58CE93DF8091 /* SwiftyRSA.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyRSA/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyRSA/SwiftyRSA.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyRSA;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7A2203DDEB00821ECB173F06A54BD0D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11C75CF18F108C77F3BAB3F502DD8A65 /* Pods-kushki-iosTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-kushki-iosTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_kushki_iosTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89395E24E77B25BE2ECBD78055747DE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 249A751AA36693EC37DEAFC0C5F36C0A /* Pods-kushki-ios.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-kushki-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-kushki-ios/Pods-kushki-ios.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_kushki_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8BC2502E4A9EC7DD369A6483EEE0E134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95DC57DC45AA87A5DCC6AD1E79B9220D /* Pods-kushki-ios.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-kushki-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-kushki-ios/Pods-kushki-ios.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_kushki_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		97B04FB32E1ECDE7E09AECE6847E0D1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0E4B2CF969621AF306C58CE93DF8091 /* SwiftyRSA.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyRSA/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyRSA/SwiftyRSA.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyRSA;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E84089CC057C2FF069D7425B441D2A2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA721804A61E4683E8452D732023F8C7 /* Pods-kushki-iosTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-kushki-iosTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_kushki_iosTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		614716C40AA504025A35AF8F98ED843C /* Build configuration list for PBXNativeTarget "Pods-kushki-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84089CC057C2FF069D7425B441D2A2E /* Debug */,
+				7A2203DDEB00821ECB173F06A54BD0D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A441F349B9BA872A1D06962D1AAAB56E /* Build configuration list for PBXNativeTarget "Pods-kushki-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC2502E4A9EC7DD369A6483EEE0E134 /* Debug */,
+				89395E24E77B25BE2ECBD78055747DE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD215886BE8D122C49B3217672769901 /* Build configuration list for PBXNativeTarget "SwiftyRSA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97B04FB32E1ECDE7E09AECE6847E0D1C /* Debug */,
+				1E5BC7C408B6C23D283A292C7558B21C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

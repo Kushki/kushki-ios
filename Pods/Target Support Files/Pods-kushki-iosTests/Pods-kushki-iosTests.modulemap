@@ -1,0 +1,6 @@
+framework module Pods_kushki_iosTests {
+  umbrella header "Pods-kushki-iosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
