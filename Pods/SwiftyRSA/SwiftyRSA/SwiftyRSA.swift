@@ -10,7 +10,7 @@ import Foundation
 import Security
 
 
-public class SwiftyRSAError: NSError {
+open class SwiftyRSAError: NSError {
     init(message: String) {
         super.init(domain: "com.takescoop.SwiftyRSA", code: 500, userInfo: [
             NSLocalizedDescriptionKey: message
@@ -28,11 +28,11 @@ public class SwiftyRSAError: NSError {
    */
 
 @objc
-public class VerificationResult: NSObject, BooleanType {
+open class VerificationResult: NSObject {
     
      /// `true` if the signature was verified
     
-    public let boolValue: Bool
+    open let boolValue: Bool
     
     init(_ boolValue: Bool) {
         self.boolValue = boolValue
@@ -40,44 +40,44 @@ public class VerificationResult: NSObject, BooleanType {
 }
 
 @objc
-public class SwiftyRSA: NSObject {
+open class SwiftyRSA: NSObject {
     
-    private var keyTags: [NSData] = []
-    private static let defaultPadding: SecPadding = .PKCS1
+    fileprivate var keyTags: [Data] = []
+    fileprivate static let defaultPadding: SecPadding = .PKCS1
     
     // MARK: - Public Shorthands
     
-    public class func encryptString(str: String, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> String {
+    open class func encryptString(_ str: String, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> String {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromPEMString(publicKeyPEM)
         return try rsa.encryptString(str, publicKey: key, padding: padding)
     }
     
-    public class func encryptString(str: String, publicKeyDER: NSData, padding: SecPadding = defaultPadding) throws -> String {
+    open class func encryptString(_ str: String, publicKeyDER: Data, padding: SecPadding = defaultPadding) throws -> String {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromDERData(publicKeyDER)
         return try rsa.encryptString(str, publicKey: key, padding: padding)
     }
     
-    public class func decryptString(str: String, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> String {
+    open class func decryptString(_ str: String, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> String {
         let rsa = SwiftyRSA()
         let key = try rsa.privateKeyFromPEMString(privateKeyPEM)
         return try rsa.decryptString(str, privateKey: key, padding: padding)
     }
     
-    public class func encryptData(data: NSData, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> NSData {
+    open class func encryptData(_ data: Data, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> Data {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromPEMString(publicKeyPEM)
         return try rsa.encryptData(data, publicKey: key, padding: padding)
     }
     
-    public class func encryptData(data: NSData, publicKeyDER: NSData, padding: SecPadding = defaultPadding) throws -> NSData {
+    open class func encryptData(_ data: Data, publicKeyDER: Data, padding: SecPadding = defaultPadding) throws -> Data {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromDERData(publicKeyDER)
         return try rsa.encryptData(data, publicKey: key, padding: padding)
     }
     
-    public class func decryptData(data: NSData, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> NSData {
+    open class func decryptData(_ data: Data, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> Data {
         let rsa = SwiftyRSA()
         let key = try rsa.privateKeyFromPEMString(privateKeyPEM)
         return try rsa.decryptData(data, privateKey: key, padding: padding)
@@ -93,7 +93,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the signing process
      */
     
-    public class func signString(str: String, privateKeyPEM: String) throws -> String {
+    open class func signString(_ str: String, privateKeyPEM: String) throws -> String {
         let rsa = SwiftyRSA()
         let key = try rsa.privateKeyFromPEMString(privateKeyPEM)
         return try rsa.signString(str, privateKey: key)
@@ -109,7 +109,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the signing process
      */
     
-    public class func signData(data: NSData, privateKeyPEM: String) throws -> NSData {
+    open class func signData(_ data: Data, privateKeyPEM: String) throws -> Data {
         let rsa = SwiftyRSA()
         let key = try rsa.privateKeyFromPEMString(privateKeyPEM)
         return try rsa.signData(data, privateKey: key)
@@ -126,7 +126,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public class func verifySignatureString(str: String, signature: String, publicKeyPEM: String) throws -> VerificationResult {
+    open class func verifySignatureString(_ str: String, signature: String, publicKeyPEM: String) throws -> VerificationResult {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromPEMString(publicKeyPEM)
         return try rsa.verifySignatureString(str, signature: signature, publicKey: key)
@@ -143,7 +143,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public class func verifySignatureData(data: NSData, signature: NSData, publicKeyPEM: String) throws -> VerificationResult {
+    open class func verifySignatureData(_ data: Data, signature: Data, publicKeyPEM: String) throws -> VerificationResult {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromPEMString(publicKeyPEM)
         return try rsa.verifySignatureData(data, signatureData: signature, publicKey: key)
@@ -160,7 +160,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public class func verifySignatureString(str: String, signature: String, publicKeyDER: NSData) throws -> VerificationResult {
+    open class func verifySignatureString(_ str: String, signature: String, publicKeyDER: Data) throws -> VerificationResult {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromDERData(publicKeyDER)
         return try rsa.verifySignatureString(str, signature: signature, publicKey: key)
@@ -177,7 +177,7 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
     */
     
-    public class func verifySignatureData(data: NSData, signature: NSData, publicKeyDER: NSData) throws -> VerificationResult {
+    open class func verifySignatureData(_ data: Data, signature: Data, publicKeyDER: Data) throws -> VerificationResult {
         let rsa = SwiftyRSA()
         let key = try rsa.publicKeyFromDERData(publicKeyDER)
         return try rsa.verifySignatureData(data, signatureData: signature, publicKey: key)
@@ -190,36 +190,36 @@ public class SwiftyRSA: NSObject {
     	super.init()
     }
     
-    public func publicKeyFromDERData(keyData: NSData) throws -> SecKeyRef {
+    open func publicKeyFromDERData(_ keyData: Data) throws -> SecKey {
         return try addKey(keyData, isPublic: true)
     }
     
-    public func publicKeyFromPEMString(key: String) throws -> SecKeyRef {
+    open func publicKeyFromPEMString(_ key: String) throws -> SecKey {
         let data = try dataFromPEMKey(key)
         return try addKey(data, isPublic: true)
     }
     
-    public func privateKeyFromPEMString(key: String) throws -> SecKeyRef {
+    open func privateKeyFromPEMString(_ key: String) throws -> SecKey {
         let data = try dataFromPEMKey(key)
         return try addKey(data, isPublic: false)
     }
     
     // Encrypts data with a RSA key
-    public func encryptData(data: NSData, publicKey: SecKeyRef, padding: SecPadding) throws -> NSData {
+    open func encryptData(_ data: Data, publicKey: SecKey, padding: SecPadding) throws -> Data {
         let blockSize = SecKeyGetBlockSize(publicKey)
         let maxChunkSize = blockSize - 11
         
-        var decryptedDataAsArray = [UInt8](count: data.length / sizeof(UInt8), repeatedValue: 0)
-        data.getBytes(&decryptedDataAsArray, length: data.length)
+        var decryptedDataAsArray = [UInt8](repeating: 0, count: data.count / MemoryLayout<UInt8>.size)
+        (data as NSData).getBytes(&decryptedDataAsArray, length: data.count)
         
-        var encryptedData = [UInt8](count: 0, repeatedValue: 0)
+        var encryptedData = [UInt8](repeating: 0, count: 0)
         var idx = 0
         while (idx < decryptedDataAsArray.count) {
             
             let idxEnd = min(idx + maxChunkSize, decryptedDataAsArray.count)
             let chunkData = [UInt8](decryptedDataAsArray[idx..<idxEnd])
             
-            var encryptedDataBuffer = [UInt8](count: blockSize, repeatedValue: 0)
+            var encryptedDataBuffer = [UInt8](repeating: 0, count: blockSize)
             var encryptedDataLength = blockSize
             
             let status = SecKeyEncrypt(publicKey, padding, chunkData, chunkData.count, &encryptedDataBuffer, &encryptedDataLength)
@@ -233,24 +233,24 @@ public class SwiftyRSA: NSObject {
             idx += maxChunkSize
         }
         
-        return NSData(bytes: encryptedData, length: encryptedData.count)
+        return Data(bytes: UnsafePointer<UInt8>(encryptedData), count: encryptedData.count)
     }
     
     // Decrypt an encrypted data with a RSA key
-    public func decryptData(encryptedData: NSData, privateKey: SecKeyRef, padding: SecPadding) throws -> NSData {
+    open func decryptData(_ encryptedData: Data, privateKey: SecKey, padding: SecPadding) throws -> Data {
         let blockSize = SecKeyGetBlockSize(privateKey)
         
-        var encryptedDataAsArray = [UInt8](count: encryptedData.length / sizeof(UInt8), repeatedValue: 0)
-        encryptedData.getBytes(&encryptedDataAsArray, length: encryptedData.length)
+        var encryptedDataAsArray = [UInt8](repeating: 0, count: encryptedData.count / MemoryLayout<UInt8>.size)
+        (encryptedData as NSData).getBytes(&encryptedDataAsArray, length: encryptedData.count)
         
-        var decryptedData = [UInt8](count: 0, repeatedValue: 0)
+        var decryptedData = [UInt8](repeating: 0, count: 0)
         var idx = 0
         while (idx < encryptedDataAsArray.count) {
             
             let idxEnd = min(idx + blockSize, encryptedDataAsArray.count)
             let chunkData = [UInt8](encryptedDataAsArray[idx..<idxEnd])
             
-            var decryptedDataBuffer = [UInt8](count: blockSize, repeatedValue: 0)
+            var decryptedDataBuffer = [UInt8](repeating: 0, count: blockSize)
             var decryptedDataLength = blockSize
             
             let status = SecKeyDecrypt(privateKey, padding, chunkData, idxEnd-idx, &decryptedDataBuffer, &decryptedDataLength)
@@ -263,25 +263,25 @@ public class SwiftyRSA: NSObject {
             idx += blockSize
         }
         
-        return NSData(bytes: decryptedData, length: decryptedData.count)
+        return Data(bytes: UnsafePointer<UInt8>(decryptedData), count: decryptedData.count)
     }
     
-    public func encryptString(str: String, publicKey: SecKeyRef, padding: SecPadding = defaultPadding) throws -> String {
-        guard let data = str.dataUsingEncoding(NSUTF8StringEncoding) else {
+    open func encryptString(_ str: String, publicKey: SecKey, padding: SecPadding = defaultPadding) throws -> String {
+        guard let data = str.data(using: String.Encoding.utf8) else {
             throw SwiftyRSAError(message: "Couldn't get UT8 data from provided string")
         }
         let encryptedData = try encryptData(data, publicKey: publicKey, padding: padding)
-        return encryptedData.base64EncodedStringWithOptions([])
+        return encryptedData.base64EncodedString(options: [])
     }
     
-    public func decryptString(str: String, privateKey: SecKeyRef, padding: SecPadding = defaultPadding) throws -> String {
-        guard let data =  NSData(base64EncodedString: str, options: []) else {
+    open func decryptString(_ str: String, privateKey: SecKey, padding: SecPadding = defaultPadding) throws -> String {
+        guard let data =  Data(base64Encoded: str, options: []) else {
             throw SwiftyRSAError(message: "Couldn't decode base 64 encoded string")
         }
         
         let decryptedData = try decryptData(data, privateKey: privateKey, padding: padding)
         
-        guard let decryptedString = NSString(data: decryptedData, encoding: NSUTF8StringEncoding) else {
+        guard let decryptedString = NSString(data: decryptedData, encoding: String.Encoding.utf8.rawValue) else {
             throw SwiftyRSAError(message: "Couldn't convert decrypted data to UTF8 string")
         }
         
@@ -302,12 +302,12 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the signing process
      */
     
-    public func signString(str: String, privateKey: SecKeyRef) throws -> String {
-        guard let data=str.dataUsingEncoding(NSUTF8StringEncoding) else {
+    open func signString(_ str: String, privateKey: SecKey) throws -> String {
+        guard let data=str.data(using: String.Encoding.utf8) else {
             throw SwiftyRSAError(message: "Couldn't get UTF8 data from provided string")
         }
         let signature = try signData(data, privateKey: privateKey)
-        return signature.base64EncodedStringWithOptions([])
+        return signature.base64EncodedString(options: [])
     }
     
     /**
@@ -320,9 +320,9 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the signing process
      */
     
-    public func signData(data: NSData, privateKey: SecKeyRef) throws -> NSData {
+    open func signData(_ data: Data, privateKey: SecKey) throws -> Data {
         
-        let digest=data.SHA1()
+        let digest=(data as NSData).sha1()
         
         return try signSHA1Digest(digest, privateKey: privateKey)
     }
@@ -336,19 +336,19 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the signing process
      */
     
-    public func signSHA1Digest(digest: NSData, privateKey: SecKeyRef) throws -> NSData {
+    open func signSHA1Digest(_ digest: Data, privateKey: SecKey) throws -> Data {
         
         let blockSize = SecKeyGetBlockSize(privateKey)
         let maxChunkSize = blockSize - 11
         
-        guard (digest.length / sizeof(UInt8) <= maxChunkSize) else {
+        guard (digest.count / MemoryLayout<UInt8>.size <= maxChunkSize) else {
             throw SwiftyRSAError(message: "data length exceeds \(maxChunkSize)")
         }
         
-        var signDataAsArray = [UInt8](count: digest.length / sizeof(UInt8), repeatedValue: 0)
-        digest.getBytes(&signDataAsArray, length: digest.length)
+        var signDataAsArray = [UInt8](repeating: 0, count: digest.count / MemoryLayout<UInt8>.size)
+        (digest as NSData).getBytes(&signDataAsArray, length: digest.count)
         
-        var signatureData = [UInt8](count: blockSize, repeatedValue: 0)
+        var signatureData = [UInt8](repeating: 0, count: blockSize)
         var signatureDataLength = blockSize
             
         let status = SecKeyRawSign(privateKey, .PKCS1SHA1, signDataAsArray, signDataAsArray.count, &signatureData, &signatureDataLength)
@@ -359,7 +359,7 @@ public class SwiftyRSA: NSObject {
         }
         
         
-        return NSData(bytes: signatureData, length: signatureData.count)
+        return Data(bytes: UnsafePointer<UInt8>(signatureData), count: signatureData.count)
     }
     
     // Verify data with an RSA key
@@ -375,14 +375,14 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public func verifySignatureString(str: String, signature: String, publicKey: SecKeyRef) throws -> VerificationResult {
+    open func verifySignatureString(_ str: String, signature: String, publicKey: SecKey) throws -> VerificationResult {
         
         
-        guard let data=str.dataUsingEncoding(NSUTF8StringEncoding) else {
+        guard let data=str.data(using: String.Encoding.utf8) else {
             throw SwiftyRSAError(message: "Couldn't get UTF8 data from provided string")
         }
         
-        guard let signatureData = NSData(base64EncodedString: signature, options: []) else {
+        guard let signatureData = Data(base64Encoded: signature, options: []) else {
             throw SwiftyRSAError(message: "Couldn't get signature data from provided base64 string")
         }
         
@@ -401,9 +401,9 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public func verifySignatureData(data: NSData, signatureData: NSData, publicKey: SecKeyRef) throws -> VerificationResult {
+    open func verifySignatureData(_ data: Data, signatureData: Data, publicKey: SecKey) throws -> VerificationResult {
         
-        let digest=data.SHA1()
+        let digest=(data as NSData).sha1()
         
         return try verifySHA1SignatureData(digest, signature: signatureData, publicKey: publicKey)
         
@@ -419,13 +419,13 @@ public class SwiftyRSA: NSObject {
      - throws: `SwiftyRSAError` if there is an error in the verification process
      */
     
-    public func verifySHA1SignatureData(SHA1Data: NSData, signature: NSData, publicKey: SecKeyRef) throws -> VerificationResult {
+    open func verifySHA1SignatureData(_ SHA1Data: Data, signature: Data, publicKey: SecKey) throws -> VerificationResult {
         
-        var verifyDataAsArray = [UInt8](count: SHA1Data.length / sizeof(UInt8), repeatedValue: 0)
-        SHA1Data.getBytes(&verifyDataAsArray, length: SHA1Data.length)
+        var verifyDataAsArray = [UInt8](repeating: 0, count: SHA1Data.count / MemoryLayout<UInt8>.size)
+        (SHA1Data as NSData).getBytes(&verifyDataAsArray, length: SHA1Data.count)
         
-        var signatureDataAsArray = [UInt8](count: signature.length / sizeof(UInt8), repeatedValue: 0)
-        signature.getBytes(&signatureDataAsArray, length: signature.length)
+        var signatureDataAsArray = [UInt8](repeating: 0, count: signature.count / MemoryLayout<UInt8>.size)
+        (signature as NSData).getBytes(&signatureDataAsArray, length: signature.count)
         
         let status = SecKeyRawVerify(publicKey, .PKCS1SHA1, verifyDataAsArray, verifyDataAsArray.count, signatureDataAsArray, signatureDataAsArray.count)
         
@@ -441,7 +441,7 @@ public class SwiftyRSA: NSObject {
     
     // MARK: - Private
     
-    private func addKey(keyData: NSData, isPublic: Bool) throws -> SecKeyRef {
+    fileprivate func addKey(_ keyData: Data, isPublic: Bool) throws -> SecKey {
         
         var keyData = keyData
         
@@ -450,8 +450,8 @@ public class SwiftyRSA: NSObject {
             try keyData = stripPublicKeyHeader(keyData)
         }
         
-        let tag = NSUUID().UUIDString
-        let tagData = NSData(bytes: tag, length: tag.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let tag = UUID().uuidString
+        let tagData = Data(bytes: UnsafePointer<UInt8>(tag), count: tag.lengthOfBytes(using: String.Encoding.utf8))
         removeKeyWithTagData(tagData)
         
         // Add persistent version of the key to system keychain
@@ -465,7 +465,7 @@ public class SwiftyRSA: NSObject {
         keyDict.setObject(kSecAttrKeyTypeRSA,   forKey: kSecAttrKeyType as! NSCopying)
         keyDict.setObject(keyData,              forKey: kSecValueData as! NSCopying)
         keyDict.setObject(keyClass,             forKey: kSecAttrKeyClass as! NSCopying)
-        keyDict.setObject(NSNumber(bool: true), forKey: kSecReturnPersistentRef as! NSCopying)
+        keyDict.setObject(NSNumber(value: true as Bool), forKey: kSecReturnPersistentRef as! NSCopying)
         keyDict.setObject(kSecAttrAccessibleWhenUnlocked, forKey: kSecAttrAccessible as! NSCopying)
         
         var secStatus = SecItemAdd(keyDict as CFDictionary, persistKey)
@@ -477,9 +477,9 @@ public class SwiftyRSA: NSObject {
         
         // Now fetch the SecKeyRef version of the key
         var keyRef: AnyObject? = nil
-        keyDict.removeObjectForKey(kSecValueData)
-        keyDict.removeObjectForKey(kSecReturnPersistentRef)
-        keyDict.setObject(NSNumber(bool: true), forKey: kSecReturnRef as! NSCopying)
+        keyDict.removeObject(forKey: kSecValueData)
+        keyDict.removeObject(forKey: kSecReturnPersistentRef)
+        keyDict.setObject(NSNumber(value: true as Bool), forKey: kSecReturnRef as! NSCopying)
         keyDict.setObject(kSecAttrKeyTypeRSA,   forKey: kSecAttrKeyType as! NSCopying)
         secStatus = SecItemCopyMatching(keyDict as CFDictionaryRef, &keyRef)
         
@@ -487,12 +487,12 @@ public class SwiftyRSA: NSObject {
             throw SwiftyRSAError(message: "Couldn't get key reference from the keychain")
         }
         
-        return unwrappedKeyRef as! SecKeyRef
+        return unwrappedKeyRef as! SecKey
     }
     
-    private func dataFromPEMKey(key: String) throws -> NSData {
+    fileprivate func dataFromPEMKey(_ key: String) throws -> Data {
         
-        let lines = key.componentsSeparatedByString("\n").filter { line in
+        let lines = key.components(separatedBy: "\n").filter { line in
             return !line.hasPrefix("-----BEGIN") && !line.hasPrefix("-----END")
         }
         
@@ -501,10 +501,10 @@ public class SwiftyRSA: NSObject {
         }
         
         // Decode base64 key
-        let base64EncodedKey = lines.joinWithSeparator("")
-        let keyData = NSData(base64EncodedString: base64EncodedKey, options: .IgnoreUnknownCharacters)
+        let base64EncodedKey = lines.joined(separator: "")
+        let keyData = Data(base64Encoded: base64EncodedKey, options: .ignoreUnknownCharacters)
         
-        guard let unwrappedKeyData = keyData where unwrappedKeyData.length != 0 else {
+        guard let unwrappedKeyData = keyData , unwrappedKeyData.count != 0 else {
             throw SwiftyRSAError(message: "Couldn't decode PEM key data (base64)")
         }
         
@@ -538,15 +538,15 @@ public class SwiftyRSA: NSObject {
      Example of key with X509 header (notice the additional ASN.1 sequence):
      https://lapo.it/asn1js/#30819F300D06092A864886F70D010101050003818D0030818902818100D0674615A252ED3D75D2A3073A0A8A445F3188FD3BEB8BA8584F7299E391BDEC3427F287327414174997D147DD8CA62647427D73C9DA5504E0A3EED5274A1D50A1237D688486FADB8B82061675ABFA5E55B624095DB8790C6DBCAE83D6A8588C9A6635D7CF257ED1EDE18F04217D37908FD0CBB86B2C58D5F762E6207FF7B92D0203010001
      */
-    private func stripPublicKeyHeader(keyData: NSData) throws -> NSData {
-        let count = keyData.length / sizeof(CUnsignedChar)
+    fileprivate func stripPublicKeyHeader(_ keyData: Data) throws -> Data {
+        let count = keyData.count / MemoryLayout<CUnsignedChar>.size
         
         guard count > 0 else {
             throw SwiftyRSAError(message: "Provided public key is empty")
         }
         
-        var byteArray = [UInt8](count: count, repeatedValue: 0)
-        keyData.getBytes(&byteArray, length: keyData.length)
+        var byteArray = [UInt8](repeating: 0, count: count)
+        (keyData as NSData).getBytes(&byteArray, length: keyData.count)
         
         var index = 0
         guard byteArray[index] == 0x30 else {
@@ -593,18 +593,18 @@ public class SwiftyRSA: NSObject {
         
         index += 1
         
-        let strippedKeyBytes = [UInt8](byteArray[index...keyData.length - 1])
-        let data = NSData(bytes: strippedKeyBytes, length: keyData.length - index)
+        let strippedKeyBytes = [UInt8](byteArray[index...keyData.count - 1])
+        let data = Data(bytes: UnsafePointer<UInt8>(strippedKeyBytes), count: keyData.count - index)
         
         return data
     }
     
-    private func removeKeyWithTagData(tagData: NSData) {
+    fileprivate func removeKeyWithTagData(_ tagData: Data) {
         let publicKey = NSMutableDictionary()
         publicKey.setObject(kSecClassKey,       forKey: kSecClass as! NSCopying)
         publicKey.setObject(kSecAttrKeyTypeRSA, forKey: kSecAttrKeyType as! NSCopying)
         publicKey.setObject(tagData,            forKey: kSecAttrApplicationTag as! NSCopying)
-        SecItemDelete(publicKey as CFDictionaryRef)
+        SecItemDelete(publicKey as CFDictionary)
     }
     
     deinit {

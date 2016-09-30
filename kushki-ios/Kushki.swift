@@ -1,6 +1,6 @@
 class Kushki {
     
-    func requestToken(endpoint: String) -> String {
+    func requestToken(_ endpoint: String) -> String {
         return ""
     }
 

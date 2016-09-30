@@ -14,7 +14,6 @@
 		AF55DC2F1D9D819900FBD8B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF55DC2D1D9D819900FBD8B4 /* Main.storyboard */; };
 		AF55DC311D9D819900FBD8B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF55DC301D9D819900FBD8B4 /* Assets.xcassets */; };
 		AF55DC341D9D819900FBD8B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF55DC321D9D819900FBD8B4 /* LaunchScreen.storyboard */; };
-		AF55DC3F1D9D819900FBD8B4 /* kushki_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC3E1D9D819900FBD8B4 /* kushki_iosTests.swift */; };
 		AF55DC4A1D9D86F900FBD8B4 /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC491D9D86F900FBD8B4 /* Kushki.swift */; };
 		AF55DC4C1D9D870600FBD8B4 /* AurusEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */; };
 /* End PBXBuildFile section */
@@ -41,8 +40,6 @@
 		AF55DC331D9D819900FBD8B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF55DC351D9D819900FBD8B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF55DC3A1D9D819900FBD8B4 /* kushki-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kushki-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF55DC3E1D9D819900FBD8B4 /* kushki_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kushki_iosTests.swift; sourceTree = "<group>"; };
-		AF55DC401D9D819900FBD8B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF55DC491D9D86F900FBD8B4 /* Kushki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kushki.swift; sourceTree = "<group>"; };
 		AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AurusEncryption.swift; sourceTree = "<group>"; };
 		B8FC2E84018FC6D72FF1F833 /* Pods-kushki-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				AF55DC281D9D819900FBD8B4 /* kushki-ios */,
-				AF55DC3D1D9D819900FBD8B4 /* kushki-iosTests */,
 				AF55DC271D9D819900FBD8B4 /* Products */,
 				C7E9A6505ADB243D772B8F5E /* Pods */,
 				159448D25BD0EBD1DA345244 /* Frameworks */,
@@ -112,15 +108,6 @@
 				AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */,
 			);
 			path = "kushki-ios";
-			sourceTree = "<group>";
-		};
-		AF55DC3D1D9D819900FBD8B4 /* kushki-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				AF55DC3E1D9D819900FBD8B4 /* kushki_iosTests.swift */,
-				AF55DC401D9D819900FBD8B4 /* Info.plist */,
-			);
-			path = "kushki-iosTests";
 			sourceTree = "<group>";
 		};
 		C7E9A6505ADB243D772B8F5E /* Pods */ = {
@@ -190,10 +177,12 @@
 				TargetAttributes = {
 					AF55DC251D9D819900FBD8B4 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					AF55DC391D9D819900FBD8B4 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AF55DC251D9D819900FBD8B4;
 					};
@@ -347,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF55DC3F1D9D819900FBD8B4 /* kushki_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
