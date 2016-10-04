@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     // MARK: Actions
     @IBAction func setOutputText(_ sender: UIButton) {
         let aurusEnc = AurusEncryption()
-        outputTextView.text = aurusEnc.encryptMessageChunk(ViewController.message)
+        outputTextView.text = aurusEnc.encrypt(ViewController.message)
     }
 
     @IBAction func showHttpResponse(_ sender: UIButton) {

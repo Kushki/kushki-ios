@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		58DF837AF1A499E74FAA4EBC /* Pods_kushki_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAD71AE164B5F6F07AEA873 /* Pods_kushki_ios.framework */; };
+		AF5484F61DA4167700E85FF5 /* KushkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484F51DA4167700E85FF5 /* KushkiTests.swift */; };
+		AF5484FE1DA418FD00E85FF5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484FD1DA418FD00E85FF5 /* Card.swift */; };
+		AF5485001DA41D6C00E85FF5 /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */; };
+		AF5485021DA44B9B00E85FF5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5485011DA44B9B00E85FF5 /* Helpers.swift */; };
 		AF556E531DA306FE00BF262E /* RSAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF556E521DA306FE00BF262E /* RSAUtils.swift */; };
 		AF55DC2A1D9D819900FBD8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC291D9D819900FBD8B4 /* AppDelegate.swift */; };
 		AF55DC2C1D9D819900FBD8B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC2B1D9D819900FBD8B4 /* ViewController.swift */; };
@@ -18,10 +22,26 @@
 		AF55DC4C1D9D870600FBD8B4 /* AurusEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AF5484F81DA4167700E85FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF55DC1E1D9D819900FBD8B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF55DC251D9D819900FBD8B4;
+			remoteInfo = "kushki-ios";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0EAD71AE164B5F6F07AEA873 /* Pods_kushki_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400FC15CBF2BE15958D48C85 /* Pods-kushki-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		46339029E759309093E6306E /* Pods-kushki-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		AF5484F31DA4167700E85FF5 /* kushki-ios-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kushki-ios-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5484F51DA4167700E85FF5 /* KushkiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KushkiTests.swift; sourceTree = "<group>"; };
+		AF5484F71DA4167700E85FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF5484FD1DA418FD00E85FF5 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
+		AF5485011DA44B9B00E85FF5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AF556E521DA306FE00BF262E /* RSAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAUtils.swift; sourceTree = "<group>"; };
 		AF556E541DA30FCE00BF262E /* kushki-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios.entitlements"; sourceTree = "<group>"; };
 		AF55DC261D9D819900FBD8B4 /* kushki-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kushki-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AF5484F01DA4167700E85FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF55DC231D9D819900FBD8B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +84,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF5484F41DA4167700E85FF5 /* kushki-ios-tests */ = {
+			isa = PBXGroup;
+			children = (
+				AF5484F51DA4167700E85FF5 /* KushkiTests.swift */,
+				AF5484F71DA4167700E85FF5 /* Info.plist */,
+				AF5485011DA44B9B00E85FF5 /* Helpers.swift */,
+			);
+			path = "kushki-ios-tests";
+			sourceTree = "<group>";
+		};
 		AF55DC1D1D9D819900FBD8B4 = {
 			isa = PBXGroup;
 			children = (
 				AF55DC281D9D819900FBD8B4 /* kushki-ios */,
+				AF5484F41DA4167700E85FF5 /* kushki-ios-tests */,
 				AF55DC271D9D819900FBD8B4 /* Products */,
 				C7E9A6505ADB243D772B8F5E /* Pods */,
 				159448D25BD0EBD1DA345244 /* Frameworks */,
@@ -71,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				AF55DC261D9D819900FBD8B4 /* kushki-ios.app */,
+				AF5484F31DA4167700E85FF5 /* kushki-ios-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +127,8 @@
 				AF55DC321D9D819900FBD8B4 /* LaunchScreen.storyboard */,
 				AF55DC351D9D819900FBD8B4 /* Info.plist */,
 				AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */,
+				AF5484FD1DA418FD00E85FF5 /* Card.swift */,
+				AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */,
 			);
 			path = "kushki-ios";
 			sourceTree = "<group>";
@@ -106,6 +147,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AF5484F21DA4167700E85FF5 /* kushki-ios-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF5484FA1DA4167700E85FF5 /* Build configuration list for PBXNativeTarget "kushki-ios-tests" */;
+			buildPhases = (
+				AF5484EF1DA4167700E85FF5 /* Sources */,
+				AF5484F01DA4167700E85FF5 /* Frameworks */,
+				AF5484F11DA4167700E85FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF5484F91DA4167700E85FF5 /* PBXTargetDependency */,
+			);
+			name = "kushki-ios-tests";
+			productName = "kushki-ios-tests";
+			productReference = AF5484F31DA4167700E85FF5 /* kushki-ios-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AF55DC251D9D819900FBD8B4 /* kushki-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF55DC431D9D819900FBD8B4 /* Build configuration list for PBXNativeTarget "kushki-ios" */;
@@ -136,6 +195,11 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Kushki;
 				TargetAttributes = {
+					AF5484F21DA4167700E85FF5 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF55DC251D9D819900FBD8B4;
+					};
 					AF55DC251D9D819900FBD8B4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XBL7KLFMZW;
@@ -163,11 +227,19 @@
 			projectRoot = "";
 			targets = (
 				AF55DC251D9D819900FBD8B4 /* kushki-ios */,
+				AF5484F21DA4167700E85FF5 /* kushki-ios-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AF5484F11DA4167700E85FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF55DC241D9D819900FBD8B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,11 +301,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AF5484EF1DA4167700E85FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF5484F61DA4167700E85FF5 /* KushkiTests.swift in Sources */,
+				AF5485021DA44B9B00E85FF5 /* Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF55DC221D9D819900FBD8B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5485001DA41D6C00E85FF5 /* KushkiEnvironment.swift in Sources */,
 				AF55DC2C1D9D819900FBD8B4 /* ViewController.swift in Sources */,
+				AF5484FE1DA418FD00E85FF5 /* Card.swift in Sources */,
 				AF556E531DA306FE00BF262E /* RSAUtils.swift in Sources */,
 				AF55DC4A1D9D86F900FBD8B4 /* Kushki.swift in Sources */,
 				AF55DC2A1D9D819900FBD8B4 /* AppDelegate.swift in Sources */,
@@ -242,6 +325,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF5484F91DA4167700E85FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF55DC251D9D819900FBD8B4 /* kushki-ios */;
+			targetProxy = AF5484F81DA4167700E85FF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AF55DC2D1D9D819900FBD8B4 /* Main.storyboard */ = {
@@ -263,6 +354,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AF5484FB1DA4167700E85FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "kushki-ios-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kushkipagos.ios-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kushki-ios.app/kushki-ios";
+			};
+			name = Debug;
+		};
+		AF5484FC1DA4167700E85FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "kushki-ios-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kushkipagos.ios-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kushki-ios.app/kushki-ios";
+			};
+			name = Release;
+		};
 		AF55DC411D9D819900FBD8B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -366,7 +485,7 @@
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kushki.kushki-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kushkipagos.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -382,7 +501,7 @@
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kushki.kushki-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kushkipagos.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -391,6 +510,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AF5484FA1DA4167700E85FF5 /* Build configuration list for PBXNativeTarget "kushki-ios-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF5484FB1DA4167700E85FF5 /* Debug */,
+				AF5484FC1DA4167700E85FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AF55DC211D9D819900FBD8B4 /* Build configuration list for PBXProject "kushki-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
