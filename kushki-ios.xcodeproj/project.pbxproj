@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2153DED2629F0B9C0391ADCC /* Pods_kushki_ios_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B5AB3CEDC9AFD9D9B2FFC4 /* Pods_kushki_ios_tests.framework */; };
 		58DF837AF1A499E74FAA4EBC /* Pods_kushki_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAD71AE164B5F6F07AEA873 /* Pods_kushki_ios.framework */; };
 		AF5484F61DA4167700E85FF5 /* KushkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484F51DA4167700E85FF5 /* KushkiTests.swift */; };
 		AF5484FE1DA418FD00E85FF5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484FD1DA418FD00E85FF5 /* Card.swift */; };
 		AF5485001DA41D6C00E85FF5 /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */; };
 		AF5485021DA44B9B00E85FF5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5485011DA44B9B00E85FF5 /* Helpers.swift */; };
+		AF5485041DA460B900E85FF5 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5485031DA460B900E85FF5 /* Transaction.swift */; };
 		AF556E531DA306FE00BF262E /* RSAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF556E521DA306FE00BF262E /* RSAUtils.swift */; };
 		AF55DC2A1D9D819900FBD8B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC291D9D819900FBD8B4 /* AppDelegate.swift */; };
 		AF55DC2C1D9D819900FBD8B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC2B1D9D819900FBD8B4 /* ViewController.swift */; };
@@ -36,12 +38,14 @@
 		0EAD71AE164B5F6F07AEA873 /* Pods_kushki_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400FC15CBF2BE15958D48C85 /* Pods-kushki-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		46339029E759309093E6306E /* Pods-kushki-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-iosTests/Pods-kushki-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		88B5AB3CEDC9AFD9D9B2FFC4 /* Pods_kushki_ios_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5484F31DA4167700E85FF5 /* kushki-ios-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kushki-ios-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5484F51DA4167700E85FF5 /* KushkiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KushkiTests.swift; sourceTree = "<group>"; };
 		AF5484F71DA4167700E85FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF5484FD1DA418FD00E85FF5 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
 		AF5485011DA44B9B00E85FF5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AF5485031DA460B900E85FF5 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		AF556E521DA306FE00BF262E /* RSAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAUtils.swift; sourceTree = "<group>"; };
 		AF556E541DA30FCE00BF262E /* kushki-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios.entitlements"; sourceTree = "<group>"; };
 		AF55DC261D9D819900FBD8B4 /* kushki-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kushki-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +58,9 @@
 		AF55DC491D9D86F900FBD8B4 /* Kushki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kushki.swift; sourceTree = "<group>"; };
 		AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AurusEncryption.swift; sourceTree = "<group>"; };
 		B8FC2E84018FC6D72FF1F833 /* Pods-kushki-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios.release.xcconfig"; sourceTree = "<group>"; };
+		D1106AB72706DE2FDCC49E3F /* Pods-kushki-ios-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios-tests/Pods-kushki-ios-tests.release.xcconfig"; sourceTree = "<group>"; };
 		E21DFC4AF6626946E5A946CB /* Pods-kushki-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		F2207D726811E3D8D7FC2E52 /* Pods-kushki-ios-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios-tests/Pods-kushki-ios-tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2153DED2629F0B9C0391ADCC /* Pods_kushki_ios_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				0EAD71AE164B5F6F07AEA873 /* Pods_kushki_ios.framework */,
+				88B5AB3CEDC9AFD9D9B2FFC4 /* Pods_kushki_ios_tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 				AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */,
 				AF5484FD1DA418FD00E85FF5 /* Card.swift */,
 				AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */,
+				AF5485031DA460B900E85FF5 /* Transaction.swift */,
 			);
 			path = "kushki-ios";
 			sourceTree = "<group>";
@@ -140,6 +149,8 @@
 				B8FC2E84018FC6D72FF1F833 /* Pods-kushki-ios.release.xcconfig */,
 				400FC15CBF2BE15958D48C85 /* Pods-kushki-iosTests.debug.xcconfig */,
 				46339029E759309093E6306E /* Pods-kushki-iosTests.release.xcconfig */,
+				F2207D726811E3D8D7FC2E52 /* Pods-kushki-ios-tests.debug.xcconfig */,
+				D1106AB72706DE2FDCC49E3F /* Pods-kushki-ios-tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -151,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF5484FA1DA4167700E85FF5 /* Build configuration list for PBXNativeTarget "kushki-ios-tests" */;
 			buildPhases = (
+				EF1F333DC2797D341E7040FC /* [CP] Check Pods Manifest.lock */,
 				AF5484EF1DA4167700E85FF5 /* Sources */,
 				AF5484F01DA4167700E85FF5 /* Frameworks */,
 				AF5484F11DA4167700E85FF5 /* Resources */,
+				D74D24D32AC22D99D8BAF8F8 /* [CP] Embed Pods Frameworks */,
+				DDFAB3D9E55A7897E25D5A1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,6 +312,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D74D24D32AC22D99D8BAF8F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios-tests/Pods-kushki-ios-tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDFAB3D9E55A7897E25D5A1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios-tests/Pods-kushki-ios-tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF1F333DC2797D341E7040FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -316,6 +375,7 @@
 			files = (
 				AF5485001DA41D6C00E85FF5 /* KushkiEnvironment.swift in Sources */,
 				AF55DC2C1D9D819900FBD8B4 /* ViewController.swift in Sources */,
+				AF5485041DA460B900E85FF5 /* Transaction.swift in Sources */,
 				AF5484FE1DA418FD00E85FF5 /* Card.swift in Sources */,
 				AF556E531DA306FE00BF262E /* RSAUtils.swift in Sources */,
 				AF55DC4A1D9D86F900FBD8B4 /* Kushki.swift in Sources */,
@@ -356,10 +416,11 @@
 /* Begin XCBuildConfiguration section */
 		AF5484FB1DA4167700E85FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2207D726811E3D8D7FC2E52 /* Pods-kushki-ios-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "kushki-ios-tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kushkipagos.ios-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,10 +431,11 @@
 		};
 		AF5484FC1DA4167700E85FF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1106AB72706DE2FDCC49E3F /* Pods-kushki-ios-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "kushki-ios-tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kushkipagos.ios-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

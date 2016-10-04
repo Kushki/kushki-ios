@@ -1,4 +1,5 @@
 import XCTest
+import OHHTTPStubs
 @testable import kushki_ios
 
 class KushkiTests: XCTestCase {
@@ -11,16 +12,25 @@ class KushkiTests: XCTestCase {
     }
     
     func testReturnsTokenWhenCalledWithValidParams() {
-        // let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        let params = Helpers.randomAlphanumeric(32)
+        let totalAmount = 10.0
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let encryptedMessage = Helpers.randomAlphanumeric(64)
-        let aurusEncryption = AurusEncryptionStub(whenEncryptCalledWith: params, thenReturn: encryptedMessage)
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let aurusEncryption = AurusEncryptionStub(whenEncryptCalledWith: "", thenReturn: encryptedMessage)
         let kushki = Kushki(publicMerchantId: "123",
                             currency: "USD",
                             environment: KushkiEnvironment.testing,
                             aurusEncryption: aurusEncryption)
-        let result = kushki.requestToken(params)
-        XCTAssertEqual(encryptedMessage, result)
+        stub(isHost("uat.aurusinc.com")) { _ in
+            let responseBody = [
+                "response_code": "000",
+                "response_text": "Transacción aprobada",
+                "transaction_token_validity": "1800000",
+                "transaction_token": expectedToken
+            ]
+            return OHHTTPStubsResponse(JSONObject: responseBody, statusCode: 200, headers: nil)
+        }
+        let result = kushki.requestToken(card: card, totalAmount: totalAmount)
     }
 }
 

@@ -13,8 +13,8 @@ class Kushki {
         self.aurusEncryption = aurusEncryption
     }
     
-    func requestToken(_ endpoint: String) -> String {
-        return aurusEncryption.encrypt(endpoint)
+    func requestToken(card: Card, totalAmount: Double) -> Transaction {
+        return Transaction(code: "", text: "", token: "")
     }
 
 }
