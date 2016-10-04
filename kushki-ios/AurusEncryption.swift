@@ -9,7 +9,7 @@ class AurusEncryption {
         "-----END PUBLIC KEY-----"
 
 
-    func encryptMessageChunk(requestMessage: String) -> String {
+    func encryptMessageChunk(_ requestMessage: String) -> String {
         var index = 0
         var result = ""
         while index < requestMessage.characters.count {

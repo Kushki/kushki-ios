@@ -6,22 +6,42 @@ class ViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var doItButton: UIButton!
+    @IBOutlet weak var doItHttpButton: UIButton!
     @IBOutlet weak var outputTextView: UITextView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: Actions
     @IBAction func setOutputText(_ sender: UIButton) {
         let aurusEnc = AurusEncryption()
-        let encryptedMessage = aurusEnc.encryptMessageChunk(requestMessage: ViewController.message)
-        outputTextView.text = encryptedMessage
+        outputTextView.text = aurusEnc.encryptMessageChunk(ViewController.message)
+    }
+
+    @IBAction func showHttpResponse(_ sender: UIButton) {
+        let url = URL(string: "https://uat.aurusinc.com/kushki/api/v1/tokens")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = "{\"test\": 1}".data(using: String.Encoding.utf8)
+        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask (with: request) { data, response, error in
+            if let theError = error {
+                print(theError.localizedDescription)
+                return
+            }
+            let httpResponse = response as! HTTPURLResponse
+            let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
+            let outputString = String(format: "%d\n%@", httpResponse.statusCode, responseBody)
+            DispatchQueue.main.async(execute: {
+                self.outputTextView.text = outputString
+            })
+        }
+        task.resume()
     }
 }
