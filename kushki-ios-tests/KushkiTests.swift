@@ -12,6 +12,8 @@ class KushkiTests: XCTestCase {
     }
     
     func testReturnsTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestToken")
+
         let publicMerchantId = "10000001436354684173102102"
         let totalAmount = 10.0
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
@@ -40,14 +42,15 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        kushki.requestToken(card: card, totalAmount: totalAmount) { transaction in
-            print("HOLAAAA", transaction.token)
+        var transaction = Transaction(code: "", text: "", token: "")
+        kushki.requestToken(card: card, totalAmount: totalAmount) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
             XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertTrue(transaction.isSucessful())
-            XCTAssertTrue(false)
         }
-        XCTAssertTrue(false)
-
     }
     
     private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {

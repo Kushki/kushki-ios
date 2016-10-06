@@ -44,7 +44,7 @@ class Kushki {
         return dictFromJson!
     }
 
-    private func showHttpResponse(endpoint: String, requestBody: String, completion: @escaping (String) -> ()) {
+    private func showHttpResponse(endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
