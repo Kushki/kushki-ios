@@ -54,7 +54,7 @@ class KushkiTests: XCTestCase {
         }
     }
 
-    func testDoesNotReturnsTokenWhenCalledWithInvalidParams() {
+    func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let encryptedMessage = Helpers.randomAlphanumeric(64)
