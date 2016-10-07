@@ -4,10 +4,7 @@ struct Transaction {
     let text: String
     let token: String
 
-
     func isSucessful() -> Bool {
         return (code == "000")
     }
-
-
 }

@@ -2,13 +2,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static let message = "Eum ipsum eum minima non quasi quos ut aut. Praesentium sint nisi illo et est id reprehenderit. Harum ducimus aperiam ut quod numquam. Ut ipsam nulla ratione."
 
     // MARK: Properties
-    @IBOutlet weak var doItButton: UIButton!
     @IBOutlet weak var doItHttpButton: UIButton!
-    @IBOutlet weak var outputTextView: UITextView!
-
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var numberField: UITextField!
+    @IBOutlet weak var monthField: UITextField!
+    @IBOutlet weak var yearField: UITextField!
+    @IBOutlet weak var cvvField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,26 +20,24 @@ class ViewController: UIViewController {
     }
 
     // MARK: Actions
-    @IBAction func setOutputText(_ sender: UIButton) {
-        let aurusEnc = AurusEncryption()
-        outputTextView.text = aurusEnc.encrypt(ViewController.message)
-    }
 
-    @IBAction func showHttpResponse(_ sender: UIButton) {
+    @IBAction func requestToken(_ sender: UIButton) {
         let publicMerchantId = "10000001641125237535111218"
+        let card = Card(name: nameField.text!, number: numberField.text!, cvv: cvvField.text!, expiryMonth: monthField.text!, expiryYear: yearField.text!)
         let totalAmount = 10.00
-        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         kushki.requestToken(card: card, totalAmount: totalAmount) { transaction in
+            print(transaction.token)
             DispatchQueue.main.async(execute: {
-                let transactionCode = transaction.code
-                let transactionSuccessful = transaction.isSucessful().description
-                let transactionToken = transaction.token
-                let transactionText = transaction.text
-                self.outputTextView.text = transactionCode + "\n" + transactionSuccessful + "\n" + transactionToken + "\n" + transactionText
+                let alert = UIAlertController(title: "Aurus Token",
+                                              message: transaction.token,
+                                              preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
             })
         }
     }
+
 }
