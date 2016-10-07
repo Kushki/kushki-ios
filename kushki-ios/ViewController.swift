@@ -25,23 +25,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showHttpResponse(_ sender: UIButton) {
-        let url = URL(string: "https://uat.aurusinc.com/kushki/api/v1/tokens")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = "{\"test\": 1}".data(using: String.Encoding.utf8)
-        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask (with: request) { data, response, error in
-            if let theError = error {
-                print(theError.localizedDescription)
-                return
-            }
-            let httpResponse = response as! HTTPURLResponse
-            let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
-            let outputString = String(format: "%d\n%@", httpResponse.statusCode, responseBody)
+        let publicMerchantId = "10000001641125237535111218"
+        let totalAmount = 10.00
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let kushki = Kushki(publicMerchantId: publicMerchantId,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        kushki.requestToken(card: card, totalAmount: totalAmount) { transaction in
             DispatchQueue.main.async(execute: {
-                self.outputTextView.text = outputString
+                let transactionCode = transaction.code
+                let transactionSuccessful = transaction.isSucessful().description
+                let transactionToken = transaction.token
+                let transactionText = transaction.text
+                self.outputTextView.text = transactionCode + "\n" + transactionSuccessful + "\n" + transactionToken + "\n" + transactionText
             })
         }
-        task.resume()
     }
 }

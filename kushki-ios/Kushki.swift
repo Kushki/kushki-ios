@@ -2,12 +2,20 @@ import Foundation
 
 class Kushki {
     
-    let publicMerchantId: String
-    let currency: String
-    let environment: KushkiEnvironment
-    let aurusEncryption: AurusEncryption
+    private let publicMerchantId: String
+    private let currency: String
+    private let environment: KushkiEnvironment
+    private let aurusEncryption: AurusEncryption
     
     
+    init(publicMerchantId: String, currency: String, environment: KushkiEnvironment) {
+        self.publicMerchantId = publicMerchantId
+        self.currency = currency
+        self.environment = environment
+        self.aurusEncryption = AurusEncryption()
+    }
+
+    // Constructor for testing
     init(publicMerchantId: String, currency: String, environment: KushkiEnvironment, aurusEncryption: AurusEncryption) {
         self.publicMerchantId = publicMerchantId
         self.currency = currency
@@ -17,7 +25,8 @@ class Kushki {
     
     func requestToken(card: Card, totalAmount: Double, completion: @escaping (Transaction) -> ()) {
         let requestMessage = buildParameters(withMerchantId: self.publicMerchantId, withCard: card, withAmount: totalAmount)
-        self.showHttpResponse(endpoint: "/tokens", requestBody: requestMessage) { transaction in
+        let encryptedRequestBody = "{\"request\": \"" + aurusEncryption.encrypt(requestMessage) + "\"}"
+        self.showHttpResponse(endpoint: "/tokens", requestBody: encryptedRequestBody) { transaction in
             completion(self.parseResponse(jsonResponse: transaction))
         }
     }

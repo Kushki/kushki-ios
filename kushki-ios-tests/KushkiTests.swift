@@ -29,11 +29,9 @@ class KushkiTests: XCTestCase {
         stub(condition: isHost("uat.aurusinc.com")
             && isPath("/kushki/api/v1/tokens")
             && isMethodPOST()) { request in
-                //let requestBody = String(data: request.httpBody!, encoding: .utf8)
-                //if requestBody != expectedRequestBody {
-                //    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
-                //}
-                //print(requestBody) // delete this
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody, requestBody)
                 let responseBody = [
                     "response_code": "000",
                     "response_text": "Transacción aprobada",
