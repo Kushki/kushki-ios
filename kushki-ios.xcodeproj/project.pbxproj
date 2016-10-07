@@ -22,6 +22,7 @@
 		AF55DC341D9D819900FBD8B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF55DC321D9D819900FBD8B4 /* LaunchScreen.storyboard */; };
 		AF55DC4A1D9D86F900FBD8B4 /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC491D9D86F900FBD8B4 /* Kushki.swift */; };
 		AF55DC4C1D9D870600FBD8B4 /* AurusEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */; };
+		AF6CEA561DA7F29600EAF478 /* AurusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6CEA551DA7F29600EAF478 /* AurusClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		AF55DC351D9D819900FBD8B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF55DC491D9D86F900FBD8B4 /* Kushki.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kushki.swift; sourceTree = "<group>"; };
 		AF55DC4B1D9D870600FBD8B4 /* AurusEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AurusEncryption.swift; sourceTree = "<group>"; };
+		AF6CEA551DA7F29600EAF478 /* AurusClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AurusClient.swift; sourceTree = "<group>"; };
 		B8FC2E84018FC6D72FF1F833 /* Pods-kushki-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios.release.xcconfig"; sourceTree = "<group>"; };
 		D1106AB72706DE2FDCC49E3F /* Pods-kushki-ios-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios-tests/Pods-kushki-ios-tests.release.xcconfig"; sourceTree = "<group>"; };
 		E21DFC4AF6626946E5A946CB /* Pods-kushki-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios/Pods-kushki-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				AF5484FD1DA418FD00E85FF5 /* Card.swift */,
 				AF5484FF1DA41D6C00E85FF5 /* KushkiEnvironment.swift */,
 				AF5485031DA460B900E85FF5 /* Transaction.swift */,
+				AF6CEA551DA7F29600EAF478 /* AurusClient.swift */,
 			);
 			path = "kushki-ios";
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				AF5485001DA41D6C00E85FF5 /* KushkiEnvironment.swift in Sources */,
 				AF55DC2C1D9D819900FBD8B4 /* ViewController.swift in Sources */,
 				AF5485041DA460B900E85FF5 /* Transaction.swift in Sources */,
+				AF6CEA561DA7F29600EAF478 /* AurusClient.swift in Sources */,
 				AF5484FE1DA418FD00E85FF5 /* Card.swift in Sources */,
 				AF556E531DA306FE00BF262E /* RSAUtils.swift in Sources */,
 				AF55DC4A1D9D86F900FBD8B4 /* Kushki.swift in Sources */,
