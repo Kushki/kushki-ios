@@ -29,10 +29,10 @@ class ViewController: UIViewController {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         kushki.requestToken(card: card, totalAmount: totalAmount) { transaction in
-            print(transaction.token)
+            let message = transaction.token != "" ? transaction.token : (transaction.code + ": " + transaction.text)
             DispatchQueue.main.async(execute: {
                 let alert = UIAlertController(title: "Aurus Token",
-                                              message: transaction.token,
+                                              message: message,
                                               preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
