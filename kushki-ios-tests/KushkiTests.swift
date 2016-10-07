@@ -3,8 +3,14 @@ import OHHTTPStubs
 @testable import kushki_ios
 
 class KushkiTests: XCTestCase {
+
+    var publicMerchantId: String?
+    var totalAmount: Double?
+
     override func setUp() {
         super.setUp()
+        publicMerchantId = "10000001436354684173102102"
+        totalAmount = 10.0
     }
     
     override func tearDown() {
@@ -13,16 +19,13 @@ class KushkiTests: XCTestCase {
     
     func testReturnsTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-
-        let publicMerchantId = "10000001436354684173102102"
-        let totalAmount = 10.0
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let encryptedMessage = Helpers.randomAlphanumeric(64)
         let expectedToken = Helpers.randomAlphanumeric(32)
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId, withCard: card, withAmount: totalAmount)
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!)
         let aurusEncryption = AurusEncryptionStub(whenEncryptCalledWith: expectedRequestMessage, thenReturn: encryptedMessage)
         let expectedRequestBody = "{\"request\": \"" + encryptedMessage + "\"}"
-        let kushki = Kushki(publicMerchantId: publicMerchantId,
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing,
                             aurusEncryption: aurusEncryption)
@@ -41,7 +44,7 @@ class KushkiTests: XCTestCase {
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", text: "", token: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -50,7 +53,43 @@ class KushkiTests: XCTestCase {
             XCTAssertTrue(transaction.isSucessful())
         }
     }
-    
+
+    func testDoesNotReturnsTokenWhenCalledWithInvalidParams() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let encryptedMessage = Helpers.randomAlphanumeric(64)
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!)
+        let aurusEncryption = AurusEncryptionStub(whenEncryptCalledWith: expectedRequestMessage, thenReturn: encryptedMessage)
+        let expectedRequestBody = "{\"request\": \"" + encryptedMessage + "\"}"
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing,
+                            aurusEncryption: aurusEncryption)
+        stub(condition: isHost("uat.aurusinc.com")
+            && isPath("/kushki/api/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody, requestBody)
+                let responseBody = [
+                    "response_code": "017",
+                    "response_text": "Tarjeta no válida",
+                    "transaction_token_validity": "",
+                    "transaction_token": ""
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
+        }
+        var transaction = Transaction(code: "", text: "", token: "")
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertEqual("", transaction.token)
+            XCTAssertFalse(transaction.isSucessful())
+        }
+    }
+
     private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
         let requestDictionary:[String : Any] = [
             "merchant_identifier": publicMerchantId,
