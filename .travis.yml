@@ -7,4 +7,4 @@ cache: cocoapods
 podfile: ./Podfile
 
 script:
-  - set -o pipefail && xcodebuild test -workspace ./kushki-ios.xcworkspace -scheme kushki-ios -destination 'platform=iOS Simulator,name=iPhone 6, OS=10.0' -sdk iphonesimulator10.0 -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+  - set -o pipefail && xcodebuild test -workspace ./kushki-ios.xcworkspace -scheme kushki-ios -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO
