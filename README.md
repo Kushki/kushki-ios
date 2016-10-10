@@ -2,7 +2,7 @@
 
 Librería iOS para Kushki
 
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?maxAge=2592000)](https://travis-ci.org/Kushki/kushki-ios.svg?branch=master)
+[![Build Status](https://travis-ci.org/Kushki/kushki-ios.svg?branch=master)](https://travis-ci.org/Kushki/kushki-ios)
 
 ## Requisitos
 
