@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## kushki-ios
 
-Copyright (c) 2016 Roberto Paredes <rdparedessalazar@gmail.com>
+Copyright (c) 2016 Kushki <soporte@kushkipagos.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -12,11 +12,12 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		8F216C6F43339DFDD9620CB4 /* Pods_kushki_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5451CCFE2A45430DC1D3F20C /* Pods_kushki_ios_Tests.framework */; };
-		AF052B7A1DAC014A00C1AB98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B791DAC014A00C1AB98 /* ViewController.swift */; };
 		AF30347D1DAC231B005C9F39 /* KushkiIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B751DAC00D400C1AB98 /* KushkiIntegrationTests.swift */; };
 		AF30347E1DAC231B005C9F39 /* KushkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B761DAC00D400C1AB98 /* KushkiTests.swift */; };
 		AF30347F1DAC231B005C9F39 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B731DAC00C800C1AB98 /* Helpers.swift */; };
 		AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */; };
+		AFF155E41DAC3B1100BC21EA /* kushki-ios in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* kushki-ios */; };
+		AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF155E51DAC3B5000BC21EA /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +49,12 @@
 		AF052B731DAC00C800C1AB98 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AF052B751DAC00D400C1AB98 /* KushkiIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiIntegrationTests.swift; sourceTree = "<group>"; };
 		AF052B761DAC00D400C1AB98 /* KushkiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiTests.swift; sourceTree = "<group>"; };
-		AF052B791DAC014A00C1AB98 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../kushki-ios/kushki-ios/ViewController.swift"; sourceTree = "<group>"; };
 		AF3034751DAC207A005C9F39 /* kushki_ios_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kushki_ios_ExampleTests.swift; sourceTree = "<group>"; };
 		AF3034771DAC207A005C9F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF3034841DAC2D62005C9F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "kushki-ios/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios_Example.entitlements"; sourceTree = "<group>"; };
+		AFF155E31DAC3B1100BC21EA /* kushki-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "kushki-ios"; path = "../../kushki-ios copia/kushki-ios"; sourceTree = "<group>"; };
+		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../kushki-ios copia/kushki-ios/ViewController.swift"; sourceTree = "<group>"; };
 		BB96243B3B32048EBA3B208C /* kushki-ios.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "kushki-ios.podspec"; path = "../kushki-ios.podspec"; sourceTree = "<group>"; };
 		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				AFF155E31DAC3B1100BC21EA /* kushki-ios */,
 				AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for kushki-ios */,
@@ -103,9 +106,9 @@
 		607FACD21AFB9204008FA782 /* Example for kushki-ios */ = {
 			isa = PBXGroup;
 			children = (
+				AFF155E51DAC3B5000BC21EA /* ViewController.swift */,
 				AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				AF052B791DAC014A00C1AB98 /* ViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */,
+				AFF155E41DAC3B1100BC21EA /* kushki-ios in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -389,7 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF052B7A1DAC014A00C1AB98 /* ViewController.swift in Sources */,
+				AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

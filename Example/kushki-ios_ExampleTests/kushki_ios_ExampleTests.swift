@@ -1,11 +1,3 @@
-//
-//  kushki_ios_ExampleTests.swift
-//  kushki-ios_ExampleTests
-//
-//  Created by Roberto Paredes on 10/10/16.
-//  Copyright © 2016 CocoaPods. All rights reserved.
-//
-
 import XCTest
 
 class kushki_ios_ExampleTests: XCTestCase {
