@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'kushki-ios_Example' do
+  pod 'kushki-ios', :path => '../'
+
+  target 'kushki-ios_Tests' do
+    inherit! :search_paths
+    pod 'OHHTTPStubs'
+    pod 'OHHTTPStubs/Swift'
+  end
+end
