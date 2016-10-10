@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode8
 xcode_workspace: kushki-ios.xcworkspace
 xcode_scheme: kushki-ios
-xcode_sdk: iphonesimulator8.4
+xcode_sdk: iphonesimulator10.0
