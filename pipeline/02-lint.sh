@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 set -e
-pod lib lint
+bundle exec pod --version
+bundle exec pod lib lint

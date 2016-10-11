@@ -3,9 +3,11 @@ osx_image: xcode8
 xcode_workspace: kushki-ios.xcworkspace
 xcode_scheme: kushki-ios
 xcode_sdk: iphonesimulator10.0
-cache: cocoapods
+cache:
+  - bundler
+  - cocoapods
 podfile: ./Podfile
-
+install: bundle install
 script:
   - ./pipeline/01-unit.sh
   - ./pipeline/02-lint.sh

@@ -6,7 +6,11 @@ Librería iOS para Kushki
 
 ## Requisitos
 
-* [Cocoapods](https://cocoapods.org/)
+Instalar corriendo
+
+```bash
+bundle install
+```
 
 ## Créditos
 
