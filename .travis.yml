@@ -14,3 +14,6 @@ install: bundle install
 script:
   - ./pipeline/01-unit.sh
   - ./pipeline/02-lint.sh
+deploy:
+  provider: script
+  script: ./pipeline/03-distribute.sh

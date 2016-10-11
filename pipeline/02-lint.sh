@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -e
-bundle exec pod --version
+echo "cocoapods gem version: $(bundle exec pod --version)"
 bundle exec pod lib lint
