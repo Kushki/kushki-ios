@@ -7,5 +7,5 @@ cache: cocoapods
 podfile: ./Podfile
 
 script:
-  - ./01-unit.sh
-  - ./02-lint.sh
+  - ./pipeline/01-unit.sh
+  - ./pipeline/02-lint.sh
