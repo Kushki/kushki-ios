@@ -3,6 +3,9 @@ osx_image: xcode8
 xcode_workspace: kushki-ios.xcworkspace
 xcode_scheme: kushki-ios
 xcode_sdk: iphonesimulator10.0
+branches:
+  only:
+    - master
 cache:
   - bundler
   - cocoapods
