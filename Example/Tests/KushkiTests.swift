@@ -1,6 +1,6 @@
 import XCTest
 import OHHTTPStubs
-@testable import kushki_ios
+@testable import Kushki
 
 class KushkiTests: XCTestCase {
 

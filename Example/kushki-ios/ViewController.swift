@@ -1,5 +1,5 @@
 import UIKit
-import kushki_ios
+import Kushki
 
 class ViewController: UIViewController {
 

@@ -53,9 +53,9 @@
 		AF3034771DAC207A005C9F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF3034841DAC2D62005C9F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "kushki-ios/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios_Example.entitlements"; sourceTree = "<group>"; };
-		AFF155E31DAC3B1100BC21EA /* kushki-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "kushki-ios"; path = "../../kushki-ios/kushki-ios"; sourceTree = "<group>"; };
-		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB96243B3B32048EBA3B208C /* kushki-ios.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "kushki-ios.podspec"; path = "../kushki-ios.podspec"; sourceTree = "<group>"; };
+		AFF155E31DAC3B1100BC21EA /* Kushki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Kushki"; path = "../Kushki"; sourceTree = "<group>"; };
+		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Kushki.podspec"; path = "../Kushki.podspec"; sourceTree = "<group>"; };
 		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				BB96243B3B32048EBA3B208C /* kushki-ios.podspec */,
+				BB96243B3B32048EBA3B208C /* Kushki.podspec */,
 				21EDE058D85655FB8F5D8F7F /* README.md */,
 				9E3F34E12B0EAC252DC33658 /* LICENSE */,
 			);
@@ -338,7 +338,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C0FDA281DF8728258F89F1FC /* [CP] Copy Pods Resources */ = {
@@ -368,7 +368,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F99B1753C2E9E7FCCC4BB6D4 /* [CP] Embed Pods Frameworks */ = {

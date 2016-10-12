@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'kushki-ios_Example' do
-  pod 'kushki-ios', :path => '../'
+  pod 'Kushki', :path => '../'
 
   target 'kushki-ios_Tests' do
     inherit! :search_paths

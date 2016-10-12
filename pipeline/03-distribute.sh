@@ -7,7 +7,7 @@ set -eo pipefail
 source ~/.rvm/scripts/rvm
 rvm use default
 echo "cocoapods gem version: $(pod --version)"
-artifact_version=$(grep "version.*=" kushki-ios.podspec | cut -d "'" -f 2)
+artifact_version=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)
 tag_name="v$artifact_version"
 found_tag=$(git tag | grep "^$tag_name$" || true)
 

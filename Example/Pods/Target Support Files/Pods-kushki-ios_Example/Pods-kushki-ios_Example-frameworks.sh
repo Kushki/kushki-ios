@@ -84,8 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/kushki-ios/kushki_ios.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kushki/Kushki.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/kushki-ios/kushki_ios.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kushki/Kushki.framework"
 fi
