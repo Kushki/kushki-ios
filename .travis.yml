@@ -8,6 +8,7 @@ branches:
     - master
 podfile: ./Podfile
 before_install:
+  - rvm get head
   - gem install cocoapods:1.1.0.rc.3
   - gem cleanup cocoapods
 script: ./pipeline/01-unit.sh && ./pipeline/02-lint.sh
