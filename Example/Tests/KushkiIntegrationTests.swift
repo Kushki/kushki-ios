@@ -32,7 +32,7 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
             XCTAssertEqual(self.successfulCode, self.transaction!.code)
             XCTAssertEqual(self.successfulMessage, self.transaction!.text)
-            XCTAssertTrue(self.transaction!.isSucessful())
+            XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }
 
@@ -47,7 +47,7 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertEqual("", self.transaction!.token)
             XCTAssertEqual(self.invalidCardCode, self.transaction!.code)
             XCTAssertEqual(self.invalidCardMessage, self.transaction!.text)
-            XCTAssertFalse(self.transaction!.isSucessful())
+            XCTAssertFalse(self.transaction!.isSuccessful())
         }
     }
 }

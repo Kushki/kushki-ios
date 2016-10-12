@@ -48,9 +48,9 @@ class KushkiTests: XCTestCase {
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 1) { error in
             XCTAssertEqual(expectedToken, transaction.token)
-            XCTAssertTrue(transaction.isSucessful())
+            XCTAssertTrue(transaction.isSuccessful())
         }
     }
 
@@ -84,9 +84,9 @@ class KushkiTests: XCTestCase {
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 1) { error in
             XCTAssertEqual("", transaction.token)
-            XCTAssertFalse(transaction.isSucessful())
+            XCTAssertFalse(transaction.isSuccessful())
         }
     }
 
