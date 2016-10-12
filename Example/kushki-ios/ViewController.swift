@@ -3,7 +3,6 @@ import kushki_ios
 
 class ViewController: UIViewController {
 
-
     // MARK: Properties
     @IBOutlet weak var doItHttpButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
@@ -21,18 +20,26 @@ class ViewController: UIViewController {
     }
 
     // MARK: Actions
+    @IBAction func handleTouchUpInside(_ sender: UIButton) {
+        let card = Card(name: nameField.text!,
+                        number: numberField.text!,
+                        cvv: cvvField.text!,
+                        expiryMonth: monthField.text!,
+                        expiryYear: yearField.text!)
+        requestKushkiToken(card: card)
+    }
 
-    @IBAction func requestToken(_ sender: UIButton) {
+    private func requestKushkiToken(card: Card) {
         let publicMerchantId = "10000001641125237535111218"
-        let card = Card(name: nameField.text!, number: numberField.text!, cvv: cvvField.text!, expiryMonth: monthField.text!, expiryYear: yearField.text!)
-        let totalAmount = 10.00
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
-        kushki.requestToken(card: card, totalAmount: totalAmount) { transaction in
-            let message = transaction.token != "" ? transaction.token : (transaction.code + ": " + transaction.text)
+        kushki.requestToken(card: card, totalAmount: 19.99) { transaction in
+            let message = transaction.isSuccessful() ?
+                transaction.token :
+                transaction.code + ": " + transaction.text
             DispatchQueue.main.async(execute: {
-                let alert = UIAlertController(title: "Aurus Token",
+                let alert = UIAlertController(title: "Kushki Token",
                                               message: message,
                                               preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -40,5 +47,4 @@ class ViewController: UIViewController {
             })
         }
     }
-
 }
