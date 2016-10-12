@@ -6,11 +6,10 @@ xcode_sdk: iphonesimulator10.0
 branches:
   only:
     - master
-cache:
-  - bundler
-  - cocoapods
 podfile: ./Podfile
-install: bundle install
+before_install:
+  - gem uninstall cocoapods
+  - gem install cocoapods:1.1.0.rc.3
 script:
   - ./pipeline/01-unit.sh
   - ./pipeline/02-lint.sh

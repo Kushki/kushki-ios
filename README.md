@@ -6,10 +6,10 @@ Librería iOS para Kushki
 
 ## Requisitos
 
-Instalar corriendo
+Instalar `cocoapods` corriendo
 
 ```bash
-bundle install
+gem install cocoapods:1.1.0.rc.3
 ```
 
 ## Créditos
