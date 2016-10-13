@@ -2,7 +2,9 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'kushki-ios_Example' do
-  pod 'Kushki', :path => '../'
+  # Uncomment this line and comment the next one in order to use the library source files instead
+  # pod 'Kushki', :path => '../'
+  pod 'Kushki', '~> 0.2' # TODO: Bump to 1.0.0 when available
 
   target 'kushki-ios_Tests' do
     inherit! :search_paths
