@@ -16,7 +16,7 @@
 		AF30347E1DAC231B005C9F39 /* KushkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B761DAC00D400C1AB98 /* KushkiTests.swift */; };
 		AF30347F1DAC231B005C9F39 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B731DAC00C800C1AB98 /* Helpers.swift */; };
 		AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */; };
-		AFF155E41DAC3B1100BC21EA /* kushki-ios in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* kushki-ios */; };
+		AFF155E41DAC3B1100BC21EA /* Kushki in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* Kushki */; };
 		AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF155E51DAC3B5000BC21EA /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,13 +49,11 @@
 		AF052B731DAC00C800C1AB98 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AF052B751DAC00D400C1AB98 /* KushkiIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiIntegrationTests.swift; sourceTree = "<group>"; };
 		AF052B761DAC00D400C1AB98 /* KushkiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiTests.swift; sourceTree = "<group>"; };
-		AF3034751DAC207A005C9F39 /* kushki_ios_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kushki_ios_ExampleTests.swift; sourceTree = "<group>"; };
-		AF3034771DAC207A005C9F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF3034841DAC2D62005C9F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "kushki-ios/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios_Example.entitlements"; sourceTree = "<group>"; };
-		AFF155E31DAC3B1100BC21EA /* Kushki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Kushki"; path = "../Kushki"; sourceTree = "<group>"; };
+		AFF155E31DAC3B1100BC21EA /* Kushki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Kushki; path = ../Kushki; sourceTree = "<group>"; };
 		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Kushki.podspec"; path = "../Kushki.podspec"; sourceTree = "<group>"; };
+		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; };
 		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,12 +80,11 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				AFF155E31DAC3B1100BC21EA /* kushki-ios */,
+				AFF155E31DAC3B1100BC21EA /* Kushki */,
 				AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for kushki-ios */,
 				607FACE81AFB9204008FA782 /* Tests */,
-				AF3034741DAC207A005C9F39 /* kushki-ios_ExampleTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				88C77BA8CE5C85F963D2356A /* Pods */,
 				E7AB61346A0290757675843B /* Frameworks */,
@@ -164,15 +161,6 @@
 				C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		AF3034741DAC207A005C9F39 /* kushki-ios_ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				AF3034751DAC207A005C9F39 /* kushki_ios_ExampleTests.swift */,
-				AF3034771DAC207A005C9F39 /* Info.plist */,
-			);
-			path = "kushki-ios_ExampleTests";
 			sourceTree = "<group>";
 		};
 		E7AB61346A0290757675843B /* Frameworks */ = {
@@ -280,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */,
-				AFF155E41DAC3B1100BC21EA /* kushki-ios in Resources */,
+				AFF155E41DAC3B1100BC21EA /* Kushki in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -578,16 +566,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -602,12 +587,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

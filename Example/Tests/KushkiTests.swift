@@ -29,7 +29,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing,
                             aurusEncryption: aurusEncryption)
-        stub(condition: isHost("uat.aurusinc.com")
+        _ = stub(condition: isHost("uat.aurusinc.com")
             && isPath("/kushki/api/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
@@ -65,7 +65,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing,
                             aurusEncryption: aurusEncryption)
-        stub(condition: isHost("uat.aurusinc.com")
+        _ = stub(condition: isHost("uat.aurusinc.com")
             && isPath("/kushki/api/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
