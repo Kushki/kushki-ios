@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         kushki.requestToken(card: card, totalAmount: 19.99) { transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token :
-                transaction.code + ": " + transaction.text
+                transaction.code + ": " + transaction.message
             DispatchQueue.main.async(execute: {
                 let alert = UIAlertController(title: "Kushki Token",
                                               message: message,

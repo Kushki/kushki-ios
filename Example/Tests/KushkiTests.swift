@@ -43,7 +43,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", text: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -79,7 +79,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
-        var transaction = Transaction(code: "", text: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()

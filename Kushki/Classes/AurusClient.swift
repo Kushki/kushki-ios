@@ -57,16 +57,16 @@ class AurusClient {
     }
 
     private func parseResponse(jsonResponse: String) -> Transaction {
-        let responseDictionary = self.convertStringToDictionary(text: jsonResponse)
+        let responseDictionary = self.convertStringToDictionary(jsonResponse)
         let code = responseDictionary!["response_code"] as! String
-        let text = responseDictionary!["response_text"] as! String
+        let message = responseDictionary!["response_text"] as! String
         let token = responseDictionary!["transaction_token"] as! String
-        return Transaction(code: code, text: text, token: token)
+        return Transaction(code: code, message: message, token: token)
     }
 
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
-    private func convertStringToDictionary(text: String) -> [String:AnyObject]? {
-        if let data = text.data(using: String.Encoding.utf8) {
+    private func convertStringToDictionary(_ string: String) -> [String:AnyObject]? {
+        if let data = string.data(using: String.Encoding.utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
             } catch let error as NSError {
