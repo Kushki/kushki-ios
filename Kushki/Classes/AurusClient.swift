@@ -16,8 +16,22 @@ class AurusClient {
             completion(self.parseResponse(jsonResponse: transaction))
         }
     }
+    
+    func buildParameters(withMerchantId publicMerchantId: String, withCard card: Card) -> String {
+        let requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
 
     func buildParameters(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
+        let requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card, withAmount: totalAmount)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
+    func buildJsonObject(withMerchantId publicMerchantId: String, withCard card: Card) -> [String : Any] {
         let requestDictionary:[String : Any] = [
             "merchant_identifier": publicMerchantId,
             "language_indicator": "es",
@@ -29,14 +43,19 @@ class AurusClient {
                 "cvv": card.cvv,
                 "card_present": "1"
             ],
-            "amount": String(format: "%.2f", totalAmount),
             "remember_me": "0",
             "deferred_payment": "0",
-            "token_type": "transaction-token"
+            "token_type": "subscription-token"
         ]
-        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
-        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
-        return dictFromJson!
+        return requestDictionary
+    }
+    
+    func buildJsonObject(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> [String : Any] {
+        var requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card)
+        
+        requestDictionary["amount"] = String(format: "%.2f", totalAmount)
+        requestDictionary["token_type"] = "transaction-token"
+        return requestDictionary        
     }
 
     private func showHttpResponse(endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {

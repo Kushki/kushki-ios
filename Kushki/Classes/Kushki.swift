@@ -23,4 +23,10 @@ public class Kushki {
         let requestMessage = aurusClient.buildParameters(withMerchantId: self.publicMerchantId, withCard: card, withAmount: totalAmount)
         self.aurusClient.post(endpoint: "/tokens", requestMessage: requestMessage, withCompletion: completion)
     }
+    
+    public func requestSubscriptionToken(card: Card,
+                                         completion: @escaping (Transaction)->()){
+        let requestMessage = aurusClient.buildParameters(withMerchantId: self.publicMerchantId, withCard: card)
+        self.aurusClient.post(endpoint: "/tokens", requestMessage: requestMessage, withCompletion: completion)
+    }
 }

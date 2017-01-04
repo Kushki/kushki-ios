@@ -50,4 +50,19 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertFalse(self.transaction!.isSuccessful())
         }
     }
+    
+    func testReturnsSubscriptionTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionToken")
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
+            XCTAssertEqual(self.successfulCode, self.transaction!.code)
+            XCTAssertEqual(self.successfulMessage, self.transaction!.message)
+            XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
 }
