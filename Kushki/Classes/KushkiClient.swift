@@ -1,69 +1,66 @@
 import Foundation
 
-class AurusClient {
+class KushkiClient {
 
     private let environment: KushkiEnvironment
-    private let aurusEncryption: AurusEncryption
-
-    init(environment: KushkiEnvironment, aurusEncryption: AurusEncryption) {
+    
+    init(environment: KushkiEnvironment) {
         self.environment = environment
-        self.aurusEncryption = aurusEncryption
     }
 
-    func post(endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
-        let encryptedRequestBody = "{\"request\": \"" + aurusEncryption.encrypt(requestMessage) + "\"}"
-        showHttpResponse(endpoint: endpoint, requestBody: encryptedRequestBody) { transaction in
+    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
+        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
             completion(self.parseResponse(jsonResponse: transaction))
         }
     }
     
-    func buildParameters(withMerchantId publicMerchantId: String, withCard card: Card) -> String {
-        let requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card)
+    func buildParameters(withCard card: Card) -> String {
+        let requestDictionary = buildJsonObject(withCard: card)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
 
-    func buildParameters(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
-        let requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card, withAmount: totalAmount)
+    func buildParameters(withCard card: Card, withAmount totalAmount: Double) -> String {
+        let requestDictionary = buildJsonObject(withCard: card, withAmount: totalAmount)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
-    func buildJsonObject(withMerchantId publicMerchantId: String, withCard card: Card) -> [String : Any] {
+    func buildJsonObject(withCard card: Card) -> [String : Any] {
+        
         let requestDictionary:[String : Any] = [
-            "merchant_identifier": publicMerchantId,
-            "language_indicator": "es",
             "card": [
                 "name": card.name,
                 "number": card.number,
-                "expiry_month": card.expiryMonth,
-                "expiry_year": card.expiryYear,
-                "cvv": card.cvv,
-                "card_present": "1"
+                "expiryMonth": card.expiryMonth,
+                "expiryYear": card.expiryYear,
+                "cvv": card.cvv
             ],
-            "remember_me": "0",
-            "deferred_payment": "0",
-            "token_type": "subscription-token"
+            "currency": "USD"
         ]
+        
         return requestDictionary
     }
     
-    func buildJsonObject(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> [String : Any] {
-        var requestDictionary = buildJsonObject(withMerchantId: publicMerchantId, withCard: card)
+    func buildJsonObject(withCard card: Card, withAmount totalAmount: Double) -> [String : Any] {
         
-        requestDictionary["amount"] = String(format: "%.2f", totalAmount)
-        requestDictionary["token_type"] = "transaction-token"
+        var requestDictionary = buildJsonObject(withCard: card)
+        
+        requestDictionary["totalAmount"] = totalAmount
         return requestDictionary        
     }
 
-    private func showHttpResponse(endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
+    private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
+        
         let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = requestBody.data(using: String.Encoding.utf8)
-        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json; charset=UTF-8",
+                         forHTTPHeaderField: "Content-Type")
+        request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
         let task = URLSession.shared.dataTask (with: request) { data, response, error in
             if let theError = error {
                 print(theError.localizedDescription)
@@ -76,10 +73,16 @@ class AurusClient {
     }
 
     private func parseResponse(jsonResponse: String) -> Transaction {
+        var token = ""
+        var code = "000"
+        var message = ""
         let responseDictionary = self.convertStringToDictionary(jsonResponse)
-        let code = responseDictionary!["response_code"] as! String
-        let message = responseDictionary!["response_text"] as! String
-        let token = responseDictionary!["transaction_token"] as! String
+        if((responseDictionary!["token"]) == nil){
+            code = responseDictionary!["code"] as! String
+            message = responseDictionary!["message"] as! String
+            return Transaction(code: code, message: message, token: token)
+        }
+        token = responseDictionary!["token"] as! String
         return Transaction(code: code, message: message, token: token)
     }
 

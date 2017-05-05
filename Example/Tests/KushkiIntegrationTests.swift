@@ -8,6 +8,10 @@ class KushkiIntegrationTests: XCTestCase {
     let successfulMessage = "Transacción aprobada"
     let invalidCardCode = "017"
     let invalidCardMessage = "Tarjeta no válida"
+    let invalidBodyCode = "K001"
+    let invalidBodyMessage = "El cuerpo de la petición es inválido"
+    let invalidBinCode = "K003"
+    let invalidBinMessage = "Tarjeta no habilitada por el emisor"
     var publicMerchantId: String?
     var kushki: Kushki?
     var totalAmount: Double?
@@ -19,6 +23,7 @@ class KushkiIntegrationTests: XCTestCase {
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         transaction = Transaction(code: "", message: "", token: "")
+        
     }
 
     func testReturnsTokenWhenCalledWithValidParams() {
@@ -28,15 +33,28 @@ class KushkiIntegrationTests: XCTestCase {
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 10) { error in
             XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
-            XCTAssertEqual(self.successfulCode, self.transaction!.code)
-            XCTAssertEqual(self.successfulMessage, self.transaction!.message)
             XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }
-
+    
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card = Card(name: "Invalid John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertEqual("", self.transaction!.token)
+            XCTAssertEqual(self.invalidBodyCode, self.transaction!.code)
+            XCTAssertEqual(self.invalidBodyMessage, self.transaction!.message)
+            XCTAssertFalse(self.transaction!.isSuccessful())
+        }
+    }
+
+    func testDoesNotReturnTokenWhenCalledWithInvalidCard() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
         kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -51,6 +69,21 @@ class KushkiIntegrationTests: XCTestCase {
         }
     }
     
+    func testDoesNotReturnTokenWhenCalledWithInvalidBin() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card = Card(name: "Invalid John Doe", number: "4381084457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertEqual("", self.transaction!.token)
+            XCTAssertEqual(self.invalidBinCode, self.transaction!.code)
+            XCTAssertEqual(self.invalidBinMessage, self.transaction!.message)
+            XCTAssertFalse(self.transaction!.isSuccessful())
+        }
+    }
+    
     func testReturnsSubscriptionTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
@@ -58,10 +91,8 @@ class KushkiIntegrationTests: XCTestCase {
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5) { error in
+        self.waitForExpectations(timeout: 10) { error in
             XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
-            XCTAssertEqual(self.successfulCode, self.transaction!.code)
-            XCTAssertEqual(self.successfulMessage, self.transaction!.message)
             XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }
