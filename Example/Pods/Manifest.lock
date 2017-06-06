@@ -1,5 +1,5 @@
 PODS:
-  - Kushki (0.2.0)
+  - Kushki (2.0.0)
   - OHHTTPStubs (5.2.1):
     - OHHTTPStubs/Default (= 5.2.1)
   - OHHTTPStubs/Core (5.2.1)
@@ -31,4 +31,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: fcf4b0599df6222e2a153340c8f3a7dedf595709
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.2.1.rc.1
