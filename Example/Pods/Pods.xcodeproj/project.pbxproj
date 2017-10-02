@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01989A2E2D7DDDE7F2ADD947886F527A /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B321972C749BBF31E3A16C3D1F09075A /* OHHTTPStubs+NSURLSessionConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0A701248B523F72C12CE0B207203D6DB /* RSAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD9139180711626F7705FBC697EF72 /* RSAUtils.swift */; };
 		123DEDF0C786D4F6C285DE17FBFD54A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CC40B6BDED99579A8A76AF55C1F9B /* CFNetwork.framework */; };
 		14ACB130F727A9BDB98F4AA74D6254DA /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F6EEEF3526A00FD366830132C49AC0 /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1941A05B182F349823C059DD24ABF79A /* OHPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 17343864BC0907F6437EFC72703A8F21 /* OHPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,7 +101,6 @@
 		8B87DA15BCC73A4D7D7138CD2C57F55C /* OHHTTPStubs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubs.h; path = OHHTTPStubs/Sources/OHHTTPStubs.h; sourceTree = "<group>"; };
 		8B8B57FCA0B540A2CF3431783F5D53EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CC9C9C6FC46E6BAD70C46005E7D5A8D /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		8DBD9139180711626F7705FBC697EF72 /* RSAUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RSAUtils.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95D25257FFBCD8BD6BCD00529F385364 /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
 		9823EB056E1F821EBC7EE1E7A4B7B969 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Kushki.modulemap; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 				717A824C90BB5B02646CD6BB2C181421 /* Card.swift */,
 				30453CE3F0493DABC23165E67023979D /* Kushki.swift */,
 				4EBA624131888D1E0E7D900D0625A25F /* KushkiEnvironment.swift */,
-				8DBD9139180711626F7705FBC697EF72 /* RSAUtils.swift */,
 				8CC9C9C6FC46E6BAD70C46005E7D5A8D /* Transaction.swift */,
 			);
 			path = Classes;
@@ -552,7 +549,6 @@
 				44F2CB8E07688AD55FE26AF268DF973B /* Kushki-dummy.m in Sources */,
 				686825D1A65D26C6B4C59A6D8D1990DC /* Kushki.swift in Sources */,
 				6644129D098BFE8B73B1389517A10561 /* KushkiEnvironment.swift in Sources */,
-				0A701248B523F72C12CE0B207203D6DB /* RSAUtils.swift in Sources */,
 				63EAAD2C1EBBE9F10030E0AC /* KushkiClient.swift in Sources */,
 				84B8A6D0B8124FF9CBFEBFDC4C394AC7 /* Transaction.swift in Sources */,
 			);

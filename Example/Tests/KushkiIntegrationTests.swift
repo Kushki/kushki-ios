@@ -63,15 +63,15 @@ class KushkiIntegrationTests: XCTestCase {
         }
         self.waitForExpectations(timeout: 5) { error in
             XCTAssertEqual("", self.transaction!.token)
-            XCTAssertEqual(self.invalidCardCode, self.transaction!.code)
-            XCTAssertEqual(self.invalidCardMessage, self.transaction!.message)
+            XCTAssertEqual(self.invalidBodyCode, self.transaction!.code)
+            XCTAssertEqual(self.invalidBodyMessage, self.transaction!.message)
             XCTAssertFalse(self.transaction!.isSuccessful())
         }
     }
     
     func testDoesNotReturnTokenWhenCalledWithInvalidBin() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "4381084457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "Invalid John Doe", number: "4770444457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
         kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
