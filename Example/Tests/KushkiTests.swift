@@ -112,6 +112,33 @@ class KushkiTests: XCTestCase {
         }
     }
     
+    func testWithRegionalEndpoint() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing,
+                            regional: true)
+        _ = stub(condition: isHost("regional-uat.kushkipagos.com")
+            && isPath("/v1/tokens")
+            && isMethodPOST()) { _ in
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
+        }
+    }
+    
     
     private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
         let requestDictionary:[String : Any] = [
