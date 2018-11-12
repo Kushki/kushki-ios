@@ -6,7 +6,7 @@ xcode_sdk: iphonesimulator1
 branches:
   only:
     - master    
-    - /^feature\/.*$/
+    - /(?:feature|hotfix|release)\/.*$/        
 podfile: ./Podfile
 notifications:
   email: false
