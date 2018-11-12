@@ -5,10 +5,8 @@ xcode_scheme: kushki-ios
 xcode_sdk: iphonesimulator10.0
 branches:
   only:
-    - master
-    - release/*
-    - feature/*
-    - hotfix/*
+    - master    
+    - feature/KV-3485    
 podfile: ./Podfile
 notifications:
   email: false
