@@ -9,9 +9,9 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidCardCode = "017"
     let invalidCardMessage = "Tarjeta no válida"
     let invalidBodyCode = "K001"
-    let invalidBodyMessage = "El cuerpo de la petición es inválido"
-    let invalidBinCode = "K003"
-    let invalidBinMessage = "Tarjeta no habilitada por el emisor"
+    let invalidBodyMessage = "Cuerpo de la petición inválido."
+    let invalidBinCode = "K007"
+    let invalidBinMessage = "Tarjeta bloqueada por el emisor."
     var publicMerchantId: String?
     var kushki: Kushki?
     var totalAmount: Double?
@@ -34,7 +34,7 @@ class KushkiIntegrationTests: XCTestCase {
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: 10) { error in
-            XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
             XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }
@@ -71,7 +71,7 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testDoesNotReturnTokenWhenCalledWithInvalidBin() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "4770444457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "Invalid John Doe", number: "4440884457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
         kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -92,7 +92,7 @@ class KushkiIntegrationTests: XCTestCase {
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: 10) { error in
-            XCTAssertEqual(self.tokenLength, self.transaction!.token.characters.count)
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
             XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }

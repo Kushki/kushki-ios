@@ -6,10 +6,10 @@ public class Kushki {
     private let currency: String
     private let kushkiClient: KushkiClient
 
-    public init(publicMerchantId: String, currency: String, environment: KushkiEnvironment) {
+    public init(publicMerchantId: String, currency: String, environment: KushkiEnvironment, regional: Bool = false) {
         self.publicMerchantId = publicMerchantId
         self.currency = currency
-        self.kushkiClient = KushkiClient(environment: environment)
+        self.kushkiClient = KushkiClient(environment: environment, regional: regional)
     }
     
     public func requestToken(card: Card,
