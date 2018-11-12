@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode10.1
 xcode_workspace: kushki-ios.xcworkspace
 xcode_scheme: kushki-ios
-xcode_sdk: iphonesimulator1
+xcode_sdk: iphonesimulator
 branches:
   only:
     - master    
