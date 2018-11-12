@@ -31,7 +31,7 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody, requestBody)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
                 let responseBody = [
                     "token": expectedToken
                 ]
@@ -92,7 +92,7 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody, requestBody)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody!.sorted())
                 let responseBody = [
                     "code": "017",
                     "message": "Tarjeta no válida"
