@@ -6,6 +6,9 @@ xcode_sdk: iphonesimulator10.0
 branches:
   only:
     - master
+    - release/*
+    - feature/*
+    - hotfix/*
 podfile: ./Podfile
 notifications:
   email: false
