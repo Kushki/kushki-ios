@@ -46,7 +46,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async(execute: {
                     let alert = UIAlertController(title: "Kushki Token",
                                                   message: message,
-                                                  preferredStyle: UIAlertControllerStyle.alert)
+                                                  preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default))
                     self.present(alert, animated: true)
                 })
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async(execute: {
                 let alert = UIAlertController(title: "Kushki Token",
                                               message: message,
-                                              preferredStyle: UIAlertControllerStyle.alert)
+                                              preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
             })

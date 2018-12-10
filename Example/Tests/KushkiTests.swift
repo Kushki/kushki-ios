@@ -31,7 +31,7 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody, requestBody)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
                 let responseBody = [
                     "token": expectedToken
                 ]
@@ -92,7 +92,7 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody, requestBody)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody!.sorted())
                 let responseBody = [
                     "code": "017",
                     "message": "Tarjeta no válida"
@@ -109,6 +109,33 @@ class KushkiTests: XCTestCase {
             XCTAssertEqual("Tarjeta no válida", transaction.message)
             XCTAssertEqual("", transaction.token)
             XCTAssertFalse(transaction.isSuccessful())
+        }
+    }
+    
+    func testWithRegionalEndpoint() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing,
+                            regional: true)
+        _ = stub(condition: isHost("regional-uat.kushkipagos.com")
+            && isPath("/v1/tokens")
+            && isMethodPOST()) { _ in
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
         }
     }
     
