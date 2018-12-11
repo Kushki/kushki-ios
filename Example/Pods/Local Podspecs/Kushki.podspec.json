@@ -1,6 +1,6 @@
 {
   "name": "Kushki",
-  "version": "0.2.0",
+  "version": "2.1.0",
   "summary": "Kushki iOS library.",
   "description": "iOS library to integrate with Kushki.",
   "homepage": "https://github.com/Kushki/kushki-ios",
@@ -13,10 +13,15 @@
   },
   "source": {
     "git": "https://github.com/Kushki/kushki-ios.git",
-    "tag": "v0.2.0"
+    "tag": "v2.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Kushki/Classes/**/*"
+  "source_files": "Kushki/Classes/**/*",
+  "dependencies": {
+    "Sift": [
+
+    ]
+  }
 }

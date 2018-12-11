@@ -27,7 +27,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -58,7 +58,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/subscription-tokens")
+            && isPath("/subscriptions/v1/card/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -88,7 +88,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -121,7 +121,7 @@ class KushkiTests: XCTestCase {
                             environment: KushkiEnvironment.testing,
                             regional: true)
         _ = stub(condition: isHost("regional-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { _ in
                 let responseBody = [
                     "token": expectedToken
@@ -130,6 +130,44 @@ class KushkiTests: XCTestCase {
         }
         var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
+        }
+    }
+    
+    func testReturnsSubscriptionChargeTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionChargeToken")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/subscriptions/v1/card/123/tokens")
+            && isMethodPOST()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/merchant/v1/merchant/settings")
+            && isMethodGET()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "prodAccountId": "qwerty",
+                    "sandboxAccountId": "qwerty",
+                    "prodBaconKey": "qwerty",
+                    "sandboxBaconKey": "qwerty"
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestSubscriptionChargeToken(subscriptionId: "123") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
