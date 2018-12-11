@@ -139,6 +139,32 @@ class KushkiTests: XCTestCase {
         }
     }
     
+    func testReturnsSubscriptionChargeTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionChargeToken")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/subscriptions/v1/card/123/tokens")
+            && isMethodPOST()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestSubscriptionChargeToken(subscriptionId: "123") { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
+        }
+    }
+    
     
     private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
         let requestDictionary:[String : Any] = [

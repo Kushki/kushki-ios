@@ -1,15 +1,33 @@
 import Foundation
 
+private enum KushkiSubscriptionsEnvironment: String {
+    // case local = "http://localhost:8888/kushki/api/v1"
+    case testing = "https://api-uat.kushkipagos.com/subscriptions/v1"
+    case production = "https://api.kushkipagos.com/subscriptions/v1"
+    case testing_regional = "https://regional-uat.kushkipagos.com/subscriptions/v1"
+    case production_regional = "https://regional.kushkipagos.com/subscriptions/v1"
+}
+
 class KushkiClient {
     
     private let environment: KushkiEnvironment
+    private let environmentSubscriptions: KushkiSubscriptionsEnvironment
     
     init(environment: KushkiEnvironment, regional: Bool) {
         self.environment = regional ? environment == KushkiEnvironment.production ? KushkiEnvironment.production_regional : KushkiEnvironment.testing_regional : environment
+        
+        self.environmentSubscriptions = regional ? environment == KushkiEnvironment.production ? KushkiSubscriptionsEnvironment.production_regional : KushkiSubscriptionsEnvironment.testing_regional : environment == KushkiEnvironment.production ? KushkiSubscriptionsEnvironment.production: KushkiSubscriptionsEnvironment.testing
+
     }
     
     func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
         showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
+            completion(self.parseResponse(jsonResponse: transaction))
+        }
+    }
+    
+    func post(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (Transaction) -> ()) {
+        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint) { transaction in
             completion(self.parseResponse(jsonResponse: transaction))
         }
     }
@@ -58,6 +76,25 @@ class KushkiClient {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = requestBody.data(using: String.Encoding.utf8)
+        request.addValue("application/json; charset=UTF-8",
+                         forHTTPHeaderField: "Content-Type")
+        request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
+        let task = URLSession.shared.dataTask (with: request) { data, response, error in
+            if let theError = error {
+                print(theError.localizedDescription)
+                return
+            }
+            let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
+            completion(responseBody)
+        }
+        task.resume()
+    }
+    
+    private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
+        
+        let url = URL(string: self.environmentSubscriptions.rawValue + endpoint)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
         request.addValue("application/json; charset=UTF-8",
                          forHTTPHeaderField: "Content-Type")
         request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
