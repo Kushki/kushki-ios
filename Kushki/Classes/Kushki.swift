@@ -26,7 +26,7 @@ public class Kushki {
     public func requestSubscriptionToken(card: Card,
                                          completion: @escaping (Transaction)->()){
         let requestMessage = kushkiClient.buildParameters(withCard: card)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/card/v1/subscription-tokens", requestMessage: requestMessage, withCompletion: completion)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/subscriptions/v1/card/tokens", requestMessage: requestMessage, withCompletion: completion)
     }
     
     public func requestSubscriptionChargeToken(subscriptionId: String,

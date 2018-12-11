@@ -27,7 +27,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -58,7 +58,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/subscription-tokens")
+            && isPath("/subscriptions/v1/card/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -88,7 +88,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
@@ -121,7 +121,7 @@ class KushkiTests: XCTestCase {
                             environment: KushkiEnvironment.testing,
                             regional: true)
         _ = stub(condition: isHost("regional-uat.kushkipagos.com")
-            && isPath("/v1/tokens")
+            && isPath("/card/v1/tokens")
             && isMethodPOST()) { _ in
                 let responseBody = [
                     "token": expectedToken
