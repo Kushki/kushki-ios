@@ -46,6 +46,7 @@ public class Kushki {
             sift()?.accountId = self.environment == KushkiEnvironment.production ? merchant.prodAccountId : merchant.sandboxAccountId
             sift()?.beaconKey = self.environment == KushkiEnvironment.production ? merchant.prodBaconKey : merchant.sandboxBaconKey
             sift()?.userId = userId
+            sift()?.allowUsingMotionSensors = true
             self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/subscriptions/v1/card/" + subscriptionId + "/tokens", requestMessage:  self.kushkiClient.buildParameters(withUserId: userId), withCompletion: completion)
         }
     }
