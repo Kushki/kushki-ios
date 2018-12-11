@@ -1,22 +1,11 @@
 import Foundation
 
-private enum KushkiSubscriptionsEnvironment: String {
-    // case local = "http://localhost:8888/kushki/api/v1"
-    case testing = "https://api-uat.kushkipagos.com/subscriptions/v1"
-    case production = "https://api.kushkipagos.com/subscriptions/v1"
-    case testing_regional = "https://regional-uat.kushkipagos.com/subscriptions/v1"
-    case production_regional = "https://regional.kushkipagos.com/subscriptions/v1"
-}
-
 class KushkiClient {
     
     private let environment: KushkiEnvironment
-    private let environmentSubscriptions: KushkiSubscriptionsEnvironment
     
     init(environment: KushkiEnvironment, regional: Bool) {
         self.environment = regional ? environment == KushkiEnvironment.production ? KushkiEnvironment.production_regional : KushkiEnvironment.testing_regional : environment
-        
-        self.environmentSubscriptions = regional ? environment == KushkiEnvironment.production ? KushkiSubscriptionsEnvironment.production_regional : KushkiSubscriptionsEnvironment.testing_regional : environment == KushkiEnvironment.production ? KushkiSubscriptionsEnvironment.production: KushkiSubscriptionsEnvironment.testing
 
     }
     
@@ -26,9 +15,9 @@ class KushkiClient {
         }
     }
     
-    func post(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (Transaction) -> ()) {
-        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint) { transaction in
-            completion(self.parseResponse(jsonResponse: transaction))
+    func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (Merchant) -> ()) {
+        showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) { merchant in
+            completion(self.parseMerchantResponse(jsonResponse: merchant))
         }
     }
     
@@ -46,6 +35,13 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withUserId userId: String) -> String {
+        let requestDictionary = buildJsonObject(withUserId: userId)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
     func buildJsonObject(withCard card: Card) -> [String : Any] {
         
         let requestDictionary:[String : Any] = [
@@ -57,6 +53,15 @@ class KushkiClient {
                 "cvv": card.cvv
             ],
             "currency": "USD"
+        ]
+        
+        return requestDictionary
+    }
+    
+    func buildJsonObject(withUserId userId: String) -> [String : Any] {
+        
+        let requestDictionary:[String : Any] = [
+            "userId": userId
         ]
         
         return requestDictionary
@@ -90,11 +95,11 @@ class KushkiClient {
         task.resume()
     }
     
-    private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
+    private func showHttpGetResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
         
-        let url = URL(string: self.environmentSubscriptions.rawValue + endpoint)!
+        let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         request.addValue("application/json; charset=UTF-8",
                          forHTTPHeaderField: "Content-Type")
         request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
@@ -121,6 +126,26 @@ class KushkiClient {
         }
         token = responseDictionary!["token"] as! String
         return Transaction(code: code, message: message, token: token)
+    }
+    
+    private func parseMerchantResponse(jsonResponse: String) -> Merchant {
+        var prodAccountId = ""
+        var sandboxAccountId = ""
+        var prodBaconKey = ""
+        var sandboxBaconKey = ""
+        var code = ""
+        var message = ""
+        let responseDictionary = self.convertStringToDictionary(jsonResponse)
+        if((responseDictionary!["code"]) != nil){
+            code = responseDictionary!["code"] as! String
+            message = responseDictionary!["message"] as! String
+            return Merchant(sandboxBaconKey: sandboxBaconKey, prodBaconKey: prodBaconKey, sandboxAccountId:sandboxAccountId, prodAccountId:prodAccountId, code: code, message: message)
+        }
+        sandboxBaconKey = responseDictionary!["sandboxBaconKey"] as! String
+        prodBaconKey = responseDictionary!["prodBaconKey"] as! String
+        sandboxAccountId = responseDictionary!["sandboxAccountId"] as! String
+        prodAccountId = responseDictionary!["prodAccountId"] as! String
+        return Merchant(sandboxBaconKey: sandboxBaconKey, prodBaconKey: prodBaconKey, sandboxAccountId:sandboxAccountId, prodAccountId:prodAccountId, code: code, message: message)
     }
     
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary

@@ -154,6 +154,18 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/merchant/v1/merchant/settings")
+            && isMethodGET()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "prodAccountId": "qwerty",
+                    "sandboxAccountId": "qwerty",
+                    "prodBaconKey": "qwerty",
+                    "sandboxBaconKey": "qwerty"
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
         var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestSubscriptionChargeToken(subscriptionId: "123") { returnedTransaction in
             transaction = returnedTransaction
