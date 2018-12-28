@@ -11,7 +11,6 @@ podfile: ./Podfile
 notifications:
   email: false
 before_install:
-  - rvm get head
   - gem install cocoapods:1.1.0.rc.3
   - gem cleanup cocoapods
 script:
