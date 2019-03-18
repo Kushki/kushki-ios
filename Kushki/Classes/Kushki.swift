@@ -15,13 +15,13 @@ public class Kushki {
     public func requestToken(card: Card,
                              totalAmount: Double,
                              completion: @escaping (Transaction) -> ()) {
-        let requestMessage = kushkiClient.buildParameters( withCard: card, withAmount: totalAmount)
+        let requestMessage = kushkiClient.buildParameters( withCard: card, withCurrency: self.currency, withAmount: totalAmount)
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/tokens", requestMessage: requestMessage, withCompletion: completion)
     }
     
     public func requestSubscriptionToken(card: Card,
                                          completion: @escaping (Transaction)->()){
-        let requestMessage = kushkiClient.buildParameters(withCard: card)
+        let requestMessage = kushkiClient.buildParameters(withCard: card, withCurrency: self.currency)
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/subscription-tokens", requestMessage: requestMessage, withCompletion: completion)
     }
 }
