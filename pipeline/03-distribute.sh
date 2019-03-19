@@ -4,6 +4,7 @@ set -eo pipefail
 
 # Travis CI switches back to an old Ruby version for deployments. See:
 # https://docs.travis-ci.com/user/deployment/script/#Deployment-is-executed-by-Ruby-1.9.3
+echo "start distribute"
 source ~/.rvm/scripts/rvm
 rvm use default
 echo "cocoapods gem version: $(pod --version)"
