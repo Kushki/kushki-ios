@@ -14,21 +14,21 @@ class KushkiClient {
         }
     }
     
-    func buildParameters(withCard card: Card) -> String {
-        let requestDictionary = buildJsonObject(withCard: card)
+    func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
+        let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
-    func buildParameters(withCard card: Card, withAmount totalAmount: Double) -> String {
-        let requestDictionary = buildJsonObject(withCard: card, withAmount: totalAmount)
+    func buildParameters(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double) -> String {
+        let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency, withAmount: totalAmount)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
-    func buildJsonObject(withCard card: Card) -> [String : Any] {
+    func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
         let requestDictionary:[String : Any] = [
             "card": [
@@ -38,15 +38,15 @@ class KushkiClient {
                 "expiryYear": card.expiryYear,
                 "cvv": card.cvv
             ],
-            "currency": "USD"
+            "currency": currency
         ]
         
         return requestDictionary
     }
     
-    func buildJsonObject(withCard card: Card, withAmount totalAmount: Double) -> [String : Any] {
+    func buildJsonObject(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double) -> [String : Any] {
         
-        var requestDictionary = buildJsonObject(withCard: card)
+        var requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         
         requestDictionary["totalAmount"] = totalAmount
         return requestDictionary        

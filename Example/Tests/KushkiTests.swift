@@ -21,7 +21,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let expectedToken = Helpers.randomAlphanumeric(32)
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!)
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -52,7 +52,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let expectedToken = Helpers.randomAlphanumeric(32)
-        let expectedRequestMessage = buildRequestMessageWithoutAmount(withMerchantId: publicMerchantId!, withCard: card)
+        let expectedRequestMessage = buildRequestMessageWithoutAmount(withMerchantId: publicMerchantId!, withCard: card, withCurrency: "USD")
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -82,7 +82,7 @@ class KushkiTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!)
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -140,7 +140,7 @@ class KushkiTests: XCTestCase {
     }
     
     
-    private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double) -> String {
+    private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double, withCurrency currency: String) -> String {
         let requestDictionary:[String : Any] = [
             "card": [
                 "name": card.name,
@@ -150,14 +150,14 @@ class KushkiTests: XCTestCase {
                 "cvv": card.cvv
             ],
             "totalAmount": totalAmount,
-            "currency": "USD"
+            "currency": currency
         ]
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
-    private func buildRequestMessageWithoutAmount(withMerchantId publicMerchantId: String, withCard card: Card) -> String {
+    private func buildRequestMessageWithoutAmount(withMerchantId publicMerchantId: String, withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary:[String : Any] = [
             "card": [
                 "name": card.name,
@@ -166,7 +166,7 @@ class KushkiTests: XCTestCase {
                 "expiryYear": card.expiryYear,
                 "cvv": card.cvv
             ],
-            "currency": "USD"
+            "currency": currency
         ]
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
