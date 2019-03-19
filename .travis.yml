@@ -11,13 +11,12 @@ podfile: ./Podfile
 notifications:
   email: false
 before_install:
-  - gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   # - rvm get head
-  # - gem install cocoapods:1.1.0.rc.3
-  # - gem cleanup cocoapods
+  - gem install cocoapods:1.1.0.rc.3
+  - gem cleanup cocoapods
 script:
-  # - ./pipeline/01-unit.sh
-  # - ./pipeline/02-lint.sh
+  - ./pipeline/01-unit.sh
+  - ./pipeline/02-lint.sh
 after_success:
   - sleep 5
 deploy:  
