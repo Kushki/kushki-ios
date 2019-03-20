@@ -22,9 +22,8 @@ if [ ! -z "$found_tag" ]; then
 fi
 
 git config user.email jose@kushkipagos.com
-echo "print git"
 git config user.name 'José Santacruz'
 git remote add tags-origin "https://$GITHUB_TOKEN@github.com/Kushki/kushki-ios.git"
 git tag --annotate "$tag_name" -m "Release for version $artifact_version"
-git push tags-origin "$tag_name"
+git push tags-origin "$tag_name"	
 pod trunk push
