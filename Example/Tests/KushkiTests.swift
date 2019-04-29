@@ -37,13 +37,14 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: 1) { error in
             XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertEqual(nil, transaction.settlement)
             XCTAssertTrue(transaction.isSuccessful())
         }
     }
@@ -68,7 +69,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         kushki.requestSubscriptionToken(card: card) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -99,7 +100,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -128,7 +129,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -171,5 +172,37 @@ class KushkiTests: XCTestCase {
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
+    }
+    
+    func testTokensWithSettlement() {
+        let asyncExpectation = expectation(description: "requestToken with settlement")
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
+        let expectedRequestBody = expectedRequestMessage
+        let expectedSettlement = 5.0
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody: [String: Any] = [
+                    "token": "12lkj3b1o2kj",
+                    "settlement": expectedSettlement
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertTrue(transaction.isSuccessful())
+            XCTAssertEqual(expectedSettlement, transaction.settlement)
+        }
     }
 }

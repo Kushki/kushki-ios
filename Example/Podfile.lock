@@ -17,19 +17,22 @@ PODS:
     - OHHTTPStubs/Core
 
 DEPENDENCIES:
-  - Kushki (~> 2.0)
+  - Kushki (from `../`)
   - OHHTTPStubs
   - OHHTTPStubs/Swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Kushki
     - OHHTTPStubs
+
+EXTERNAL SOURCES:
+  Kushki:
+    :path: "../"
 
 SPEC CHECKSUMS:
   Kushki: 0c30554d37464a14302e70aa88eb0ebea944895a
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
 
-PODFILE CHECKSUM: 04fd4a6fb0c5ca73720062d275333658efc1e166
+PODFILE CHECKSUM: b0e5838fc504b5a4759bb65876d6bdc8e3884d50
 
 COCOAPODS: 1.6.1
