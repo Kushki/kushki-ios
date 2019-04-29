@@ -76,14 +76,20 @@ class KushkiClient {
         var token = ""
         var code = "000"
         var message = ""
+        var settlement: Double?
         let responseDictionary = self.convertStringToDictionary(jsonResponse)
         if((responseDictionary!["token"]) == nil){
             code = responseDictionary!["code"] as! String
             message = responseDictionary!["message"] as! String
-            return Transaction(code: code, message: message, token: token)
+        } else {
+            token = responseDictionary!["token"] as! String
         }
-        token = responseDictionary!["token"] as! String
-        return Transaction(code: code, message: message, token: token)
+        
+        if((responseDictionary!["settlement"]) != nil){
+            settlement = responseDictionary!["settlement"] as? Double
+        }
+        
+        return Transaction(code: code, message: message, token: token, settlement: settlement)
     }
     
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
