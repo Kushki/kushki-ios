@@ -22,7 +22,7 @@ class KushkiIntegrationTests: XCTestCase {
         publicMerchantId = "10000001641125237535111218"
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
-        transaction = Transaction(code: "", message: "", token: "")
+        transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         
     }
 
