@@ -17,7 +17,7 @@ class KushkiClient {
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
-        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
