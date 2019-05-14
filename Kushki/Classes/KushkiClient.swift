@@ -30,7 +30,7 @@ class KushkiClient {
     
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
-        let requestDictionary:[String : Any] = [
+        var requestDictionary:[String : Any] = [
             "card": [
                 "name": card.name,
                 "number": card.number,
@@ -40,6 +40,13 @@ class KushkiClient {
             ],
             "currency": currency
         ]
+        
+        if card.months != 0 {
+            var cardObj = requestDictionary["card"] as! [String: Any]
+            cardObj["months"] = card.months
+            
+            requestDictionary["card"] = cardObj
+        }
         
         return requestDictionary
     }

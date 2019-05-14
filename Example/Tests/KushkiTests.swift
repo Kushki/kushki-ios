@@ -158,6 +158,26 @@ class KushkiTests: XCTestCase {
         return dictFromJson!
     }
     
+    private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double, withCurrency currency: String, withMonths months: Int) -> String {
+        let requestDictionary:[String : Any] = [
+            "card": [
+                "name": card.name,
+                "number": card.number,
+                "expiryMonth": card.expiryMonth,
+                "expiryYear": card.expiryYear,
+                "cvv": card.cvv,
+                "months": months
+            ],
+            "totalAmount": totalAmount,
+            "currency": currency
+        ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
+    
+    
     private func buildRequestMessageWithoutAmount(withMerchantId publicMerchantId: String, withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary:[String : Any] = [
             "card": [
@@ -176,13 +196,15 @@ class KushkiTests: XCTestCase {
     
     func testTokensWithSettlement() {
         let asyncExpectation = expectation(description: "requestToken with settlement")
-        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
+        let months = 3
+        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21", months: months)
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD", withMonths: months)
         let expectedRequestBody = expectedRequestMessage
         let expectedSettlement = 5.0
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
+        
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/v1/tokens")
             && isMethodPOST()) { request in
