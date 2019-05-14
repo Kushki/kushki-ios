@@ -81,19 +81,19 @@
 		2E5921E1ED5D3BF1F30D29B89126E029 /* Kushki-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kushki-dummy.m"; sourceTree = "<group>"; };
 		2E661B89FA753F396F306A90A68487F2 /* Pods-kushki-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2F2BB4AD24E77E418D83FB206DAAE0D7 /* OHHTTPStubs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.xcconfig; sourceTree = "<group>"; };
-		31FBB85C5C449EA5459F6E50D2C884C8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		31FBB85C5C449EA5459F6E50D2C884C8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		35248F8D79A053995167B6F4F22C2953 /* OHHTTPStubs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-prefix.pch"; sourceTree = "<group>"; };
 		4092AFF9AC4BD0952D0EBFEFA79ED74C /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
 		4457BBFC1D9CE5F3730654E0DEC8EA46 /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = OHHTTPStubs/Sources/Compatibility.h; sourceTree = "<group>"; };
 		485371910E78C33990C59CC75A36F5DE /* OHHTTPStubsMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsMethodSwizzling.h; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.h; sourceTree = "<group>"; };
 		4EB4CDACCDE1D280AD69541DEAAF46A6 /* Pods-kushki-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		53937148F8DF6D6D8FFA2184633780DA /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		58FD52F2EC0B9761E505BFE0D8CE9AB4 /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_kushki_ios_Tests.framework; path = "Pods-kushki-ios_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58FD52F2EC0B9761E505BFE0D8CE9AB4 /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59FD4131E5DCD1F6185A8985DE953CC6 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Kushki/Classes/Transaction.swift; sourceTree = "<group>"; };
 		5D44C3DA206126A3E15DDF7664010F14 /* OHPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHPathHelpers.m; path = OHHTTPStubs/Sources/OHPathHelpers/OHPathHelpers.m; sourceTree = "<group>"; };
 		5F8A2FCBEF8FFD2E6A49C5CAE84D2F2E /* OHHTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubsResponse+JSON.m"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
 		65146DA32F9BA4B8C870FB57B9E7D014 /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
-		6784988354DC3F468788101F8B0F5EFB /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6784988354DC3F468788101F8B0F5EFB /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D8855E285C3B4FB15BADA83813651 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
 		74C6E0C0BA780B4B9D2FDFFC143675C6 /* OHHTTPStubsMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsMethodSwizzling.m; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.m; sourceTree = "<group>"; };
 		75B497488E3314801E4FB0C8009F9FDF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
@@ -103,10 +103,10 @@
 		93A65C9A60283B05000A4D86C16E1BCF /* Pods-kushki-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		9825CBECD999293B608CFAF03E152BFA /* NSURLRequest+HTTPBodyTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+HTTPBodyTesting.h"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.h"; sourceTree = "<group>"; };
 		98F9FDA6DDC0DC4B83FC168C31740AC1 /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsResponse.h; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.h; sourceTree = "<group>"; };
-		9B15CC4D3D8989A41CE41DF3048A385E /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_kushki_ios_Example.framework; path = "Pods-kushki-ios_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B15CC4D3D8989A41CE41DF3048A385E /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC170475F54E3098472D430F2F57617 /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubsResponse+JSON.h"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
-		A253FE000672AB318F967172250BB8D9 /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A253FE000672AB318F967172250BB8D9 /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		AB0157D758BE082A4C45D45939DDF047 /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
 		AD839C30551E590A7F4928527BA96C97 /* OHHTTPStubs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubs.m; path = OHHTTPStubs/Sources/OHHTTPStubs.m; sourceTree = "<group>"; };
 		AEBCA75F53A7E95BEF1F5BF7166EDCE6 /* Pods-kushki-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -119,13 +119,13 @@
 		D86936F63C0CF22BD9A52CF0A66ED787 /* OHHTTPStubs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs-dummy.m"; sourceTree = "<group>"; };
 		DA5A36A58794B6A3E46C069DF2681DAE /* Pods-kushki-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		E0221788744E889D629D0751BF523167 /* Pods-kushki-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Tests-dummy.m"; sourceTree = "<group>"; };
-		E6EA5C183907A123EF2C0FBBF7BA7600 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		E6EA5C183907A123EF2C0FBBF7BA7600 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EEFF6D0AC3DE2E41AFFA5F6E17A5E358 /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
 		EF049AEDA6A68D44F835299BB755ADD0 /* Pods-kushki-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F0E15A34D094149CAA65F667EC695B67 /* Pods-kushki-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		F463B8FB2E206EAF8C3E55D386AE36E6 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F53AB2944E015C7D9EEFD9A14906D891 /* Pods-kushki-ios_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F5BB259231DAFDB3ED9BE135215D5964 /* Kushki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kushki.framework; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5BB259231DAFDB3ED9BE135215D5964 /* Kushki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1712638A67ADC0DBBD364317A5A877 /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +188,6 @@
 				CE90CBF2C4389E8B15DE955AF9662568 /* Support Files */,
 				BBAAB1C1647B06484258CE6794DD0838 /* Swift */,
 			);
-			name = OHHTTPStubs;
 			path = OHHTTPStubs;
 			sourceTree = "<group>";
 		};
@@ -516,6 +515,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -685,8 +685,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
