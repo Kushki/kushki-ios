@@ -165,9 +165,9 @@ class KushkiTests: XCTestCase {
                 "number": card.number,
                 "expiryMonth": card.expiryMonth,
                 "expiryYear": card.expiryYear,
-                "cvv": card.cvv,
-                "months": months
+                "cvv": card.cvv
             ],
+            "months": months,
             "totalAmount": totalAmount,
             "currency": currency
         ]

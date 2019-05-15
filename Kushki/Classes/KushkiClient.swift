@@ -42,10 +42,7 @@ class KushkiClient {
         ]
         
         if card.months != 0 {
-            var cardObj = requestDictionary["card"] as! [String: Any]
-            cardObj["months"] = card.months
-            
-            requestDictionary["card"] = cardObj
+            requestDictionary["months"] = card.months
         }
         
         return requestDictionary
