@@ -19,9 +19,10 @@ class KushkiIntegrationTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        publicMerchantId = "10000001641125237535111218"
+//        publicMerchantId = "10000001641125237535111218"
+        publicMerchantId = "20000000102916207000"
         totalAmount = 10.0
-        kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
+        kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.qa)
         transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         
     }
@@ -36,6 +37,18 @@ class KushkiIntegrationTests: XCTestCase {
         self.waitForExpectations(timeout: 10) { error in
             XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
             XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
+    
+    func testReturnsAsyncTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestCardAsyncToken")
+        
+        kushki!.requestCardAsyncToken(email: "john@kushkipagos.com", totalAmount: totalAmount!) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 10) { error in
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
         }
     }
     

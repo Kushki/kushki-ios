@@ -28,6 +28,25 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildAsyncParameters(withCurrency currency: String, withAmount totalAmount: Double,  withUrl returnUrl: String?, withEmail email: String?) -> String {
+        var requestDictionary:[String : Any] = [
+            "totalAmount": totalAmount,
+            "currency": currency
+        ]
+        
+        if returnUrl != nil {
+            requestDictionary["returnUrl"] = returnUrl
+        }
+        
+        if email != nil {
+            requestDictionary["email"] = email
+        }
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
         var requestDictionary:[String : Any] = [
