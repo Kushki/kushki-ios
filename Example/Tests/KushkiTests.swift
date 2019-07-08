@@ -79,6 +79,36 @@ class KushkiTests: XCTestCase {
             XCTAssertTrue(transaction.isSuccessful())
         }
     }
+    
+    func testReturnsAsyncTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestCardAsyncToken")
+        
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let expectedRequestMessage = buildAsyncParameters(withCurrency: "CLP", withAmount: totalAmount!, withUrl: "url.com", withEmail: "john@kushkipagos.com")
+        let expectedRequestBody = expectedRequestMessage
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing, regional: false, returnUrl: "url.com")
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/card-async/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushki.requestCardAsyncToken(email: "john@kushkipagos.com", totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+        }
+    }
 
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
@@ -155,6 +185,25 @@ class KushkiTests: XCTestCase {
         ]
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
+    func buildAsyncParameters(withCurrency currency: String, withAmount totalAmount: Double,  withUrl returnUrl: String?, withEmail email: String?) -> String {
+        var requestDictionary:[String : Any] = [
+            "totalAmount": totalAmount,
+            "currency": currency
+        ]
+        
+        if returnUrl != nil {
+            requestDictionary["returnUrl"] = returnUrl
+        }
+        
+        if email != nil {
+            requestDictionary["email"] = email
+        }
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
         return dictFromJson!
     }
     

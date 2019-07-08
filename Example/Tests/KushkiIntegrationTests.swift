@@ -39,6 +39,19 @@ class KushkiIntegrationTests: XCTestCase {
         }
     }
     
+    // TODO uncomment when async card token is deployed on uat
+//    func testReturnsAsyncTokenWhenCalledWithValidParams() {
+//        let asyncExpectation = expectation(description: "requestCardAsyncToken")
+//
+//        kushki!.requestCardAsyncToken(email: "john@kushkipagos.com", totalAmount: totalAmount!) { returnedTransaction in
+//            self.transaction = returnedTransaction
+//            asyncExpectation.fulfill()
+//        }
+//        self.waitForExpectations(timeout: 10) { error in
+//            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
+//        }
+//    }
+    
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
