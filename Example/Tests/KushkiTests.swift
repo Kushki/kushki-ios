@@ -88,7 +88,7 @@ class KushkiTests: XCTestCase {
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "CLP",
-                            environment: KushkiEnvironment.testing, returnUrl: "url.com")
+                            environment: KushkiEnvironment.testing, regional: false, returnUrl: "url.com")
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/card-async/v1/tokens")
             && isMethodPOST()) { request in
@@ -101,7 +101,7 @@ class KushkiTests: XCTestCase {
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
-        kushki.requestCardAsyncToken(email: "", totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestCardAsyncToken(email: "john@kushkipagos.com", totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
