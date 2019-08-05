@@ -81,18 +81,22 @@ class KushkiClient {
         var code = "000"
         var message = ""
         var settlement: Double?
-        let responseDictionary = self.convertStringToDictionary(jsonResponse)
-        if((responseDictionary!["token"]) == nil){
-            code = responseDictionary!["code"] as! String
-            message = responseDictionary!["message"] as! String
-        } else {
-            token = responseDictionary!["token"] as! String
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let tokenValue = responseDictionary["token"] as? String {
+                token = tokenValue
+            }
+            else {
+                code = responseDictionary["code"] as? String ?? "001"
+                message = responseDictionary["message"] as? String ?? "Error inesperado"
+            }
+            if let settlementValue = responseDictionary["settlement"] as? Double {
+                settlement = settlementValue
+            }
         }
-        
-        if((responseDictionary!["settlement"]) != nil){
-            settlement = responseDictionary!["settlement"] as? Double
+        else {
+            code = "002"
+            message = "Hubo un error inesperado, intenta nuevamente"
         }
-        
         return Transaction(code: code, message: message, token: token, settlement: settlement)
     }
     

@@ -227,4 +227,33 @@ class KushkiTests: XCTestCase {
             XCTAssertEqual(expectedSettlement, transaction.settlement)
         }
     }
+    
+    func testUnexpectedError() {
+        let asyncExpectation = expectation(description: "requestToken with settlement")
+        let card = Card(name: "Name", number: "123123", cvv: "000", expiryMonth: "01", expiryYear: "31")
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
+        let expectedRequestBody = expectedRequestMessage
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody: [String: Any] = [:]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(transaction.message, "Error inesperado")
+            
+        }
+    }
 }
