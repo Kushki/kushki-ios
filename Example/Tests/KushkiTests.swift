@@ -79,7 +79,72 @@ class KushkiTests: XCTestCase {
             XCTAssertTrue(transaction.isSuccessful())
         }
     }
+    
+    func testReturnsTransferTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestTransferToken")
+        let amount = Amount(subtotalIva: 12.0, subtotalIva0: 0.0, iva: 1.2 )
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let expectedRequestMessage = buildRequestMessageTransfer(withMerchantId: publicMerchantId!, withAmount: amount, withCallbackUrl: "www.test.com", withUserType: "0", withDocumentType: "CC", withDocumentNumber: "123123123", withEmail: "dev@kushkipagos.com", withCurrency: "CLP")
+        let expectedRequestBody = expectedRequestMessage
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/transfer/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+              XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com") { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
+        }
+    }
+    
+    func testReturnsTransferTokenWhenCalledWithValidAndCompleteParams() {
+        let asyncExpectation = expectation(description: "requestTransferToken")
+        let amount = Amount(subtotalIva: 12.0, subtotalIva0: 0.0, iva: 1.2 )
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let expectedRequestMessage = buildRequestMessageTransferWithCompleteParameters(withMerchantId: publicMerchantId!, withAmount: amount, withCallbackUrl: "www.test.com", withUserType: "0", withDocumentType: "CC", withDocumentNumber: "123123123", withEmail: "dev@kushkipagos.com", withCurrency: "CLP",withPaymentDescription:"Test JD")
+        let expectedRequestBody = expectedRequestMessage
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/transfer/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com",paymentDescription:"Test JD") { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
+        }
+    }
+    
 
+    
+    
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
@@ -193,6 +258,48 @@ class KushkiTests: XCTestCase {
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
+    
+    private func buildRequestMessageTransfer(withMerchantId publicMerchantId: String, withAmount amount: Amount, withCallbackUrl callbackUrl:String,  withUserType userType:String,withDocumentType documentType:String,
+                                             withDocumentNumber documentNumber:String, withEmail email:String,
+                                             withCurrency currency:String) -> String {
+        let requestDictionary:[String : Any] = [
+            "amount": [
+                "subtotalIva": amount.subtotalIva,
+                "subtotalIva0": amount.subtotalIva0,
+                "iva": amount.iva,
+            ],
+            "callbackUrl": callbackUrl,
+            "userType" : userType,
+            "documentType" : documentType,
+            "documentNumber" : documentNumber,
+            "email" : email,
+            "currency" : currency
+        ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
+    private func buildRequestMessageTransferWithCompleteParameters(withMerchantId publicMerchantId: String, withAmount amount: Amount, withCallbackUrl callbackUrl:String,  withUserType userType:String,withDocumentType documentType:String, withDocumentNumber documentNumber:String, withEmail email:String, withCurrency currency:String, withPaymentDescription paymentDescription:String) -> String {
+        let requestDictionary:[String : Any] = [
+            "amount": [
+                "subtotalIva": amount.subtotalIva,
+                "subtotalIva0": amount.subtotalIva0,
+                "iva": amount.iva,
+            ],
+            "callbackUrl": callbackUrl,
+            "userType" : userType,
+            "documentType" : documentType,
+            "documentNumber" : documentNumber,
+            "email" : email,
+            "currency" : currency,
+            "paymentDescription" : paymentDescription
+        ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
+    
     
     func testTokensWithSettlement() {
         let asyncExpectation = expectation(description: "requestToken with settlement")

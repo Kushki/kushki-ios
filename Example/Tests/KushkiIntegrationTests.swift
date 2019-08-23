@@ -14,6 +14,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
     var publicMerchantId: String?
     var kushki: Kushki?
+    var kushkiTransfer:Kushki?
     var totalAmount: Double?
     var transaction: Transaction?
 
@@ -22,6 +23,7 @@ class KushkiIntegrationTests: XCTestCase {
         publicMerchantId = "10000001641125237535111218"
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
+        kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
         transaction = Transaction(code: "", message: "", token: "", settlement: nil)
         
     }
@@ -88,6 +90,34 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 10) { error in
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
+            XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
+    
+    func testReturnsTransferTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestTransferToken")
+        let amount = Amount(subtotalIva: 12.0, subtotalIva0: 0.0, iva: 1.2 )
+
+        kushkiTransfer!.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType: "RUT", documentNumber: "123123123", email: "jose.gonzalez@kushkipagos.com") { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 10) { error in
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
+            XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
+    
+    func testReturnsTransferTokenWhenCalledWithValidAndCompleteParams() {
+        let asyncExpectation = expectation(description: "requestTransferToken")
+        let amount = Amount(subtotalIva: 12.0, subtotalIva0: 0.0, iva: 1.2 )
+        
+        kushkiTransfer!.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType: "RUT", documentNumber: "123123123", email: "jose.gonzalez@kushkipagos.com", paymentDescription: "Test JD") { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
