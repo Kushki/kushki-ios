@@ -28,6 +28,34 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withAmount amount: Amount, withCallbackUrl callbackUrl:String,
+                         withUserType userType:String,withDocumentType documentType:String,
+                         withDocumentNumber documentNumber:String, withEmail email:String,
+                         withCurrency currency:String) -> String {
+        let requestDictionary = buildJsonObject(withAmount: amount, withCallbackUrl: callbackUrl,
+                                                withUserType: userType,withDocumentType: documentType,
+                                                withDocumentNumber: documentNumber, withEmail: email,
+                                                withCurrency: currency)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    func buildParameters(withAmount amount: Amount, withCallbackUrl callbackUrl:String,
+                         withUserType userType:String,withDocumentType documentType:String,
+                         withDocumentNumber documentNumber:String, withEmail email:String,
+                         withCurrency currency:String, withPaymentDescription paymentDescription:String) -> String {
+        
+        let requestDictionary = buildJsonObject(withAmount: amount, withCallbackUrl: callbackUrl,
+                                                withUserType: userType,withDocumentType: documentType,
+                                                withDocumentNumber: documentNumber, withEmail: email,
+                                                withCurrency: currency,withPaymentDescription: paymentDescription)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
         var requestDictionary:[String : Any] = [
@@ -44,6 +72,44 @@ class KushkiClient {
         if card.months != 0 {
             requestDictionary["months"] = card.months
         }
+        
+        return requestDictionary
+    }
+    
+    func buildJsonObject(withAmount amount: Amount, withCallbackUrl callbackUrl:String,
+                         withUserType userType:String,withDocumentType documentType:String,
+                         withDocumentNumber documentNumber:String, withEmail email:String,
+                         withCurrency currency:String) -> [String : Any]{
+        
+        let requestDictionary:[String : Any] = [
+            "amount": [
+                "subtotalIva": amount.subtotalIva,
+                "subtotalIva0": amount.subtotalIva0,
+                "iva": amount.iva,
+            ],
+            "callbackUrl": callbackUrl,
+            "userType" : userType,
+            "documentType" : documentType,
+            "documentNumber" : documentNumber,
+            "email" : email,
+            "currency" : currency
+        ]
+        
+        return requestDictionary
+        
+    }
+    
+    func buildJsonObject(withAmount amount: Amount, withCallbackUrl callbackUrl:String,
+                         withUserType userType:String,withDocumentType documentType:String,
+                         withDocumentNumber documentNumber:String, withEmail email:String,
+                         withCurrency currency:String, withPaymentDescription paymentDescription: String) -> [String : Any]{
+        
+        var requestDictionary = buildJsonObject(withAmount: amount, withCallbackUrl: callbackUrl,
+                                                withUserType: userType,withDocumentType: documentType,
+                                                withDocumentNumber: documentNumber, withEmail: email,
+                                                withCurrency: currency)
+        
+        requestDictionary["paymentDescription"] = paymentDescription
         
         return requestDictionary
     }

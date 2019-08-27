@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Kushki'
-  s.version = '2.1.6'
+  s.version = '2.1.7'
   s.summary = 'Kushki iOS library.'
   s.description = 'iOS library to integrate with Kushki.'
   s.homepage = 'https://github.com/Kushki/kushki-ios'

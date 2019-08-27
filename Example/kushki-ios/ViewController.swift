@@ -1,7 +1,7 @@
 import UIKit
 import Kushki
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: Properties
     @IBOutlet weak var doItHttpButton: UIButton!
@@ -10,13 +10,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var monthField: UITextField!
     @IBOutlet weak var yearField: UITextField!
     @IBOutlet weak var cvvField: UITextField!
+    @IBOutlet weak var userTypeField: UISegmentedControl!
+    @IBOutlet weak var documentTypePicker: UIPickerView!
+    @IBOutlet weak var documentNumberField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
 
+    
+     let pickerData = [ "CC" , "NIT" , "CE" , "TI" , "PP" , "RUT"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        documentTypePicker.delegate = self
+        documentTypePicker.dataSource = self
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
     }
 
     // MARK: Actions
@@ -26,12 +40,36 @@ class ViewController: UIViewController {
                         cvv: cvvField.text!,
                         expiryMonth: monthField.text!,
                         expiryYear: yearField.text!)
+        let amount = Amount(subtotalIva: 12.2, subtotalIva0: 0.0, iva: 1.2)
+        
         if(sender.titleLabel?.text == "Request Subscription"){
             requestKushkiToken(card: card, subscription: true)
             return
         }
+        if(sender.titleLabel?.text == "Request Transfer"){
+            requestKushkiToken(amount: amount, callbackUrl: "www.test.com", userType: mapUserType(userType: userTypeField.titleForSegment(at: userTypeField.selectedSegmentIndex)!), documentType: pickerData[documentTypePicker.selectedRow(inComponent: 0)], documentNumber: documentNumberField.text!, reference: documentNumberField.text!, email: emailField.text!, description: descriptionField.text!)
+            return
+        }
         requestKushkiToken(card: card)
     }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func mapUserType(userType:String) -> String {
+        if(userType == "Natural")
+            {return "0"}
+        else
+            {return "1"}
+    }
+  
 
     private func requestKushkiToken(card: Card, subscription: Bool = false) {
         let publicMerchantId = "10000001641125237535111218"
@@ -57,6 +95,25 @@ class ViewController: UIViewController {
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
 //                transaction.code + ": " + transaction.message
+            DispatchQueue.main.async(execute: {
+                let alert = UIAlertController(title: "Kushki Token",
+                                              message: message,
+                                              preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+            })
+        }
+    }
+    private func requestKushkiToken(amount: Amount, callbackUrl:String, userType:String, documentType:String,                                   documentNumber:String, reference:String, email:String,description:String) {
+        let publicMerchantId = "10000001641125237535111218"
+        let kushki = Kushki(publicMerchantId: publicMerchantId,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing)
+    
+        kushki.requestTransferToken(amount: amount, callbackUrl: callbackUrl, userType: userType, documentType: documentType, documentNumber: documentNumber, email: email,paymentDescription: description) { transaction in
+            let message = transaction.isSuccessful() ?
+                transaction.token : transaction.code + ": " + transaction.message
+            //                transaction.code + ": " + transaction.message
             DispatchQueue.main.async(execute: {
                 let alert = UIAlertController(title: "Kushki Token",
                                               message: message,
