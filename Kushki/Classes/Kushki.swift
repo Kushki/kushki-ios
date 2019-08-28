@@ -48,8 +48,7 @@ public class Kushki {
     
     public func getBankList(
         completion: @escaping ([Bank]) -> ()){
-        
-        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/bankList", withCompletion: completion)
+        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/transfer-subscriptions/v1/bankList", withCompletion: completion)
     }
    
     

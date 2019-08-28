@@ -187,10 +187,10 @@ class KushkiClient {
         return nil
     }
     
-    private func convertStringToArrayDictionary(_ string: String) -> [Dictionary<String,Any>]? {
+    private func convertStringToArrayDictionary(_ string: String) -> [[String:AnyObject]]? {
         if let data = string.data(using: String.Encoding.utf8) {
             do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [Dictionary<String,Any>]
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [[String:AnyObject]]
             } catch let error as NSError {
                 print(error)
             }
@@ -198,12 +198,12 @@ class KushkiClient {
         return nil
     }
     
+    
     private func showHttpGetResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.addValue(publicMerchantId, forHTTPHeaderField: "Public-Merchant-Id")
         let task = URLSession.shared.dataTask (with: request) { data, response, error in
             if let theError = error {
@@ -218,10 +218,18 @@ class KushkiClient {
     
     private func parseGetBankListResponse(jsonResponse: String) -> [Bank] {
         var bankList: [Bank] = []
-
         if let responseDictionary = self.convertStringToArrayDictionary(jsonResponse) {
-            for responseObject in responseDictionary {
-                let bank = Bank( dictionary: responseObject)
+            for responseBank in responseDictionary{
+                var nameBank = ""
+                var codeBank = ""
+                
+                if let name = responseBank["name"] as? String{
+                    nameBank = name
+                }
+                if let codeResponse = responseBank["code"] as? String{
+                    codeBank = codeResponse
+                }
+                let bank = Bank(code: codeBank, name: nameBank)
                 bankList.append(bank)
             }
         }

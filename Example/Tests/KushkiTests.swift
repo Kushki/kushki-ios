@@ -366,35 +366,37 @@ class KushkiTests: XCTestCase {
     
     func testGetBankList() {
         let asyncExpectation = expectation(description: "Get Bank List")
-        let expectedBankList = "[{\"name\":\"Banco de Bogota\",\"code\":\"01\"}]"
-        let bankTest : [String:Any] = ["name":"Banco de Bogota","code":"01"]
-        var bankList: [Bank] = [Bank(dictionary: bankTest)]
-        var bankListStub: [Bank] = []
+        let expectedResponse = "[{\n  \"name\" : \"Banco de Bogota\" ,\n  \"code\" : \"1\" \n}]"
+        let expectedBankList: [Bank] =  [Bank(code:"1", name: "Banco de Bogota" )]
+        var returnedBankList: [Bank] = []
+        let responseBody = ["name": "Banco de Bogota" , "code": "1" ]
+        
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing,
                             regional: true)
         
-       
-        _ = stub(condition: isHost("regional-uat.kushkipagos.com")
-            && isPath("/v1/bankList")
-            && isMethodGET()) { _ in
-                let responseBody = expectedBankList
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
-        }
 
-       
+        _ = stub(condition: isHost("api-qa.kushkipagos.com")
+            && isPath("/transfer-subscriptions/v1/bankList")
+            && isMethodGET()) {
+                _ in return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+    
         kushki.getBankList(){
-            returnedBankList in
-            bankListStub = returnedBankList
+            kushkiReturnedBankList in
+            returnedBankList = kushkiReturnedBankList
             asyncExpectation.fulfill()
+            print("kushki returned bank list")
+            print(kushkiReturnedBankList)
+        }
+        print("Returned Bank List")
+        print(returnedBankList)
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(returnedBankList[0].name, expectedBankList[0].name)
             
         }
+        //print(bankList)
         
-        print(bankListStub)
-        
-       
-        
-       
     }
 }
