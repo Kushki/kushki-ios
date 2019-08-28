@@ -1,7 +1,7 @@
 import Foundation
 
 class KushkiClient {
-    
+
     private let environment: KushkiEnvironment
     
     init(environment: KushkiEnvironment, regional: Bool) {
@@ -216,24 +216,25 @@ class KushkiClient {
         task.resume()
     }
     
-    private func parseGetBankListResponse(jsonResponse: String) -> [Bank] {
+    private func parseGetBankListResponse(jsonResponse: String)   -> [Bank] {
+        
         var bankList: [Bank] = []
         if let responseDictionary = self.convertStringToArrayDictionary(jsonResponse) {
             for responseBank in responseDictionary{
                 var nameBank = ""
                 var codeBank = ""
-                
-                if let name = responseBank["name"] as? String{
+                if let name = (responseBank["name"] as? String) ,let codeResponse = (responseBank["code"] as? String){
                     nameBank = name
-                }
-                if let codeResponse = responseBank["code"] as? String{
                     codeBank = codeResponse
+                    let bank = Bank(code: codeBank, name: nameBank)
+                    bankList.append(bank)
                 }
-                let bank = Bank(code: codeBank, name: nameBank)
-                bankList.append(bank)
             }
         }
+        
+       
         return bankList;
     }
+    
 
 }

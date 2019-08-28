@@ -126,4 +126,19 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertTrue(self.transaction!.isSuccessful())
         }
     }
+    
+    func testReturnListBank(){
+        var returnedBankList: [Bank] = []
+        let asyncExpectation = expectation(description: "requestBankList")
+        self.kushkiTransfer?.getBankList(){
+            kushkiReturnedBankList in
+            returnedBankList = kushkiReturnedBankList
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertTrue(returnedBankList.count > 0)
+            
+        }
+        
+    }
 }

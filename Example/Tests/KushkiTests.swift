@@ -364,39 +364,33 @@ class KushkiTests: XCTestCase {
         }
     }
     
-    func testGetBankList() {
+    func testGetBankListAuthorizedToken() {
         let asyncExpectation = expectation(description: "Get Bank List")
-        let expectedResponse = "[{\n  \"name\" : \"Banco de Bogota\" ,\n  \"code\" : \"1\" \n}]"
         let expectedBankList: [Bank] =  [Bank(code:"1", name: "Banco de Bogota" )]
         var returnedBankList: [Bank] = []
-        let responseBody = ["name": "Banco de Bogota" , "code": "1" ]
         
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
-                            currency: "USD",
+                            currency: "COP",
                             environment: KushkiEnvironment.testing,
-                            regional: true)
+                            regional: false)
         
-
         _ = stub(condition: isHost("api-qa.kushkipagos.com")
             && isPath("/transfer-subscriptions/v1/bankList")
             && isMethodGET()) {
-                _ in return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                _ in
+                let responseBody = [["name": "Banco de Bogota" , "code": "1" ]]
+                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
     
         kushki.getBankList(){
             kushkiReturnedBankList in
             returnedBankList = kushkiReturnedBankList
             asyncExpectation.fulfill()
-            print("kushki returned bank list")
-            print(kushkiReturnedBankList)
         }
-        print("Returned Bank List")
-        print(returnedBankList)
+     
         self.waitForExpectations(timeout: 1) { error in
             XCTAssertEqual(returnedBankList[0].name, expectedBankList[0].name)
             
         }
-        //print(bankList)
-        
     }
 }
