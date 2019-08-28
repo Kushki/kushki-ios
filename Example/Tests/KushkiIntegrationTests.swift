@@ -24,7 +24,7 @@ class KushkiIntegrationTests: XCTestCase {
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
-        transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", biometricInfo: [[:]] as AnyObject)
         
     }
 
@@ -140,5 +140,18 @@ class KushkiIntegrationTests: XCTestCase {
             
         }
         
+    }
+    
+    func testRequestSubscriptionTransferToken(){
+        let asyncExpectation = expectation(description: "request subscription transfer token")
+        kushki!.requestSubscriptionTransferToken(accountType: "0", accountNumber: "4242424242424242424", identificationType: "CC", identificationNumber: "171223344556", totalAmount: 10.0, bankCode: "01", name: "Test Name", lastname: "Test lastname", cityCode: "17", stateCode: "01", phone: "09872635142", expeditionName: "09872635142", cuestionatyCode: "1") { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            
+            XCTAssertTrue(self.transaction!.isSuccessful())
+            //XCTAssertEqual(expectedSecureId, transaction.secureId)
+        }
     }
 }

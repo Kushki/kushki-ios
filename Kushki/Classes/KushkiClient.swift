@@ -62,6 +62,19 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withAccountType accountType: String, withAccountNumber accountNumber: String,
+                         withIdentificationType identificationType: String, withIdentificationNumber identificationNumber: String,
+                         withTotalAmount totalAmount: Double, withBankCode bankCode: String,
+                         withName name: String, withLastName lastName: String, withCityCode cityCode: String,
+                         withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
+                         withCuestionaryCode cuestionaryCode:String) -> String{
+        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withIdentificationType: identificationType, withIdentificationNumber: identificationNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode)
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
     
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
@@ -129,6 +142,30 @@ class KushkiClient {
         return requestDictionary        
     }
     
+    func buildJsonObject(withAccountType accountType: String, withAccountNumber accountNumber: String,
+                         withIdentificationType identificationType: String, withIdentificationNumber identificationNumber: String,
+                         withTotalAmount totalAmount: Double, withBankCode bankCode: String,
+                         withName name: String, withLastName lastName: String, withCityCode cityCode: String,
+                         withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
+                         withCuestionaryCode cuestionaryCode:String) -> [String: Any] {
+        let requestDictionary:[String: Any] = [
+            "accountType": accountType,
+            "accountNumber": accountNumber,
+            "identificationType": identificationType,
+            "identificationNumber": identificationNumber,
+            "totalAmount": totalAmount,
+            "bankCode": bankCode,
+            "name": name,
+            "lastName": lastName,
+            "cityCode": cityCode,
+            "stateCode": stateCode,
+            "phone": phone,
+            "expeditionDate": expeditionDate,
+            "cuestionaryCode": cuestionaryCode
+        ]
+        return requestDictionary
+        
+    }
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
@@ -154,6 +191,9 @@ class KushkiClient {
         var code = "000"
         var message = ""
         var settlement: Double?
+        var secureId: String?
+        var secureService: String?
+        var biometricInfo: AnyObject?
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             if let tokenValue = responseDictionary["token"] as? String {
                 token = tokenValue
@@ -165,12 +205,22 @@ class KushkiClient {
             if let settlementValue = responseDictionary["settlement"] as? Double {
                 settlement = settlementValue
             }
+            if let secureIdValue = responseDictionary["secureId"] as? String{
+                secureId = secureIdValue
+            }
+            if let secureServiceValue = responseDictionary["secureService"] as? String{
+                secureService = secureServiceValue
+            }
+            if let biometricInfoValue = responseDictionary["secureService"] as? AnyObject{
+                biometricInfo = biometricInfoValue
+            }
+            
         }
         else {
             code = "002"
             message = "Hubo un error inesperado, intenta nuevamente"
         }
-        return Transaction(code: code, message: message, token: token, settlement: settlement)
+        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService, biometricInfo: biometricInfo)
     }
     
    
@@ -204,7 +254,7 @@ class KushkiClient {
         let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(publicMerchantId, forHTTPHeaderField: "Public-Merchant-Id")
+        request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
         let task = URLSession.shared.dataTask (with: request) { data, response, error in
             if let theError = error {
                 print(theError.localizedDescription)

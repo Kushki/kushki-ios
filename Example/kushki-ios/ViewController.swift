@@ -15,16 +15,23 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var documentNumberField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    
+    @IBOutlet weak var Name: UITextField!
+    @IBOutlet weak var IdentificationDocument: UITextField!
+    
+    @IBOutlet weak var docTypePicker: UIPickerView!
+  
+    let pickerData = [ "CC" , "NIT" , "CE" , "TI" , "PP" , "RUT"]
+    
 
-    
-     let pickerData = [ "CC" , "NIT" , "CE" , "TI" , "PP" , "RUT"]
-    
+    @IBOutlet weak var getSubscriptionTransferButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         documentTypePicker.delegate = self
         documentTypePicker.dataSource = self
-        
+        docTypePicker.delegate = self
+        docTypePicker.dataSource = self
         
     }
 
@@ -49,6 +56,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         if(sender.titleLabel?.text == "Request Transfer"){
             requestKushkiToken(amount: amount, callbackUrl: "www.test.com", userType: mapUserType(userType: userTypeField.titleForSegment(at: userTypeField.selectedSegmentIndex)!), documentType: pickerData[documentTypePicker.selectedRow(inComponent: 0)], documentNumber: documentNumberField.text!, reference: documentNumberField.text!, email: emailField.text!, description: descriptionField.text!)
             return
+        }
+        if(sender.titleLabel?.text == "Request Subscription Transfer Token"){
+            requestSubscriptionTransferToken(name: Name.text!, documentType: pickerData[docTypePicker.selectedRow(inComponent: 0)], documentNumber: IdentificationDocument.text!)
         }
         requestKushkiToken(card: card)
     }
@@ -113,6 +123,26 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         kushki.requestTransferToken(amount: amount, callbackUrl: callbackUrl, userType: userType, documentType: documentType, documentNumber: documentNumber, email: email,paymentDescription: description) { transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
+            //                transaction.code + ": " + transaction.message
+            DispatchQueue.main.async(execute: {
+                let alert = UIAlertController(title: "Kushki Token",
+                                              message: message,
+                                              preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                self.present(alert, animated: true)
+            })
+        }
+    }
+    
+    private func requestSubscriptionTransferToken(name: String, documentType: String, documentNumber: String) {
+        let publicMerchantId = "10000001641125237535111218"
+        let kushki = Kushki(publicMerchantId: publicMerchantId,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing)
+        
+        kushki.requestSubscriptionTransferToken(accountType: "01", accountNumber: "121212121212", identificationType: documentType, identificationNumber: documentNumber, totalAmount: 10.0, bankCode: "01", name:"Test Name",  lastname: "test Last Name", cityCode: "17", stateCode: "01", phone: "123456789", expeditionName: "12/01/1996", cuestionatyCode: "1") { transaction in
+            let message = transaction.isSuccessful() ?
+                transaction.token : transaction.code + ": " + transaction.message + ":" + transaction.secureId!
             //                transaction.code + ": " + transaction.message
             DispatchQueue.main.async(execute: {
                 let alert = UIAlertController(title: "Kushki Token",
