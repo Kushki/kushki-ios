@@ -45,4 +45,12 @@ public class Kushki {
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
         
     }
+    
+    public func getBankList(
+        completion: @escaping ([Bank]) -> ()){
+        
+        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/bankList", withCompletion: completion)
+    }
+   
+    
 }

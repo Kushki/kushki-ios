@@ -14,6 +14,13 @@ class KushkiClient {
         }
     }
     
+    func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping ([Bank]) -> ()) {
+        showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) {
+            bankList in
+            completion(self.parseGetBankListResponse(jsonResponse: bankList))
+        }
+    }
+    
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -166,6 +173,8 @@ class KushkiClient {
         return Transaction(code: code, message: message, token: token, settlement: settlement)
     }
     
+   
+    
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
     private func convertStringToDictionary(_ string: String) -> [String:AnyObject]? {
         if let data = string.data(using: String.Encoding.utf8) {
@@ -177,4 +186,46 @@ class KushkiClient {
         }
         return nil
     }
+    
+    private func convertStringToArrayDictionary(_ string: String) -> [Dictionary<String,Any>]? {
+        if let data = string.data(using: String.Encoding.utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [Dictionary<String,Any>]
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        return nil
+    }
+    
+    private func showHttpGetResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
+        
+        let url = URL(string: self.environment.rawValue + endpoint)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.addValue(publicMerchantId, forHTTPHeaderField: "Public-Merchant-Id")
+        let task = URLSession.shared.dataTask (with: request) { data, response, error in
+            if let theError = error {
+                print(theError.localizedDescription)
+                return
+            }
+            let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
+            completion(responseBody)
+        }
+        task.resume()
+    }
+    
+    private func parseGetBankListResponse(jsonResponse: String) -> [Bank] {
+        var bankList: [Bank] = []
+
+        if let responseDictionary = self.convertStringToArrayDictionary(jsonResponse) {
+            for responseObject in responseDictionary {
+                let bank = Bank( dictionary: responseObject)
+                bankList.append(bank)
+            }
+        }
+        return bankList;
+    }
+
 }

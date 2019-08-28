@@ -363,4 +363,38 @@ class KushkiTests: XCTestCase {
             
         }
     }
+    
+    func testGetBankList() {
+        let asyncExpectation = expectation(description: "Get Bank List")
+        let expectedBankList = "[{\"name\":\"Banco de Bogota\",\"code\":\"01\"}]"
+        let bankTest : [String:Any] = ["name":"Banco de Bogota","code":"01"]
+        var bankList: [Bank] = [Bank(dictionary: bankTest)]
+        var bankListStub: [Bank] = []
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing,
+                            regional: true)
+        
+       
+        _ = stub(condition: isHost("regional-uat.kushkipagos.com")
+            && isPath("/v1/bankList")
+            && isMethodGET()) { _ in
+                let responseBody = expectedBankList
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+
+       
+        kushki.getBankList(){
+            returnedBankList in
+            bankListStub = returnedBankList
+            asyncExpectation.fulfill()
+            
+        }
+        
+        print(bankListStub)
+        
+       
+        
+       
+    }
 }
