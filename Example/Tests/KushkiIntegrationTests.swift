@@ -132,12 +132,12 @@ class KushkiIntegrationTests: XCTestCase {
     func testReturnListBank(){
         var returnedBankList: [Bank] = []
         let asyncExpectation = expectation(description: "requestBankList")
-        self.kushkiTransferSubscription?.getBankList(){
+        self.kushkiTransferSubscription!.getBankList(){
             kushkiReturnedBankList in
             returnedBankList = kushkiReturnedBankList
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: 5) { error in
             XCTAssertTrue(returnedBankList.count > 0)
             
         }
