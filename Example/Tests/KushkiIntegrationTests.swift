@@ -25,7 +25,7 @@ class KushkiIntegrationTests: XCTestCase {
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
-        kushkiTransferSubscription = Kushki(publicMerchantId: publicMerchantId!, currency: "COP", environment: KushkiEnvironment.testing)
+        kushkiTransferSubscription = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
         transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", biometricInfo: [[:]] as AnyObject)
         
     }

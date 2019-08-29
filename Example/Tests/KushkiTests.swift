@@ -429,7 +429,7 @@ class KushkiTests: XCTestCase {
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         let expectedRequestBody = self.buildRequestMessageSubscriptionTransfer(withAccountType: "0", withAccountNumber: "4242424242424242424", withIdentificationType: "CC", withIdentificationNumber: "171223344556", withTotalAmount: 10.0, withBankCode: "01", withName: "171223344556", withLastName: "171223344556", withCityCode: "17", withStateCode: "01", withPhone: "171223344556", withExpeditionDate: "09872635142", withCuestionaryCode: "1")
-        _ = stub(condition: isHost("api-ci.kushkipagos.com")
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/transfer-subscriptions/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
