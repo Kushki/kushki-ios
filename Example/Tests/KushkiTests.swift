@@ -424,15 +424,17 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get token subscription transfer")
         let expectedSecureId = "12345678"
         let expectedSecureService = "Test secure service"
+        
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
-        
-        _ = stub(condition: isHost("api-uat.kushkipagos.com")
-            && isPath("")
+        let expectedRequestBody = self.buildRequestMessageSubscriptionTransfer(withAccountType: "0", withAccountNumber: "4242424242424242424", withIdentificationType: "CC", withIdentificationNumber: "171223344556", withTotalAmount: 10.0, withBankCode: "01", withName: "171223344556", withLastName: "171223344556", withCityCode: "17", withStateCode: "01", withPhone: "171223344556", withExpeditionDate: "09872635142", withCuestionaryCode: "1")
+        _ = stub(condition: isHost("api-ci.kushkipagos.com")
+            && isPath("/transfer-subscriptions/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                //XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
                 let responseBody: [String: Any] = [
                     "token": "12lkj3b1o2kj",
                     "secureId": "12345678",
@@ -442,12 +444,13 @@ class KushkiTests: XCTestCase {
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", biometricInfo: [[:]] as AnyObject)
-        kushki.requestSubscriptionTransferToken(accountType: "0", accountNumber: "4242424242424242424", identificationType: "CC", identificationNumber: "171223344556", totalAmount: 10.0, bankCode: "01", name: "Test Name", lastname: "Test lastname", cityCode: "17", stateCode: "01", phone: "09872635142", expeditionName: "09872635142", cuestionatyCode: "1") {
+        
+        kushki.requestSubscriptionTransferToken(accountType: "0", accountNumber: "4242424242424242424", documentType: "CC", documentNumber: "171223344556", totalAmount: 10.0, bankCode: "01", name: "Test Name", lastname: "Test lastname", cityCode: "17", stateCode: "01", phone: "09872635142", expeditionDate: "09872635142", cuestionaryCode: "1") {
             returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+       self.waitForExpectations(timeout: 1) { error in
             XCTAssertTrue(transaction.isSuccessful())
             XCTAssertEqual(expectedSecureId, transaction.secureId)
             XCTAssertEqual(expectedSecureService, transaction.secureService)

@@ -63,12 +63,12 @@ class KushkiClient {
     }
     
     func buildParameters(withAccountType accountType: String, withAccountNumber accountNumber: String,
-                         withIdentificationType identificationType: String, withIdentificationNumber identificationNumber: String,
+                         withDocumentType documentType: String, withDocumentNumber documentNumber: String,
                          withTotalAmount totalAmount: Double, withBankCode bankCode: String,
                          withName name: String, withLastName lastName: String, withCityCode cityCode: String,
                          withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
                          withCuestionaryCode cuestionaryCode:String) -> String{
-        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withIdentificationType: identificationType, withIdentificationNumber: identificationNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode)
+        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode)
         
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
@@ -143,7 +143,7 @@ class KushkiClient {
     }
     
     func buildJsonObject(withAccountType accountType: String, withAccountNumber accountNumber: String,
-                         withIdentificationType identificationType: String, withIdentificationNumber identificationNumber: String,
+                         withDocumentType documentType: String, withDocumentNumber documentNumber: String,
                          withTotalAmount totalAmount: Double, withBankCode bankCode: String,
                          withName name: String, withLastName lastName: String, withCityCode cityCode: String,
                          withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
@@ -151,8 +151,8 @@ class KushkiClient {
         let requestDictionary:[String: Any] = [
             "accountType": accountType,
             "accountNumber": accountNumber,
-            "identificationType": identificationType,
-            "identificationNumber": identificationNumber,
+            "documentType": documentType,
+            "documentNumber": documentNumber,
             "totalAmount": totalAmount,
             "bankCode": bankCode,
             "name": name,
