@@ -395,12 +395,12 @@ class KushkiTests: XCTestCase {
         let expectedBankList: [Bank] =  [Bank(code:"1", name: "Banco de Bogota" )]
         var returnedBankList: [Bank] = []
         
-        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+        let kushki = Kushki(publicMerchantId: "20000000107468104000",
                             currency: "COP",
-                            environment: KushkiEnvironment.testing,
+                            environment: KushkiEnvironment.testing_ci,
                             regional: false)
         
-        _ = stub(condition: isHost("api-qa.kushkipagos.com")
+        _ = stub(condition: isHost("api-ci.kushkipagos.com")
             && isPath("/transfer-subscriptions/v1/bankList")
             && isMethodGET()) {
                 _ in
