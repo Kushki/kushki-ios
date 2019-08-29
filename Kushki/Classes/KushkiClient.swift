@@ -211,7 +211,7 @@ class KushkiClient {
             if let secureServiceValue = responseDictionary["secureService"] as? String{
                 secureService = secureServiceValue
             }
-            if let biometricInfoValue = responseDictionary["secureService"] as? AnyObject{
+            if let biometricInfoValue = responseDictionary["secureService"]{
                 biometricInfo = biometricInfoValue
             }
             
