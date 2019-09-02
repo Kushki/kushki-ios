@@ -13,32 +13,33 @@
 		0C78BF11377F17C8F5B8CD7604269361 /* OHHTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D89F1A458C0B429647995B45C2160D7 /* OHHTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0E6996B81EB62312A8084FD503C68CAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		165F2A6DF189151CDBCA366DD275ABEA /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF024EE220EAFFBE7E70C8D163A3637F /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		187060C30CAFD39088AB235C05C198A9 /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46757DAADCDCF46F02C829F947E8DD /* KushkiClient.swift */; };
 		1B05C28F226DA6742651DA5C0C6B6742 /* Pods-kushki-ios_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223497C7D280B0BB843FCE2BBD263A0E /* Pods-kushki-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */; };
-		257921391A23A9B30E547A060E9E1F1E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBF83170473E6DEAF41F7603497FCE /* Transaction.swift */; };
+		251545B22F510CF8F1D0C1ECB25CD664 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5415B6930F0A01303F54AB4F3CDDA /* Amount.swift */; };
 		276071E9DBAAA08BBBD569288E026156 /* OHHTTPStubsResponse+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CFB4D92631D85ACADF68FC8B94FD41A /* OHHTTPStubsResponse+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41453BE9D22F0B865B5CF4860A40DBBF /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2807ABE3F43FE5AFA0A1B55D8017E /* Kushki-dummy.m */; };
-		4D3A1A9E090A7E64400481C3717237D1 /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661199AE5E737F1843591210C317BBC /* Kushki.swift */; };
+		4F094AF74067FF293C3E09048538AD16 /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E074F07903E8BEA9A7C640A7E92FFC /* Kushki-dummy.m */; };
+		5256F34B8AAD939B4115E8B3BCBFC494 /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AEE226A3487C4FA34A620F37909462 /* KushkiEnvironment.swift */; };
 		63F8E2642D09A5F98A566060B65C0ADC /* Pods-kushki-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6555C9FEB29EA5DC75C9086D8B14BCCD /* OHHTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DFE1BCDD5A6F3A2E96FEF42513B747E /* OHHTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CBFFD03EFD38BE9A45DA1DA81694661 /* OHHTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DC2622187C216C269FFFB1D960051 /* OHHTTPStubsResponse+JSON.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6F45FBA9EC9CB63C388892566F5F56E8 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EF222AFA78E0536E741E0DE7C85D98 /* Transfer.swift */; };
-		706619CA399D9DE471A1A74C8013457D /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B80B5FF432DF66116E78A8AE54D89EE3 /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A1C6AA8C257D0851E83CD89C4A60DE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		81D983B9013D8525DC5858313298D992 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		880C07180E91C2330BCF0F8A863B9EA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
+		9723DA9DF809F553CC80C8FEED6DF30F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
+		9A10CFE36A17EEDCB685AA718B879B05 /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EAF9F5B567EA70CB7A40023554E427 /* KushkiClient.swift */; };
 		9BB78DC33523C76095B1D95D5CEF44CA /* OHHTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A58D31BA5F39B4EBE7287A5A813A48 /* OHHTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AECEF06AD90667AD021AAF7A7E6DF0AB /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9491702C9DA53912DDF1F1B80C1105 /* Transfer.swift */; };
 		AF2C825DF21DC64E4675027D03D3CE5E /* OHHTTPStubsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA49C9EB994652962C52CF541B481D /* OHHTTPStubsSwift.swift */; };
 		AF4F3D5A63E50698857C587260485BD0 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E52FFE691C398597A5525D6BD5AC470D /* OHHTTPStubs+NSURLSessionConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B4867C5DB639AB29AE6B8FB8D9069B8C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004CB4E355763C135E42F81FF7E34EA2 /* Bank.swift */; };
 		C60C3ED1EDC2A1F16FFBE40563712276 /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B645FACD7143838F46FFE7ACE0EB6A /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8C249B5B64CDFE22F1DCF882B6B9EA5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB59B753D46A630343AC17A9EC70DF /* Card.swift */; };
+		C77B6BF02170ECB168BC537983A94AD1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C7B49ED4DDC1E7D5183EA8C09194A /* Transaction.swift */; };
 		CA27256DC58202C86D5DE65F56FB4F19 /* OHPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = AACAADF976CCE79003B5688C06B0AB1B /* OHPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC523D9EEC684A94F3B8E41016F22CBD /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBAA9C3AD7B5939C208E11F8796262 /* OHHTTPStubs.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E603D9434F6783CB1B0DE05D1B5854C2 /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CF44694D876390F000F5162BC693A /* KushkiEnvironment.swift */; };
+		DA75AC9FB57F3DA37372EDCA5064FADD /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C32A37449C5F1AA2FAB7368D8D80CB /* Kushki.swift */; };
+		E5FE2278A51E9AE17355DDE74A2D5CA0 /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCA87B8D29104A7D04FBC1A59B2F808F /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FB3E5C9B3B8C3FC24616F2D0CC0184 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B079F294DA5D9A879E6D53A91F51A1E /* CFNetwork.framework */; };
 		E7C585224B97CD482F32849978F3106F /* OHHTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB8054A0025C92380DA80B0709A0F17 /* OHHTTPStubsResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E8ABE0423B952B6C032B7364E05D30C0 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9380863BDD00553FAE215E94365A12D /* Amount.swift */; };
+		F0BC235F73BB5E54BFBC436FE6B8BE56 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4D0D4FA55103B04C2BC05D4637399 /* Card.swift */; };
 		F764A787CBF20CC1D58CD6306A443D53 /* OHPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C5BCAE293385B3163FC433360533D0 /* OHPathHelpers.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F83CA1780F5D9C6432CE9D7248D9B35A /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = F28AD2E6BE3782F00B12D2499986A98A /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD760709D92D7C72A097F431F94149BB /* Pods-kushki-ios_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */; };
@@ -69,12 +70,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004CB4E355763C135E42F81FF7E34EA2 /* Bank.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = Kushki/Classes/Bank.swift; sourceTree = "<group>"; };
+		04EBB91D765C6DED4DF0FD1BAF27E917 /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
 		0600033FC719AB9F0294B500B275B996 /* OHHTTPStubs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs-dummy.m"; sourceTree = "<group>"; };
 		07B2AC2DF7A859464767A0809FA41B2A /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_kushki_ios_Example.framework; path = "Pods-kushki-ios_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6DC2622187C216C269FFFB1D960051 /* OHHTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubsResponse+JSON.m"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
-		0E989E05A0E810A8A19F45F3AEC85D7C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		0FBA49C9EB994652962C52CF541B481D /* OHHTTPStubsSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OHHTTPStubsSwift.swift; path = OHHTTPStubs/Sources/Swift/OHHTTPStubsSwift.swift; sourceTree = "<group>"; };
 		10A58D31BA5F39B4EBE7287A5A813A48 /* OHHTTPStubs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubs.h; path = OHHTTPStubs/Sources/OHHTTPStubs.h; sourceTree = "<group>"; };
+		15B4D0D4FA55103B04C2BC05D4637399 /* Card.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Kushki/Classes/Card.swift; sourceTree = "<group>"; };
 		17E33041B314FA837A3CAEB9DF3CDE9F /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B92B357CBC3DD6C87BFB12F5ECF553F /* Pods-kushki-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		1EB8054A0025C92380DA80B0709A0F17 /* OHHTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsResponse.m; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.m; sourceTree = "<group>"; };
@@ -84,53 +87,52 @@
 		2874E95AF3B35E8C654D92CBF4B2DF84 /* OHHTTPStubs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OHHTTPStubs-Info.plist"; sourceTree = "<group>"; };
 		28CBAA9C3AD7B5939C208E11F8796262 /* OHHTTPStubs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubs.m; path = OHHTTPStubs/Sources/OHHTTPStubs.m; sourceTree = "<group>"; };
 		2D89F1A458C0B429647995B45C2160D7 /* OHHTTPStubsMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsMethodSwizzling.h; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.h; sourceTree = "<group>"; };
-		2E6360B357040AA1210E27D3B8C0096D /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
-		2FAB59B753D46A630343AC17A9EC70DF /* Card.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Kushki/Classes/Card.swift; sourceTree = "<group>"; };
 		3442A6C4543FCF6B0281445327870E78 /* Kushki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kushki.framework; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		362E5ED15E2628AD92322E30C8962E36 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		3F331E78E0DD02D95C857C4A24B12372 /* Pods-kushki-ios_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Example.modulemap"; sourceTree = "<group>"; };
 		41647ECC100A4EFAE1F597FF7C2EAE03 /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4334BBC50FDB12D0DB538E4CFE38065A /* NSURLRequest+HTTPBodyTesting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+HTTPBodyTesting.m"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.m"; sourceTree = "<group>"; };
 		44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Example-dummy.m"; sourceTree = "<group>"; };
+		4E9491702C9DA53912DDF1F1B80C1105 /* Transfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transfer.swift; path = Kushki/Classes/Transfer.swift; sourceTree = "<group>"; };
+		58EAF9F5B567EA70CB7A40023554E427 /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
 		5BD2E46CA4C37A9B69FB8396CC89703B /* Pods-kushki-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		5E46757DAADCDCF46F02C829F947E8DD /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
 		63F01492AF5AC23B787A09B583D0CE37 /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6493A210FAB665E7F1ED332E267560D5 /* Pods-kushki-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6661199AE5E737F1843591210C317BBC /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
-		77BD415D6A8E6D28DF162A8C69223E06 /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
 		797D71FC1E889AFF33C194F29A8C07CB /* OHHTTPStubs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OHHTTPStubs.modulemap; sourceTree = "<group>"; };
 		7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Example-umbrella.h"; sourceTree = "<group>"; };
 		7DFE1BCDD5A6F3A2E96FEF42513B747E /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHHTTPStubsResponse.h; path = OHHTTPStubs/Sources/OHHTTPStubsResponse.h; sourceTree = "<group>"; };
 		7E0638ACA9DF1F3A681BD0183A2B1494 /* OHHTTPStubs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.xcconfig; sourceTree = "<group>"; };
 		8B079F294DA5D9A879E6D53A91F51A1E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		92EBF83170473E6DEAF41F7603497FCE /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Kushki/Classes/Transaction.swift; sourceTree = "<group>"; };
+		9315D021B1ED9063E9F66BB8E9DE735D /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96C5C153BE4CF925BE46DDF8611ABC9F /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9CF2807ABE3F43FE5AFA0A1B55D8017E /* Kushki-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kushki-dummy.m"; sourceTree = "<group>"; };
 		9CFB4D92631D85ACADF68FC8B94FD41A /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubsResponse+JSON.h"; path = "OHHTTPStubs/Sources/JSON/OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A6EC2750D679FC082BBC534004627729 /* Pods-kushki-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AACAADF976CCE79003B5688C06B0AB1B /* OHPathHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OHPathHelpers.h; path = OHHTTPStubs/Sources/OHPathHelpers/OHPathHelpers.h; sourceTree = "<group>"; };
+		B2E074F07903E8BEA9A7C640A7E92FFC /* Kushki-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kushki-dummy.m"; sourceTree = "<group>"; };
+		B3C32A37449C5F1AA2FAB7368D8D80CB /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
 		B3ECCD8545A69069BF658F0FD934803D /* OHHTTPStubsMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHHTTPStubsMethodSwizzling.m; path = OHHTTPStubs/Sources/NSURLSession/OHHTTPStubsMethodSwizzling.m; sourceTree = "<group>"; };
-		B7EDD81B46F8543DF815B5B0C0DD6747 /* Kushki.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.xcconfig; sourceTree = "<group>"; };
-		B80B5FF432DF66116E78A8AE54D89EE3 /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
+		B52468632915337626FA411A0104054E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B76C7B49ED4DDC1E7D5183EA8C09194A /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Kushki/Classes/Transaction.swift; sourceTree = "<group>"; };
 		BB1668DFA6E5FAC7FEC0963EDDEEDE93 /* Pods-kushki-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		BCA87B8D29104A7D04FBC1A59B2F808F /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
 		BD97E80A98EFA0F3A963857F63397F8F /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_kushki_ios_Tests.framework; path = "Pods-kushki-ios_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C22CF44694D876390F000F5162BC693A /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiEnvironment.swift; path = Kushki/Classes/KushkiEnvironment.swift; sourceTree = "<group>"; };
-		C398C5C198223E883359787BA9B30A47 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		C00AC35797F09221ACDC8B9A920C68D6 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
+		D2F5415B6930F0A01303F54AB4F3CDDA /* Amount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Amount.swift; path = Kushki/Classes/Amount.swift; sourceTree = "<group>"; };
 		D6AC5BD56820DA1DE93DA25BF743E5DE /* OHHTTPStubs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-prefix.pch"; sourceTree = "<group>"; };
+		DC70C187273CF84E4556C924AE761706 /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
+		E0AEE226A3487C4FA34A620F37909462 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiEnvironment.swift; path = Kushki/Classes/KushkiEnvironment.swift; sourceTree = "<group>"; };
 		E1B758CEDA6E54895484DCFA3F6E36CB /* Pods-kushki-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		E1C5BCAE293385B3163FC433360533D0 /* OHPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OHPathHelpers.m; path = OHHTTPStubs/Sources/OHPathHelpers/OHPathHelpers.m; sourceTree = "<group>"; };
-		E1EF222AFA78E0536E741E0DE7C85D98 /* Transfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transfer.swift; path = Kushki/Classes/Transfer.swift; sourceTree = "<group>"; };
 		E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Tests-dummy.m"; sourceTree = "<group>"; };
 		E52FFE691C398597A5525D6BD5AC470D /* OHHTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubs+NSURLSessionConfiguration.m"; path = "OHHTTPStubs/Sources/NSURLSession/OHHTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
 		E943CF6C9CDBB2CA88247A495E44A8D1 /* Pods-kushki-ios_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-Info.plist"; sourceTree = "<group>"; };
 		E9B645FACD7143838F46FFE7ACE0EB6A /* NSURLRequest+HTTPBodyTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+HTTPBodyTesting.h"; path = "OHHTTPStubs/Sources/NSURLSession/NSURLRequest+HTTPBodyTesting.h"; sourceTree = "<group>"; };
 		EF024EE220EAFFBE7E70C8D163A3637F /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
-		F221A616FA3EFFF681E561BBE5084915 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
 		F28AD2E6BE3782F00B12D2499986A98A /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = OHHTTPStubs/Sources/Compatibility.h; sourceTree = "<group>"; };
-		F5E5BC94CAD8980FA261550D90669B8B /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F670E5B4DE77F48634EE0B64DF037B5C /* Kushki.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.xcconfig; sourceTree = "<group>"; };
 		F6F3F6CEA04F0BF439630835EE3D97A2 /* Pods-kushki-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F9380863BDD00553FAE215E94365A12D /* Amount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Amount.swift; path = Kushki/Classes/Amount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,14 +142,6 @@
 			files = (
 				E6FB3E5C9B3B8C3FC24616F2D0CC0184 /* CFNetwork.framework in Frameworks */,
 				81D983B9013D8525DC5858313298D992 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5E674D59DDA4A5415AC056A062B59EB9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A1C6AA8C257D0851E83CD89C4A60DE4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +158,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E6996B81EB62312A8084FD503C68CAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D4B201033E6FF71B0BC0249961B58F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9723DA9DF809F553CC80C8FEED6DF30F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,14 +254,18 @@
 			path = "Target Support Files/Pods-kushki-ios_Example";
 			sourceTree = "<group>";
 		};
-		623DD6D8836EDAC37113B9E2BEE6B1B9 /* Pod */ = {
+		5B19CBA5C5224439D31222461FA082C0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5E5BC94CAD8980FA261550D90669B8B /* Kushki.podspec */,
-				0E989E05A0E810A8A19F45F3AEC85D7C /* LICENSE */,
-				C398C5C198223E883359787BA9B30A47 /* README.md */,
+				C00AC35797F09221ACDC8B9A920C68D6 /* Kushki.modulemap */,
+				F670E5B4DE77F48634EE0B64DF037B5C /* Kushki.xcconfig */,
+				B2E074F07903E8BEA9A7C640A7E92FFC /* Kushki-dummy.m */,
+				04EBB91D765C6DED4DF0FD1BAF27E917 /* Kushki-Info.plist */,
+				DC70C187273CF84E4556C924AE761706 /* Kushki-prefix.pch */,
+				BCA87B8D29104A7D04FBC1A59B2F808F /* Kushki-umbrella.h */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Kushki";
 			sourceTree = "<group>";
 		};
 		678ADBD25303D70F4246EB39FA3DDAE8 /* Targets Support Files */ = {
@@ -271,12 +277,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		76302472E94416CC05AD79FAC43D5085 /* Development Pods */ = {
+		6C6DBDF1200461B83F45FAC31108777A /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A3C2478DFD79895969046CF90D7012D2 /* Kushki */,
+				9315D021B1ED9063E9F66BB8E9DE735D /* Kushki.podspec */,
+				B52468632915337626FA411A0104054E /* LICENSE */,
+				362E5ED15E2628AD92322E30C8962E36 /* README.md */,
 			);
-			name = "Development Pods";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		827685FC834C97F3D81D52F73C6CB266 /* Products */ = {
@@ -290,18 +298,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8F061DE2A308DB947CB5E6BB8537D5E6 /* Support Files */ = {
+		92E0654BF1AC951D253A452DFFD8CE36 /* Kushki */ = {
 			isa = PBXGroup;
 			children = (
-				F221A616FA3EFFF681E561BBE5084915 /* Kushki.modulemap */,
-				B7EDD81B46F8543DF815B5B0C0DD6747 /* Kushki.xcconfig */,
-				9CF2807ABE3F43FE5AFA0A1B55D8017E /* Kushki-dummy.m */,
-				77BD415D6A8E6D28DF162A8C69223E06 /* Kushki-Info.plist */,
-				2E6360B357040AA1210E27D3B8C0096D /* Kushki-prefix.pch */,
-				B80B5FF432DF66116E78A8AE54D89EE3 /* Kushki-umbrella.h */,
+				D2F5415B6930F0A01303F54AB4F3CDDA /* Amount.swift */,
+				004CB4E355763C135E42F81FF7E34EA2 /* Bank.swift */,
+				15B4D0D4FA55103B04C2BC05D4637399 /* Card.swift */,
+				B3C32A37449C5F1AA2FAB7368D8D80CB /* Kushki.swift */,
+				58EAF9F5B567EA70CB7A40023554E427 /* KushkiClient.swift */,
+				E0AEE226A3487C4FA34A620F37909462 /* KushkiEnvironment.swift */,
+				B76C7B49ED4DDC1E7D5183EA8C09194A /* Transaction.swift */,
+				4E9491702C9DA53912DDF1F1B80C1105 /* Transfer.swift */,
+				6C6DBDF1200461B83F45FAC31108777A /* Pod */,
+				5B19CBA5C5224439D31222461FA082C0 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Kushki";
+			name = Kushki;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		9B9710DF7A1DAC0174FE6BD1B07F5B16 /* Swift */ = {
@@ -310,23 +322,6 @@
 				0FBA49C9EB994652962C52CF541B481D /* OHHTTPStubsSwift.swift */,
 			);
 			name = Swift;
-			sourceTree = "<group>";
-		};
-		A3C2478DFD79895969046CF90D7012D2 /* Kushki */ = {
-			isa = PBXGroup;
-			children = (
-				F9380863BDD00553FAE215E94365A12D /* Amount.swift */,
-				2FAB59B753D46A630343AC17A9EC70DF /* Card.swift */,
-				6661199AE5E737F1843591210C317BBC /* Kushki.swift */,
-				5E46757DAADCDCF46F02C829F947E8DD /* KushkiClient.swift */,
-				C22CF44694D876390F000F5162BC693A /* KushkiEnvironment.swift */,
-				92EBF83170473E6DEAF41F7603497FCE /* Transaction.swift */,
-				E1EF222AFA78E0536E741E0DE7C85D98 /* Transfer.swift */,
-				623DD6D8836EDAC37113B9E2BEE6B1B9 /* Pod */,
-				8F061DE2A308DB947CB5E6BB8537D5E6 /* Support Files */,
-			);
-			name = Kushki;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		A616F4F199F1A0CE2C2B77AFC9A15167 /* JSON */ = {
@@ -359,12 +354,20 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				76302472E94416CC05AD79FAC43D5085 /* Development Pods */,
+				DE56C5AE0866B4DCA9CDC806CF17DE48 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				1BA3C1823846A764684949B6A5C8B401 /* Pods */,
 				827685FC834C97F3D81D52F73C6CB266 /* Products */,
 				678ADBD25303D70F4246EB39FA3DDAE8 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		DE56C5AE0866B4DCA9CDC806CF17DE48 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92E0654BF1AC951D253A452DFFD8CE36 /* Kushki */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		E34DCC8E2CF86B8D72232914781A840D /* iOS */ = {
@@ -414,11 +417,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		477467CD3FA8398006AA2BF2D37345D1 /* Headers */ = {
+		77E8F2852E79F9A71A9BECFE4A42B880 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				706619CA399D9DE471A1A74C8013457D /* Kushki-umbrella.h in Headers */,
+				E5FE2278A51E9AE17355DDE74A2D5CA0 /* Kushki-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,12 +495,12 @@
 		};
 		FA808475B36E8EAA8E40474777CE8036 /* Kushki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E4AA76603CBF9911D22C88D761B55EB /* Build configuration list for PBXNativeTarget "Kushki" */;
+			buildConfigurationList = 9603DEEA39953E74E5E8AE41593E67A1 /* Build configuration list for PBXNativeTarget "Kushki" */;
 			buildPhases = (
-				477467CD3FA8398006AA2BF2D37345D1 /* Headers */,
-				89E8203F1385B4A49906517092652DAB /* Sources */,
-				5E674D59DDA4A5415AC056A062B59EB9 /* Frameworks */,
-				6B306DCD4E71D9C564D054ABA1D12545 /* Resources */,
+				77E8F2852E79F9A71A9BECFE4A42B880 /* Headers */,
+				2BE61AC653C1CA75B5AAEDCD26E9B2C9 /* Sources */,
+				86D4B201033E6FF71B0BC0249961B58F /* Frameworks */,
+				DD152E0C16F1B52C2CD29019A17DF421 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -552,14 +555,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B306DCD4E71D9C564D054ABA1D12545 /* Resources */ = {
+		7FA88FF5146AB18382F5CDF78A17A3B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FA88FF5146AB18382F5CDF78A17A3B3 /* Resources */ = {
+		DD152E0C16F1B52C2CD29019A17DF421 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -569,26 +572,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2BE61AC653C1CA75B5AAEDCD26E9B2C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251545B22F510CF8F1D0C1ECB25CD664 /* Amount.swift in Sources */,
+				B4867C5DB639AB29AE6B8FB8D9069B8C /* Bank.swift in Sources */,
+				F0BC235F73BB5E54BFBC436FE6B8BE56 /* Card.swift in Sources */,
+				4F094AF74067FF293C3E09048538AD16 /* Kushki-dummy.m in Sources */,
+				DA75AC9FB57F3DA37372EDCA5064FADD /* Kushki.swift in Sources */,
+				9A10CFE36A17EEDCB685AA718B879B05 /* KushkiClient.swift in Sources */,
+				5256F34B8AAD939B4115E8B3BCBFC494 /* KushkiEnvironment.swift in Sources */,
+				C77B6BF02170ECB168BC537983A94AD1 /* Transaction.swift in Sources */,
+				AECEF06AD90667AD021AAF7A7E6DF0AB /* Transfer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		515C36CDAFE5F0B6A389C323B5C94C33 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD760709D92D7C72A097F431F94149BB /* Pods-kushki-ios_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89E8203F1385B4A49906517092652DAB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8ABE0423B952B6C032B7364E05D30C0 /* Amount.swift in Sources */,
-				C8C249B5B64CDFE22F1DCF882B6B9EA5 /* Card.swift in Sources */,
-				41453BE9D22F0B865B5CF4860A40DBBF /* Kushki-dummy.m in Sources */,
-				4D3A1A9E090A7E64400481C3717237D1 /* Kushki.swift in Sources */,
-				187060C30CAFD39088AB235C05C198A9 /* KushkiClient.swift in Sources */,
-				E603D9434F6783CB1B0DE05D1B5854C2 /* KushkiEnvironment.swift in Sources */,
-				257921391A23A9B30E547A060E9E1F1E /* Transaction.swift in Sources */,
-				6F45FBA9EC9CB63C388892566F5F56E8 /* Transfer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,9 +744,9 @@
 			};
 			name = Debug;
 		};
-		2C9BE767458036DD2104B46CC455CB1B /* Debug */ = {
+		32593282C97DA491A9C2A5EDE2C876DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EDD81B46F8543DF815B5B0C0DD6747 /* Kushki.xcconfig */;
+			baseConfigurationReference = F670E5B4DE77F48634EE0B64DF037B5C /* Kushki.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -766,10 +770,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -996,9 +1001,9 @@
 			};
 			name = Debug;
 		};
-		F00CD97FCFD1AEFE86CB7B2D1C9F8C99 /* Release */ = {
+		F55EEB868F2B6FF92AE86029DC3D71B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EDD81B46F8543DF815B5B0C0DD6747 /* Kushki.xcconfig */;
+			baseConfigurationReference = F670E5B4DE77F48634EE0B64DF037B5C /* Kushki.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1022,11 +1027,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1036,15 +1040,6 @@
 			buildConfigurations = (
 				7103B712288A2ECE51DC38DB7EB2A1C0 /* Debug */,
 				00DF3DEC49082EC3FCAEC2223FB202DA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0E4AA76603CBF9911D22C88D761B55EB /* Build configuration list for PBXNativeTarget "Kushki" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2C9BE767458036DD2104B46CC455CB1B /* Debug */,
-				F00CD97FCFD1AEFE86CB7B2D1C9F8C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1063,6 +1058,15 @@
 			buildConfigurations = (
 				29F67A524C9C2AF2682AA2BE4FDD0433 /* Debug */,
 				68B7F4B1AD057D24AB48E9EC1F00862D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9603DEEA39953E74E5E8AE41593E67A1 /* Build configuration list for PBXNativeTarget "Kushki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55EEB868F2B6FF92AE86029DC3D71B8 /* Debug */,
+				32593282C97DA491A9C2A5EDE2C876DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

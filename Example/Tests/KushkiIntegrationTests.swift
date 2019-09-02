@@ -15,6 +15,7 @@ class KushkiIntegrationTests: XCTestCase {
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
+    var kushkiTransferSubscription: Kushki?
     var totalAmount: Double?
     var transaction: Transaction?
 
@@ -24,7 +25,8 @@ class KushkiIntegrationTests: XCTestCase {
         totalAmount = 10.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
-        transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        kushkiTransferSubscription = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
+        transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", biometricInfo: [[:]] as AnyObject)
         
     }
 
@@ -124,6 +126,35 @@ class KushkiIntegrationTests: XCTestCase {
         self.waitForExpectations(timeout: 10) { error in
             XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
             XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
+    
+    func testReturnListBank(){
+        var returnedBankList: [Bank] = []
+        let asyncExpectation = expectation(description: "requestBankList")
+        self.kushkiTransferSubscription!.getBankList(){
+            kushkiReturnedBankList in
+            returnedBankList = kushkiReturnedBankList
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertTrue(returnedBankList.count > 0)
+            
+        }
+        
+    }
+    
+    func testRequestSubscriptionTransferToken(){
+        let asyncExpectation = expectation(description: "request subscription transfer token")
+        kushkiTransferSubscription!.requestSubscriptionTransferToken(accountType: "01",accountNumber: "123123123",documentType: "CC",documentNumber: "12312312",totalAmount: 123,bankCode: "123",name: "david1 david2",lastname: "Morales ed",cityCode: "1233",stateCode: "1233",phone: "0989412902",expeditionDate: "12/12/2019",cuestionaryCode: "12") { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertTrue(self.transaction!.isSuccessful())
+            XCTAssertNotNil(self.transaction!.secureId!)
+            XCTAssertNotNil(self.transaction!.secureService!)
+            XCTAssertNotNil(self.transaction!.biometricInfo!)
         }
     }
 }
