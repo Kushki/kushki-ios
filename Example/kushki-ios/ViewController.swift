@@ -20,6 +20,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var IdentificationDocument: UITextField!
     @IBOutlet weak var docTypePicker: UIPickerView!
     @IBOutlet weak var bankPicker: UIPickerView!
+    @IBOutlet weak var Email: UITextField!
     let pickerData = [ "CC" , "NIT" , "CE" , "TI" , "PP" , "RUT"]
     var banks: [Bank] = []
     let publicTransferMerchantId: String? = "20000000100323955000"
@@ -66,7 +67,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
             return
         }
         if(sender.titleLabel?.text == "Request Subscription Transfer Token"){
-            requestSubscriptionTransferToken(name: Name.text!, documentType: pickerData[docTypePicker.selectedRow(inComponent: 0)], documentNumber: IdentificationDocument.text!)
+            requestSubscriptionTransferToken(name: Name.text!, documentType: pickerData[docTypePicker.selectedRow(inComponent: 0)], documentNumber: IdentificationDocument.text!, email: Email.text!)
             
             return
         }
@@ -161,14 +162,14 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
     
-    private func requestSubscriptionTransferToken(name: String, documentType: String, documentNumber: String) {
+    private func requestSubscriptionTransferToken(name: String, documentType: String, documentNumber: String, email: String) {
         
-        kushkiTransfer!.requestSubscriptionTransferToken(accountType: "01", accountNumber: "121212121212", documentType: documentType, documentNumber: documentNumber, totalAmount: 10.0, bankCode: "01", name:"Test Name",  lastname: "test Last Name", cityCode: "17", stateCode: "01", phone: "123456789", expeditionDate: "12/01/1996", cuestionaryCode: "1") { transaction in
+        kushkiTransfer!.requestTransferSubscriptionToken(accountType: "01", accountNumber: "121212121212", documentType: documentType, documentNumber: documentNumber, totalAmount: 10.0, bankCode: "01", name: name,  lastname: "test Last Name", cityCode: "17", stateCode: "01", phone: "123456789", expeditionDate: "12/01/1996", cuestionaryCode: "1", email: email, currency: "USD") { transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
             //                transaction.code + ": " + transaction.message
             DispatchQueue.main.async(execute: {
-                let alert = UIAlertController(title: "Kushki Subscription Token Token",
+                let alert = UIAlertController(title: "Kushki Transfer Subscription",
                                               message: message,
                                               preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))

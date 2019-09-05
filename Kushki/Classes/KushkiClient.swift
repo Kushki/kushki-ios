@@ -67,8 +67,8 @@ class KushkiClient {
                          withTotalAmount totalAmount: Double, withBankCode bankCode: String,
                          withName name: String, withLastName lastName: String, withCityCode cityCode: String,
                          withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
-                         withCuestionaryCode cuestionaryCode:String) -> String{
-        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode)
+                         withCuestionaryCode cuestionaryCode:String, withEmail email: String, withCurrency currency: String) -> String{
+        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode, withEmail: email, withCurrency: currency)
         
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
@@ -147,7 +147,7 @@ class KushkiClient {
                          withTotalAmount totalAmount: Double, withBankCode bankCode: String,
                          withName name: String, withLastName lastName: String, withCityCode cityCode: String,
                          withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
-                         withCuestionaryCode cuestionaryCode:String) -> [String: Any] {
+                         withCuestionaryCode cuestionaryCode:String, withEmail email: String, withCurrency currency: String ) -> [String: Any] {
         let requestDictionary:[String: Any] = [
             "accountType": accountType,
             "accountNumber": accountNumber,
@@ -161,7 +161,9 @@ class KushkiClient {
             "stateCode": stateCode,
             "phone": phone,
             "expeditionDate": expeditionDate,
-            "cuestionaryCode": cuestionaryCode
+            "cuestionaryCode": cuestionaryCode,
+            "email": email,
+            "currency": currency
         ]
         return requestDictionary
         
