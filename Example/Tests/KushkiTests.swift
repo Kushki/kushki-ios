@@ -444,7 +444,7 @@ class KushkiTests: XCTestCase {
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", biometricInfo: [[:]] as AnyObject)
         
-        kushki.requestSubscriptionTransferToken(accountType: "0", accountNumber: "4242424242424242424", documentType: "CC", documentNumber: "171223344556", totalAmount: 10.0, bankCode: "01", name: "Test Name", lastname: "Test lastname", cityCode: "17", stateCode: "01", phone: "09872635142", expeditionDate: "09872635142", cuestionaryCode: "1") {
+        kushki.requestTransferSubscriptionToken(accountType: "0", accountNumber: "4242424242424242424", documentType: "CC", documentNumber: "171223344556", totalAmount: 10.0, bankCode: "01", name: "Test Name", lastname: "Test lastname", cityCode: "17", stateCode: "01", phone: "09872635142", expeditionDate: "09872635142", cuestionaryCode: "1", email: "test@test", currency: "USD") {
             returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
