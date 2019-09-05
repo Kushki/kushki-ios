@@ -158,4 +158,18 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertNotNil(self.transaction!.biometricInfo!)
         }
     }
+    
+    func testRequestSubscriptionFailedTransferToken(){
+        let asyncExpectation = expectation(description: "request subscription transfer token")
+        kushkiTransferSubscription!.requestTransferSubscriptionToken(accountType: "01",accountNumber: "123123123",documentType: "CC",documentNumber: "12312312",totalAmount: 123,bankCode: "123",name: "david1 david2",lastname: "Morales ed",cityCode: "1233",stateCode: "1233",phone: "0989412902",expeditionDate: "12/12/2019",cuestionaryCode: "12", email: "test@test", currency: "USD") { returnedTransaction in
+            self.transaction = returnedTransaction
+            print(returnedTransaction)
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5) { error in
+            XCTAssertFalse(self.transaction!.isSuccessful())
+            XCTAssertEqual(self.transaction?.code, "K014")
+            XCTAssertEqual(self.transaction?.message,"Banco no disponible" )
+        }
+    }
 }
