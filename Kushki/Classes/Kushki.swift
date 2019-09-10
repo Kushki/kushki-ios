@@ -45,4 +45,18 @@ public class Kushki {
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
         
     }
+    
+    public func getBankList(
+        completion: @escaping ([Bank]) -> ()){
+        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/transfer-subscriptions/v1/bankList", withCompletion: completion)
+    }
+    
+    public func requestTransferSubscriptionToken(accountType: String, accountNumber: String, documentType: String, documentNumber: String, totalAmount: Double, bankCode: String, name: String, lastname: String, cityCode: String, stateCode: String, phone: String, expeditionDate: String,cuestionaryCode: String, email: String, currency: String, completion: @escaping (Transaction)->()){
+        let requestMessage = kushkiClient.buildParameters(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastname, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode, withEmail: email, withCurrency: currency)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer-subscriptions/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
+    }
+    
+    
+   
+    
 }
