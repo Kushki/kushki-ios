@@ -16,13 +16,13 @@ public class Kushki {
                              totalAmount: Double,
                              completion: @escaping (Transaction) -> ()) {
         let requestMessage = kushkiClient.buildParameters( withCard: card, withCurrency: self.currency, withAmount: totalAmount)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.token.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
     
     public func requestSubscriptionToken(card: Card,
                                          completion: @escaping (Transaction)->()){
         let requestMessage = kushkiClient.buildParameters(withCard: card, withCurrency: self.currency)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/v1/subscription-tokens", requestMessage: requestMessage, withCompletion: completion)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.subscriptionToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
     
     public func requestTransferToken(amount: Amount, callbackUrl:String,userType:String,documentType:String,
@@ -32,7 +32,7 @@ public class Kushki {
                                                           withUserType: userType,withDocumentType: documentType,
                                                           withDocumentNumber: documentNumber, withEmail: email,
                                                           withCurrency: self.currency)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
         
     }
     public func requestTransferToken(amount: Amount, callbackUrl:String,userType:String,documentType:String,
@@ -42,18 +42,29 @@ public class Kushki {
                                                           withUserType: userType,withDocumentType: documentType,
                                                           withDocumentNumber: documentNumber, withEmail: email,
                                                           withCurrency: self.currency,withPaymentDescription: paymentDescription)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
         
     }
     
     public func getBankList(
         completion: @escaping ([Bank]) -> ()){
-        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/transfer-subscriptions/v1/bankList", withCompletion: completion)
+        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferSubscriptionBankList.rawValue, withCompletion: completion)
     }
     
-    public func requestTransferSubscriptionToken(accountType: String, accountNumber: String, documentType: String, documentNumber: String, totalAmount: Double, bankCode: String, name: String, lastname: String, cityCode: String, stateCode: String, phone: String, expeditionDate: String,cuestionaryCode: String, email: String, currency: String, completion: @escaping (Transaction)->()){
-        let requestMessage = kushkiClient.buildParameters(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastname, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode, withEmail: email, withCurrency: currency)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/transfer-subscriptions/v1/tokens", requestMessage: requestMessage, withCompletion: completion)
+    public func requestTransferSubscriptionToken( accountNumber: String, accountType: String, bankCode: String, documentNumber: String, documentType: String, email: String, lastname: String, name: String, totalAmount: Double, completion: @escaping (Transaction)->()){
+        let requestMessage = kushkiClient.buildParameters( withAccountNumber: accountNumber, withAccountType: accountType, withBankCode: bankCode, withCurrency: self.currency, withDocumentNumber: documentNumber, withDocumentType: documentType, withEmail: email, withLastName: lastname, withName: name, withTotalAmount: totalAmount)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferSubcriptionToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
+    }
+    
+    public func requestSecureValidation( cityCode: String,expeditionDate: String, phone: String,secureService: String, secureServiceId: String,  stateCode: String , completion: @escaping (ConfrontaQuestionnarie)->()){
+        let requestMessage = kushkiClient.buildParameters(withCityCode: cityCode, withExpeditionDate : expeditionDate, withPhone: phone, withSecureService: secureService, withSecureServiceId: secureServiceId, withStateCode : stateCode)
+        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
+    }
+    
+    public func sendAnweredSecureValidationQuestions(answers: [[String: String]], questionnarieCode: String, secureService: String, secureServiceId: String, completion: @escaping (InfoResponse)->()){
+        let requestMessage = kushkiClient.buildParameters(withAnswers: answers, withQuestionnarieCode: questionnarieCode, withSecureService: secureService, withSecureServiceId: secureServiceId)
+        self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint:EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
+        
     }
     
     
