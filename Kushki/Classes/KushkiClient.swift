@@ -204,12 +204,11 @@ class KushkiClient {
     }
     
     func buildJsonObject(withAnswers answers: [[String: String]], withQuestionnarieCode questionnarieCode: String, withSecureService secureService: String, withSecureServiceId secureServiceId: String) -> [String: Any] {
-        let confrontaInfo: [String: Any] = [
-            "confrontaInfo":
+        let confrontaInfo: [String: Any] =
                 ["questionnaireCode": questionnarieCode,
                  "answers": answers,
             ]
-        ]
+        
         let requestDictionary:[String: Any] = [
             
             "secureService": secureService,
@@ -304,7 +303,6 @@ class KushkiClient {
     private func parseValidationQuestionsResponse(jsonResponse: String) -> InfoResponse {
         var code: String = ""
         var message: String = ""
-        
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             if let codeValue = responseDictionary["code"] as? String, let messageValue = responseDictionary["message"] as? String {
                 code = codeValue
