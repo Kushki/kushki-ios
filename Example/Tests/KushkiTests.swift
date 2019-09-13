@@ -37,7 +37,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -69,7 +69,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
         kushki.requestSubscriptionToken(card: card) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -100,7 +100,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -131,7 +131,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com",paymentDescription:"Test JD") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -165,7 +165,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -194,7 +194,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -240,6 +240,8 @@ class KushkiTests: XCTestCase {
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
+    
+    
     
     
     
@@ -300,7 +302,31 @@ class KushkiTests: XCTestCase {
         return dictFromJson!
     }
     
-    
+    private func buildRequestMessageSubscriptionTransfer(withAccountType accountType: String, withAccountNumber accountNumber: String,
+                         withIdentificationType identificationType: String, withIdentificationNumber identificationNumber: String,
+                         withTotalAmount totalAmount: Double, withBankCode bankCode: String,
+                         withName name: String, withLastName lastName: String, withCityCode cityCode: String,
+                         withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
+                         withCuestionaryCode cuestionaryCode:String) -> String {
+        let requestDictionary:[String: Any] = [
+            "accountType": accountType,
+            "accountNumber": accountNumber,
+            "identificationType": identificationType,
+            "identificationNumber": identificationNumber,
+            "totalAmount": totalAmount,
+            "bankCode": bankCode,
+            "name": name,
+            "lastName": lastName,
+            "cityCode": cityCode,
+            "stateCode": stateCode,
+            "phone": phone,
+            "expeditionDate": expeditionDate,
+            "cuestionaryCode": cuestionaryCode
+        ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
+        return dictFromJson!
+    }
     func testTokensWithSettlement() {
         let asyncExpectation = expectation(description: "requestToken with settlement")
         let months = 3
@@ -324,7 +350,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -353,7 +379,7 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = [:]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -362,5 +388,163 @@ class KushkiTests: XCTestCase {
             XCTAssertEqual(transaction.message, "Error inesperado")
             
         }
+    }
+    
+    func testGetBankListAuthorizedToken() {
+        let asyncExpectation = expectation(description: "Get Bank List")
+        let expectedBankList: [Bank] =  [Bank(code:"1", name: "Banco de Bogota" )]
+        var returnedBankList: [Bank] = []
+        
+        let kushki = Kushki(publicMerchantId: "20000000107468104000",
+                            currency: "COP",
+                            environment: KushkiEnvironment.testing_ci,
+                            regional: false)
+        
+        _ = stub(condition: isHost("api-ci.kushkipagos.com")
+            && isPath("/transfer-subscriptions/v1/bankList")
+            && isMethodGET()) {
+                _ in
+                let responseBody = [["name": "Banco de Bogota" , "code": "1" ]]
+                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+    
+        kushki.getBankList(){
+            kushkiReturnedBankList in
+            returnedBankList = kushkiReturnedBankList
+            asyncExpectation.fulfill()
+        }
+     
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(returnedBankList[0].name, expectedBankList[0].name)
+            
+        }
+    }
+    
+    func testGetTokenTransferSubscription(){
+        let asyncExpectation = expectation(description: "Get token subscription transfer")
+        let expectedSecureId = "12345678"
+        let expectedSecureService = "Test secure service"
+        
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/transfer-subscriptions/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                //XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                let responseBody: [String: Any] = [
+                    "token": "12lkj3b1o2kj",
+                    "secureId": "12345678",
+                    "secureService":"Test secure service"
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        
+        kushki.requestTransferSubscriptionToken(accountNumber: "4242424242424242424", accountType: "0", bankCode: "01", documentNumber: "171223344556",  documentType: "CC", email: "test@test", lastname: "Test lastname", name: "Test Name", totalAmount: 10.0) {
+            returnedTransaction in
+            transaction = returnedTransaction
+            
+            asyncExpectation.fulfill()
+        }
+       self.waitForExpectations(timeout: 1) { error in
+            XCTAssertTrue(transaction.isSuccessful())
+            XCTAssertEqual(expectedSecureId, transaction.secureId)
+            XCTAssertEqual(expectedSecureService, transaction.secureService)
+            
+        }
+    }
+    
+    func testGetSecureValidateQuestionsTransferSubscription(){
+        let asyncExpectation = expectation(description: "Get Secure Validate Questions Transfer Subscription")
+        
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/rules/v1/secureValidation")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = [
+                    "code": "BIO010",
+                    "message": "Por favor, complete las preguntas",
+                    "questionnaireCode": "2",
+                    "questions": [
+                    [
+                    "text": "DE LOS SIGUIENTES TELEFONOS INDIQUE CON CUAL USTED HA TENIDO O TIENE ALGUN VINCULO",
+                    "options": [
+                    "516216026",
+                    "516217026",
+                    "516215016",
+                    "NINGUNA DE LAS ANTERIORES"
+                    ],
+                    "id": "1"
+                    ],
+                    [
+                    "text": "EN JULIO DE 2019 SU CUENTA CORRIENTE CON 'BCO POPULAR' ",
+                    "options": [
+                    "ESTABA ABIERTA/VIGENTE",
+                    "ESTABA CANCELADA/SALDADA/CERRADA",
+                    "NUNCA HE TENIDO CUENTA CORRIENTE CON LA ENTIDAD"
+                    ],
+                    "id": "2"
+                    ],
+                    [
+                    "text": "A JULIO DE 2019 EL SALDO DE SU CREDITO HIPOTECARIO CON 'BANCO AV VILLAS (AHORRAMAS)' ESTABA ENTRE",
+                    "options": [
+                    "$144723001-$202612000",
+                    "202612001-$260501000",
+                    "$260501001-$318390000",
+                    "$318390001-$376279000",
+                    "$376279001-$434168000",
+                    "NO TENGO CREDITO HIPOTECARIO CON LA ENTIDAD"
+                    ],
+                    "id": "3"
+                    ]
+                    ]
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        
+        var confrontaQuestionnarie = ConfrontaQuestionnarie(code: "", message: "", questionnarieCode: "", questions: [])
+        kushki.requestSecureValidation(cityCode: "1", expeditionDate:"12/02/2019", phone: "0987654321", secureService: "", secureServiceId: "9b0bfa2d-503c-4075-a04d-58278c7e8ac6" , stateCode: "1") {
+            returnedConfrontaQuestionnarie in
+            confrontaQuestionnarie = returnedConfrontaQuestionnarie
+            asyncExpectation.fulfill()
+       }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertNotNil(confrontaQuestionnarie.questions)
+        }
+        
+    }
+    
+    func testGetSecureValidateAnswersQuestionsTransferSubscription(){
+        let asyncExpectation = expectation(description: "Get Secure Validate Answers to Questions Transfer Subscription")
+        
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/rules/v1/secureValidation")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = ["code": "OK", "message": "All right!" ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var responseSecureValidation: InfoResponse = InfoResponse(code: "", message: "" )
+        kushki.sendAnweredSecureValidationQuestions(answers: [["id": "id", "answer": "1"],["id": "id","answer":"2"],["id": "id","answer": "3"]], questionnarieCode: "2", secureService: "1", secureServiceId: "123456789") {
+            returnedBiometricInfoResponse in
+            responseSecureValidation = returnedBiometricInfoResponse
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertTrue(responseSecureValidation.code == "OK")
+            XCTAssertTrue(responseSecureValidation.message == "All right!")
+        }
+        
     }
 }
