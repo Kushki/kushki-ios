@@ -35,10 +35,11 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
         documentTypePicker.dataSource = self
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
                                  currency: "COP",
-                                 environment: KushkiEnvironment.testing_ci)
+                                 environment: KushkiEnvironment.testing_qa)
         kushkiTransfer!.getBankList(){
             returnedBankList in
             self.banks = returnedBankList
+            print(returnedBankList)
             self.bankListPicker.reloadAllComponents()
         }
     }
