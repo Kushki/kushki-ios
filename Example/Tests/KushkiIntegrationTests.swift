@@ -181,12 +181,10 @@ class KushkiIntegrationTests: XCTestCase {
         var message: String = ""
         kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "0987654321", accountType: "01", bankCode: "1", documentNumber: "09876543210", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "Bryan", totalAmount: 25.0){
             returnedTransaction in
-            print(returnedTransaction)
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
             self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
-                print(returnedConfrontaQuestionarie)
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
                     [
@@ -202,9 +200,8 @@ class KushkiIntegrationTests: XCTestCase {
                         "answer": "3"
                     ]
                 ]
-                self.kushkiTransferSubscriptionUAT?.sendAnweredSecureValidationQuestions(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
-                    print(returnedInfo)
                     code = returnedInfo.code
                     message = returnedInfo.message
                     asyncExpectation.fulfill()
@@ -227,12 +224,10 @@ class KushkiIntegrationTests: XCTestCase {
         var message: String = ""
         kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "0987654321", accountType: "01", bankCode: "1", documentNumber: "09876543210", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "Bryan", totalAmount: 25.0){
             returnedTransaction in
-            print(returnedTransaction)
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
             self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
-                print(returnedConfrontaQuestionarie)
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
                     [
@@ -248,9 +243,8 @@ class KushkiIntegrationTests: XCTestCase {
                         "answer": "1"
                     ]
                 ]
-                self.kushkiTransferSubscriptionUAT?.sendAnweredSecureValidationQuestions(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
-                    print(returnedInfo)
                     code = returnedInfo.code
                     message = returnedInfo.message
                     asyncExpectation.fulfill()

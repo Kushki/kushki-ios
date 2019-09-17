@@ -509,7 +509,7 @@ class KushkiTests: XCTestCase {
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         
-        var confrontaQuestionnarie = ConfrontaQuestionnarie(code: "", message: "", questionnarieCode: "", questions: [])
+        var confrontaQuestionnarie = ConfrontaResponse(code: "", message: "", questionnarieCode: "", questions: [])
         kushki.requestSecureValidation(cityCode: "1", expeditionDate:"12/02/2019", phone: "0987654321", secureService: "", secureServiceId: "9b0bfa2d-503c-4075-a04d-58278c7e8ac6" , stateCode: "1") {
             returnedConfrontaQuestionnarie in
             confrontaQuestionnarie = returnedConfrontaQuestionnarie
@@ -535,8 +535,10 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = ["code": "OK", "message": "All right!" ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var responseSecureValidation: InfoResponse = InfoResponse(code: "", message: "" )
-        kushki.sendAnweredSecureValidationQuestions(answers: [["id": "id", "answer": "1"],["id": "id","answer":"2"],["id": "id","answer": "3"]], questionnarieCode: "2", secureService: "1", secureServiceId: "123456789") {
+        var questionsOptions: ConfrontaQuestionOptions = ConfrontaQuestionOptions(text: "", id: "")
+        var questionnarie: ConfrontaQuestionnarie = ConfrontaQuestionnarie(id: "", text: "", options: [questionsOptions])
+        var responseSecureValidation: ConfrontaResponse = ConfrontaResponse(code: "", message: "", questionnarieCode: "", questions: [questionnarie] )
+        kushki.requestSecureValidation(answers: [["id": "id", "answer": "1"],["id": "id","answer":"2"],["id": "id","answer": "3"]], questionnarieCode: "2", secureService: "1", secureServiceId: "123456789") {
             returnedBiometricInfoResponse in
             responseSecureValidation = returnedBiometricInfoResponse
             asyncExpectation.fulfill()

@@ -14,18 +14,12 @@ class KushkiClient {
         }
     }
     
-    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (ConfrontaQuestionnarie) -> ()){
+    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (ConfrontaResponse) -> ()){
         showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { response in
             completion(self.parseValidationResponse(jsonResponse: response))
         }
     }
-    
-    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (InfoResponse) -> ()){
-        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { response in
-            completion(self.parseValidationQuestionsResponse(jsonResponse: response))
-        }
-    }
-    
+ 
     func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping ([Bank]) -> ()) {
         showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) {
             bankList in
@@ -273,11 +267,11 @@ class KushkiClient {
         return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService)
     }
     
-    private func parseValidationResponse(jsonResponse: String) -> ConfrontaQuestionnarie {
+    private func parseValidationResponse(jsonResponse: String) -> ConfrontaResponse {
         var code: String = "BIO010 "
         var message: String = ""
         var questionnarieCode: String = ""
-        var questions: [[String: Any]] = []
+        var questionnarie: [ConfrontaQuestionnarie] = []
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             if let codeValue = responseDictionary["code"] as? String{
                 code = codeValue
@@ -292,28 +286,43 @@ class KushkiClient {
             if let questionnarieCodeValue = responseDictionary["questionnaireCode"] as? String{
                 questionnarieCode = questionnarieCodeValue
             }
-            if let questionsValue = responseDictionary["questions"] as? [[String: Any]]{
-                questions = questionsValue
-            }
+            if let questionsValue = responseDictionary["questions"] as? [AnyObject]{
             
-        }
-        return ConfrontaQuestionnarie(code: code, message: message, questionnarieCode: questionnarieCode, questions: questions)
-    }
-    
-    private func parseValidationQuestionsResponse(jsonResponse: String) -> InfoResponse {
-        var code: String = ""
-        var message: String = ""
-        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
-            if let codeValue = responseDictionary["code"] as? String, let messageValue = responseDictionary["message"] as? String {
-                code = codeValue
-                message = messageValue
+                for question in questionsValue {
+                    
+                    var id: String = ""
+                    var text: String = ""
+                    var options: [ConfrontaQuestionOptions] = []
+                    
+                    if let idValue = question["id"] as? String{
+                        id = idValue
+                    }
+                    if let textValue = question["text"] as? String{
+                        text = textValue
+                    }
+                    if let optionsValues = question["options"] as? [AnyObject]{
+                        
+                        for option in optionsValues{
+                            
+                            var textOption: String = ""
+                            var idOption: String = ""
+                            
+                            if let textOptionValue = option["text"] as? String{
+                                textOption = textOptionValue
+                            }
+                            if let idOptionValue = option["id"] as? String{
+                                idOption = idOptionValue
+                            }
+                            let confrontaOptionValue: ConfrontaQuestionOptions = ConfrontaQuestionOptions(text: textOption, id: idOption)
+                            options.append(confrontaOptionValue)
+                        }
+                        
+                    }
+                    questionnarie.append(ConfrontaQuestionnarie(id: id, text: text, options: options))
+                }
             }
-            else {
-                code = responseDictionary["code"] as? String ?? "001"
-                message = responseDictionary["message"] as? String ?? "Error inesperado"
-            }
         }
-        return InfoResponse(code: code, message: message)
+        return ConfrontaResponse(code: code, message: message, questionnarieCode: questionnarieCode, questions: questionnarie)
     }
     
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary

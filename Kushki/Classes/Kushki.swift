@@ -56,12 +56,12 @@ public class Kushki {
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferSubcriptionToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
     
-    public func requestSecureValidation( cityCode: String,expeditionDate: String, phone: String,secureService: String, secureServiceId: String,  stateCode: String , completion: @escaping (ConfrontaQuestionnarie)->()){
+    public func requestSecureValidation( cityCode: String,expeditionDate: String, phone: String,secureService: String, secureServiceId: String,  stateCode: String , completion: @escaping (ConfrontaResponse)->()){
         let requestMessage = kushkiClient.buildParameters(withCityCode: cityCode, withExpeditionDate : expeditionDate, withPhone: phone, withSecureService: secureService, withSecureServiceId: secureServiceId, withStateCode : stateCode)
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
     
-    public func sendAnweredSecureValidationQuestions(answers: [[String: String]], questionnarieCode: String, secureService: String, secureServiceId: String, completion: @escaping (InfoResponse)->()){
+    public func requestSecureValidation(answers: [[String: String]], questionnarieCode: String, secureService: String, secureServiceId: String, completion: @escaping (ConfrontaResponse)->()){
         let requestMessage = kushkiClient.buildParameters(withAnswers: answers, withQuestionnarieCode: questionnarieCode, withSecureService: secureService, withSecureServiceId: secureServiceId)
         self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint:EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
         

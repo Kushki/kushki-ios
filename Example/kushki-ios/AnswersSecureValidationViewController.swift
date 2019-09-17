@@ -40,7 +40,7 @@ class AnswersSecureValidationViewController: UIViewController {
                 "answer": answer3Field.text!
             ]
         ]
-        kushkiTransfer!.sendAnweredSecureValidationQuestions(answers: answers, questionnarieCode: questionnarieCodeField.text!, secureService: secureServiceField.text!, secureServiceId: secureServiceIdField.text!){
+        kushkiTransfer!.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCodeField.text!, secureService: secureServiceField.text!, secureServiceId: secureServiceIdField.text!){
             responseObject in
             let message = responseObject.isSuccessful() ?
                 responseObject.message : responseObject.code + ": " + responseObject.message
