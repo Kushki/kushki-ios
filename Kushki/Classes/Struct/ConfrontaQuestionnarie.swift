@@ -1,18 +1,12 @@
 public struct ConfrontaQuestionnarie{
-    public let code: String
-    public let message: String
-    public let questionnarieCode: String
-    public let questions: [[String:Any]]
+    public let id: String
+    public let text: String
+    public let options: [ConfrontaQuestionOptions]
     
-    init(code: String, message: String, questionnarieCode: String, questions: [[String: Any]]) {
-        self.code = code
-        self.message = message
-        self.questionnarieCode = questionnarieCode
-        self.questions = questions
+    init(id: String, text: String, options: [ConfrontaQuestionOptions]) {
+        self.text = text
+        self.options = options
+        self.id = id
     }
-    
-    public func isSuccessful() -> Bool {
-        return (code == "BIO010")
-    }
-}
 
+}
