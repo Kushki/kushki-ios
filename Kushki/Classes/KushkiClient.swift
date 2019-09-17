@@ -14,6 +14,18 @@ class KushkiClient {
         }
     }
     
+    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (ConfrontaQuestionnarie) -> ()){
+        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { response in
+            completion(self.parseValidationResponse(jsonResponse: response))
+        }
+    }
+    
+    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (InfoResponse) -> ()){
+        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { response in
+            completion(self.parseValidationQuestionsResponse(jsonResponse: response))
+        }
+    }
+    
     func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping ([Bank]) -> ()) {
         showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) {
             bankList in
@@ -62,14 +74,26 @@ class KushkiClient {
         return dictFromJson!
     }
     
-    func buildParameters(withAccountType accountType: String, withAccountNumber accountNumber: String,
-                         withDocumentType documentType: String, withDocumentNumber documentNumber: String,
-                         withTotalAmount totalAmount: Double, withBankCode bankCode: String,
-                         withName name: String, withLastName lastName: String, withCityCode cityCode: String,
-                         withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
-                         withCuestionaryCode cuestionaryCode:String, withEmail email: String, withCurrency currency: String) -> String{
-        let requestDictionary = buildJsonObject(withAccountType: accountType, withAccountNumber: accountNumber, withDocumentType: documentType, withDocumentNumber: documentNumber, withTotalAmount: totalAmount, withBankCode: bankCode, withName: name, withLastName: lastName, withCityCode: cityCode, withStateCode: stateCode, withPhone: phone, withExpeditionDate: expeditionDate, withCuestionaryCode: cuestionaryCode, withEmail: email, withCurrency: currency)
+    func buildParameters(
+        withAccountNumber accountNumber: String, withAccountType accountType: String, withBankCode bankCode: String, withCurrency currency: String, withDocumentNumber documentNumber: String, withDocumentType documentType: String, withEmail email: String, withLastName lastName: String, withName name: String, withTotalAmount totalAmount: Double) -> String{
+        let requestDictionary = buildJsonObject(withAccountNumber: accountNumber, withAccountType: accountType, withBankCode: bankCode, withCurrency: currency , withDocumentNumber: documentNumber, withDocumentType: documentType, withEmail: email, withLastName: lastName, withName: name, withTotalAmount: totalAmount)
         
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    func buildParameters(
+        withCityCode cityCode: String, withExpeditionDate expeditionDate: String, withPhone phone: String, withSecureService secureService: String,withSecureServiceId secureServiceId: String, withStateCode stateCode: String) -> String{
+        let requestDictionary = buildJsonObject(withCityCode: cityCode, withExpeditionDate: expeditionDate, withPhone: phone, withSecureService: secureService, withSecureServiceId: secureServiceId, withStateCode: stateCode)
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    func buildParameters(withAnswers answers: [[String: String]], withQuestionnarieCode questionnarieCode: String, withSecureService secureService: String, withSecureServiceId secureServiceId: String) -> String{
+        let requestDictionary = buildJsonObject(withAnswers: answers, withQuestionnarieCode: questionnarieCode, withSecureService: secureService, withSecureServiceId: secureServiceId)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
         return dictFromJson!
@@ -142,32 +166,60 @@ class KushkiClient {
         return requestDictionary        
     }
     
-    func buildJsonObject(withAccountType accountType: String, withAccountNumber accountNumber: String,
-                         withDocumentType documentType: String, withDocumentNumber documentNumber: String,
-                         withTotalAmount totalAmount: Double, withBankCode bankCode: String,
-                         withName name: String, withLastName lastName: String, withCityCode cityCode: String,
-                         withStateCode stateCode:String, withPhone phone: String, withExpeditionDate expeditionDate: String,
-                         withCuestionaryCode cuestionaryCode:String, withEmail email: String, withCurrency currency: String ) -> [String: Any] {
+    func buildJsonObject( withAccountNumber accountNumber: String, withAccountType accountType: String, withBankCode bankCode: String, withCurrency currency: String, withDocumentNumber documentNumber: String, withDocumentType documentType: String, withEmail email: String, withLastName lastName: String, withName name: String, withTotalAmount totalAmount: Double) -> [String: Any] {
         let requestDictionary:[String: Any] = [
-            "accountType": accountType,
             "accountNumber": accountNumber,
-            "documentType": documentType,
-            "documentNumber": documentNumber,
-            "totalAmount": totalAmount,
+            "accountType": accountType,
             "bankCode": bankCode,
-            "name": name,
-            "lastName": lastName,
-            "cityCode": cityCode,
-            "stateCode": stateCode,
-            "phone": phone,
-            "expeditionDate": expeditionDate,
-            "cuestionaryCode": cuestionaryCode,
+            "currency": currency,
+            "documentNumber": documentNumber,
+            "documentType": documentType,
             "email": email,
-            "currency": currency
+            "lastName": lastName,
+            "name": name,
+            "totalAmount": totalAmount,
         ]
         return requestDictionary
         
     }
+    
+    func buildJsonObject( withCityCode cityCode: String, withExpeditionDate expeditionDate: String, withPhone phone: String, withSecureService secureService: String,withSecureServiceId secureServiceId: String, withStateCode stateCode: String) -> [String: Any] {
+        let confrontaInfo: [String: Any] = [
+            "confrontaBiometrics":
+                [
+                    "cityCode": cityCode,
+                    "stateCode": stateCode,
+                    "phone": phone,
+                    "expeditionDate": expeditionDate
+                ]
+        ]
+        
+        let requestDictionary:[String: Any] = [
+            "secureServiceId": secureServiceId,
+            "secureService": secureService,
+            "confrontaInfo": confrontaInfo
+        ]
+        return requestDictionary
+        
+    }
+    
+    func buildJsonObject(withAnswers answers: [[String: String]], withQuestionnarieCode questionnarieCode: String, withSecureService secureService: String, withSecureServiceId secureServiceId: String) -> [String: Any] {
+        let confrontaInfo: [String: Any] =
+                ["questionnaireCode": questionnarieCode,
+                 "answers": answers,
+            ]
+        
+        let requestDictionary:[String: Any] = [
+            
+            "secureService": secureService,
+            "secureServiceId": secureServiceId,
+            "confrontaInfo": confrontaInfo
+           
+        ]
+        return requestDictionary
+        
+    }
+    
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
@@ -195,7 +247,6 @@ class KushkiClient {
         var settlement: Double?
         var secureId: String?
         var secureService: String?
-        var biometricInfo: AnyObject?
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             if let tokenValue = responseDictionary["token"] as? String {
                 token = tokenValue
@@ -213,19 +264,57 @@ class KushkiClient {
             if let secureServiceValue = responseDictionary["secureService"] as? String{
                 secureService = secureServiceValue
             }
-            if let biometricInfoValue = responseDictionary["secureService"]{
-                biometricInfo = biometricInfoValue
-            }
             
         }
         else {
             code = "002"
             message = "Hubo un error inesperado, intenta nuevamente"
         }
-        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService, biometricInfo: biometricInfo)
+        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService)
     }
     
-   
+    private func parseValidationResponse(jsonResponse: String) -> ConfrontaQuestionnarie {
+        var code: String = "BIO010 "
+        var message: String = ""
+        var questionnarieCode: String = ""
+        var questions: [[String: Any]] = []
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let codeValue = responseDictionary["code"] as? String{
+                code = codeValue
+            }
+            else{
+                code = "E002"
+                message = "Ocurrió un error inesperado"
+            }
+            if let messageValue = responseDictionary["message"] as? String{
+                message = messageValue
+            }
+            if let questionnarieCodeValue = responseDictionary["questionnaireCode"] as? String{
+                questionnarieCode = questionnarieCodeValue
+            }
+            if let questionsValue = responseDictionary["questions"] as? [[String: Any]]{
+                questions = questionsValue
+            }
+            
+        }
+        return ConfrontaQuestionnarie(code: code, message: message, questionnarieCode: questionnarieCode, questions: questions)
+    }
+    
+    private func parseValidationQuestionsResponse(jsonResponse: String) -> InfoResponse {
+        var code: String = ""
+        var message: String = ""
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let codeValue = responseDictionary["code"] as? String, let messageValue = responseDictionary["message"] as? String {
+                code = codeValue
+                message = messageValue
+            }
+            else {
+                code = responseDictionary["code"] as? String ?? "001"
+                message = responseDictionary["message"] as? String ?? "Error inesperado"
+            }
+        }
+        return InfoResponse(code: code, message: message)
+    }
     
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
     private func convertStringToDictionary(_ string: String) -> [String:AnyObject]? {

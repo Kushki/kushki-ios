@@ -18,6 +18,12 @@
 		AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */; };
 		AFF155E41DAC3B1100BC21EA /* Kushki in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* Kushki */; };
 		AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF155E51DAC3B5000BC21EA /* ViewController.swift */; };
+		E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4035B332328698900A2A5EC /* TokenRequestViewController.swift */; };
+		E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */; };
+		E40BC5E3232952E20056B58C /* TransferTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */; };
+		E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */; };
+		E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */; };
+		E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; };
 		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E4035B332328698900A2A5EC /* TokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestViewController.swift; sourceTree = "<group>"; };
+		E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTokenViewController.swift; sourceTree = "<group>"; };
+		E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTokenViewController.swift; sourceTree = "<group>"; };
+		E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSubscriptionViewController.swift; sourceTree = "<group>"; };
+		E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSecureValidationViewController.swift; sourceTree = "<group>"; };
+		E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersSecureValidationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,7 @@
 		607FACD21AFB9204008FA782 /* Example for kushki-ios */ = {
 			isa = PBXGroup;
 			children = (
+				E4035B322328695200A2A5EC /* Controllers */,
 				AFF155E51DAC3B5000BC21EA /* ViewController.swift */,
 				AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -161,6 +174,19 @@
 				C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4035B322328695200A2A5EC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4035B332328698900A2A5EC /* TokenRequestViewController.swift */,
+				E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */,
+				E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */,
+				E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */,
+				E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */,
+				E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		E7AB61346A0290757675843B /* Frameworks */ = {
@@ -362,7 +388,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */,
+				E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */,
+				E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */,
+				E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */,
 				AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */,
+				E40BC5E3232952E20056B58C /* TransferTokenViewController.swift in Sources */,
+				E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
