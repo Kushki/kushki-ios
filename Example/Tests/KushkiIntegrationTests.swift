@@ -259,4 +259,38 @@ class KushkiIntegrationTests: XCTestCase {
         }
         
     }
+    
+    func testRequestCashToken(){
+        let asyncExpectation = expectation(description: "Get cash token with valid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "MXN",
+                            environment: KushkiEnvironment.testing)
+         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotEqual(transaction.token, "")
+        }
+    }
+    
+    func testRequestCashTokenWithInvalidParams(){
+        let asyncExpectation = expectation(description: "Get cash token with invalid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "MXN",
+                            environment: KushkiEnvironment.testing)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        kushki.requestCashToken(name: "Test name", lastName: "", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertEqual(transaction.token, "")
+            XCTAssertEqual(transaction.code, "C001")
+            XCTAssertEqual(transaction.message, "Cuerpo de la petición inválido.")
+        }
+    }
 }
