@@ -1,0 +1,81 @@
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import groovy.json.JsonSlurper;
+
+ node {
+
+    def projectName =  determineRepoName()
+    def projectGit = "Kushki/${projectName}"
+    def ENVIRONMENT = ""
+    def PULL_REQUEST = env.BUILD_ID
+    def CHANGE_BRANCH = env.BRANCH_NAME
+    def CHANGE_TARGET = ("${env.BRANCH_NAME}".contains("release")||"${env.BRANCH_NAME}".contains("hotfix")) ? "master" : "release";
+
+    sh "echo ${projectName} - ${projectGit}"
+       if ("${CHANGE_TARGET}".contains("release")) {
+            ENVIRONMENT = "ci"
+        }
+        if ("${CHANGE_TARGET}".contains("master")) {
+            ENVIRONMENT = "qa"
+        }
+
+   stage('Pull') {
+             sh("printenv")
+             git branch: "${CHANGE_BRANCH}", url: "git@github.com:${projectGit}.git"
+             sh "git rev-parse HEAD > .git/commit-id"
+             commit_id = readFile('.git/commit-id')
+             commit_id = commit_id.split("\n")[0]
+             sh "rm -f .tmp || true"
+             sh "git show --format='%ae' $commit_id  > .git/commit-author"
+             GIT_AUTHOR_EMAIL  = readFile('.git/commit-author')
+             GIT_AUTHOR_EMAIL = GIT_AUTHOR_EMAIL.split("\n")[0]
+
+        }
+    stage('Build & Unit Test & Integration Test') {
+        parallel(
+          createCIArtifact:{
+          if ("${CHANGE_TARGET}".contains("release")) {
+                withCredentials([ string(credentialsId: 'awsUser', variable: 'awsUser')]) {
+          awsCodeBuild artifactLocationOverride: 'artifact-build', artifactNameOverride: "${commit_id}.zip", artifactNamespaceOverride: "NONE", artifactPackagingOverride: 'ZIP', artifactPathOverride: "ci/${projectName}/PR${PULL_REQUEST}/", artifactTypeOverride: 'S3',  awsAccessKey: 'awsUser', awsSecretKey: "$awsUser", buildSpecFile: '', buildTimeoutOverride: '45', credentialsId: 'awsCodeBuildCredentialOK', credentialsType: 'jenkins',  envVariables: "[ { USRV_STAGE, ci }, {USRV_COMMIT, $commit_id}, {USRV_BRANCH,$CHANGE_BRANCH} ]", gitCloneDepthOverride: '', projectName: 'usrv_back_ios_build', proxyHost: '', proxyPort: '', region: 'us-east-1', sourceControlType: 'jenkins', sourceVersion: '', sseAlgorithm: 'AES256'
+          }}},
+          createSTGArtifact:{
+          if ("${CHANGE_TARGET}".contains("master")) {
+                withCredentials([ string(credentialsId: 'awsUser', variable: 'awsUser')]) {
+          awsCodeBuild artifactLocationOverride: 'artifact-build', artifactNameOverride: "${commit_id}.zip", artifactNamespaceOverride: "NONE", artifactPackagingOverride: 'ZIP', artifactPathOverride: "ci/${projectName}/PR${PULL_REQUEST}/", artifactTypeOverride: 'S3',  awsAccessKey: 'awsUser', awsSecretKey: "$awsUser", buildSpecFile: '', buildTimeoutOverride: '45', credentialsId: 'awsCodeBuildCredentialOK', credentialsType: 'jenkins',  envVariables: "[ { USRV_STAGE, ci }, {USRV_COMMIT, $commit_id}, {USRV_BRANCH,$CHANGE_BRANCH} ]", gitCloneDepthOverride: '', projectName: 'usrv_ios_build', proxyHost: '', proxyPort: '', region: 'us-east-1', sourceControlType: 'jenkins', sourceVersion: '', sseAlgorithm: 'AES256'
+          } }
+          },
+          createQAArtifact:{
+          if ("${CHANGE_TARGET}".contains("master")) {
+                withCredentials([ string(credentialsId: 'awsUser', variable: 'awsUser')]) {
+          awsCodeBuild artifactLocationOverride: 'artifact-build', artifactNameOverride: "${commit_id}.zip", artifactNamespaceOverride: "NONE", artifactPackagingOverride: 'ZIP', artifactPathOverride: "ci/${projectName}/PR${PULL_REQUEST}/", artifactTypeOverride: 'S3',  awsAccessKey: 'awsUser', awsSecretKey: "$awsUser", buildSpecFile: '', buildTimeoutOverride: '45', credentialsId: 'awsCodeBuildCredentialOK', credentialsType: 'jenkins',  envVariables: "[ { USRV_STAGE, ci }, {USRV_COMMIT, $commit_id}, {USRV_BRANCH,$CHANGE_BRANCH} ]", gitCloneDepthOverride: '', projectName: 'usrv_back_ios_build', proxyHost: '', proxyPort: '', region: 'us-east-1', sourceControlType: 'jenkins', sourceVersion: '', sseAlgorithm: 'AES256'
+          } }
+          }
+          )
+    }
+    stage('Notify Rollbar') {
+      notifyRollbar(ENVIRONMENT,projectName, commit_id, GIT_AUTHOR_EMAIL)
+}
+}
+
+String determineRepoName() {
+    return "${env.JOB_NAME}".tokenize('/')[1]
+}
+
+def notifyRollbar(String environment, String projectName, String commit_id, String GIT_AUTHOR_EMAIL ){
+
+             sh "aws ssm get-parameters --names /${environment}/${projectName}/ROLLBAR_TOKEN --region us-east-1 --query \"Parameters[0].Value\" > .tmp"
+             def ROLLBAR_TOKEN  = readFile('.tmp')
+             ROLLBAR_TOKEN = ROLLBAR_TOKEN.split("\n")[0]
+             stage('Notify Rollbar') {
+             withCredentials([ string(credentialsId: 'awsUser', variable: 'awsUser')]) {
+       sh """
+                curl --fail -X POST https://api.rollbar.com/api/1/deploy/ \
+                   -F access_token=$ROLLBAR_TOKEN \
+                   -F environment=$environment \
+                   -F revision=$commit_id \
+                   -F local_username=$GIT_AUTHOR_EMAIL
+            """
+        }
+        }
+
+}
