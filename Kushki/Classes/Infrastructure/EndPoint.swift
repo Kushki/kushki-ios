@@ -5,4 +5,5 @@ public enum EndPoint: String {
     case transferSubscriptionBankList = "/transfer-subscriptions/v1/bankList"
     case transferSubcriptionToken = "/transfer-subscriptions/v1/tokens"
     case transferSubscriptionSecureValidation = "/rules/v1/secureValidation"
+    case cashToken = "/cash/v1/tokens"
 }
