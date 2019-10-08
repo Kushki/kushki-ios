@@ -549,4 +549,60 @@ class KushkiTests: XCTestCase {
         }
         
     }
+    
+    func testGetCashToken(){
+        let asyncExpectation = expectation(description: "Get cash token with valid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "MXN",
+                            environment: KushkiEnvironment.testing)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/cash/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = ["token": "12345"]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        
+        kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotNil(transaction.token)
+            XCTAssertEqual(transaction.token, "12345")
+        }
+    }
+    
+    func testGetCashTokenWithInvalidParams(){
+        let asyncExpectation = expectation(description: "Get cash token with invalid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "MXN",
+                            environment: KushkiEnvironment.testing)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/cash/v1/tokens")
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = ["code": "K001", "message": "Cuerpo de petición inválido"]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        
+        kushki.requestCashToken(name: "Test name", lastName: "", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotNil(transaction.code)
+            XCTAssertNotNil(transaction.message)
+            XCTAssertEqual(transaction.code, "K001")
+        }
+    }
+    
+    
+    
 }

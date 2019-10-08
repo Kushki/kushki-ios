@@ -19,7 +19,7 @@ class QuestionsSecureValidationViewController: UIViewController {
     @IBOutlet weak var expeditionDateField: UITextField!
     @IBOutlet weak var ResponseView: UITextView!
     var kushkiTransfer : Kushki?
-    let publicTransferMerchantId: String? = "20000000102183993000"
+    let publicTransferMerchantId: String? = "20000000107468104000"
     override func viewDidLoad() {
         super.viewDidLoad()
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
