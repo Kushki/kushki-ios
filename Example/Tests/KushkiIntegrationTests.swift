@@ -299,4 +299,40 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertEqual(transaction.message, "Cuerpo de la petición inválido.")
         }
     }
+    
+    func testGetCardAsyncToken(){
+        let asyncExpectation = expectation(description: "Get card async token")
+        let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing_ci)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+       
+        kushki.requestCardAsyncToken(description: "test", email: "test@test.com", returnUrl: "www.test.com", totalAmount: 100 ){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotNil(transaction.token)
+        }
+    }
+    
+    func testGetCardInfo(){
+        let asyncExpectation = expectation(description: "Get card info")
+        let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_ci)
+        var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
+        kushki.getCardInfo(cardNumber: "4657754242424242"){
+            returnedCardInfo in
+            cardInfo = returnedCardInfo
+            print(returnedCardInfo)
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){
+            error in
+            XCTAssertNotEqual(cardInfo.bank, "")
+            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+        }
+    }
 }
