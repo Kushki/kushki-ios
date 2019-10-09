@@ -25,6 +25,8 @@
 		E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */; };
 		E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */; };
 		E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */; };
+		E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */; };
+		E4AF00DD234D2BDD002C3B75 /* GetCardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSubscriptionViewController.swift; sourceTree = "<group>"; };
 		E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSecureValidationViewController.swift; sourceTree = "<group>"; };
 		E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersSecureValidationViewController.swift; sourceTree = "<group>"; };
+		E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAsyncTokenRequestViewController.swift; sourceTree = "<group>"; };
+		E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 				E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */,
 				E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */,
 				E407F712233A80AB00340214 /* CashTokenViewController.swift */,
+				E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */,
+				E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -392,11 +398,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */,
+				E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */,
 				E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */,
 				E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */,
 				E407F713233A80AB00340214 /* CashTokenViewController.swift in Sources */,
 				E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */,
 				AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */,
+				E4AF00DD234D2BDD002C3B75 /* GetCardInfoViewController.swift in Sources */,
 				E40BC5E3232952E20056B58C /* TransferTokenViewController.swift in Sources */,
 				E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

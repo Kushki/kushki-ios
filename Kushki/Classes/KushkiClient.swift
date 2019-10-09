@@ -27,6 +27,13 @@ class KushkiClient {
         }
     }
     
+    func get(withMerchantId publicMerchantId: String, endpoint: String, withParam param: String , withCompletion completion: @escaping (CardInfo) -> ()) {
+        showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint, param: param) {
+            cardInfo in
+            completion(self.parseGetCardInfoResponse(jsonResponse: cardInfo))
+        }
+    }
+    
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -95,6 +102,13 @@ class KushkiClient {
     
     func buildParameters(withName name : String, withLastName lastName: String, withIdentification identification: String, withTotalAmount totalAmount: Double, withCurrency currency: String, withEmail email: String) -> String{
         let requestDictionary = buildJsonObject(withName: name, withLastName: lastName, withIdentification: identification, withTotalAmount: totalAmount, withCurrency: currency, withEmail: email)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    func buildParameters(withCurrency currency: String, withDescription description : String, withEmail email: String, withReturnUrl returnUrl: String, withTotalAmount totalAmount: Double) -> String{
+        let requestDictionary = buildJsonObject(withCurrency: currency, withDescription: description, withEmail: email, withReturnUrl: returnUrl, withTotalAmount: totalAmount)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
         return dictFromJson!
@@ -229,6 +243,18 @@ class KushkiClient {
             "totalAmount": totalAmount,
             "currency": currency,
             "email": email,
+        ]
+        return requestDictionary
+        
+    }
+    
+    func buildJsonObject(withCurrency currency: String, withDescription description : String, withEmail email: String, withReturnUrl returnUrl: String, withTotalAmount totalAmount: Double) -> [String: Any] {
+        let requestDictionary:[String: Any] = [
+            "currency": currency,
+            "description": description,
+            "email": email,
+            "returnUrl": returnUrl,
+            "totalAmount": totalAmount
         ]
         return requestDictionary
         
@@ -386,6 +412,23 @@ class KushkiClient {
         task.resume()
     }
     
+    private func showHttpGetResponse(withMerchantId publicMerchantId: String, endpoint: String, param:String , withCompletion completion: @escaping (String) -> ()) {
+        
+        let url = URL(string: self.environment.rawValue + endpoint + param)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
+        let task = URLSession.shared.dataTask (with: request) { data, response, error in
+            if let theError = error {
+                print(theError.localizedDescription)
+                return
+            }
+            let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
+            completion(responseBody)
+        }
+        task.resume()
+    }
+    
     private func parseGetBankListResponse(jsonResponse: String)   -> [Bank] {
         
         var bankList: [Bank] = []
@@ -406,5 +449,23 @@ class KushkiClient {
         return bankList;
     }
     
+    private func parseGetCardInfoResponse(jsonResponse: String)   -> CardInfo {
+        
+        var bank = ""
+        var brand = ""
+        var cardType = ""
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let bankValue = (responseDictionary["bank"] as? String){
+                bank = bankValue
+            }
+            if let brandValue = (responseDictionary["brand"] as? String){
+                brand = brandValue
+            }
+            if let cardTypeValue = (responseDictionary["cardType"] as? String){
+                cardType = cardTypeValue
+            }
+        }
+        return CardInfo(bank: bank, brand: brand, cardType: cardType)
+    }
 
 }
