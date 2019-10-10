@@ -93,6 +93,13 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withName name : String, withLastName lastName: String, withIdentification identification: String, withTotalAmount totalAmount: Double, withCurrency currency: String, withEmail email: String) -> String{
+        let requestDictionary = buildJsonObject(withName: name, withLastName: lastName, withIdentification: identification, withTotalAmount: totalAmount, withCurrency: currency, withEmail: email)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
     
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
@@ -209,6 +216,19 @@ class KushkiClient {
             "secureServiceId": secureServiceId,
             "confrontaInfo": confrontaInfo
            
+        ]
+        return requestDictionary
+        
+    }
+    
+    func buildJsonObject( withName name : String, withLastName lastName: String, withIdentification identification: String, withTotalAmount totalAmount: Double, withCurrency currency: String, withEmail email: String) -> [String: Any] {
+        let requestDictionary:[String: Any] = [
+            "name": name,
+            "lastName": lastName,
+            "identification": identification,
+            "totalAmount": totalAmount,
+            "currency": currency,
+            "email": email,
         ]
         return requestDictionary
         

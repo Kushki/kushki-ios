@@ -67,6 +67,11 @@ public class Kushki {
         
     }
     
+    public func requestCashToken(name : String, lastName: String, identification: String, totalAmount: Double, email: String , completion: @escaping (Transaction)->()){
+        let requestMessage = kushkiClient.buildParameters(withName: name, withLastName: lastName, withIdentification: identification, withTotalAmount: totalAmount, withCurrency: self.currency, withEmail: email)
+        self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint: EndPoint.cashToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
+    }
+    
     
    
     

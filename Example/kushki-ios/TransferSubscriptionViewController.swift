@@ -20,7 +20,7 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
     
     @IBOutlet weak var bankListPicker: UIPickerView!
     @IBOutlet weak var amountField: UITextField!
-    let publicTransferMerchantId: String? = "20000000102183993000"
+    let publicTransferMerchantId: String? = "20000000107468104000"
     var kushkiTransfer : Kushki?
     var banks: [Bank] = [Bank(code: "", name: "")]
     let documentTypes: [String] = ["CC","CI"]
@@ -35,7 +35,7 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
         documentTypePicker.dataSource = self
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
                                  currency: "COP",
-                                 environment: KushkiEnvironment.testing_qa)
+                                 environment: KushkiEnvironment.testing_ci)
         kushkiTransfer!.getBankList(){
             returnedBankList in
             self.banks = returnedBankList
