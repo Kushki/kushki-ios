@@ -179,11 +179,11 @@ class KushkiIntegrationTests: XCTestCase {
         var questionnarieCode: String = ""
         var code: String = ""
         var message: String = ""
-        kushkiTransferSubscriptionCI!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionCI!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
@@ -204,9 +204,8 @@ class KushkiIntegrationTests: XCTestCase {
                         "answer": "20121363"
                     ]
                 ]
-                self.kushkiTransferSubscriptionCI?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
-                    print(returnedInfo)
                     code = returnedInfo.code
                     message = returnedInfo.message
                     asyncExpectation.fulfill()
@@ -227,11 +226,11 @@ class KushkiIntegrationTests: XCTestCase {
         var questionnarieCode: String = ""
         var code: String = ""
         var message: String = ""
-        kushkiTransferSubscriptionCI!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionCI!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
@@ -248,7 +247,7 @@ class KushkiIntegrationTests: XCTestCase {
                         "answer": "1"
                     ]
                 ]
-                self.kushkiTransferSubscriptionCI?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
                     code = returnedInfo.code
                     message = returnedInfo.message
