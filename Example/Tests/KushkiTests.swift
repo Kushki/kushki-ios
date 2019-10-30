@@ -43,7 +43,7 @@ class KushkiTests: XCTestCase {
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: 1) { error in
-            XCTAssertEqual(expectedToken, transaction.token)            
+            XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertNil(transaction.settlement)
             XCTAssertTrue(transaction.isSuccessful())
         }
@@ -453,7 +453,7 @@ class KushkiTests: XCTestCase {
             XCTAssertTrue(transaction.isSuccessful())
             XCTAssertEqual(expectedSecureId, transaction.secureId)
             XCTAssertEqual(expectedSecureService, transaction.secureService)
-            
+        
         }
     }
     
@@ -603,6 +603,77 @@ class KushkiTests: XCTestCase {
         }
     }
     
+    func testGetCardAsyncToken(){
+        let asyncExpectation = expectation(description: "Get card async token")
+        let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing_ci)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _ = stub(condition: isHost(host.hostCI.rawValue)
+            && isPath(EndPoint.cardAsyncToken.rawValue)
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = ["token": "123456"]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        kushki.requestCardAsyncToken(description: "test", email: "test@test.com", returnUrl: "www.test.com", totalAmount: 100 ){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotNil(transaction.token)
+            XCTAssertEqual(transaction.token, "123456")
+        }
+        
+    }
     
-    
+    func testGetCardInfo(){
+        let asyncExpectation = expectation(description: "Get card info")
+        let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_ci)
+        let bin = "4657754"
+        var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
+        _ = stub(condition: isHost(host.hostCI.rawValue)
+            && isPath(EndPoint.cardInfo.rawValue+bin)
+            && isMethodGET()) { request in
+                _ = request as NSURLRequest
+                let responseBody: [String: Any] = ["bank": "BANCO INTERNACIONAL S.A.",
+                                                   "brand": "VISA",
+                                                   "cardType": "credit"]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        
+        kushki.getCardInfo(cardNumber: "4657754242424242"){
+            returnedCardInfo in
+            cardInfo = returnedCardInfo
+            print(returnedCardInfo)
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){
+            error in
+            XCTAssertNotEqual(cardInfo.bank, "")
+            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+        }
+    }
+
 }
+
+public enum merchants: String{
+    // Merchants CLP
+    //Merchant in CI
+    case ciMerchantIdCLP = "20000000106145247000"
+    //Merchant in QA
+    case qaMerchantIdCLP = "20000000103098876000"
+    //Merchant in UAT
+    case uatMerchantIdCLP = "10000002667885476032150186346335"
+}
+
+public enum host: String{
+    case hostCI = "api-ci.kushkipagos.com"
+    case hostQA = "api-qa.kushkipagos.com"
+    case hostUAT = "api-uat.kushkipagos.com"
+}
+
