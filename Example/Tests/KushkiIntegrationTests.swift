@@ -24,7 +24,7 @@ class KushkiIntegrationTests: XCTestCase {
     override func setUp() {
         super.setUp()
         publicMerchantId = "10000001641125237535111218"
-        totalAmount = 10.0
+        totalAmount = 1.0
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
         kushkiTransferSubscriptionCI = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
@@ -36,9 +36,11 @@ class KushkiIntegrationTests: XCTestCase {
 
     func testReturnsTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        //let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card2 = Card(name: "Bryan", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "21", months: 2, isDeferred: true)
+        kushki!.requestToken(card: card2, totalAmount: totalAmount!) { returnedTransaction in
             self.transaction = returnedTransaction
+            print(returnedTransaction)
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: 10) { error in
