@@ -131,7 +131,10 @@ class KushkiClient {
         if card.months != 0 {
             requestDictionary["months"] = card.months
         }
-        
+        if card.isDeferred {
+            requestDictionary["isDeferred"] = card.isDeferred
+        }
+        print(requestDictionary)
         return requestDictionary
     }
     
