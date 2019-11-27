@@ -2,4 +2,4 @@
 
 set -e
 echo "cocoapods gem version: $(pod --version)"
-pod lib lint --allow-warnings
+pod lib lint
