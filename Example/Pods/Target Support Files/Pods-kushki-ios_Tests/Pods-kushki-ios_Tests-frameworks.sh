@@ -36,8 +36,8 @@ install_framework()
   local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
-      echo "Symlinked..."
-      source="$(readlink "${source}")"
+    echo "Symlinked..."
+    source="$(readlink "${source}")"
   fi
 
   # Use filter instead of exclude so missing patterns don't throw errors.
