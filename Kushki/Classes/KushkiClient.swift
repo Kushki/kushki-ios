@@ -6,6 +6,7 @@ class KushkiClient {
     
     init(environment: KushkiEnvironment, regional: Bool) {
         self.environment = regional ? environment == KushkiEnvironment.production ? KushkiEnvironment.production_regional : KushkiEnvironment.testing_regional : environment
+
     }
     
     func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
@@ -19,7 +20,7 @@ class KushkiClient {
             completion(self.parseMerchantResponse(jsonResponse: merchant))
         }
     }
-
+    
     func buildParameters(withCard card: Card) -> String {
         let requestDictionary = buildJsonObject(withCard: card)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -33,14 +34,14 @@ class KushkiClient {
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
-
+    
     func buildParameters(withUserId userId: String) -> String {
         let requestDictionary = buildJsonObject(withUserId: userId)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
-
+    
     func buildJsonObject(withCard card: Card) -> [String : Any] {
         
         let requestDictionary:[String : Any] = [
@@ -56,13 +57,13 @@ class KushkiClient {
         
         return requestDictionary
     }
-
+    
     func buildJsonObject(withUserId userId: String) -> [String : Any] {
-
+        
         let requestDictionary:[String : Any] = [
             "userId": userId
         ]
-
+        
         return requestDictionary
     }
     
@@ -95,7 +96,7 @@ class KushkiClient {
     }
     
     private func showHttpGetResponse(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (String) -> ()) {
-
+        
         let url = URL(string: self.environment.rawValue + endpoint)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -112,7 +113,7 @@ class KushkiClient {
         }
         task.resume()
     }
-
+    
     private func parseResponse(jsonResponse: String) -> Transaction {
         var token = ""
         var code = "000"
@@ -146,7 +147,7 @@ class KushkiClient {
         prodAccountId = responseDictionary!["prodAccountId"] as! String
         return Merchant(sandboxBaconKey: sandboxBaconKey, prodBaconKey: prodBaconKey, sandboxAccountId:sandboxAccountId, prodAccountId:prodAccountId, code: code, message: message)
     }
-
+    
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
     private func convertStringToDictionary(_ string: String) -> [String:AnyObject]? {
         if let data = string.data(using: String.Encoding.utf8) {

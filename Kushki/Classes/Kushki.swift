@@ -7,7 +7,7 @@ public class Kushki {
     private let currency: String
     private let kushkiClient: KushkiClient
     private let environment: KushkiEnvironment
-
+    
 
     public init(publicMerchantId: String, currency: String, environment: KushkiEnvironment, regional: Bool = false) {
         self.publicMerchantId = publicMerchantId
@@ -28,10 +28,10 @@ public class Kushki {
         let requestMessage = kushkiClient.buildParameters(withCard: card)
         self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: "/subscriptions/v1/card/tokens", requestMessage: requestMessage, withCompletion: completion)
     }
-
+    
     public func requestSubscriptionChargeToken(subscriptionId: String,
                                          completion: @escaping (Transaction)->()){
-
+        
         self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: "/merchant/v1/merchant/settings"){ merchant in
             if(!merchant.isSuccessful()) {
                 completion(Transaction(code: merchant.code, message: merchant.message, token: ""))

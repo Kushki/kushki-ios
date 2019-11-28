@@ -4,8 +4,7 @@ set -eo pipefail
 
 # Travis CI switches back to an old Ruby version for deployments. See:
 # https://docs.travis-ci.com/user/deployment/script/#Deployment-is-executed-by-Ruby-1.9.3
-echo "start distribute"
-# source ~/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 rvm use default
 echo "cocoapods gem version: $(pod --version)"
 artifact_version=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)
@@ -17,9 +16,9 @@ if [ ! -z "$found_tag" ]; then
   exit 0
 fi
 
-git config user.email dev@kushkipagos.com
-git config user.name 'Kushki'
+git config user.email jose@kushkipagos.com
+git config user.name 'José Santacruz'
 git remote add tags-origin "https://$GITHUB_TOKEN@github.com/Kushki/kushki-ios.git"
 git tag --annotate "$tag_name" -m "Release for version $artifact_version"
-git push tags-origin "$tag_name"	
+git push tags-origin "$tag_name"
 pod trunk push
