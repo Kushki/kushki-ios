@@ -18,15 +18,6 @@
 		AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */; };
 		AFF155E41DAC3B1100BC21EA /* Kushki in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* Kushki */; };
 		AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF155E51DAC3B5000BC21EA /* ViewController.swift */; };
-		E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4035B332328698900A2A5EC /* TokenRequestViewController.swift */; };
-		E407F713233A80AB00340214 /* CashTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407F712233A80AB00340214 /* CashTokenViewController.swift */; };
-		E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */; };
-		E40BC5E3232952E20056B58C /* TransferTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */; };
-		E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */; };
-		E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */; };
-		E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */; };
-		E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */; };
-		E4AF00DD234D2BDD002C3B75 /* GetCardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,17 +53,8 @@
 		AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios_Example.entitlements"; sourceTree = "<group>"; };
 		AFF155E31DAC3B1100BC21EA /* Kushki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Kushki; path = ../Kushki; sourceTree = "<group>"; };
 		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; };
 		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E4035B332328698900A2A5EC /* TokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestViewController.swift; sourceTree = "<group>"; };
-		E407F712233A80AB00340214 /* CashTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashTokenViewController.swift; sourceTree = "<group>"; };
-		E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTokenViewController.swift; sourceTree = "<group>"; };
-		E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTokenViewController.swift; sourceTree = "<group>"; };
-		E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSubscriptionViewController.swift; sourceTree = "<group>"; };
-		E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSecureValidationViewController.swift; sourceTree = "<group>"; };
-		E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersSecureValidationViewController.swift; sourceTree = "<group>"; };
-		E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAsyncTokenRequestViewController.swift; sourceTree = "<group>"; };
-		E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +103,6 @@
 		607FACD21AFB9204008FA782 /* Example for kushki-ios */ = {
 			isa = PBXGroup;
 			children = (
-				E4035B322328695200A2A5EC /* Controllers */,
 				AFF155E51DAC3B5000BC21EA /* ViewController.swift */,
 				AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -182,22 +163,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E4035B322328695200A2A5EC /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E4035B332328698900A2A5EC /* TokenRequestViewController.swift */,
-				E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */,
-				E40BC5E2232952E20056B58C /* TransferTokenViewController.swift */,
-				E40BC5E4232973AE0056B58C /* TransferSubscriptionViewController.swift */,
-				E43FA22E2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift */,
-				E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */,
-				E407F712233A80AB00340214 /* CashTokenViewController.swift */,
-				E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */,
-				E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		E7AB61346A0290757675843B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +183,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				F99B1753C2E9E7FCCC4BB6D4 /* [CP] Embed Pods Frameworks */,
+				3136A8AD7048BFFA13752EBB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,11 +221,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Kushki;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = BD89BKFFDK;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -281,7 +247,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -318,13 +283,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3136A8AD7048BFFA13752EBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kushki/Kushki.framework",
+				"${BUILT_PRODUCTS_DIR}/Sift/Sift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kushki.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6001A4D7B51F956987E08A1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -333,7 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B914E882F959AA22BDBA130C /* [CP] Check Pods Manifest.lock */ = {
@@ -372,24 +361,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F99B1753C2E9E7FCCC4BB6D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Kushki/Kushki.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kushki.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -397,16 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */,
-				E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */,
-				E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */,
-				E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */,
-				E407F713233A80AB00340214 /* CashTokenViewController.swift in Sources */,
-				E43FA22F2329F6E000BBF920 /* QuestionsSecureValidationViewController.swift in Sources */,
 				AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */,
-				E4AF00DD234D2BDD002C3B75 /* GetCardInfoViewController.swift in Sources */,
-				E40BC5E3232952E20056B58C /* TransferTokenViewController.swift in Sources */,
-				E40BC5E5232973AE0056B58C /* TransferSubscriptionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,7 +426,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -488,6 +449,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -520,7 +482,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -544,6 +505,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -569,12 +531,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A27D44A410AD000FEFB7F2C0 /* Pods-kushki-ios_Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kushki-ios_Example.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BD89BKFFDK;
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -592,17 +554,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09049864D2B3E7CF6292D85D /* Pods-kushki-ios_Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kushki-ios_Example.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BD89BKFFDK;
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.zerocooljs.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -615,7 +577,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A669C16708DED6C2BD30567D /* Pods-kushki-ios_Tests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -637,7 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
