@@ -37,7 +37,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -69,7 +69,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestSubscriptionToken(card: card) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -100,7 +100,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -131,7 +131,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com",paymentDescription:"Test JD") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -165,7 +165,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -194,7 +194,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -350,7 +350,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -379,7 +379,7 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = [:]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
@@ -441,7 +441,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         
         kushki.requestTransferSubscriptionToken(accountNumber: "4242424242424242424", accountType: "0", bankCode: "01", documentNumber: "171223344556",  documentType: "CC", email: "test@test", lastname: "Test lastname", name: "Test Name", totalAmount: 10.0) {
             returnedTransaction in
@@ -555,7 +555,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "MXN",
                             environment: KushkiEnvironment.testing)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/cash/v1/tokens")
             && isMethodPOST()) { request in
@@ -581,7 +581,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "MXN",
                             environment: KushkiEnvironment.testing)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/cash/v1/tokens")
             && isMethodPOST()) { request in
@@ -608,7 +608,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardAsyncToken.rawValue)
             && isMethodPOST()) { request in
@@ -656,6 +656,44 @@ class KushkiTests: XCTestCase {
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+        }
+    }
+    
+    func testReturnsSubscriptionChargeTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionChargeToken")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/subscriptions/v1/card/123/tokens")
+            && isMethodPOST()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/merchant/v1/merchant/settings")
+            && isMethodGET()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "prodAccountId": "qwerty",
+                    "sandboxAccountId": "qwerty",
+                    "prodBaconKey": "qwerty",
+                    "sandboxBaconKey": "qwerty"
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestSubscriptionChargeToken(subscriptionId: "123") { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 1) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
         }
     }
 

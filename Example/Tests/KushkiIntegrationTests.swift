@@ -12,7 +12,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBodyMessage = "Cuerpo de la petición inválido."
     let invalidBinCode = "K007"
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
-    let timeOutTest = 10;
+    let timeOutTest = 15;
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
@@ -32,7 +32,7 @@ class KushkiIntegrationTests: XCTestCase {
         kushkiTransferSubscriptionCI = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
         kushkiTransferSubscriptionQA = Kushki(publicMerchantId: "20000000102183993000", currency: "COP", environment: KushkiEnvironment.testing_qa)
         kushkiTransferSubscriptionUAT = Kushki(publicMerchantId: "20000000107415376000", currency: "COP", environment: KushkiEnvironment.testing)
-        transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        transaction = Transaction(code: "", message: "", token: "")
         
     }
 
@@ -272,7 +272,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "20000000100766990000",
                             currency: "COP",
                             environment: KushkiEnvironment.testing_ci)
-         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+         var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
             returnedTransaction in
             transaction = returnedTransaction
@@ -288,7 +288,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "20000000100766990000",
                             currency: "COP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestCashToken(name: "", lastName: "", identification: "", totalAmount: -1, email: ""){
             returnedTransaction in
             transaction = returnedTransaction
@@ -306,7 +306,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
        
         kushki.requestCardAsyncToken( returnUrl: "www.test.com", totalAmount: 100 ){
             returnedTransaction in
@@ -323,7 +323,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
        
         kushki.requestCardAsyncToken(description: "Test", email: "test@test.com", returnUrl: "www.test.com", totalAmount: 100 ){
             returnedTransaction in

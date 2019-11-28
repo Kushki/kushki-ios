@@ -1,7 +1,7 @@
 import Foundation
 
 class KushkiClient {
-
+    
     private let environment: KushkiEnvironment
     
     init(environment: KushkiEnvironment, regional: Bool) {
@@ -34,6 +34,12 @@ class KushkiClient {
         }
     }
     
+    func getMerchant(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (Merchant) -> ()) {
+        showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) { merchant in
+            completion(self.parseMerchantResponse(jsonResponse: merchant))
+        }
+    }
+    
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -58,6 +64,13 @@ class KushkiClient {
                                                 withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
+    func buildParameters(withUserId userId: String) -> String {
+        let requestDictionary = buildJsonObject(withUserId: userId)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
         return dictFromJson!
     }
     
@@ -112,6 +125,15 @@ class KushkiClient {
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
         return dictFromJson!
+    }
+    
+    func buildJsonObject(withUserId userId: String) -> [String : Any] {
+        
+        let requestDictionary:[String : Any] = [
+            "userId": userId
+        ]
+        
+        return requestDictionary
     }
     
     
@@ -313,7 +335,27 @@ class KushkiClient {
             code = "002"
             message = "Hubo un error inesperado, intenta nuevamente"
         }
-        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService)
+        return Transaction(code: code, message: message, token: token, settlement: settlement ?? 0.0, secureId: secureId ?? "", secureService: secureService ?? "")
+    }
+    
+    private func parseMerchantResponse(jsonResponse: String) -> Merchant {
+        var prodAccountId = ""
+        var sandboxAccountId = ""
+        var prodBaconKey = ""
+        var sandboxBaconKey = ""
+        var code = ""
+        var message = ""
+        let responseDictionary = self.convertStringToDictionary(jsonResponse)
+        if((responseDictionary!["code"]) != nil){
+            code = responseDictionary!["code"] as! String
+            message = responseDictionary!["message"] as! String
+            return Merchant(sandboxBaconKey: sandboxBaconKey, prodBaconKey: prodBaconKey, sandboxAccountId:sandboxAccountId, prodAccountId:prodAccountId, code: code, message: message)
+        }
+        sandboxBaconKey = responseDictionary!["sandboxBaconKey"] as! String
+        prodBaconKey = responseDictionary!["prodBaconKey"] as! String
+        sandboxAccountId = responseDictionary!["sandboxAccountId"] as! String
+        prodAccountId = responseDictionary!["prodAccountId"] as! String
+        return Merchant(sandboxBaconKey: sandboxBaconKey, prodBaconKey: prodBaconKey, sandboxAccountId:sandboxAccountId, prodAccountId:prodAccountId, code: code, message: message)
     }
     
     private func parseValidationResponse(jsonResponse: String) -> ConfrontaResponse {
