@@ -301,6 +301,42 @@ class KushkiIntegrationTests: XCTestCase {
         }
     }
     
+    func testRequestCashOutToken(){
+       let asyncExpectation = expectation(description: "Get cashOut token with valid params")
+       let data = CashOutToken(documentNumber: "123451234", name: "Sol", lastName: "Paez", totalAmount: 56.78, documentType:DocumentType.CC , currency: "")
+       let kushki = Kushki(publicMerchantId: "20000000107321580000",
+                           currency: "COP",
+                           environment: KushkiEnvironment.testing_ci)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+       kushki.requestCashOutToken(data: data){
+           returnedTransaction in
+           transaction = returnedTransaction
+            print(transaction)
+           asyncExpectation.fulfill()
+       }
+       self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
+           XCTAssertNotEqual(transaction.token, "")
+       }
+    }
+    
+    func testRequestCashOutTokenInvalidParams(){
+        let asyncExpectation = expectation(description: "Get cashOut token with invalid params")
+        let data = CashOutToken(documentNumber: "123451234", name: "Sol", lastName: "Paez", totalAmount: -56.78, documentType:DocumentType.CC , currency: "")
+        let kushki = Kushki(publicMerchantId: "20000000107321580000",
+                            currency: "COP",
+                            environment: KushkiEnvironment.testing_ci)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        kushki.requestCashOutToken(data:data){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
+            XCTAssertEqual(transaction.token, "")
+            XCTAssertEqual(transaction.code, "C001")
+            XCTAssertEqual(transaction.message, "Cuerpo de la petición inválido.")
+        }
+    }
     func testGetCardAsyncTokenWithoutDescription(){
         let asyncExpectation = expectation(description: "Get card async token")
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
