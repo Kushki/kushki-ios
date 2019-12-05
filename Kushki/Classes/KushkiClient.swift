@@ -9,9 +9,6 @@ class KushkiClient {
     }
     
     func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
-        print("publicMerchanID", publicMerchantId)
-        print("endpoint", endpoint)
-        print("requestMessage", requestMessage)
         showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
             completion(self.parseResponse(jsonResponse: transaction))
         }
@@ -114,7 +111,6 @@ class KushkiClient {
         let requestDictionary = buildJsonObject(withData: data, withCurrency:currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
-        print("PARAMETERS",dictFromJson)
         return dictFromJson!
     }
     
@@ -273,8 +269,6 @@ class KushkiClient {
             "description":data.description,
             "email":data.email
         ]
-        
-        print("JSONOBJECT",requestDictionary)
         return requestDictionary
     }
     
@@ -293,21 +287,18 @@ class KushkiClient {
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
-        print("URL",url)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = requestBody.data(using: String.Encoding.utf8)
         request.addValue("application/json; charset=UTF-8",
                          forHTTPHeaderField: "Content-Type")
         request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
-        print("REQUEST", request)
         let task = URLSession.shared.dataTask (with: request) { data, response, error in
             if let theError = error {
                 print(theError.localizedDescription)
                 return
             }
             let responseBody = String(data: data!, encoding: String.Encoding.utf8)!
-            print("BODY",responseBody)
             completion(responseBody)
         }
         task.resume()

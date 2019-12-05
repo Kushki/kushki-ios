@@ -73,9 +73,7 @@ public class Kushki {
     }
     
     public func requestCashOutToken(data : CashOutToken, completion: @escaping(Transaction)->()){
-        print("CURRENCY",self.currency)
         let requestMessage = kushkiClient.buildParameters(withData: data, withCurrency: self.currency)
-        print("requestMessage", requestMessage)
            self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint: EndPoint.cashOutToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
     
