@@ -311,7 +311,6 @@ class KushkiIntegrationTests: XCTestCase {
        kushki.requestCashOutToken(data: data){
            returnedTransaction in
            transaction = returnedTransaction
-            print(transaction)
            asyncExpectation.fulfill()
        }
        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
