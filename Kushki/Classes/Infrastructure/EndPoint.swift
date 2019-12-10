@@ -8,4 +8,5 @@ public enum EndPoint: String {
     case cashToken = "/cash/v1/tokens"
     case cardAsyncToken = "/card-async/v1/tokens"
     case cardInfo = "/card/v1/bin/"
+    case cashOutToken = "/payouts/cash/v1/tokens"
 }
