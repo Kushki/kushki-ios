@@ -12,7 +12,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBodyMessage = "Cuerpo de la petición inválido."
     let invalidBinCode = "K007"
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
-    let timeOutTest = 10;
+    let timeOutTest = 15;
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
@@ -182,32 +182,32 @@ class KushkiIntegrationTests: XCTestCase {
         var questionnarieCode: String = ""
         var code: String = ""
         var message: String = ""
-        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+        kushkiTransferSubscriptionQA!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            self.kushkiTransferSubscriptionQA!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
                     [
-                        "id": "5",
-                        "answer": "20121352"
+                        "id": "1",
+                        "answer": "1"
                     ],
                     [
-                        "id": "8",
-                        "answer": "20121356"
+                        "id": "2",
+                        "answer": "1"
                     ],
                     [
-                        "id": "12",
-                        "answer": "20121359"
+                        "id": "3",
+                        "answer": "1"
                     ],
                     [
-                        "id": "19",
-                        "answer": "20121363"
+                        "id": "4",
+                        "answer": "1"
                     ]
                 ]
-                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
                     code = returnedInfo.code
                     message = returnedInfo.message
@@ -218,8 +218,8 @@ class KushkiIntegrationTests: XCTestCase {
         }
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(questionnarieCode != "")
-            XCTAssertTrue(code == "BIO100")
-            XCTAssertTrue(message == "Code: 0, Message: RECHAZADO")
+            XCTAssertTrue(code == "BIO000")
+            XCTAssertTrue(message == "ok")
         }
         
     }
@@ -229,11 +229,11 @@ class KushkiIntegrationTests: XCTestCase {
         var questionnarieCode: String = ""
         var code: String = ""
         var message: String = ""
-        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+        kushkiTransferSubscriptionQA!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
             let secureServiceId = returnedTransaction.secureId ?? ""
             let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            self.kushkiTransferSubscriptionQA!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
                 returnedConfrontaQuestionarie in
                 questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
                 let answers: [[String: String]] = [
@@ -247,10 +247,10 @@ class KushkiIntegrationTests: XCTestCase {
                     ],
                     [
                         "id": "id",
-                        "answer": "1"
+                        "answer": "0"
                     ]
                 ]
-                self.kushkiTransferSubscriptionUAT?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+                self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
                     code = returnedInfo.code
                     message = returnedInfo.message
@@ -262,7 +262,7 @@ class KushkiIntegrationTests: XCTestCase {
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(questionnarieCode != "")
             XCTAssertTrue(code == "BIO100")
-            XCTAssertTrue(message == "Code: , Message: ")
+            XCTAssertTrue(message == "Invalid user")
         }
         
     }
