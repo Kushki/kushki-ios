@@ -1,5 +1,5 @@
 PODS:
-  - Kushki (2.2.0)
+  - Kushki (2.2.1)
   - OHHTTPStubs (5.2.1):
     - OHHTTPStubs/Default (= 5.2.1)
   - OHHTTPStubs/Core (5.2.1)
@@ -30,9 +30,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Kushki: 36fb4b6521baa19d4c6c9823bc9489a9c5cd5300
+  Kushki: cea16cfa5b25cf7dcc5d494fe4e5bb07392292e3
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
 
 PODFILE CHECKSUM: 07d351a9a4d405686a1d65716d0a9a27da908f79
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.8.4

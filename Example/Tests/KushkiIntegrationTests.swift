@@ -209,7 +209,6 @@ class KushkiIntegrationTests: XCTestCase {
                 ]
                 self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
-                    print("CONFRONTA", returnedInfo)
                     code = returnedInfo.code
                     message = returnedInfo.message
                     asyncExpectation.fulfill()
