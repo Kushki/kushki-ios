@@ -634,7 +634,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
                             currency: "USD",
                             environment: KushkiEnvironment.testing_ci)
-        let bin = "4657754"
+        let bin = "465775"
         var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardInfo.rawValue+bin)

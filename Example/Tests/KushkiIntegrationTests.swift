@@ -12,7 +12,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBodyMessage = "Cuerpo de la petición inválido."
     let invalidBinCode = "K007"
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
-    let timeOutTest = 15;
+    let timeOutTest = 20;
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
@@ -30,7 +30,7 @@ class KushkiIntegrationTests: XCTestCase {
         kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "USD", environment: KushkiEnvironment.testing)
         kushkiTransfer = Kushki(publicMerchantId: publicMerchantId!, currency: "CLP", environment: KushkiEnvironment.testing)
         kushkiTransferSubscriptionCI = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
-        kushkiTransferSubscriptionQA = Kushki(publicMerchantId: "20000000102183993000", currency: "COP", environment: KushkiEnvironment.testing_qa)
+        kushkiTransferSubscriptionQA = Kushki(publicMerchantId: "20000000102183993333", currency: "COP", environment: KushkiEnvironment.testing_qa)
         kushkiTransferSubscriptionUAT = Kushki(publicMerchantId: "20000000107415376000", currency: "COP", environment: KushkiEnvironment.testing)
         transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         
@@ -209,6 +209,7 @@ class KushkiIntegrationTests: XCTestCase {
                 ]
                 self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
                     returnedInfo in
+                    print("CONFRONTA", returnedInfo)
                     code = returnedInfo.code
                     message = returnedInfo.message
                     asyncExpectation.fulfill()
@@ -269,9 +270,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testRequestCashToken(){
         let asyncExpectation = expectation(description: "Get cash token with valid params")
-        let kushki = Kushki(publicMerchantId: "20000000100766990000",
+        let kushki = Kushki(publicMerchantId: "20000000100743782000",
                             currency: "COP",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing_qa)
          var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
             returnedTransaction in
@@ -285,9 +286,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testRequestCashTokenWithInvalidParams(){
         let asyncExpectation = expectation(description: "Get cash token with invalid params")
-        let kushki = Kushki(publicMerchantId: "20000000100766990000",
+        let kushki = Kushki(publicMerchantId: "20000000100743782000",
                             currency: "COP",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing_qa)
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestCashToken(name: "", lastName: "", identification: "", totalAmount: -1, email: ""){
             returnedTransaction in
@@ -340,9 +341,9 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get card info")
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
                             currency: "USD",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing_qa)
         var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
-        kushki.getCardInfo(cardNumber: "4657754242424242"){
+        kushki.getCardInfo(cardNumber: "4657758223843047"){
             returnedCardInfo in
             cardInfo = returnedCardInfo
             asyncExpectation.fulfill()
