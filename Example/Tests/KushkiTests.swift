@@ -603,6 +603,63 @@ class KushkiTests: XCTestCase {
         }
     }
     
+    func testGetCashOutToken(){
+        let asyncExpectation = expectation(description: "Get cashOut token with valid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "MXN",
+                            environment: KushkiEnvironment.testing)
+        
+        let data = CashOutToken(documentNumber: "123451234", name: "Sol", lastName: "Paez", totalAmount: 56.78, documentType:DocumentType.CC , currency: "")
+        
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _=stub(condition: isHost("api-uat.kushkipagos.com")&&isPath("/payouts/cash/v1/tokens")&&isMethodPOST()){
+            request in
+            let nsUrlRequest = request as NSURLRequest
+            _=String(data:nsUrlRequest.ohhttpStubs_HTTPBody(),encoding: .utf8)
+            let responseBody:[String: Any]=["token":"98765"]
+            return OHHTTPStubsResponse(jsonObject:responseBody, statusCode:200,headers: nil)
+        }
+        
+        kushki.requestCashOutToken(data:data){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 5){
+            error in
+            XCTAssertNotNil(transaction.token)
+            XCTAssertEqual(transaction.token, "98765")
+        }
+    }
+    
+    func testGetCashOutTokenInvalidParams(){
+        let asyncExpectation = expectation(description: "Get cashOut token with invalid params")
+        let kushki = Kushki(publicMerchantId: publicMerchantId!, currency: "MXN", environment: KushkiEnvironment.testing)
+        let data = CashOutToken(documentNumber: "123451234", name: "Sol", lastName: "Paez", totalAmount: 56.78, documentType:DocumentType.CC , currency: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _=stub(condition: isHost("api-uat.kushkipagos.com")&&isPath("/payouts/cash/v1/tokens")&&isMethodPOST()){
+            request in
+            let nsUrlRequest = request as NSURLRequest
+            _=String(data:nsUrlRequest.ohhttpStubs_HTTPBody(),encoding: .utf8)
+            let responseBody:[String: Any]=["code":"K001","message":"Cuerpo de petición inválido"]
+            return OHHTTPStubsResponse(jsonObject:responseBody, statusCode:200,headers: nil)
+        }
+        
+        kushki.requestCashOutToken(data:data){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 5){
+            error in
+            XCTAssertNotNil(transaction.code)
+            XCTAssertNotNil(transaction.message)
+            XCTAssertEqual(transaction.code, "K001")
+        }
+    }
+    
     func testGetCardAsyncToken(){
         let asyncExpectation = expectation(description: "Get card async token")
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
@@ -652,7 +709,7 @@ class KushkiTests: XCTestCase {
             print(returnedCardInfo)
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5){
+        self.waitForExpectations(timeout: 15){
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")

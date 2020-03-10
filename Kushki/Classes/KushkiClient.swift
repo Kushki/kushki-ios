@@ -107,6 +107,13 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withData data : CashOutToken, withCurrency currency: String) -> String{
+        let requestDictionary = buildJsonObject(withData: data, withCurrency:currency)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+    
     func buildParameters(withCurrency currency: String, withDescription description : String, withEmail email: String, withReturnUrl returnUrl: String, withTotalAmount totalAmount: Double) -> String{
         let requestDictionary = buildJsonObject(withCurrency: currency, withDescription: description, withEmail: email, withReturnUrl: returnUrl, withTotalAmount: totalAmount)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -249,6 +256,20 @@ class KushkiClient {
         ]
         return requestDictionary
         
+    }
+    
+    func buildJsonObject(withData data:CashOutToken, withCurrency currency:String)->[String: Any]{
+        let requestDictionary:[String: Any]=[
+            "documentNumber":data.documentNumber,
+            "name":data.name,
+            "lastName":data.lastName,
+            "totalAmount":data.totalAmount,
+            "documentType":data.documentType.rawValue,
+            "currency": currency,
+            "description":data.description,
+            "email":data.email
+        ]
+        return requestDictionary
     }
     
     func buildJsonObject(withCurrency currency: String, withDescription description : String, withEmail email: String, withReturnUrl returnUrl: String, withTotalAmount totalAmount: Double) -> [String: Any] {

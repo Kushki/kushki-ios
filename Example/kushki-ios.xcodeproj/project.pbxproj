@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1163CF5C23995FA000197D72 /* CashOutTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163CF5B23995FA000197D72 /* CashOutTokenViewController.swift */; };
 		4070B8F718CF1136950EC73F /* Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378069B88CBCF0FC931320AC /* Pods_kushki_ios_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		09049864D2B3E7CF6292D85D /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
+		1163CF5B23995FA000197D72 /* CashOutTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOutTokenViewController.swift; sourceTree = "<group>"; };
 		21EDE058D85655FB8F5D8F7F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		378069B88CBCF0FC931320AC /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5451CCFE2A45430DC1D3F20C /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 				E407F712233A80AB00340214 /* CashTokenViewController.swift */,
 				E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */,
 				E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */,
+				1163CF5B23995FA000197D72 /* CashOutTokenViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1163CF5C23995FA000197D72 /* CashOutTokenViewController.swift in Sources */,
 				E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */,
 				E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */,
 				E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */,
