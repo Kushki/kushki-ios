@@ -6,6 +6,7 @@ class KushkiTests: XCTestCase {
 
     var publicMerchantId: String?
     var totalAmount: Double?
+    let timeOutTest = 15;
 
     override func setUp() {
         super.setUp()
@@ -37,14 +38,14 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(expectedToken, transaction.token)
-            XCTAssertNil(transaction.settlement)
+            XCTAssertEqual(transaction.settlement, 0.0)
             XCTAssertTrue(transaction.isSuccessful())
         }
     }
@@ -69,12 +70,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestSubscriptionToken(card: card) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertTrue(transaction.isSuccessful())
         }
@@ -100,12 +101,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertTrue(transaction.isSuccessful())
         }
@@ -131,12 +132,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com",paymentDescription:"Test JD") { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertTrue(transaction.isSuccessful())
         }
@@ -165,12 +166,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual("017", transaction.code)
             XCTAssertEqual("Tarjeta no válida", transaction.message)
             XCTAssertEqual("", transaction.token)
@@ -194,12 +195,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(expectedToken, transaction.token)
             XCTAssertTrue(transaction.isSuccessful())
         }
@@ -350,12 +351,12 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(transaction.isSuccessful())
             XCTAssertEqual(expectedSettlement, transaction.settlement)
         }
@@ -379,12 +380,12 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = [:]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(transaction.message, "Error inesperado")
             
         }
@@ -414,7 +415,7 @@ class KushkiTests: XCTestCase {
             asyncExpectation.fulfill()
         }
      
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual(returnedBankList[0].name, expectedBankList[0].name)
             
         }
@@ -441,7 +442,7 @@ class KushkiTests: XCTestCase {
                 ]
                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         
         kushki.requestTransferSubscriptionToken(accountNumber: "4242424242424242424", accountType: "0", bankCode: "01", documentNumber: "171223344556",  documentType: "CC", email: "test@test", lastname: "Test lastname", name: "Test Name", totalAmount: 10.0) {
             returnedTransaction in
@@ -449,7 +450,7 @@ class KushkiTests: XCTestCase {
             
             asyncExpectation.fulfill()
         }
-       self.waitForExpectations(timeout: 1) { error in
+       self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(transaction.isSuccessful())
             XCTAssertEqual(expectedSecureId, transaction.secureId)
             XCTAssertEqual(expectedSecureService, transaction.secureService)
@@ -515,7 +516,7 @@ class KushkiTests: XCTestCase {
             confrontaQuestionnarie = returnedConfrontaQuestionnarie
             asyncExpectation.fulfill()
        }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertNotNil(confrontaQuestionnarie.questions)
         }
         
@@ -543,7 +544,7 @@ class KushkiTests: XCTestCase {
             responseSecureValidation = returnedBiometricInfoResponse
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 1) { error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(responseSecureValidation.code == "OK")
             XCTAssertTrue(responseSecureValidation.message == "All right!")
         }
@@ -555,7 +556,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "MXN",
                             environment: KushkiEnvironment.testing)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/cash/v1/tokens")
             && isMethodPOST()) { request in
@@ -570,7 +571,7 @@ class KushkiTests: XCTestCase {
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5){ error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
             XCTAssertNotNil(transaction.token)
             XCTAssertEqual(transaction.token, "12345")
         }
@@ -581,7 +582,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "MXN",
                             environment: KushkiEnvironment.testing)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/cash/v1/tokens")
             && isMethodPOST()) { request in
@@ -596,7 +597,7 @@ class KushkiTests: XCTestCase {
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5){ error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
             XCTAssertNotNil(transaction.code)
             XCTAssertNotNil(transaction.message)
             XCTAssertEqual(transaction.code, "K001")
@@ -608,7 +609,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "")
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardAsyncToken.rawValue)
             && isMethodPOST()) { request in
@@ -622,7 +623,7 @@ class KushkiTests: XCTestCase {
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5){ error in
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
             XCTAssertNotNil(transaction.token)
             XCTAssertEqual(transaction.token, "123456")
         }
@@ -652,10 +653,48 @@ class KushkiTests: XCTestCase {
             print(returnedCardInfo)
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 5){
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+        }
+    }
+    
+    func testReturnsSubscriptionChargeTokenWhenCalledWithValidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionChargeToken")
+        let expectedToken = Helpers.randomAlphanumeric(32)
+        let kushki = Kushki(publicMerchantId: publicMerchantId!,
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing)
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/subscriptions/v1/card/123/tokens")
+            && isMethodPOST()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "token": expectedToken
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        _ = stub(condition: isHost("api-uat.kushkipagos.com")
+            && isPath("/merchant/v1/merchant/settings")
+            && isMethodGET()) { request in
+                _ = request as NSURLRequest
+                let responseBody = [
+                    "prodAccountId": "qwerty",
+                    "sandboxAccountId": "qwerty",
+                    "prodBaconKey": "qwerty",
+                    "sandboxBaconKey": "qwerty"
+                ]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        var transaction = Transaction(code: "", message: "", token: "")
+        kushki.requestSubscriptionChargeToken(subscriptionId: "123") { returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
+            XCTAssertEqual(expectedToken, transaction.token)
+            XCTAssertTrue(transaction.isSuccessful())
         }
     }
 

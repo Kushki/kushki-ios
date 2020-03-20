@@ -9,6 +9,7 @@ target 'kushki-ios_Example' do
     inherit! :search_paths
     pod 'OHHTTPStubs'
     pod 'OHHTTPStubs/Swift'
+    pod 'Sift'
   end
 end
 
