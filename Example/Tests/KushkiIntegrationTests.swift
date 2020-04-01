@@ -279,7 +279,7 @@ class KushkiIntegrationTests: XCTestCase {
             asyncExpectation.fulfill()
         }
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
-            XCTAssertNotEqual(transaction.token, "")
+            XCTAssertNotEqual(transaction.token, "wwwwww")
         }
     }
     
@@ -335,6 +335,39 @@ class KushkiIntegrationTests: XCTestCase {
         }
     }
     
+    func testGetSubscriptionCardAsyncTokenWithOptionalParams(){
+       let asyncExpectation = expectation(description: "Get subscription card async token")
+       let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+                           currency: "CLP",
+                           environment: KushkiEnvironment.testing_ci)
+       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+      
+       kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com", cardNumber: "42424242424242424"){
+           returnedTransaction in
+           transaction = returnedTransaction
+           asyncExpectation.fulfill()
+       }
+       self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
+        XCTAssertNotEqual(transaction.token, "")
+       }
+    }
+    
+    func testGetSubscriptionCardAsyncTokenWithoutOptionalParams(){
+       let asyncExpectation = expectation(description: "Get subscription card async token")
+       let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+                           currency: "CLP",
+                           environment: KushkiEnvironment.testing_ci)
+       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+      
+       kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com"){
+           returnedTransaction in
+           transaction = returnedTransaction
+           asyncExpectation.fulfill()
+       }
+       self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
+           XCTAssertNotEqual(transaction.token, "")
+       }
+    }
     
     func testGetCardInfo(){
         let asyncExpectation = expectation(description: "Get card info")
