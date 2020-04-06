@@ -114,6 +114,12 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withCurrency currency: String, withEmail email: String, withCallbackUrl callbackUrl: String, withCardNumber cardNumber: String) -> String{
+        let requestDictionary = buildJsonObject(withCurrency: currency, withEmail: email, withCallbackUrl: callbackUrl, withCardNumber: cardNumber)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
     
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
@@ -261,6 +267,16 @@ class KushkiClient {
         ]
         return requestDictionary
         
+    }
+    
+    func buildJsonObject(withCurrency currency: String, withEmail email: String, withCallbackUrl callbackUrl: String, withCardNumber cardNumber: String) -> [String: Any] {
+        let requestDictionary:[String: Any] = [
+            "currency": currency,
+            "email": email,
+            "callbackUrl": callbackUrl,
+            "cardNumber": cardNumber
+        ]
+        return requestDictionary
     }
     
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {

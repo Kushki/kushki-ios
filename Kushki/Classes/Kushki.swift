@@ -83,8 +83,8 @@ public class Kushki {
         self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: EndPoint.cardInfo.rawValue, withParam: bin , withCompletion: completion)
     }
     
-    
-    
-   
-    
+    public func requestSubscriptionCardAsyncToken(email: String, callbackUrl: String, cardNumber: String = "", completion: @escaping (Transaction)->()){
+        let requestMessage = kushkiClient.buildParameters(withCurrency: self.currency, withEmail: email, withCallbackUrl: callbackUrl, withCardNumber: cardNumber)
+        self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint: EndPoint.subscriptionCardAsyncToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
+    }
 }
