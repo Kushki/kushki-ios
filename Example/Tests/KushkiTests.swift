@@ -629,6 +629,31 @@ class KushkiTests: XCTestCase {
         
     }
     
+    func testGetSubscriptionCardAsyncToken(){
+        let asyncExpectation = expectation(description: "Get subscription card async token")
+        let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+                            currency: "CLP",
+                            environment: KushkiEnvironment.testing_ci)
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        _ = stub(condition: isHost(host.hostCI.rawValue)
+            && isPath(EndPoint.subscriptionCardAsyncToken.rawValue)
+            && isMethodPOST()) { request in
+                let nsUrlRequest = request as NSURLRequest
+                _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
+                let responseBody: [String: Any] = ["token": "123456"]
+                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "www.test.com", cardNumber: "42424242424242424"){
+            returnedTransaction in
+            transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: 5){ error in
+            XCTAssertNotNil(transaction.token)
+            XCTAssertEqual(transaction.token, "123456")
+        }
+    }
+    
     func testGetCardInfo(){
         let asyncExpectation = expectation(description: "Get card info")
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
