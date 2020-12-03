@@ -20,7 +20,7 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
     
     @IBOutlet weak var bankListPicker: UIPickerView!
     @IBOutlet weak var amountField: UITextField!
-    let publicTransferMerchantId: String? = "20000000107468104000"
+    let publicTransferMerchantId: String? = "a499dddde82b433f832f26f685cbe468"
     var kushkiTransfer : Kushki?
     var banks: [Bank] = [Bank(code: "", name: "")]
     let documentTypes: [String] = ["CC","CI"]
@@ -35,12 +35,13 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
         documentTypePicker.dataSource = self
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
                                  currency: "COP",
-                                 environment: KushkiEnvironment.testing_ci)
+                                 environment: KushkiEnvironment.testing)
         kushkiTransfer!.getBankList(){
             returnedBankList in
             self.banks = returnedBankList
-            print(returnedBankList)
-            self.bankListPicker.reloadAllComponents()
+            DispatchQueue.main.async(execute: {
+                self.bankListPicker.reloadAllComponents()
+            })
         }
     }
     
@@ -56,8 +57,8 @@ class TransferSubscriptionViewController: UIViewController, UIPickerViewDelegate
                                               preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
+                self.ResponseView.text = "Response subscription transfer token: \n\n" + message
             })
-            self.ResponseView.text = "Response subscription transfer token: \n\n" + message
         }
         return
     }
