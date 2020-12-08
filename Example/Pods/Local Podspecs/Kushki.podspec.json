@@ -16,7 +16,7 @@
     "tag": "v2.2.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "13.0"
   },
   "source_files": "Kushki/Classes/**/*"
 }

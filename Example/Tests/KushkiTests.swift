@@ -35,7 +35,7 @@ class KushkiTests: XCTestCase {
                 let responseBody = [
                     "token": expectedToken
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -67,7 +67,7 @@ class KushkiTests: XCTestCase {
                 let responseBody = [
                     "token": expectedToken
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
         kushki.requestSubscriptionToken(card: card) { returnedTransaction in
@@ -98,7 +98,7 @@ class KushkiTests: XCTestCase {
                 let responseBody = [
                     "token": expectedToken
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com") { returnedTransaction in
@@ -129,7 +129,7 @@ class KushkiTests: XCTestCase {
                 let responseBody = [
                     "token": expectedToken
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestTransferToken(amount: amount, callbackUrl: "www.test.com", userType: "0", documentType:"CC", documentNumber: "123123123", email: "dev@kushkipagos.com",paymentDescription:"Test JD") { returnedTransaction in
@@ -163,7 +163,7 @@ class KushkiTests: XCTestCase {
                     "code": "017",
                     "message": "Tarjeta no válida"
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -192,7 +192,7 @@ class KushkiTests: XCTestCase {
                 let responseBody = [
                     "token": expectedToken
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -348,7 +348,7 @@ class KushkiTests: XCTestCase {
                     "token": "12lkj3b1o2kj",
                     "settlement": expectedSettlement
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -377,7 +377,7 @@ class KushkiTests: XCTestCase {
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
                 let responseBody: [String: Any] = [:]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
@@ -405,7 +405,7 @@ class KushkiTests: XCTestCase {
             && isMethodGET()) {
                 _ in
                 let responseBody = [["name": "Banco de Bogota" , "code": "1" ]]
-                 return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
     
         kushki.getBankList(){
@@ -439,7 +439,7 @@ class KushkiTests: XCTestCase {
                     "secureId": "12345678",
                     "secureService":"Test secure service"
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
         
@@ -506,7 +506,7 @@ class KushkiTests: XCTestCase {
                     ]
                     ]
                 ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         
         var confrontaQuestionnarie = ConfrontaResponse(code: "", message: "", questionnarieCode: "", questions: [])
@@ -533,7 +533,7 @@ class KushkiTests: XCTestCase {
                 let nsUrlRequest = request as NSURLRequest
                 _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 let responseBody: [String: Any] = ["code": "OK", "message": "All right!" ]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var questionsOptions: ConfrontaQuestionOptions = ConfrontaQuestionOptions(text: "", id: "")
         var questionnarie: ConfrontaQuestionnarie = ConfrontaQuestionnarie(id: "", text: "", options: [questionsOptions])
@@ -562,7 +562,7 @@ class KushkiTests: XCTestCase {
                 let nsUrlRequest = request as NSURLRequest
                 _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 let responseBody: [String: Any] = ["token": "12345"]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         
         kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
@@ -588,7 +588,7 @@ class KushkiTests: XCTestCase {
                 let nsUrlRequest = request as NSURLRequest
                 _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 let responseBody: [String: Any] = ["code": "K001", "message": "Cuerpo de petición inválido"]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         
         kushki.requestCashToken(name: "Test name", lastName: "", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
@@ -615,7 +615,7 @@ class KushkiTests: XCTestCase {
                 let nsUrlRequest = request as NSURLRequest
                 _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 let responseBody: [String: Any] = ["token": "123456"]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         kushki.requestCardAsyncToken(description: "test", email: "test@test.com", returnUrl: "www.test.com", totalAmount: 100 ){
             returnedTransaction in
@@ -641,7 +641,7 @@ class KushkiTests: XCTestCase {
                 let nsUrlRequest = request as NSURLRequest
                 _ = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
                 let responseBody: [String: Any] = ["token": "123456"]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "www.test.com", cardNumber: "42424242424242424"){
             returnedTransaction in
@@ -668,7 +668,7 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = ["bank": "BANCO INTERNACIONAL S.A.",
                                                    "brand": "VISA",
                                                    "cardType": "credit"]
-                return OHHTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+                return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         
         kushki.getCardInfo(cardNumber: "4657754242424242"){

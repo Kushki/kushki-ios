@@ -26,9 +26,9 @@ class CashTokenViewController: UIViewController {
         
     }
     private func requestKushkiToken(name : String, lastName: String, identification: String, totalAmount: String, email: String) {
-        let publicMerchantId = "10000001641125237535111218"
+        let publicMerchantId = "6000000000154083361249085016881"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
-                            currency: "MXN",
+                            currency: "COP",
                             environment: KushkiEnvironment.testing)
         kushki.requestCashToken(name: name, lastName: lastName, identification: identification, totalAmount: Double(totalAmount) ?? 0.0, email: email) { transaction in
             let message = transaction.isSuccessful() ?
@@ -40,8 +40,8 @@ class CashTokenViewController: UIViewController {
                                               preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
+                self.ResponseView.text = "Token response: \n\n" + message
             })
-            self.ResponseView.text = "Token response: \n\n" + message
         }
     }
 
