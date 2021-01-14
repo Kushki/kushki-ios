@@ -535,8 +535,8 @@ class KushkiTests: XCTestCase {
                 let responseBody: [String: Any] = ["code": "OK", "message": "All right!" ]
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
-        var questionsOptions: ConfrontaQuestionOptions = ConfrontaQuestionOptions(text: "", id: "")
-        var questionnarie: ConfrontaQuestionnarie = ConfrontaQuestionnarie(id: "", text: "", options: [questionsOptions])
+        let questionsOptions: ConfrontaQuestionOptions = ConfrontaQuestionOptions(text: "", id: "")
+        let questionnarie: ConfrontaQuestionnarie = ConfrontaQuestionnarie(id: "", text: "", options: [questionsOptions])
         var responseSecureValidation: ConfrontaResponse = ConfrontaResponse(code: "", message: "", questionnarieCode: "", questions: [questionnarie] )
         kushki.requestSecureValidation(answers: [["id": "id", "answer": "1"],["id": "id","answer":"2"],["id": "id","answer": "3"]], questionnarieCode: "2", secureService: "1", secureServiceId: "123456789") {
             returnedBiometricInfoResponse in

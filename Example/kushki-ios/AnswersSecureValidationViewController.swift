@@ -24,7 +24,7 @@ class AnswersSecureValidationViewController: UIViewController {
         super.viewDidLoad()
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
                                  currency: "COP",
-                                 environment: KushkiEnvironment.testing_ci)
+                                 environment: KushkiEnvironment.testing)
     }
     @IBAction func handleTouchUpInside(_ sender: Any) {
         let answers : [[String: String]] = [
