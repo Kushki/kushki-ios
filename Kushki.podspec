@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.author = { 'Kushki' => 'soporte@kushkipagos.com' }
   s.source = { :git => 'https://bitbucket.org/Kushki/kushki-ios.git', :tag => "v#{s.version.to_s}" }
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '12.1'
   s.source_files = 'Kushki/Classes/**/*'
 end
