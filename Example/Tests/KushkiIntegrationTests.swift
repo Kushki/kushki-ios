@@ -108,6 +108,22 @@ class KushkiIntegrationTests: XCTestCase {
         }
     }
     
+    func testReturnsSubscriptionTokenWhenCalledWithInvalidParams() {
+        let asyncExpectation = expectation(description: "requestSubscriptionToken")
+        let card = Card(name: "John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+            self.transaction = returnedTransaction
+            print("resp: " + returnedTransaction.code)
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
+            XCTAssertEqual(self.transaction!.token, "")
+            XCTAssertFalse(self.transaction!.isSuccessful())
+            XCTAssertEqual(self.transaction!.code, "K001")
+            XCTAssertEqual(self.transaction!.message, "Cuerpo de la petición inválido.")
+        }
+    }
+    
     func testReturnsTransferTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestTransferToken")
         let amount = Amount(subtotalIva: 12.0, subtotalIva0: 0.0, iva: 1.2 )
@@ -172,99 +188,194 @@ class KushkiIntegrationTests: XCTestCase {
         }
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertFalse(self.transaction!.isSuccessful())
-            XCTAssertEqual(self.transaction?.code, "K014")
+            XCTAssertEqual(self.transaction?.code, "TS014")
             XCTAssertEqual(self.transaction?.message,"Banco no encontrado" )
         }
     }
     
-    func testRequestSecureValidation(){
-        let asyncExpectation = expectation(description: "request transfer subscription secure validation")
-        var questionnarieCode: String = ""
-        var code: String = ""
-        var message: String = ""
-        kushkiTransferSubscriptionQA!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+    func testRequestSecureValidationConfrontaWhenSecureIdIsInvalid() {
+        let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
+        let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
+        var code = ""
+        var message = ""
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
-            let secureServiceId = returnedTransaction.secureId ?? ""
-            let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionQA!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
-                returnedConfrontaQuestionarie in
-                questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
-                let answers: [[String: String]] = [
-                    [
-                        "id": "1",
-                        "answer": "1"
-                    ],
-                    [
-                        "id": "2",
-                        "answer": "1"
-                    ],
-                    [
-                        "id": "3",
-                        "answer": "1"
-                    ],
-                    [
-                        "id": "4",
-                        "answer": "1"
-                    ]
-                ]
-                self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
-                    returnedInfo in
-                    code = returnedInfo.code
-                    message = returnedInfo.message
-                    asyncExpectation.fulfill()
-                }
-                
-            }
+            XCTAssertNotEqual(returnedTransaction.token, "")
+            XCTAssertEqual(returnedTransaction.code, "000")
+            asyncExpectationToken.fulfill();
         }
+        wait(for: [asyncExpectationToken], timeout: 10)
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: "InvalidsecureId", secureServiceId: "InvalidSecureId", stateCode: "1"){
+            returnedConfrontaQuestionarie in
+            code = returnedConfrontaQuestionarie.code
+            message = returnedConfrontaQuestionarie.message
+            XCTAssertEqual(returnedConfrontaQuestionarie.questionnarieCode, "")
+            asyncExpectationQuestion.fulfill()
+        }
+        
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
-            XCTAssertTrue(questionnarieCode != "")
-            XCTAssertTrue(code == "BIO000")
-            XCTAssertTrue(message == "ok")
+            XCTAssertEqual(code, "CardRule Credential not found")
+            XCTAssertEqual(message, "El ID de comercio no corresponde a la credencial enviada")
         }
         
     }
     
-    func testRequestFailSecureValidation(){
-        let asyncExpectation = expectation(description: "request transfer subscription secure validation")
+    func testRequestSecureValidationConfrontaSuccessQuestions(){
+        let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
+        let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
         var questionnarieCode: String = ""
         var code: String = ""
         var message: String = ""
-        kushkiTransferSubscriptionQA!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+        var secureServiceId = ""
+        var secureService = ""
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
             returnedTransaction in
-            let secureServiceId = returnedTransaction.secureId ?? ""
-            let secureService = returnedTransaction.secureService ?? ""
-            self.kushkiTransferSubscriptionQA!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
-                returnedConfrontaQuestionarie in
-                questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
-                let answers: [[String: String]] = [
-                    [
-                        "id": "id",
-                        "answer": "1"
-                    ],
-                    [
-                        "id": "id",
-                        "answer": "1"
-                    ],
-                    [
-                        "id": "id",
-                        "answer": "0"
-                    ]
-                ]
-                self.kushkiTransferSubscriptionQA?.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
-                    returnedInfo in
-                    code = returnedInfo.code
-                    message = returnedInfo.message
-                    asyncExpectation.fulfill()
-                }
-                
-            }
+            secureServiceId = returnedTransaction.secureId ?? ""
+            secureService = returnedTransaction.secureService ?? ""
+            XCTAssertNotEqual(returnedTransaction.token, "")
+            XCTAssertEqual(returnedTransaction.code, "000")
+            asyncExpectationToken.fulfill();
+        }
+        
+        wait(for: [asyncExpectationToken], timeout: 10)
+        
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            returnedConfrontaQuestionarie in
+            questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
+            code = returnedConfrontaQuestionarie.code
+            message = returnedConfrontaQuestionarie.message
+            XCTAssertNotEqual(returnedConfrontaQuestionarie.questionnarieCode, "")
+            asyncExpectationQuestion.fulfill()
         }
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertTrue(questionnarieCode != "")
-            XCTAssertTrue(code == "BIO100")
-            XCTAssertTrue(message == "Invalid user")
+            XCTAssertEqual(code, "BIO010")
+            XCTAssertEqual(message,"Por favor, complete las preguntas pendientes")
         }
         
+    }
+    
+    func testRequestSecureValidationConfrontaFlowCompletedSuccess(){
+        let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
+        let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
+        let asyncExpectationAnswer = expectation(description: "request transfer subscription secure validation answer")
+        var questionnarieCode: String = ""
+        var code: String = ""
+        var message: String = ""
+        var secureServiceId = ""
+        var secureService = ""
+        var answers: [[String: String]] = []
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+            returnedTransaction in
+            secureServiceId = returnedTransaction.secureId ?? ""
+            secureService = returnedTransaction.secureService ?? ""
+            XCTAssertNotEqual(returnedTransaction.token, "")
+            XCTAssertEqual(returnedTransaction.code, "000")
+            asyncExpectationToken.fulfill();
+        }
+        
+        wait(for: [asyncExpectationToken], timeout: 10)
+        
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            returnedConfrontaQuestionarie in
+            questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
+            answers = [
+                [
+                    "id": "1",
+                    "answer": "1"
+                ],
+                [
+                    "id": "2",
+                    "answer": "1"
+                ],
+                [
+                    "id": "3",
+                    "answer": "1"
+                ],
+                [
+                    "id": "4",
+                    "answer": "1"
+                ]
+            ]
+            XCTAssertNotEqual(returnedConfrontaQuestionarie.questionnarieCode, "")
+            asyncExpectationQuestion.fulfill()
+        }
+        
+        wait(for: [asyncExpectationQuestion], timeout: 10)
+
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+            returnedInfo in
+            code = returnedInfo.code
+            message = returnedInfo.message
+            asyncExpectationAnswer.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
+            XCTAssertTrue(questionnarieCode != "")
+            XCTAssertEqual(code, "BIO000")
+            XCTAssertEqual(message, "ok")
+        }
+        
+    }
+    
+    func testRequestFailSecureValidationConfronta(){
+        let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
+        let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
+        let asyncExpectationAnswer = expectation(description: "request transfer subscription secure validation answer")
+        var questionnarieCode: String = ""
+        var code: String = ""
+        var message: String = ""
+        var secureServiceId = ""
+        var secureService = ""
+        var answers: [[String: String]] = []
+        kushkiTransferSubscriptionUAT!.requestTransferSubscriptionToken(accountNumber: "123123123", accountType: "01", bankCode: "1", documentNumber: "892352", documentType: "CC", email: "test@test.com", lastname: "Lema", name: "TOBAR", totalAmount: 25.0){
+            returnedTransaction in
+            secureServiceId = returnedTransaction.secureId ?? ""
+            secureService = returnedTransaction.secureService ?? ""
+            XCTAssertNotEqual(returnedTransaction.token, "")
+            XCTAssertEqual(returnedTransaction.code, "000")
+            asyncExpectationToken.fulfill();
+        }
+        
+        wait(for: [asyncExpectationToken], timeout: 10)
+        
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(cityCode: "1", expeditionDate: "2019-01-01", phone: "0987654321", secureService: secureService, secureServiceId: secureServiceId, stateCode: "1"){
+            returnedConfrontaQuestionarie in
+            questionnarieCode = returnedConfrontaQuestionarie.questionnarieCode
+            answers = [
+                [
+                    "id": "1",
+                    "answer": "1"
+                ],
+                [
+                    "id": "2",
+                    "answer": "1"
+                ],
+                [
+                    "id": "3",
+                    "answer": "1"
+                ],
+                [
+                    "id": "4",
+                    "answer": "1"
+                ]
+            ]
+            XCTAssertNotEqual(returnedConfrontaQuestionarie.questionnarieCode, "")
+            asyncExpectationQuestion.fulfill()
+        }
+        
+        wait(for: [asyncExpectationQuestion], timeout: 10)
+
+        kushkiTransferSubscriptionUAT!.requestSecureValidation(answers: answers, questionnarieCode: questionnarieCode, secureService: secureService, secureServiceId: secureServiceId){
+            returnedInfo in
+            code = returnedInfo.code
+            message = returnedInfo.message
+            asyncExpectationAnswer.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
+            XCTAssertTrue(questionnarieCode != "")
+            XCTAssertTrue(code != "BIO100")
+            XCTAssertTrue(message != "Invalid user")
+        }
     }
     
     func testRequestCashToken(){
@@ -337,9 +448,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testGetSubscriptionCardAsyncTokenWithOptionalParams(){
        let asyncExpectation = expectation(description: "Get subscription card async token")
-       let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+       let kushki = Kushki(publicMerchantId: merchants.uatMerchantIdCLP.rawValue,
                            currency: "CLP",
-                           environment: KushkiEnvironment.testing_ci)
+                           environment: KushkiEnvironment.testing)
        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
       
        kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com", cardNumber: "42424242424242424"){
@@ -354,9 +465,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testGetSubscriptionCardAsyncTokenWithoutOptionalParams(){
        let asyncExpectation = expectation(description: "Get subscription card async token")
-       let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
+       let kushki = Kushki(publicMerchantId: merchants.uatMerchantIdCLP.rawValue,
                            currency: "CLP",
-                           environment: KushkiEnvironment.testing_ci)
+                           environment: KushkiEnvironment.testing)
        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
       
        kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com"){
@@ -365,7 +476,9 @@ class KushkiIntegrationTests: XCTestCase {
            asyncExpectation.fulfill()
        }
        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){ error in
-           XCTAssertNotEqual(transaction.token, "")
+           XCTAssertEqual(transaction.token, "")
+           XCTAssertEqual(transaction.code, "K001")
+           XCTAssertEqual(transaction.message, "Cuerpo de la petición inválido.")
        }
     }
     

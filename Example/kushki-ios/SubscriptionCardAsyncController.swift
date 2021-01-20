@@ -25,10 +25,10 @@ class SubscriptionCardAsyncTokenRequestViewController: UIViewController {
         return
     }
     private func requestKushkiToken(email : String, callbackUrl: String, cardNumber: String) {
-        let publicMerchantId = "20000000106145247000"
+        let publicMerchantId = "12410184888150783738635"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "CLP",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing)
         kushki.requestSubscriptionCardAsyncToken(email: email, callbackUrl: callbackUrl, cardNumber: cardNumber){
             transaction in
             let message = transaction.isSuccessful() ?

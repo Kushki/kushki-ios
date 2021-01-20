@@ -1,20 +1,20 @@
 PODS:
   - Kushki (2.2.1)
-  - OHHTTPStubs (5.2.1):
-    - OHHTTPStubs/Default (= 5.2.1)
-  - OHHTTPStubs/Core (5.2.1)
-  - OHHTTPStubs/Default (5.2.1):
+  - OHHTTPStubs (9.1.0):
+    - OHHTTPStubs/Default (= 9.1.0)
+  - OHHTTPStubs/Core (9.1.0)
+  - OHHTTPStubs/Default (9.1.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (5.2.1):
+  - OHHTTPStubs/JSON (9.1.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (5.2.1):
+  - OHHTTPStubs/NSURLSession (9.1.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (5.2.1)
-  - OHHTTPStubs/Swift (5.2.1):
-    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.1.0)
+  - OHHTTPStubs/Swift (9.1.0):
+    - OHHTTPStubs/Default
 
 DEPENDENCIES:
   - Kushki (from `../`)
@@ -30,9 +30,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Kushki: cea16cfa5b25cf7dcc5d494fe4e5bb07392292e3
-  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  Kushki: 2fef42ff095658d4a94542ec3e663ba42af37c6a
+  OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
 
-PODFILE CHECKSUM: 07d351a9a4d405686a1d65716d0a9a27da908f79
+PODFILE CHECKSUM: 3b2b6be94b7c5f4cf33891270940940fedb2fe1a
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.10.0
