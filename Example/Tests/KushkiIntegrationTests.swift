@@ -495,8 +495,8 @@ class KushkiIntegrationTests: XCTestCase {
         }
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)){
             error in
-            XCTAssertNotEqual(cardInfo.bank, "")
-            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+            XCTAssertEqual(cardInfo.bank, "")
+            XCTAssertNotEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
     }
 }
