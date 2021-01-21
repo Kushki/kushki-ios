@@ -17,9 +17,9 @@ if [ ! -z "$found_tag" ]; then
   exit 0
 fi
 
-git config user.email dev@kushkipagos.com
-git config user.name 'Kushki'
-git remote add tags-origin "https://$GITHUB_TOKEN@github.com/Kushki/kushki-ios.git"
+git config user.email seguridad@kushkipagos
+git config user.name 'segKushki'
+git remote add tags-origin "https://segKushki@bitbucket.org/kushki/kushki-ios.git"
 git tag --annotate "$tag_name" -m "Release for version $artifact_version"
 git push tags-origin "$tag_name"	
 pod trunk push
