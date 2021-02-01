@@ -19,12 +19,12 @@ class AnswersSecureValidationViewController: UIViewController {
     @IBOutlet weak var answer3Field: UITextField!
     var kushkiTransfer : Kushki?
     @IBOutlet weak var ResponseView: UITextView!
-    let publicTransferMerchantId: String? = "20000000107468104000"
+    let publicTransferMerchantId: String? = "a499dddde82b433f832f26f685cbe468"
     override func viewDidLoad() {
         super.viewDidLoad()
         kushkiTransfer  = Kushki(publicMerchantId: self.publicTransferMerchantId!,
                                  currency: "COP",
-                                 environment: KushkiEnvironment.testing_ci)
+                                 environment: KushkiEnvironment.testing)
     }
     @IBAction func handleTouchUpInside(_ sender: Any) {
         let answers : [[String: String]] = [
@@ -50,8 +50,8 @@ class AnswersSecureValidationViewController: UIViewController {
                                               preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
+                self.ResponseView.text = "Response questions subscription transfer token: \n\n" + message
             })
-            self.ResponseView.text = "Response questions subscription transfer token: \n\n" + message
         }
     }
 }

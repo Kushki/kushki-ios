@@ -1,4 +1,4 @@
-language: objective-c
+os: osx
 osx_image: xcode10.1
 xcode_workspace: kushki-ios.xcworkspace
 xcode_scheme: kushki-ios
@@ -18,9 +18,9 @@ script:
   - ./pipeline/01-unit.sh
   - ./pipeline/02-lint.sh
 after_success:
-  - sleep 5
+  - sleep 15
 deploy:  
   provider: script
   script: ./pipeline/03-distribute.sh
   on:
-    branch: master
+    branches: master

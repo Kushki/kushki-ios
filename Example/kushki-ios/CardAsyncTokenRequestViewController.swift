@@ -41,8 +41,8 @@ class CardAsyncTokenRequestViewController: UIViewController {
                                               preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default))
                 self.present(alert, animated: true)
+                self.ResponseView.text = "Token response: \n\n" + message
             })
-            self.ResponseView.text = "Token response: \n\n" + message
         }
     }
     
