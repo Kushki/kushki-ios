@@ -22,5 +22,3 @@ after_success:
 deploy:  
   provider: script
   script: ./pipeline/03-distribute.sh
-  on:
-    branches: master
