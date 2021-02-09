@@ -8,6 +8,7 @@ echo "start distribute"
 # source ~/.rvm/scripts/rvm
 rvm use default
 echo "cocoapods gem version: $(pod --version)"
+echo "GITHUB_TOKEN: $GITHUB_TOKEN"
 artifact_version=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)
 tag_name="v$artifact_version"
 found_tag=$(git tag | grep "^$tag_name$" || true)
