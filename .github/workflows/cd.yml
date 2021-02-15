@@ -7,12 +7,18 @@ jobs:
   master:
     runs-on: macOS-latest
     steps:
+    - name: Create tag
+      uses: actions/github-script@v3
+      with:
+       script: |
+        github.git.createRef({
+          owner: dev@kushkipagos.com,
+          repo: context.repo.repo,
+          ref: "refs/tags/2.2.2a-beta",
+          sha: context.sha
+        })
     - uses: actions/checkout@v2
     - name: Upload version
       run: |
-        chmod +x pipeline/01-unit.sh
-        chmod +x pipeline/02-lint.sh
         chmod +x pipeline/03-distribute.sh
-        pipeline/01-unit.sh
-        pipeline/02-lint.sh
         pipeline/03-distribute.sh
