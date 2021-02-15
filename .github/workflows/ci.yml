@@ -1,0 +1,13 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test new environment
+      run: |
+      chmod +x “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
+      chmod +x “${GITHUB_WORKSPACE}/pipelin/02-lint.sh”
+      “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
+      “${GITHUB_WORKSPACE}/pipeline/02-lint.sh”
