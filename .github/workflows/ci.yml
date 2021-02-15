@@ -7,5 +7,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Test new environment
       run: |
-       chmod +x “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
-       “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
+        ls
+        chmod +x “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
+        “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
