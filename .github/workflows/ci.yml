@@ -7,13 +7,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Unit Test new environment
       run: |
-        set -eo pipefail
         xcodebuild test -workspace Example/kushki-ios.xcworkspace -scheme kushki-ios-Example \
         -destination ‘platform=iOS Simulator,name=iPhone 8,OS=14.3’ -sdk iphonesimulator \
         ONLY_ACTIVE_ARCH=NO -allowProvisioningUpdates
     - name: Pod Lint
       run: |
-        set -e
         echo “---------------------------------------=)”
         echo “cocoapods gem version: $(pod --version)”
         pod lib lint
