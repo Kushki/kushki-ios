@@ -5,13 +5,18 @@ jobs:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Unit Test new environment
+    - name: Test new environment
       run: |
-        xcodebuild test -workspace Example/kushki-ios.xcworkspace -scheme kushki-ios-Example \
-        -destination ‘platform=iOS Simulator,name=iPhone 8,OS=14.3’ -sdk iphonesimulator \
-        ONLY_ACTIVE_ARCH=NO -allowProvisioningUpdates
-    - name: Pod Lint
+        ls
+        chmod +x pipeline/01-unit.sh
+	      pipeline/02-lint.sh
+
+  lint:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint new environment
       run: |
-        echo “---------------------------------------=)”
-        echo “cocoapods gem version: $(pod --version)”
-        pod lib lint
+        ls
+	      chmod +x pipeline/02-lint.sh
+	      pipeline/02-lint.sh
