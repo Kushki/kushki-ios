@@ -10,10 +10,10 @@ jobs:
     - name: Create tag
       uses: actions/github-script@v3
       with:
-       github-token: 1a9bf4b3f9d9c2322f50d26a9e310459a1ea3638
+       github-token: ${{ github.token }}
        script: |
         github.git.createRef({
-          owner: dev@kushkipagos.com,
+          owner: context.repo.owner,
           repo: context.repo.repo,
           ref: "refs/tags/2.2.2a-beta",
           sha: context.sha
