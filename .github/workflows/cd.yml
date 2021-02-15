@@ -1,10 +1,10 @@
 name: cd
 on: 
   push:
-    branch:
+    branches:
       - master  
 jobs:
-  test:
+  master:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
