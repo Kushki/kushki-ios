@@ -9,4 +9,6 @@ jobs:
       run: |
         ls
         chmod +x pipeline/01-unit.sh
+	chmod +x pipeline/02-lint.sh
         pipeline/01-unit.sh
+	pipeline/02-lint.sh
