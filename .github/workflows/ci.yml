@@ -8,5 +8,5 @@ jobs:
     - name: Test new environment
       run: |
         ls
-        chmod +x “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
-        “${GITHUB_WORKSPACE}/pipeline/01-unit.sh”
+        chmod +x “pipeline/01-unit.sh”
+        “pipeline/01-unit.sh”
