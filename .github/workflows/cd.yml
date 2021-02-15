@@ -14,11 +14,11 @@ jobs:
        script: |
          echo "${{ context.repo.owner }}"  
          github.git.createRef({
-          owner: context.repo.owner,
-          repo: context.repo.repo,
-          ref: "refs/tags/2.2.2a-beta",
-          sha: context.sha
-        })
+           owner: context.repo.owner,
+           repo: context.repo.repo,
+           ref: "refs/tags/2.2.2a-beta",
+           sha: context.sha
+         })
     - uses: actions/checkout@v2
     - name: Upload version
       run: |
