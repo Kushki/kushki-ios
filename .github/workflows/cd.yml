@@ -25,6 +25,7 @@ jobs:
        github-token: ${{ github.token }}
        script: |
         github.git.createRef({
+          message: "hola",
           owner: context.repo.owner,
           repo: context.repo.repo,
           ref: `refs/tags/v${process.env.VERSION_DEPLOY}`,
