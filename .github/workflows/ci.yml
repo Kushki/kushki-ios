@@ -1,13 +1,14 @@
 name: ci
 on: 
-  push:
-    branches:
-      - /(?:feature|hotfix|release)\/.*$/ 
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
 jobs:
   test:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
+    - with:
+       branchRegex: '/(?:feature|hotfix|release)\/.*$/'
     - name: Test new environment
       run: |
         chmod +x pipeline/01-unit.sh
