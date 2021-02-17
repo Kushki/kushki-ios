@@ -3,7 +3,7 @@ on:
   pull_request:
     types: ['opened', 'edited', 'reopened', 'synchronize']
 jobs:
-  test&lint:
+  test-lint:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
