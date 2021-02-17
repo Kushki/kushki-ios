@@ -22,7 +22,7 @@ jobs:
         github.git.createRef({
           owner: context.repo.owner,
           repo: context.repo.repo,
-          ref: "refs/tags/2.2.2a-beta",
+          ref: "refs/tags/v2.2.2a-beta",
           sha: context.sha
         })
     - name: Deploy to Cocoapods
