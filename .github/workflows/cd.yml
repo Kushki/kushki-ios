@@ -27,7 +27,7 @@ jobs:
         github.git.createRef({
           owner: context.repo.owner,
           repo: context.repo.repo,
-          ref: echo "refs/tags/v$VERSION_DEPLOY",
+          ref: `refs/tags/v${process.env.VERSION_DEPLOY}`,
           sha: context.sha
         })
 #     - name: Deploy to Cocoapods
