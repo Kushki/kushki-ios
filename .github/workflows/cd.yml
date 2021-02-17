@@ -1,7 +1,7 @@
-name: cd
+name: Continuous Deployment
 on: 
   push:
-    branch:
+    branches:
       - master  
 jobs:
   deploy:
@@ -14,9 +14,9 @@ jobs:
       run: |
         chmod +x pipeline/01-unit.sh
         chmod +x pipeline/02-lint.sh
-#        pipeline/01-unit.sh
-#        pipeline/02-lint.sh
-    - name: version
+        pipeline/01-unit.sh
+        pipeline/02-lint.sh
+    - name: Version Deploy
       id: set-result
       run: echo "VERSION_DEPLOY=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)" >> $GITHUB_ENV
     - name: Create tag
@@ -25,15 +25,14 @@ jobs:
        github-token: ${{ github.token }}
        script: |
         github.git.createRef({
-          message: "hola",
           owner: context.repo.owner,
           repo: context.repo.repo,
           ref: `refs/tags/v${process.env.VERSION_DEPLOY}`,
           sha: context.sha
         })
-#     - name: Deploy to Cocoapods
-#       run: |
-#         set -eo pipefail
-#         pod trunk push --allow-warnings
-#       env:
-#         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+    - name: Deploy to Cocoapods
+      run: |
+        set -eo pipefail
+        pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
