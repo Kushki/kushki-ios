@@ -1,13 +1,13 @@
-name: ci
+name: Continuous Integration
 on: 
   pull_request:
     types: ['opened', 'edited', 'reopened', 'synchronize']
 jobs:
-  test:
+  test&lint:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Test new environment
+    - name: Test Dev Environment
       run: |
         chmod +x pipeline/01-unit.sh
         chmod +x pipeline/02-lint.sh
