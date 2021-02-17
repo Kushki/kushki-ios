@@ -10,24 +10,33 @@ jobs:
     - name: Install Cocoapods
       run: gem install cocoapods
     - uses: actions/checkout@v2
-    - name: Lint
+    - name: Unit Test and Lint
       run: |
+        chmod +x pipeline/01-unit.sh
         chmod +x pipeline/02-lint.sh
-        pipeline/02-lint.sh
-    - name: Create tag
-      uses: actions/github-script@v3
+#        pipeline/01-unit.sh
+#        pipeline/02-lint.sh
+    - uses: actions/github-script@v3
+      id: set-result
       with:
-       github-token: ${{ github.token }}
-       script: |
-        github.git.createRef({
-          owner: context.repo.owner,
-          repo: context.repo.repo,
-          ref: "refs/tags/v2.2.2a-beta",
-          sha: context.sha
-        })
-    - name: Deploy to Cocoapods
-      run: |
-        set -eo pipefail
-        pod trunk push --allow-warnings
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        script: return "$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)"
+        result-encoding: string
+    - name: Get result
+      run: echo "${{steps.set-result.outputs.result}}"
+#     - name: Create tag
+#       uses: actions/github-script@v3
+#       with:
+#        github-token: ${{ github.token }}
+#        script: |
+#         github.git.createRef({
+#           owner: context.repo.owner,
+#           repo: context.repo.repo,
+#           ref: "refs/tags/v2.2.2a-beta",
+#           sha: context.sha
+#         })
+#     - name: Deploy to Cocoapods
+#       run: |
+#         set -eo pipefail
+#         pod trunk push --allow-warnings
+#       env:
+#         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
