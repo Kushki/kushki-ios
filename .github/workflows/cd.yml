@@ -7,8 +7,23 @@ jobs:
   master:
     runs-on: macOS-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Upload version
+    - name: Create tag
+      uses: actions/github-script@v3
+      with:
+       github-token: ${{ github.token }}
+       script: |
+        github.git.createRef({
+          owner: context.repo.owner,
+          repo: context.repo.repo,
+          ref: "refs/tags/2.2.2a-beta",
+          sha: context.sha
+        })
+    - name: Install Cocoapods
+      run: gem install cocoapods
+    - name: Deploy to Cocoapods
       run: |
-        chmod +x pipeline/03-distribute.sh
-        pipeline/03-distribute.sh
+        set -eo pipefail
+        pod lib lint --allow-warnings
+        pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
