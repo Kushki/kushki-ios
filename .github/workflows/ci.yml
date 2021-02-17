@@ -1,5 +1,8 @@
 name: ci
-on: [push]
+on: 
+  push:
+    branches:
+      - /(?:feature|hotfix|release)\/.*$/ 
 jobs:
   test:
     runs-on: macOS-latest
