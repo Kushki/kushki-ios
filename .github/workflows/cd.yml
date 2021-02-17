@@ -16,12 +16,11 @@ jobs:
         chmod +x pipeline/02-lint.sh
 #        pipeline/01-unit.sh
 #        pipeline/02-lint.sh
-    - uses: actions/checkout@v2
     - name: version
       id: set-result
-      run: echo "$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)"
+      run: echo "GITHUB_SHA_SHORT=$(echo grep "version.*=" Kushki.podspec | cut -d "'" -f 2)" >> $GITHUB_ENV
     - name: Get result
-      run: echo "${{steps.set-result.outputs.result}}"
+      run: echo "$GITHUB_SHA_SHORT"
 #     - name: Create tag
 #       uses: actions/github-script@v3
 #       with:
