@@ -16,7 +16,7 @@ jobs:
         chmod +x pipeline/02-lint.sh
 #        pipeline/01-unit.sh
 #        pipeline/02-lint.sh
-    - uses: actions/github-script@v3
+    - uses: actions/checkout@v2
       id: set-result
       with:
         script: return "$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)"
