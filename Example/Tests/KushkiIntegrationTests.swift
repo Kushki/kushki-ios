@@ -499,4 +499,50 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertNotEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
     }
+    
+    func testGetMerchantSettings() {
+        let asyncExpectation = expectation(description: "Get merchant settings with valid mid")
+        var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
+        
+        let kushki = Kushki(publicMerchantId: "21b90d1013774cd6a12a9b2370facd21",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_qa)
+        kushki.getMerchantSettings() {
+            response in
+            returnedMerchantSettings = response
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: TimeInterval(25)) {
+            error in
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[0].processorName, "VisaNet Processor")
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "VisaNet Processor")
+            XCTAssertNil(returnedMerchantSettings.sandboxAccountId)
+            XCTAssertNil(returnedMerchantSettings.code)
+            XCTAssertNil(returnedMerchantSettings.message)
+        }
+        
+    }
+    
+    func testGetMerchantSettingsWithInvalidMid() {
+        let asyncExpectation = expectation(description: "Get merchant settings error info with invalid mid")
+        var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
+        
+        let kushki = Kushki(publicMerchantId: "21b90d1013774cd",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_qa)
+        kushki.getMerchantSettings() {
+            response in
+            returnedMerchantSettings = response
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: TimeInterval(25)) {
+            error in
+            XCTAssertNotNil(returnedMerchantSettings.code)
+            XCTAssertEqual(returnedMerchantSettings.code, "K004")
+            XCTAssertNotNil(returnedMerchantSettings.message)
+        }
+        
+    }
 }

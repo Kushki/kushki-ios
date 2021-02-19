@@ -683,6 +683,59 @@ class KushkiTests: XCTestCase {
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
     }
+    
+    func testGetMerchantSettings() {
+        let asyncExpectation = expectation(description: "Request merchant settings")
+
+        var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
+        
+        let kushki = Kushki(publicMerchantId: "b92bf19b5aad4621b775f7ad44065852",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_qa)
+        
+        _ = stub(condition: isHost(host.hostQA.rawValue)
+                    && isPath(EndPoint.merchantSettings.rawValue)
+                    && isMethodGET()) {
+            request in
+            _ = request as NSURLRequest
+            
+            let responseBody: [String: Any] = [
+                "country": "Ecuador",
+                "merchant_name": "Byron Sanchez",
+                "processors": [
+                    "ach transfer": [],
+                    "card": [["processorName": "Credimatic Processor"]],
+                    "cash": [["processorName": "Facilito"]],
+                    "payouts-cash": [],
+                    "payouts-transfer": [["processorName": "Pse"]],
+                    "transfer": [["processorName": "Pse"]],
+                    "transfer-subscriptions": []
+                ],
+                "processor_name": "Pse",
+                "prodAccountId": "",
+                "prodBaconKey": "",
+                "sandboxAccountId": "",
+                "sandboxBaconKey": ""
+            ]
+            
+            return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
+        }
+        
+        kushki.getMerchantSettings() {
+            response in
+            returnedMerchantSettings = response
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10) {
+            error in
+            XCTAssertEqual("Ecuador", returnedMerchantSettings.country)
+            XCTAssertEqual("Credimatic Processor", returnedMerchantSettings.processors?.card?[0].processorName)
+            XCTAssertNotNil(returnedMerchantSettings.sandboxBaconKey)
+            XCTAssertNil(returnedMerchantSettings.code)
+            XCTAssertNil(returnedMerchantSettings.message)
+        }
+    }
 
 }
 
