@@ -34,6 +34,10 @@ class KushkiClient {
         }
     }
     
+    func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping(MerchantSettings) -> ()) {
+        showHttpGetMerchantSettings(withMerchantId: publicMerchantId, endpoint: endpoint, withCompletion: completion)
+    }
+    
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -447,6 +451,31 @@ class KushkiClient {
         }
         task.resume()
     }
+    
+    private func showHttpGetMerchantSettings(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (MerchantSettings) -> ()) {
+            
+            let url = URL(string: self.environment.rawValue + endpoint)!
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
+            let task = URLSession.shared.dataTask (with: request) { data, response, error in
+                
+                print("Data", String(data: data!, encoding: String.Encoding.utf8)!)
+                
+                if let theError = error {
+                    print(theError.localizedDescription)
+                    return
+                }
+
+                guard let response = try? JSONDecoder().decode(MerchantSettings.self, from: data!) else {
+                    print("Error decoding merchant settings")
+                    return
+                }
+                
+                completion(response)
+            }
+            task.resume()
+        }
     
     private func parseGetBankListResponse(jsonResponse: String)   -> [Bank] {
         
