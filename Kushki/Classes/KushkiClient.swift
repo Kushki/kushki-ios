@@ -1,4 +1,5 @@
 import Foundation
+import Sift
 
 class KushkiClient {
 
@@ -38,6 +39,14 @@ class KushkiClient {
         showHttpGetMerchantSettings(withMerchantId: publicMerchantId, endpoint: endpoint, withCompletion: completion)
     }
     
+    func initSiftScience(merchantSettings: MerchantSettings, userId: String) {
+        let sift = Sift.sharedInstance
+        sift()?.accountId = self.environment == KushkiEnvironment.production ? merchantSettings.prodAccountId : merchantSettings.sandboxAccountId
+        sift()?.beaconKey = self.environment == KushkiEnvironment.production ? merchantSettings.prodBaconKey : merchantSettings.sandboxBaconKey
+        sift()?.userId = userId
+        sift()?.allowUsingMotionSensors = true
+    }
+    
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -45,8 +54,8 @@ class KushkiClient {
         return dictFromJson!
     }
     
-    func buildParameters(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double) -> String {
-        let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency, withAmount: totalAmount)
+    func buildParameters(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double, withSiftScienceResponse siftScienceResponse: SiftScienceObject) -> String {
+        let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency, withAmount: totalAmount, siftScienceResponse: siftScienceResponse)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
         return dictFromJson!
@@ -144,7 +153,6 @@ class KushkiClient {
         if card.isDeferred {
             requestDictionary["isDeferred"] = card.isDeferred
         }
-        print(requestDictionary)
         return requestDictionary
     }
     
@@ -186,11 +194,13 @@ class KushkiClient {
         return requestDictionary
     }
     
-    func buildJsonObject(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double) -> [String : Any] {
+    func buildJsonObject(withCard card: Card, withCurrency currency: String, withAmount totalAmount: Double, siftScienceResponse: SiftScienceObject) -> [String : Any] {
         
         var requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         
         requestDictionary["totalAmount"] = totalAmount
+        requestDictionary["sessionId"] = siftScienceResponse.sessionId
+        requestDictionary["userId"] = siftScienceResponse.userId
         return requestDictionary        
     }
     
@@ -282,6 +292,18 @@ class KushkiClient {
         ]
         return requestDictionary
     }
+    
+    func createSiftScienceSession(withMerchantId publicMerchantId: String, card: Card, isTest: Bool, merchantSettings: MerchantSettings) -> SiftScienceObject{
+            let cardNumber = card.number
+            let firstIndex = cardNumber.index(cardNumber.startIndex, offsetBy:6)
+            let endIndex = cardNumber.index(cardNumber.endIndex, offsetBy:-4)
+            let processor = cardNumber[..<firstIndex]
+            let clientIdentification = cardNumber[endIndex...]
+            let session_id = UUID().uuidString;
+            let user_id = publicMerchantId + processor + clientIdentification;
+     
+            return SiftScienceObject(userId: user_id, sessionId: session_id)
+        }
     
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         

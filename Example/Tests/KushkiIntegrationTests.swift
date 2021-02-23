@@ -40,7 +40,8 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestToken")
         //let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let card2 = Card(name: "Bryan", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "21", months: 2, isDeferred: true)
-        kushki!.requestToken(card: card2, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card2, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -53,7 +54,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -68,7 +70,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidCard() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -83,7 +86,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidBin() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "4440884457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -98,7 +102,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testReturnsSubscriptionTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+        let isTest = true
+        kushki!.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -111,7 +116,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testReturnsSubscriptionTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+        let isTest = true
+        kushki!.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             print("resp: " + returnedTransaction.code)
             asyncExpectation.fulfill()

@@ -1,6 +1,0 @@
-framework module Kushki {
-  umbrella header "Kushki-umbrella.h"
-
-  export *
-  module * { export * }
-}

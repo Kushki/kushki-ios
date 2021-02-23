@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://bitbucket.org/Kushki/kushki-ios.git', :tag => "v#{s.version.to_s}" }
   s.ios.deployment_target = '12.1'
   s.source_files = 'Kushki/Classes/**/*'
+  s.dependency "Sift"
 end
