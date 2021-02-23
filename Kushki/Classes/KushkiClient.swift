@@ -3,7 +3,7 @@ import Sift
 
 class KushkiClient {
 
-    public let environment: KushkiEnvironment
+    private let environment: KushkiEnvironment
     
     init(environment: KushkiEnvironment, regional: Bool) {
         self.environment = regional ? environment == KushkiEnvironment.production ? KushkiEnvironment.production_regional : KushkiEnvironment.testing_regional : environment
@@ -153,7 +153,6 @@ class KushkiClient {
         if card.isDeferred {
             requestDictionary["isDeferred"] = card.isDeferred
         }
-        print(requestDictionary)
         return requestDictionary
     }
     
@@ -202,7 +201,6 @@ class KushkiClient {
         requestDictionary["totalAmount"] = totalAmount
         requestDictionary["sessionId"] = siftScienceResponse.sessionId
         requestDictionary["userId"] = siftScienceResponse.userId
-        print(requestDictionary)
         return requestDictionary        
     }
     
@@ -310,7 +308,6 @@ class KushkiClient {
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
-        print(url, requestBody.data(using: String.Encoding.utf8)!);
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = requestBody.data(using: String.Encoding.utf8)
@@ -319,7 +316,7 @@ class KushkiClient {
         request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
         let task = URLSession.shared.dataTask (with: request) { data, response, error in
             if let theError = error {
-                print("Error", theError.localizedDescription)
+                print(theError.localizedDescription)
                 return
             }
             let responseBody = String(data: data!, encoding: String.Encoding.utf8)!

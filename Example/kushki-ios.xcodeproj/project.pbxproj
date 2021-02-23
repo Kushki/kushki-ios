@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4070B8F718CF1136950EC73F /* Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378069B88CBCF0FC931320AC /* Pods_kushki_ios_Example.framework */; };
+		1951ACE4C45323C74032B738 /* Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */; };
+		3B4F0B5AB798F7DF31221F1E /* Pods_kushki_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8AE25C19677E8DEA6C8C7F /* Pods_kushki_ios_Tests.framework */; };
 		51C40AA42435284E00D8239F /* SubscriptionCardAsyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C40AA32435284E00D8239F /* SubscriptionCardAsyncController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		8F216C6F43339DFDD9620CB4 /* Pods_kushki_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5451CCFE2A45430DC1D3F20C /* Pods_kushki_ios_Tests.framework */; };
 		AF30347D1DAC231B005C9F39 /* KushkiIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B751DAC00D400C1AB98 /* KushkiIntegrationTests.swift */; };
 		AF30347E1DAC231B005C9F39 /* KushkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B761DAC00D400C1AB98 /* KushkiTests.swift */; };
 		AF30347F1DAC231B005C9F39 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF052B731DAC00C800C1AB98 /* Helpers.swift */; };
@@ -41,11 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09049864D2B3E7CF6292D85D /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		21EDE058D85655FB8F5D8F7F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		378069B88CBCF0FC931320AC /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2633DEB327DBCE77C71823A3 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Example.debug.xcconfig"; path = "Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		51C40AA32435284E00D8239F /* SubscriptionCardAsyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCardAsyncController.swift; sourceTree = "<group>"; };
-		5451CCFE2A45430DC1D3F20C /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* kushki-ios_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kushki-ios_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,9 +52,10 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* kushki-ios_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kushki-ios_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6682DB8730FDC44D317526EC /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.debug.xcconfig"; path = "Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A8AE25C19677E8DEA6C8C7F /* Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFA99897193F3500082CDA0 /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Example.release.xcconfig"; path = "Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9E3F34E12B0EAC252DC33658 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A27D44A410AD000FEFB7F2C0 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A669C16708DED6C2BD30567D /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF052B731DAC00C800C1AB98 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AF052B751DAC00D400C1AB98 /* KushkiIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiIntegrationTests.swift; sourceTree = "<group>"; };
 		AF052B761DAC00D400C1AB98 /* KushkiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KushkiTests.swift; sourceTree = "<group>"; };
@@ -64,8 +63,9 @@
 		AF3034861DAC3030005C9F39 /* kushki-ios_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "kushki-ios_Example.entitlements"; sourceTree = "<group>"; };
 		AFF155E31DAC3B1100BC21EA /* Kushki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Kushki; path = ../Kushki; sourceTree = "<group>"; };
 		AFF155E51DAC3B5000BC21EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E4035B332328698900A2A5EC /* TokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestViewController.swift; sourceTree = "<group>"; };
 		E407F712233A80AB00340214 /* CashTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashTokenViewController.swift; sourceTree = "<group>"; };
 		E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTokenViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4070B8F718CF1136950EC73F /* Pods_kushki_ios_Example.framework in Frameworks */,
+				1951ACE4C45323C74032B738 /* Pods_kushki_ios_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,13 +90,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F216C6F43339DFDD9620CB4 /* Pods_kushki_ios_Tests.framework in Frameworks */,
+				3B4F0B5AB798F7DF31221F1E /* Pods_kushki_ios_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E2BB8D5693369BA29B82CB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2633DEB327DBCE77C71823A3 /* Pods-kushki-ios_Example.debug.xcconfig */,
+				9BFA99897193F3500082CDA0 /* Pods-kushki-ios_Example.release.xcconfig */,
+				6682DB8730FDC44D317526EC /* Pods-kushki-ios_Tests.debug.xcconfig */,
+				CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +118,8 @@
 				607FACD21AFB9204008FA782 /* Example for kushki-ios */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				88C77BA8CE5C85F963D2356A /* Pods */,
-				E7AB61346A0290757675843B /* Frameworks */,
+				5E2BB8D5693369BA29B82CB1 /* Pods */,
+				8A266CC47637ABB74512AED3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,15 +185,13 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		88C77BA8CE5C85F963D2356A /* Pods */ = {
+		8A266CC47637ABB74512AED3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A27D44A410AD000FEFB7F2C0 /* Pods-kushki-ios_Example.debug.xcconfig */,
-				09049864D2B3E7CF6292D85D /* Pods-kushki-ios_Example.release.xcconfig */,
-				A669C16708DED6C2BD30567D /* Pods-kushki-ios_Tests.debug.xcconfig */,
-				C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */,
+				B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */,
+				8A8AE25C19677E8DEA6C8C7F /* Pods_kushki_ios_Tests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E4035B322328695200A2A5EC /* Controllers */ = {
@@ -201,15 +211,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		E7AB61346A0290757675843B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				378069B88CBCF0FC931320AC /* Pods_kushki_ios_Example.framework */,
-				5451CCFE2A45430DC1D3F20C /* Pods_kushki_ios_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,11 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "kushki-ios_Example" */;
 			buildPhases = (
-				B914E882F959AA22BDBA130C /* [CP] Check Pods Manifest.lock */,
+				C55FCF72FAC64EF1CBD47AEE /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				F99B1753C2E9E7FCCC4BB6D4 /* [CP] Embed Pods Frameworks */,
+				8EBEF13F2FB1428517D6E801 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,11 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "kushki-ios_Tests" */;
 			buildPhases = (
-				F315DA5E35F24D68F7366999 /* [CP] Check Pods Manifest.lock */,
+				3C83D57491B83F4BC8B6365E /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				6001A4D7B51F956987E08A1D /* [CP] Embed Pods Frameworks */,
+				23109A9A62935303371592FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,7 +322,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6001A4D7B51F956987E08A1D /* [CP] Embed Pods Frameworks */ = {
+		23109A9A62935303371592FD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,34 +340,20 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B914E882F959AA22BDBA130C /* [CP] Check Pods Manifest.lock */ = {
+		3C83D57491B83F4BC8B6365E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-kushki-ios_Example-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F315DA5E35F24D68F7366999 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-kushki-ios_Tests-checkManifestLockResult.txt",
 			);
@@ -375,7 +362,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F99B1753C2E9E7FCCC4BB6D4 /* [CP] Embed Pods Frameworks */ = {
+		8EBEF13F2FB1428517D6E801 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -393,6 +380,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C55FCF72FAC64EF1CBD47AEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kushki-ios_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -573,7 +582,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A27D44A410AD000FEFB7F2C0 /* Pods-kushki-ios_Example.debug.xcconfig */;
+			baseConfigurationReference = 2633DEB327DBCE77C71823A3 /* Pods-kushki-ios_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -596,7 +605,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09049864D2B3E7CF6292D85D /* Pods-kushki-ios_Example.release.xcconfig */;
+			baseConfigurationReference = 9BFA99897193F3500082CDA0 /* Pods-kushki-ios_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -619,7 +628,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A669C16708DED6C2BD30567D /* Pods-kushki-ios_Tests.debug.xcconfig */;
+			baseConfigurationReference = 6682DB8730FDC44D317526EC /* Pods-kushki-ios_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = "";
@@ -642,7 +651,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C26ADF0AA17F99AC3FD4C4AE /* Pods-kushki-ios_Tests.release.xcconfig */;
+			baseConfigurationReference = CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = "";
