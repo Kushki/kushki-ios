@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "12.1"
   },
-  "source_files": "Kushki/Classes/**/*"
+  "source_files": "Kushki/Classes/**/*",
+  "dependencies": {
+    "Sift": [
+
+    ]
+  }
 }

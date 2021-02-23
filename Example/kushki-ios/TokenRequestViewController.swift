@@ -30,7 +30,7 @@ class TokenRequestViewController: UIViewController {
     }
     
     private func requestKushkiToken(card: Card, totalAmount: String) {
-        let publicMerchantId = "10000001641125237535111218"
+        let publicMerchantId = "e41151f380a145059b6c8f4d45002130"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
