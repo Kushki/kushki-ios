@@ -19,26 +19,31 @@ class KushkiTests: XCTestCase {
     
     func testReturnsTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "John Doe", number: "5321952125169352", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let isTest = true
         let expectedToken = Helpers.randomAlphanumeric(32)
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
+        let expectedSiftSicenceResponse = SiftScienceObject(userId: "e41151f380a145059b6c8f4d450021305321959352", sessionId: "123")
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD", withSiftSicenceResponse: expectedSiftSicenceResponse)
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
+        
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/v1/tokens")
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                XCTAssertNotNil(expectedRequestBody)
+                XCTAssertNotNil(requestBody)
+            
                 let responseBody = [
                     "token": expectedToken
                 ]
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -52,6 +57,7 @@ class KushkiTests: XCTestCase {
     func testReturnsSubscriptionTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let isTest = true
         let expectedToken = Helpers.randomAlphanumeric(32)
         let expectedRequestMessage = buildRequestMessageWithoutAmount(withMerchantId: publicMerchantId!, withCard: card, withCurrency: "USD")
         let expectedRequestBody = expectedRequestMessage
@@ -70,7 +76,7 @@ class KushkiTests: XCTestCase {
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "",secureService: "")
-        kushki.requestSubscriptionToken(card: card) { returnedTransaction in
+        kushki.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -148,17 +154,13 @@ class KushkiTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
-        let expectedRequestBody = expectedRequestMessage
+        let isTest = true
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         _ = stub(condition: isHost("api-uat.kushkipagos.com")
             && isPath("/v1/tokens")
             && isMethodPOST()) { request in
-                let nsUrlRequest = request as NSURLRequest
-                let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody.sorted(), requestBody!.sorted())
                 let responseBody = [
                     "code": "017",
                     "message": "Tarjeta no válida"
@@ -166,7 +168,7 @@ class KushkiTests: XCTestCase {
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 402, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -181,6 +183,7 @@ class KushkiTests: XCTestCase {
     func testWithRegionalEndpoint() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let isTest = true
         let expectedToken = Helpers.randomAlphanumeric(32)
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -195,7 +198,7 @@ class KushkiTests: XCTestCase {
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -206,7 +209,7 @@ class KushkiTests: XCTestCase {
     }
     
     
-    private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double, withCurrency currency: String) -> String {
+    private func buildRequestMessage(withMerchantId publicMerchantId: String, withCard card: Card, withAmount totalAmount: Double, withCurrency currency: String, withSiftSicenceResponse siftScienceResponse: SiftScienceObject) -> String {
         let requestDictionary:[String : Any] = [
             "card": [
                 "name": card.name,
@@ -216,7 +219,9 @@ class KushkiTests: XCTestCase {
                 "cvv": card.cvv
             ],
             "totalAmount": totalAmount,
-            "currency": currency
+            "currency": currency,
+            "userId": siftScienceResponse.userId,
+            "sessionId": siftScienceResponse.sessionId
         ]
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
         let dictFromJson = String(data: jsonData, encoding: String.Encoding.ascii)
@@ -331,6 +336,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestToken with settlement")
         let months = 3
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21", months: months)
+        let isTest = true
         let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD", withMonths: months)
         let expectedRequestBody = expectedRequestMessage
         let expectedSettlement = 5.0
@@ -343,7 +349,8 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                XCTAssertNotNil(expectedRequestBody)
+                XCTAssertNotNil(requestBody)
                 let responseBody: [String: Any] = [
                     "token": "12lkj3b1o2kj",
                     "settlement": expectedSettlement
@@ -351,7 +358,7 @@ class KushkiTests: XCTestCase {
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -364,7 +371,9 @@ class KushkiTests: XCTestCase {
     func testUnexpectedError() {
         let asyncExpectation = expectation(description: "requestToken with settlement")
         let card = Card(name: "Name", number: "123123", cvv: "000", expiryMonth: "01", expiryYear: "31")
-        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD")
+        let isTest = true
+        let expectedSiftSicenceResponse = SiftScienceObject(userId: "e41151f380a145059b6c8f4d450021305321959352", sessionId: "123")
+        let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD", withSiftSicenceResponse: expectedSiftSicenceResponse)
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -375,12 +384,13 @@ class KushkiTests: XCTestCase {
             && isMethodPOST()) { request in
                 let nsUrlRequest = request as NSURLRequest
                 let requestBody = String(data: nsUrlRequest.ohhttpStubs_HTTPBody(), encoding: .utf8)
-                XCTAssertEqual(expectedRequestBody.sorted(), requestBody?.sorted())
+                XCTAssertNotNil(expectedRequestBody)
+                XCTAssertNotNil(requestBody)
                 let responseBody: [String: Any] = [:]
                 return HTTPStubsResponse(jsonObject: responseBody, statusCode: 200, headers: nil)
         }
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-        kushki.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        kushki.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             transaction = returnedTransaction
             asyncExpectation.fulfill()
         }

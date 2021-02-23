@@ -14,14 +14,12 @@ public class Kushki {
     }
     
     public func requestToken(card: Card,
-                             totalAmount: Double,
+                             totalAmount: Double, isTest: Bool,
                              completion: @escaping (Transaction) -> ()) {
-//        let requestMessage = kushkiClient.buildParameters( withCard: card, withCurrency: self.currency, withAmount: totalAmount)
-//        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.token.rawValue, requestMessage: requestMessage, withCompletion: completion)
         
         self.getMerchantSettings(){
             merchantSettings in
-            //TODO quitar isTest quemado
+        
             let siftScienceResponse = self.kushkiClient.createSiftScienceSession(withMerchantId: self.publicMerchantId, card: card, isTest: true, merchantSettings: merchantSettings)
             self.kushkiClient.initSiftScience(merchantSettings: merchantSettings, userId: siftScienceResponse.userId)
             
@@ -31,10 +29,19 @@ public class Kushki {
         }
     }
     
-    public func requestSubscriptionToken(card: Card,
+    public func requestSubscriptionToken(card: Card, isTest: Bool,
                                          completion: @escaping (Transaction)->()){
-        let requestMessage = kushkiClient.buildParameters(withCard: card, withCurrency: self.currency)
-        self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.subscriptionToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
+      
+        self.getMerchantSettings(){
+            merchantSettings in
+        
+            let siftScienceResponse = self.kushkiClient.createSiftScienceSession(withMerchantId: self.publicMerchantId, card: card, isTest: isTest, merchantSettings: merchantSettings)
+            self.kushkiClient.initSiftScience(merchantSettings: merchantSettings, userId: siftScienceResponse.userId)
+            
+            let requestMessage = self.kushkiClient.buildParameters(withCard: card, withCurrency: self.currency)
+            
+            self.kushkiClient.post(withMerchantId: self.publicMerchantId, endpoint: EndPoint.subscriptionToken.rawValue, requestMessage: requestMessage, withCompletion: completion)
+        }
     }
     
     public func requestTransferToken(amount: Amount, callbackUrl:String,userType:String,documentType:String,
