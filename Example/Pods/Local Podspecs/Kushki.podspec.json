@@ -1,9 +1,9 @@
 {
   "name": "Kushki",
-  "version": "2.2.2-beta",
+  "version": "2.2.2",
   "summary": "Kushki iOS library.",
   "description": "iOS library to integrate with Kushki.",
-  "homepage": "https://bitbucket.org/Kushki/kushki-ios",
+  "homepage": "https://github.com/Kushki/kushki-ios",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,11 @@
     "Kushki": "soporte@kushkipagos.com"
   },
   "source": {
-    "git": "https://bitbucket.org/Kushki/kushki-ios.git",
-    "tag": "v2.2.2-beta"
+    "git": "https://github.com/Kushki/kushki-ios.git",
+    "tag": "v2.2.2"
   },
   "platforms": {
-    "ios": "12.1"
+    "ios": "14.3"
   },
   "source_files": "Kushki/Classes/**/*"
 }
