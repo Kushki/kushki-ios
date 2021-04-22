@@ -1,6 +1,5 @@
 PODS:
-  - Kushki (2.2.2-beta):
-    - Sift
+  - Kushki (2.2.2)
   - OHHTTPStubs (9.1.0):
     - OHHTTPStubs/Default (= 9.1.0)
   - OHHTTPStubs/Core (9.1.0)
@@ -16,7 +15,6 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (9.1.0)
   - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
-  - Sift (2.0.2)
 
 DEPENDENCIES:
   - Kushki (from `../`)
@@ -26,16 +24,14 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - OHHTTPStubs
-    - Sift
 
 EXTERNAL SOURCES:
   Kushki:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Kushki: ae2548d260471dbf0fd2b597eb8869a5fffd1b3b
+  Kushki: ce607bf0b538fe64faf59765c487f26ad9fe6d4e
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
-  Sift: 74955fd67ce61dc920b441d2d094aff75bfede29
 
 PODFILE CHECKSUM: da70d7e8e6e3991ee47230c1b9bf846feb255a45
 

@@ -1,4 +1,4 @@
-platform :ios, '12.1'
+platform :ios, '14.3'
 use_frameworks!
 
 target 'kushki-ios_Example' do
