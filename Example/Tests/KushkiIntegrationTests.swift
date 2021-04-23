@@ -91,6 +91,7 @@ class KushkiIntegrationTests: XCTestCase {
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
+        print(self.invalidBinCode)
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual("", self.transaction!.token)
             XCTAssertEqual(self.invalidBinCode, self.transaction!.code)
