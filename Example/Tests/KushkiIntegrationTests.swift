@@ -12,7 +12,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBodyMessage = "Cuerpo de la petición inválido."
     let invalidBinCode = "K007"
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
-    let timeOutTest = 20;
+    let timeOutTest = 30;
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
