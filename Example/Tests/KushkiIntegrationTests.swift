@@ -12,7 +12,7 @@ class KushkiIntegrationTests: XCTestCase {
     let invalidBodyMessage = "Cuerpo de la petición inválido."
     let invalidBinCode = "K007"
     let invalidBinMessage = "Tarjeta bloqueada por el emisor."
-    let timeOutTest = 20;
+    let timeOutTest = 30;
     var publicMerchantId: String?
     var kushki: Kushki?
     var kushkiTransfer:Kushki?
@@ -40,7 +40,8 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "requestToken")
         //let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let card2 = Card(name: "Bryan", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "21", months: 2, isDeferred: true)
-        kushki!.requestToken(card: card2, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card2, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -52,8 +53,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let card = Card(name: "Invalid John Doe", number: "1234567", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -68,7 +70,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidCard() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -83,10 +86,12 @@ class KushkiIntegrationTests: XCTestCase {
     func testDoesNotReturnTokenWhenCalledWithInvalidBin() {
         let asyncExpectation = expectation(description: "requestToken")
         let card = Card(name: "Invalid John Doe", number: "4440884457672272", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestToken(card: card, totalAmount: totalAmount!) { returnedTransaction in
+        let isTest = true
+        kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
+        print(self.invalidBinCode)
         self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
             XCTAssertEqual("", self.transaction!.token)
             XCTAssertEqual(self.invalidBinCode, self.transaction!.code)
@@ -98,7 +103,8 @@ class KushkiIntegrationTests: XCTestCase {
     func testReturnsSubscriptionTokenWhenCalledWithValidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
         let card = Card(name: "John Doe", number: "4242424242424242", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+        let isTest = true
+        kushki!.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()
         }
@@ -110,8 +116,9 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testReturnsSubscriptionTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
-        let card = Card(name: "John Doe", number: "", cvv: "123", expiryMonth: "12", expiryYear: "21")
-        kushki!.requestSubscriptionToken(card: card) { returnedTransaction in
+        let card = Card(name: "John Doe", number: "1234567", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let isTest = true
+        kushki!.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
             print("resp: " + returnedTransaction.code)
             asyncExpectation.fulfill()
@@ -498,5 +505,51 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertNotEqual(cardInfo.bank, "")
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
+    }
+    
+    func testGetMerchantSettings() {
+        let asyncExpectation = expectation(description: "Get merchant settings with valid mid")
+        var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
+        
+        let kushki = Kushki(publicMerchantId: "21b90d1013774cd6a12a9b2370facd21",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_qa)
+        kushki.getMerchantSettings() {
+            response in
+            returnedMerchantSettings = response
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: TimeInterval(25)) {
+            error in
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[0].processorName, "VisaNet Processor")
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "VisaNet Processor")
+            XCTAssertNil(returnedMerchantSettings.sandboxAccountId)
+            XCTAssertNil(returnedMerchantSettings.code)
+            XCTAssertNil(returnedMerchantSettings.message)
+        }
+        
+    }
+    
+    func testGetMerchantSettingsWithInvalidMid() {
+        let asyncExpectation = expectation(description: "Get merchant settings error info with invalid mid")
+        var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
+        
+        let kushki = Kushki(publicMerchantId: "21b90d1013774cd",
+                            currency: "USD",
+                            environment: KushkiEnvironment.testing_qa)
+        kushki.getMerchantSettings() {
+            response in
+            returnedMerchantSettings = response
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: TimeInterval(25)) {
+            error in
+            XCTAssertNotNil(returnedMerchantSettings.code)
+            XCTAssertEqual(returnedMerchantSettings.code, "K004")
+            XCTAssertNotNil(returnedMerchantSettings.message)
+        }
+        
     }
 }

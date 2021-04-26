@@ -24,17 +24,18 @@ class SubscriptionTokenViewController: UIViewController {
     
     @IBAction func handleClick(_ sender: Any) {
         let card = Card(name: nameField.text!,number: cardNumberField.text!, cvv: cvvField.text!,expiryMonth: expiryMonthField.text!,expiryYear: expiryYearField.text!)
-        requestKushkiSubscriptionToken(card: card )
+        let isTest = true
+        requestKushkiSubscriptionToken(card: card, isTest: isTest )
         return
     }
     
-    private func requestKushkiSubscriptionToken(card: Card) {
+    private func requestKushkiSubscriptionToken(card: Card, isTest: Bool) {
         let publicMerchantId = "10000001641125237535111218"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
         
-        kushki.requestSubscriptionToken(card: card) { transaction in
+        kushki.requestSubscriptionToken(card: card, isTest: isTest) { transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
             DispatchQueue.main.async(execute: {

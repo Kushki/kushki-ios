@@ -25,16 +25,17 @@ class TokenRequestViewController: UIViewController {
   
     @IBAction func clicked(_ sender: Any) {
         let card = Card(name: nameField.text!,number: cardNumber.text!, cvv: cvv.text!,expiryMonth: expiryMonth.text!,expiryYear: expiryYear.text!)
-        requestKushkiToken(card: card, totalAmount: totalAmount.text! )
+        let isTest = true
+        requestKushkiToken(card: card, totalAmount: totalAmount.text!, isTest:isTest )
         return
     }
     
-    private func requestKushkiToken(card: Card, totalAmount: String) {
-        let publicMerchantId = "10000001641125237535111218"
+    private func requestKushkiToken(card: Card, totalAmount: String, isTest: Bool) {
+        let publicMerchantId = "e41151f380a145059b6c8f4d45002130"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "USD",
                             environment: KushkiEnvironment.testing)
-        kushki.requestToken(card: card, totalAmount: Double(totalAmount) ?? 0.0) { transaction in
+        kushki.requestToken(card: card, totalAmount: Double(totalAmount) ?? 0.0, isTest: isTest) { transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
             //                transaction.code + ": " + transaction.message
