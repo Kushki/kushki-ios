@@ -19,6 +19,8 @@
 		AF3034851DAC2D62005C9F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */; };
 		AFF155E41DAC3B1100BC21EA /* Kushki in Resources */ = {isa = PBXBuildFile; fileRef = AFF155E31DAC3B1100BC21EA /* Kushki */; };
 		AFF155E61DAC3B5000BC21EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF155E51DAC3B5000BC21EA /* ViewController.swift */; };
+		E2EAB27926C2C3FC00FCEDF1 /* CardTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAB27826C2C3FC00FCEDF1 /* CardTokenView.swift */; };
+		E2EAB27A26C2C3FC00FCEDF1 /* CardTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAB27826C2C3FC00FCEDF1 /* CardTokenView.swift */; };
 		E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4035B332328698900A2A5EC /* TokenRequestViewController.swift */; };
 		E407F713233A80AB00340214 /* CashTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407F712233A80AB00340214 /* CashTokenViewController.swift */; };
 		E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */; };
@@ -66,6 +68,7 @@
 		B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB96243B3B32048EBA3B208C /* Kushki.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Kushki.podspec; path = ../Kushki.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kushki-ios_Tests.release.xcconfig"; path = "Target Support Files/Pods-kushki-ios_Tests/Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E2EAB27826C2C3FC00FCEDF1 /* CardTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTokenView.swift; sourceTree = "<group>"; };
 		E4035B332328698900A2A5EC /* TokenRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestViewController.swift; sourceTree = "<group>"; };
 		E407F712233A80AB00340214 /* CashTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashTokenViewController.swift; sourceTree = "<group>"; };
 		E40BC5E02328ADA50056B58C /* SubscriptionTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTokenViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +108,6 @@
 				6682DB8730FDC44D317526EC /* Pods-kushki-ios_Tests.debug.xcconfig */,
 				CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +137,7 @@
 		607FACD21AFB9204008FA782 /* Example for kushki-ios */ = {
 			isa = PBXGroup;
 			children = (
+				E2EAB27726C2C34600FCEDF1 /* SwiftUI */,
 				E4035B322328695200A2A5EC /* Controllers */,
 				AFF155E51DAC3B5000BC21EA /* ViewController.swift */,
 				AF3034831DAC2D62005C9F39 /* LaunchScreen.storyboard */,
@@ -192,6 +195,14 @@
 				8A8AE25C19677E8DEA6C8C7F /* Pods_kushki_ios_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2EAB27726C2C34600FCEDF1 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				E2EAB27826C2C3FC00FCEDF1 /* CardTokenView.swift */,
+			);
+			name = SwiftUI;
 			sourceTree = "<group>";
 		};
 		E4035B322328695200A2A5EC /* Controllers */ = {
@@ -411,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EAB27926C2C3FC00FCEDF1 /* CardTokenView.swift in Sources */,
 				E4035B342328698900A2A5EC /* TokenRequestViewController.swift in Sources */,
 				E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */,
 				E40BC5E12328ADA50056B58C /* SubscriptionTokenViewController.swift in Sources */,
@@ -430,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EAB27A26C2C3FC00FCEDF1 /* CardTokenView.swift in Sources */,
 				AF30347D1DAC231B005C9F39 /* KushkiIntegrationTests.swift in Sources */,
 				AF30347E1DAC231B005C9F39 /* KushkiTests.swift in Sources */,
 				AF30347F1DAC231B005C9F39 /* Helpers.swift in Sources */,

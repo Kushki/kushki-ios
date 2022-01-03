@@ -1,5 +1,6 @@
 import UIKit
 import Kushki
+import SwiftUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var getSubscriptionTransferButton: UIButton!
@@ -25,6 +26,12 @@ class ViewController: UIViewController {
     // MARK: Actions
     @IBAction func handleTouchUpInside(_ sender: UIButton) {
     
+    }
+    
+    @IBAction func handleOpenCardTokenView() {
+        let view = CardTokenView()
+        let hostingController = UIHostingController(rootView: view)
+        present(hostingController, animated: true)
     }
     
    
