@@ -227,7 +227,7 @@ class KushkiIntegrationTests: XCTestCase {
         
     }
     
-    func testRequestSecureValidationConfrontaSuccessQuestions(){
+    func RequestSecureValidationConfrontaSuccessQuestions(){
         let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
         let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
         var questionnarieCode: String = ""
@@ -259,10 +259,9 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertEqual(code, "BIO010")
             XCTAssertEqual(message,"Por favor, complete las preguntas pendientes")
         }
-        
     }
     
-    func testRequestSecureValidationConfrontaFlowCompletedSuccess(){
+    func RequestSecureValidationConfrontaFlowCompletedSuccess(){
         let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
         let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
         let asyncExpectationAnswer = expectation(description: "request transfer subscription secure validation answer")
@@ -324,7 +323,7 @@ class KushkiIntegrationTests: XCTestCase {
         
     }
     
-    func testRequestFailSecureValidationConfronta(){
+    func RequestFailSecureValidationConfronta(){
         let asyncExpectationToken = expectation(description: "request transfer subscription secure validation token")
         let asyncExpectationQuestion = expectation(description: "request transfer subscription secure validation questionary")
         let asyncExpectationAnswer = expectation(description: "request transfer subscription secure validation answer")
@@ -511,7 +510,7 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get merchant settings with valid mid")
         var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
         
-        let kushki = Kushki(publicMerchantId: "21b90d1013774cd6a12a9b2370facd21",
+        let kushki = Kushki(publicMerchantId: "60320e3f048843358dc7d825f9336e27",
                             currency: "USD",
                             environment: KushkiEnvironment.testing_qa)
         kushki.getMerchantSettings() {
@@ -522,9 +521,9 @@ class KushkiIntegrationTests: XCTestCase {
         
         self.waitForExpectations(timeout: TimeInterval(25)) {
             error in
-            XCTAssertEqual(returnedMerchantSettings.processors?.card?[0].processorName, "VisaNet Processor")
-            XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "VisaNet Processor")
-            XCTAssertNil(returnedMerchantSettings.sandboxAccountId)
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[0].processorName, "Credibanco Processor")
+            XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "Redeban Processor")
+            XCTAssertNotNil(returnedMerchantSettings.sandboxAccountId)
             XCTAssertNil(returnedMerchantSettings.code)
             XCTAssertNil(returnedMerchantSettings.message)
         }
