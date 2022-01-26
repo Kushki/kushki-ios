@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Kushki: f6ab28d1340bbce0b55b9114ced1bfa00bf76e7b
+  Kushki: 29e588b4b9ce6b20656dd826e42f79b86cc3add1
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   Sift: 74955fd67ce61dc920b441d2d094aff75bfede29
 

@@ -176,10 +176,12 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${PODS_ROOT}/../../Kushki/Frameworks/CardinalMobile.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kushki/Kushki.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Sift/Sift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${PODS_ROOT}/../../Kushki/Frameworks/CardinalMobile.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kushki/Kushki.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Sift/Sift.framework"
 fi

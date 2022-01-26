@@ -9,120 +9,133 @@
 /* Begin PBXBuildFile section */
 		0194717FC38FFAE0D1B2C6029A093FB4 /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = E75C26F25E5634F0AE80AEFF44B2A23B /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01D1BCE5AD80B0B843782627D32A9945 /* HTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2D1AAD676F65CD27A82023597D5FA /* HTTPStubs.m */; };
-		04217CEEAAC4F7E248A1D263BEB4D711 /* NSData+GZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = CC26D2A75813696B50586B538987B673 /* NSData+GZIP.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		030292A55E529186E4DAC36FF83E5AC1 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33975D865B69C915260F3F7A6AAA8BB1 /* Bank.swift */; };
 		042668FFA122D78B6EE074C04C460261 /* OHHTTPStubsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278E35DCEC17E03A5FEBBE70A5AD86C /* OHHTTPStubsSwift.swift */; };
-		05234587242C6DB721DFD01CF0E406C7 /* Sift.m in Sources */ = {isa = PBXBuildFile; fileRef = F456BA58D30AEEC9439F24CFBCFD5C12 /* Sift.m */; };
+		0718A4DC2235F1C8043C0468435D910C /* Sift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B55A527B2938629075135C8A2C50E /* Sift-dummy.m */; };
+		0728B5461A777213B72C64A58D0D4715 /* SiftTokenBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = A4C4D9C0D7CC4B7BC26CECEB229C1192 /* SiftTokenBucket.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		07AF133A017AB74CC31B5475BFFA92E9 /* HTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7C50A280F81A4B0D4126A7515131FB /* HTTPStubsResponse+JSON.m */; };
+		080BB844706C527329BEEC833064A357 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */; };
 		0935B625C836434D7385F7DCF560FF3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
 		09C4DA95304C05A60EC159203C0F4CF4 /* HTTPStubsResponse+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 59B3F0DAF4C85F05FCC4AACE1C57CD77 /* HTTPStubsResponse+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0FFCA8BD058A0715F555F19DDC24BB84 /* SiftCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DC6E53EFE5D66F664CA8B338AEFBFF /* SiftCircularBuffer.m */; };
-		16617A8213C3D45D74FFA484DE81857C /* SiftIosDevicePropertiesCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AFD9D1AA0B5D25537F9F6BAC304010 /* SiftIosDevicePropertiesCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0ABD053FB7C18953A99489CF88A8420A /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B10BD70CDF9C19CBB9717F318D17236 /* Security.swift */; };
+		0BB6382CDDC1A2464CBD8FABDA5BB925 /* Cash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA89E6D48AC8465A0C81BAB35103B9C /* Cash.swift */; };
+		0EFE1F511C2F3BDCBD299B50101C7005 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6DD04D44D81DA6F155E56A1EEB3BD /* Transfer.swift */; };
+		12F0D98FF621B36EA8255E6F85EDAC2F /* logo_kushki.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A4C02D92D76537F2C6FEDC78150CBF /* logo_kushki.png */; };
+		1796B24926EFA17CA6BA917E77438841 /* any_bank.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5D93FB520C30BB387B6FB3037E9B8B76 /* any_bank.svg */; };
+		1836A7CA6598C3A6FA6EF6F9A15EB8E9 /* SiftHtDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = F7B470409B53E4CEC0B17521D657F18A /* SiftHtDictionary.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		18989CF92E5580C0A0C63E047A3427F8 /* Sift.m in Sources */ = {isa = PBXBuildFile; fileRef = F456BA58D30AEEC9439F24CFBCFD5C12 /* Sift.m */; };
+		192B434C1713E869D69E0562D3F56ED1 /* SiftIosDevicePropertiesCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 748A95812EDF54F63681F95F07A54E06 /* SiftIosDevicePropertiesCollector.m */; };
 		19FF16C15407ABBCAB0168CDE44709E1 /* NSURLRequest+HTTPBodyTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E3FD952A5F993757B92D0B9F8C8196 /* NSURLRequest+HTTPBodyTesting.m */; };
-		1C2DF9C61EAD8E2ABAAD637D4C9869B3 /* Sift.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E7AAA6D78A036AAA8395612EFFCF0A /* Sift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C83B5EE21DB018D388B9500F32EB60D /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9535C595F72B750665A6679EE16C235 /* Transfer.swift */; };
-		200AF56E204961FFDD7D4848854D272E /* SiftIosDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 035C595E77C788C97B0CE62D2508A725 /* SiftIosDeviceProperties.m */; };
 		2114F7E4B02770BF53B9B521D0DBC801 /* HTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2F093CE470572A7675A489DAEFE680 /* HTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		2140E37F25D9316BCA6BB0ED6C7D69B1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */; };
-		2423B4BFA24FAF3DB561942B83508825 /* SiftUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7517FD812A2A50CEE4D542539AF7A1B0 /* SiftUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2657FF0D18C691D1F37A6A0FDE4D52C7 /* SiftHtDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = F7B470409B53E4CEC0B17521D657F18A /* SiftHtDictionary.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		27AEA7E4F0F57C204B2B3E1511C1D0C4 /* SiftIosDevicePropertiesCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 748A95812EDF54F63681F95F07A54E06 /* SiftIosDevicePropertiesCollector.m */; };
+		219A5D520A2E4FEA2E1384F69724F551 /* MerchantSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE084DA856A436237EE57324D3732669 /* MerchantSettings.swift */; };
+		2912A06CCD2F63E7A20DDF33F907A7EE /* SiftScienceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF344F9E6BE151DF65DBA3113C729620 /* SiftScienceObject.swift */; };
+		29E360954A552F99FC57E58C8B8A8674 /* ConfrontaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073823478460EBF9813231D38913583B /* ConfrontaResponse.swift */; };
 		2A090B165CFA5629C9CE47E6318AB38E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		2B37E69D884688B0806A75A808289CC0 /* SiftIosDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A120B8535BE9741D10BA5B25E4BB8A /* SiftIosDeviceProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3080E832DAE69E3C03F18F873A154774 /* SiftUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F885162C0A183B3829E29012CDA3617 /* SiftUtils.m */; };
-		37A0A047109A0C73C4A6D69C1A052955 /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D47A7A1AAEB38EC9383F69DE20C011 /* KushkiClient.swift */; };
-		3E647819001C6935A2546D35932A7FFD /* MerchantSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A45384CC06B8E9912ADAF1CE32410 /* MerchantSettings.swift */; };
-		41276D7EF49B51630D44CC7A9D76123C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3AD680BF5C120A2835698FF093B32 /* Transaction.swift */; };
+		2C1EAE9DC700BBEA724DAE1D5627963D /* SiftUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB0B19C14224AC76351BCC0F9E6E37 /* SiftUploader.m */; };
+		3282888EF5F7154E22AB51542122C508 /* SiftHtDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F227A28D8FC21D79117421A3E98769 /* SiftHtDictionary.m */; };
+		33C5706785A1B94F0FFA98018CE539BD /* SiftIosAppState.h in Headers */ = {isa = PBXBuildFile; fileRef = C3953A449A5301EA268FA48E075CE0AE /* SiftIosAppState.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		350EE6EA08D1547B8A8057283B33FA49 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CF77EE71ADCBEA316E19D8B218B2DE /* CoreLocation.framework */; };
+		358B1DD7706AE7AA41D194F49035761D /* SiftIosDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A120B8535BE9741D10BA5B25E4BB8A /* SiftIosDeviceProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3ABCDC0ABEC022D683C241EE0A2BDAA0 /* NSData+GZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = CC26D2A75813696B50586B538987B673 /* NSData+GZIP.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4154ECEEB77F0F832863A907B65390A2 /* Pods-kushki-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */; };
-		5426461F38D21381E163E1125CEED3AB /* Sift+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC47C42D1E0A34F234E4D5288E36FF9 /* Sift+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5D73DF09C2142B7757A1590E6D98881C /* ConfrontaQuestionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED062963214EB6B93846EFC315873D /* ConfrontaQuestionOptions.swift */; };
+		41E2EC9AFE0BCE4A40F5A8AE18077576 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A64370C4BBC2272BF4EC9B502B196 /* Transaction.swift */; };
+		4594361D6DA6E81EAD4CC1EFE67AB5BC /* SiftQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355ECEB709B581A9CE309ADF4933126 /* SiftQueue.m */; };
+		45D9A639A1DAC866A9200D4FA200381D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AE1683016E36A29EC157539EA6EB9 /* Card.swift */; };
+		4835C59BD92EF1DF2642B8441D69E158 /* JwtResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602BDDB24B745A752DC563920F1373A0 /* JwtResponse.swift */; };
+		4A44581B262C5A5304CDFA384B498C79 /* SiftQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DF399570C0387E177C329C83A3CE0D8A /* SiftQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		51085FAC19F527CCB6D70491901AEBDA /* SiftCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 98EDC360E037E3573535CCC32524F199 /* SiftCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54A4E99629B6B33F87A3B552DBCAB2B6 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D9D6B4C39617C7DB83620CCDFC851 /* CardInfo.swift */; };
+		56F87F1CB454689F8415330514EDD55C /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06839EB5C99DF33ED639D2891271D9 /* KushkiEnvironment.swift */; };
 		5E2FF15EAFEF89119E9FD90C2B46D6E4 /* HTTPStubsMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A886AA74B83222C4797921B03366E023 /* HTTPStubsMethodSwizzling.m */; };
+		5E4A0CA9D29BA744DB36637FD3FE5E0E /* SiftIosAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3906AECF23FC011A6C56F8D109357850 /* SiftIosAppState.m */; };
 		5F6E86DF36F8AC7D9B15396880AC2DA5 /* HTTPStubsPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7022F9CDB95CE717C010C84F8323EB33 /* HTTPStubsPathHelpers.m */; };
+		5F7A391E45E3221FC1B67A760F9307A7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */; };
 		622D4F6AA5A0F7F2FE7522F6CD5FB210 /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = B8FDC9F25AB38094596B56E81C216AEC /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65BC1B247714172AB1B73CA1CD214D06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */; };
-		6814FC37060BA1A9B31C964C109BDC03 /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E969FB66A2044380FB08BAC0A6A90B7 /* Kushki-dummy.m */; };
-		7102BDCC925960D041B2305097C83361 /* SiftTokenBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4D01E70CFFEBEC0DDFF78F817AA4A3 /* SiftTokenBucket.m */; };
-		73B6E81C9454947CCA6ED5F48E1C496E /* SiftIosAppStateCollector+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 327E657A69E5B247E6E7CD4961308764 /* SiftIosAppStateCollector+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7655C03FB398080558562008ED4CEB91 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F3D65891B9E2ECB75D28F3A64037 /* NSData+GZIP.m */; };
-		7683BF4A04E58932CD6685D60DB29F2B /* SiftEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9279BE2FF3F9AD3EC745D07AB16521 /* SiftEvent+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		76C079782B604A0FC0341C3E9E6F29AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		79096045C3A784EF79B2AB696F91A2D9 /* SiftCircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = D43DDE76308AF73D73D44F9DB6CDF9E5 /* SiftCircularBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		67E82DFBCD9DB53C2E9C47257B3B745E /* SiftIosAppStateCollector+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 327E657A69E5B247E6E7CD4961308764 /* SiftIosAppStateCollector+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6B6400A35C055E868C305B59600D65B6 /* OTPSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B29B9193736CF6631B338653827AA /* OTPSandboxViewController.swift */; };
+		6EB8077BB18E19E4962AC1191CBF65FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */; };
+		721923A118C6CB7D1CD9FE6C84D0A298 /* SiftCircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = D43DDE76308AF73D73D44F9DB6CDF9E5 /* SiftCircularBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		754E3A1E081D5C7EE78BCDBD299BCCB3 /* SiftEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = BC2C0DCCCA69D9FA9D6B88CAEEDF8B97 /* SiftEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF3CFFD85F9556BD58C8BFBDFE36E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		7F0ECC797FB9E5F00A366175C2D0B1B1 /* Sift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B55A527B2938629075135C8A2C50E /* Sift-dummy.m */; };
+		7EFA617CFFD45C07C6E50970206851B8 /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C836D16E8CEFF8652FFCC88094D0F28 /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83D1A32CB6CB1D6D8349D18021CC3592 /* SiftIosDevicePropertiesCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AFD9D1AA0B5D25537F9F6BAC304010 /* SiftIosDevicePropertiesCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84711D0E34C649286DEEB4849DF88DF8 /* SiftUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7517FD812A2A50CEE4D542539AF7A1B0 /* SiftUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8526C329BC00185183F55EBEC1595DB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
+		8926C2EA0D8E1D98C3BB9657EA0D199B /* SiftCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DC6E53EFE5D66F664CA8B338AEFBFF /* SiftCircularBuffer.m */; };
+		8A456C5A9889CBB00F5807C029EE8A77 /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49CDCB9717DA75DD84FEC6584B5609C /* KushkiClient.swift */; };
 		8A6135DF3532D742992A489E58E8D421 /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D52A6C298584F200F479132FB211B2C7 /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		907E7C81C368030D223C5FBDC9451BE7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B0B924B7B0A257E0312D71E59E95AE /* Card.swift */; };
+		8B3E9E3BE7C3F08DEE410328D1F6DC86 /* ConfrontaQuestionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1CDD5CEEA7C209B40FF2E48CA4A22 /* ConfrontaQuestionOptions.swift */; };
+		90AC683562ED41F05744F04C27102949 /* TokenRequest3DS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75E5138D380F9A9CC007260ECBC695 /* TokenRequest3DS.swift */; };
 		90BBA22AE62C6D103CA45126D916E9B5 /* HTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9388093FE2CAFC752A9D6DC3C62CB601 /* HTTPStubs+NSURLSessionConfiguration.m */; };
-		97555B5EE39666DD0299EBE2C56CCC46 /* SiftIosAppState.h in Headers */ = {isa = PBXBuildFile; fileRef = C3953A449A5301EA268FA48E075CE0AE /* SiftIosAppState.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9783266A4BFA4110E1CF51E586A41F90 /* SiftDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 52F093FA16EF16A89299D6F892DF4DAE /* SiftDebug.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		980A056C45258F5105F47CDBDB11E93A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		9978FFD02610C153C48AAC528FEBAAE8 /* SiftQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355ECEB709B581A9CE309ADF4933126 /* SiftQueue.m */; };
-		A07602A81508A244198B8CEAF6F8F6BF /* ConfrontaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218A44BFBCD20DBA8D91864499ED9CD /* ConfrontaResponse.swift */; };
-		A28DAE6C1D49F16B3F44FA3D83898DE5 /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167B420B28F8EDAA9315000BD93FF79 /* KushkiEnvironment.swift */; };
+		9109ED9B6CA617AAD201A27D73564238 /* SiftQueueConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E97B6A7DFA31C913C6F5DC3048DBDC /* SiftQueueConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C83A22CD4909545757252275180379A /* SiftTokenBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4D01E70CFFEBEC0DDFF78F817AA4A3 /* SiftTokenBucket.m */; };
+		A17B2881F6413420B04ADBDEBFA3E8A9 /* Sift.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E7AAA6D78A036AAA8395612EFFCF0A /* Sift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1B356DBF68C77FBFC679434ED978DE4 /* SiftIosDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 035C595E77C788C97B0CE62D2508A725 /* SiftIosDeviceProperties.m */; };
 		A30F65F16395BF5436088F7F327E8817 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D99477DABC1C7511774219390F99417 /* CFNetwork.framework */; };
-		A417139E19628AD64BF09D37BEE8A5FA /* SiftUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E4279E596ED757ACDED30778996783 /* SiftUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A4F99FD6F9BF3F01B438B51A03DD224C /* File in Sources */ = {isa = PBXBuildFile; fileRef = B68540DB2D02938D7A32971191FD7822 /* File */; };
-		A73AB634A8DEB84115A437FA91D19084 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CF77EE71ADCBEA316E19D8B218B2DE /* CoreLocation.framework */; };
 		A75F1D93C20CB25C19260ED16E0DC048 /* OHHTTPStubs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9E9E9EA61ABF76577E5B641A9BED09 /* OHHTTPStubs-dummy.m */; };
-		B08619865D6A985B18C001A6BC3F0EF5 /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 974D41C001DBC864FBF5CF9BBC876CF5 /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4D72D2551467A266F68140737DD516F /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736B947A3A3AC1CA37A75182A5E2CF5 /* Kushki.swift */; };
-		B60525916C63995069011A29BC502C04 /* SiftIosAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3906AECF23FC011A6C56F8D109357850 /* SiftIosAppState.m */; };
+		AF3023B61727FEC0E4D198703768CAF4 /* SiftIosAppStateCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9314F22E0AC149969721D64EB9EDD1 /* SiftIosAppStateCollector.m */; };
+		B702386AEADDD561F5FBBB672C6B29D1 /* SiftUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E4279E596ED757ACDED30778996783 /* SiftUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BBD06A2859332AAF7C685D224F7E7A1A /* HTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */; };
-		BE695FA70E5541DFC8139569AE3B2918 /* SiftEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = BC2C0DCCCA69D9FA9D6B88CAEEDF8B97 /* SiftEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFB178874F21A854EB3071FBE19814F4 /* Pods-kushki-ios_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */; };
-		C939F4E3B48073DE49AE962F2E069B3B /* SiftIosAppStateCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9314F22E0AC149969721D64EB9EDD1 /* SiftIosAppStateCollector.m */; };
-		C943C60277119F9547638E32920DA7E3 /* ConfrontaQuestionnarie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9AE2BB3EF8985E668D77A1D23163ED /* ConfrontaQuestionnarie.swift */; };
-		CE0347FD0207733A5E48FDB033FE56E9 /* SiftEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B92925A30646CE5F8C8A5B02944D16 /* SiftEvent.m */; };
-		CF4339D76E098EF4A85D532639661B15 /* SiftTokenBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = A4C4D9C0D7CC4B7BC26CECEB229C1192 /* SiftTokenBucket.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D03E1C62D52650F26798FBD93976D712 /* SiftScienceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4D21164FA2F00C96DB69106DF63BD /* SiftScienceObject.swift */; };
+		C71C0831370553F9749DCF3508F12A3A /* File in Sources */ = {isa = PBXBuildFile; fileRef = BBB105587785B869BFA66AA6162182B3 /* File */; };
+		C9F8A0696D20AD2A33741ADB949A4ABD /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A88E599932E1DF9D50F1A8082B3A /* Kushki-dummy.m */; };
+		CB177338F7977547BB2F7B21962B8068 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322F3D65891B9E2ECB75D28F3A64037 /* NSData+GZIP.m */; };
+		CD7052670458078791143FC75DB56476 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BCCDA85CE79B72BE61BDB798B456B /* EndPoint.swift */; };
+		CEE8D59DCD816C10F820F4D45358ADCE /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EA6E89547158A0708F3587D55DD1D1 /* Kushki.swift */; };
 		D1AA75E25744E797B4D68F6A4CB5D03D /* HTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D610826CE27AC962EE7FFF4F271C878A /* HTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1BCE0F397AE440D7F088CBB7B3CA9D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F8E090ED57E2542E14EBE33AF76359 /* Assets.xcassets */; };
 		D1CCC457A44905490C8A874FC9B03D02 /* Pods-kushki-ios_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2099757D2639E886400FD22CC06AE90 /* SiftIosAppStateCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 958BFA7F502E96762268A7F181DEAC77 /* SiftIosAppStateCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D3BCE688C7C2500A1801585A2A0BAE84 /* SiftHtDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F227A28D8FC21D79117421A3E98769 /* SiftHtDictionary.m */; };
-		D78886764F38F5C38E24CE864DC69369 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06D031E48315FA7FD57A864D4072C4 /* Amount.swift */; };
+		D8456987CD67030C4823955F50440C36 /* OTPSandboxViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = CA3F77D7F26F6A75ED3451BFCB760246 /* OTPSandboxViewController.xib */; };
+		D91E737D1212C9F79C056C72F8D0BD9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
 		D937579CB7D6CF5A9A0AA7C6A079055D /* Pods-kushki-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA2FB82E463DC31AF708222A025BB2EE /* SiftQueueConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E97B6A7DFA31C913C6F5DC3048DBDC /* SiftQueueConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DBCCE7F3EA25274169EA2CF5E2D4773D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00CF2F8D62A62E7E96A9E86C8E8997 /* EndPoint.swift */; };
-		DEEC7FC63A4AA82D6222BA4584B4185A /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63034EA5BAF8503B79E2772F691D7FC7 /* Bank.swift */; };
-		E14861CC2E97F6FD49BF34FE5E420F33 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB192F829D4609B6D5A6AF20546EB3 /* CardInfo.swift */; };
+		D97136362A0E9CA7CB705B03ECDE050E /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED385162094F1AEB3634256A693545 /* Amount.swift */; };
+		DA11CC89F5CC904262F7571BCA369546 /* SiftEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B92925A30646CE5F8C8A5B02944D16 /* SiftEvent.m */; };
+		DD2C94302CC9C757E444372438DCD35A /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = D4E0E656BEED3FA368F4185F1152AFC3 /* Assets */; };
+		DD4A7991E025A5FBE6E6D5812066976B /* ConfrontaQuestionnarie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF902DF2C6ABA526BBFB70C50CFDD3B4 /* ConfrontaQuestionnarie.swift */; };
+		E32B85B83B2ED4F8E75BD8EA50E04E26 /* SiftEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9279BE2FF3F9AD3EC745D07AB16521 /* SiftEvent+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E551070A151DC06AF47B84CE7A258AEE /* HTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 798A2B61EF68E6A173DDCE3C132A528B /* HTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E756145883D50467BEBEEE76142AA977 /* SiftUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB0B19C14224AC76351BCC0F9E6E37 /* SiftUploader.m */; };
-		F3CDFF7349AA0D3387D804C0D8070E51 /* SiftCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 98EDC360E037E3573535CCC32524F199 /* SiftCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4B1C5D9B9CDAAE3DD6D335EDE4B6A82 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */; };
-		F4E185399842FC99B716257865BAFF1C /* SiftQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = DF399570C0387E177C329C83A3CE0D8A /* SiftQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F9278DD7CAB47A141BBF8C8948731AEA /* Sift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CD870C5604497C41FD333D9C182C7AE /* Sift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5819DEA4AB076FA1A9CF39AA338A0AF /* SiftIosAppStateCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 958BFA7F502E96762268A7F181DEAC77 /* SiftIosAppStateCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E5D656A47E59696A570524C65E87B934 /* Sift+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC47C42D1E0A34F234E4D5288E36FF9 /* Sift+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EBAF387B68D572D65253C5AAD65B1B7E /* SiftDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 52F093FA16EF16A89299D6F892DF4DAE /* SiftDebug.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC6FC65FA1208406C84B4080F8D2903E /* card_network.svg in Resources */ = {isa = PBXBuildFile; fileRef = D92190A1E872A8923D6CF0AF664606B8 /* card_network.svg */; };
+		ED13EDFB56269B7DE26F6F91D167CE2A /* SecureValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A7F38E476238F695BC4B5D66964615 /* SecureValidationResponse.swift */; };
+		F32D3BE7028DB923ECBA4C6AF17BB4CA /* MerchantSettingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6872C05427C6B437F3C23096159DB8 /* MerchantSettingsResponse.swift */; };
+		F40BB52DAF9F5307583358FDC546EDAB /* SiftUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F885162C0A183B3829E29012CDA3617 /* SiftUtils.m */; };
 		FBA10EDD6E1E7704324E66F6B35540CD /* HTTPStubsPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5982454D96C43E5479D28D6401FDE2B0 /* HTTPStubsPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FCC14BB0B1CEB84D0D733CF87696365F /* Cash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B3C65DEF40201DCB8F5A0B1632B302 /* Cash.swift */; };
+		FE24B2F9A61EB63E6FA3CC4E2A4B60E4 /* SecureValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D69832A0D1F9E1B32514735F02AD9A /* SecureValidation.swift */; };
+		FFDE6630C447501B7AD2DDCBC9D57AB4 /* Sift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CD870C5604497C41FD333D9C182C7AE /* Sift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15208D36BA554CC1B82135ED831A01BE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD6155AA2FB5F72C43094DA6DBEFA252;
-			remoteInfo = Sift;
-		};
-		2250534F0A9BA3357C1A90969F1538A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D94A94E222100593E1B38652A61E5409;
-			remoteInfo = "Pods-kushki-ios_Example";
-		};
-		2D05CFA77C5853D3A07922348198CC6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA808475B36E8EAA8E40474777CE8036;
-			remoteInfo = Kushki;
-		};
-		4B202B4031889E0390AC847D9E112373 /* PBXContainerItemProxy */ = {
+		6A624323D9A2FAF3554C72A13ADC4655 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A983A2D06C5B6AA3D6ABA5CCC0A16725;
 			remoteInfo = OHHTTPStubs;
 		};
-		ABB56F81FB5D34D6C788FF857CD0D940 /* PBXContainerItemProxy */ = {
+		891B2FA1C70C04060FFE94BB6853508D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D94A94E222100593E1B38652A61E5409;
+			remoteInfo = "Pods-kushki-ios_Example";
+		};
+		8C43B18CC6C2E3351DF771E4CF7EDDC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD6155AA2FB5F72C43094DA6DBEFA252;
+			remoteInfo = Sift;
+		};
+		B769564E26512C1F35A6B87188DD2D2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA808475B36E8EAA8E40474777CE8036;
+			remoteInfo = Kushki;
+		};
+		E856497527A8602F45480814E283546B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -135,12 +148,13 @@
 		01E3FD952A5F993757B92D0B9F8C8196 /* NSURLRequest+HTTPBodyTesting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+HTTPBodyTesting.m"; path = "Sources/OHHTTPStubs/NSURLRequest+HTTPBodyTesting.m"; sourceTree = "<group>"; };
 		035C595E77C788C97B0CE62D2508A725 /* SiftIosDeviceProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDeviceProperties.m; path = Sift/SiftIosDeviceProperties.m; sourceTree = "<group>"; };
 		03B5742EF350B6CDD6F97741D631BB3B /* OHHTTPStubs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.release.xcconfig; sourceTree = "<group>"; };
+		03D69832A0D1F9E1B32514735F02AD9A /* SecureValidation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SecureValidation.swift; sourceTree = "<group>"; };
 		043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsResponse.m; path = Sources/OHHTTPStubs/HTTPStubsResponse.m; sourceTree = "<group>"; };
+		073823478460EBF9813231D38913583B /* ConfrontaResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaResponse.swift; sourceTree = "<group>"; };
 		07B2AC2DF7A859464767A0809FA41B2A /* Pods-kushki-ios_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Example"; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		08E2D45D4894891F9BC77E83A069D546 /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
-		0FF4D21164FA2F00C96DB69106DF63BD /* SiftScienceObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiftScienceObject.swift; sourceTree = "<group>"; };
-		1218A44BFBCD20DBA8D91864499ED9CD /* ConfrontaResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaResponse.swift; sourceTree = "<group>"; };
-		13991FB7300FCF1AE96EA7379D85DB45 /* Kushki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.release.xcconfig; sourceTree = "<group>"; };
+		0A06839EB5C99DF33ED639D2891271D9 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
+		0C75E5138D380F9A9CC007260ECBC695 /* TokenRequest3DS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenRequest3DS.swift; sourceTree = "<group>"; };
+		119FE046ECA41C8E6E32930C3ADFFAF2 /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		14B92925A30646CE5F8C8A5B02944D16 /* SiftEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftEvent.m; path = Sift/SiftEvent.m; sourceTree = "<group>"; };
 		159415606555C2A1BD80889AA128580D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17E33041B314FA837A3CAEB9DF3CDE9F /* OHHTTPStubs */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,16 +163,19 @@
 		22A07797082FC238B0450CB4DCB08E71 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2426DB28B80797F42D170141895D9908 /* Pods-kushki-ios_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Example-frameworks.sh"; sourceTree = "<group>"; };
 		24EB0B19C14224AC76351BCC0F9E6E37 /* SiftUploader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUploader.m; path = Sift/SiftUploader.m; sourceTree = "<group>"; };
+		2A634F67CADB0B4C189F807FDDD7D81D /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
+		2BA89E6D48AC8465A0C81BAB35103B9C /* Cash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Cash.swift; sourceTree = "<group>"; };
+		2D535CF7A361E831316C69DE330B485A /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
 		2E8A2DAF646755095E60FFF69D2D412E /* Sift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.release.xcconfig; sourceTree = "<group>"; };
 		3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		327E657A69E5B247E6E7CD4961308764 /* SiftIosAppStateCollector+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftIosAppStateCollector+Private.h"; path = "Sift/SiftIosAppStateCollector+Private.h"; sourceTree = "<group>"; };
+		33975D865B69C915260F3F7A6AAA8BB1 /* Bank.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		3442A6C4543FCF6B0281445327870E78 /* Kushki */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kushki; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F227A28D8FC21D79117421A3E98769 /* SiftHtDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftHtDictionary.m; path = Sift/SiftHtDictionary.m; sourceTree = "<group>"; };
 		36AFD9D1AA0B5D25537F9F6BAC304010 /* SiftIosDevicePropertiesCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDevicePropertiesCollector.h; path = Sift/SiftIosDevicePropertiesCollector.h; sourceTree = "<group>"; };
-		38B3C65DEF40201DCB8F5A0B1632B302 /* Cash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Cash.swift; sourceTree = "<group>"; };
-		38ED062963214EB6B93846EFC315873D /* ConfrontaQuestionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionOptions.swift; sourceTree = "<group>"; };
 		3906AECF23FC011A6C56F8D109357850 /* SiftIosAppState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppState.m; path = Sift/SiftIosAppState.m; sourceTree = "<group>"; };
-		3E06D031E48315FA7FD57A864D4072C4 /* Amount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		3B10BD70CDF9C19CBB9717F318D17236 /* Security.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		3CEB775B0288EA25714D76FFFDFDCFF4 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
 		3F331E78E0DD02D95C857C4A24B12372 /* Pods-kushki-ios_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Example.modulemap"; sourceTree = "<group>"; };
 		41647ECC100A4EFAE1F597FF7C2EAE03 /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4322F3D65891B9E2ECB75D28F3A64037 /* NSData+GZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZIP.m"; path = "Sift/Vendor/NSData+GZIP.m"; sourceTree = "<group>"; };
@@ -167,46 +184,49 @@
 		52F093FA16EF16A89299D6F892DF4DAE /* SiftDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftDebug.h; path = Sift/SiftDebug.h; sourceTree = "<group>"; };
 		553C0396200A02A5D1F37CC4919874E7 /* OHHTTPStubs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OHHTTPStubs.modulemap; sourceTree = "<group>"; };
 		56A120B8535BE9741D10BA5B25E4BB8A /* SiftIosDeviceProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDeviceProperties.h; path = Sift/SiftIosDeviceProperties.h; sourceTree = "<group>"; };
-		56D47A7A1AAEB38EC9383F69DE20C011 /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
 		5982454D96C43E5479D28D6401FDE2B0 /* HTTPStubsPathHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsPathHelpers.h; path = Sources/OHHTTPStubs/include/HTTPStubsPathHelpers.h; sourceTree = "<group>"; };
 		59B3F0DAF4C85F05FCC4AACE1C57CD77 /* HTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTTPStubsResponse+JSON.h"; path = "Sources/OHHTTPStubs/include/HTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
-		59FA1FB1982C73D6C804E5E705162CDE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		5BD2E46CA4C37A9B69FB8396CC89703B /* Pods-kushki-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		60116B16472CEBDD8B1C8B4B4BDE53E0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5C836D16E8CEFF8652FFCC88094D0F28 /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
+		5D93FB520C30BB387B6FB3037E9B8B76 /* any_bank.svg */ = {isa = PBXFileReference; includeInIndex = 1; path = any_bank.svg; sourceTree = "<group>"; };
+		5E73A88E599932E1DF9D50F1A8082B3A /* Kushki-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kushki-dummy.m"; sourceTree = "<group>"; };
+		602BDDB24B745A752DC563920F1373A0 /* JwtResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JwtResponse.swift; sourceTree = "<group>"; };
 		609B55A527B2938629075135C8A2C50E /* Sift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sift-dummy.m"; sourceTree = "<group>"; };
-		63034EA5BAF8503B79E2772F691D7FC7 /* Bank.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		6355ECEB709B581A9CE309ADF4933126 /* SiftQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftQueue.m; path = Sift/SiftQueue.m; sourceTree = "<group>"; };
 		63F01492AF5AC23B787A09B583D0CE37 /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6493A210FAB665E7F1ED332E267560D5 /* Pods-kushki-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		650B29B9193736CF6631B338653827AA /* OTPSandboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTPSandboxViewController.swift; sourceTree = "<group>"; };
 		654F7F23D436F7BE61CA7FED5F4CC70C /* Sift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sift-prefix.pch"; sourceTree = "<group>"; };
 		65FAF0DB185F993A51D187BDBBA50143 /* OHHTTPStubs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.debug.xcconfig; sourceTree = "<group>"; };
 		67E7AAA6D78A036AAA8395612EFFCF0A /* Sift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sift.h; path = Sift/Sift.h; sourceTree = "<group>"; };
+		6AED385162094F1AEB3634256A693545 /* Amount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		6B6872C05427C6B437F3C23096159DB8 /* MerchantSettingsResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MerchantSettingsResponse.swift; sourceTree = "<group>"; };
 		6E9314F22E0AC149969721D64EB9EDD1 /* SiftIosAppStateCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppStateCollector.m; path = Sift/SiftIosAppStateCollector.m; sourceTree = "<group>"; };
 		7022F9CDB95CE717C010C84F8323EB33 /* HTTPStubsPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsPathHelpers.m; path = Sources/OHHTTPStubs/HTTPStubsPathHelpers.m; sourceTree = "<group>"; };
 		748A95812EDF54F63681F95F07A54E06 /* SiftIosDevicePropertiesCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDevicePropertiesCollector.m; path = Sift/SiftIosDevicePropertiesCollector.m; sourceTree = "<group>"; };
 		7517FD812A2A50CEE4D542539AF7A1B0 /* SiftUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUploader.h; path = Sift/SiftUploader.h; sourceTree = "<group>"; };
-		76C39BD895A0536128BE251AFFDA17BA /* Kushki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.debug.xcconfig; sourceTree = "<group>"; };
+		77F197EC5DD2C26967FBF975EA00B91F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		798A2B61EF68E6A173DDCE3C132A528B /* HTTPStubs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubs.h; path = Sources/OHHTTPStubs/include/HTTPStubs.h; sourceTree = "<group>"; };
-		7AE1FE69E821D471F13767ABFB036C18 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
 		7D99477DABC1C7511774219390F99417 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		7D9AE2BB3EF8985E668D77A1D23163ED /* ConfrontaQuestionnarie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionnarie.swift; sourceTree = "<group>"; };
 		7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Example-umbrella.h"; sourceTree = "<group>"; };
 		7F885162C0A183B3829E29012CDA3617 /* SiftUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUtils.m; path = Sift/SiftUtils.m; sourceTree = "<group>"; };
-		807A45384CC06B8E9912ADAF1CE32410 /* MerchantSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MerchantSettings.swift; sourceTree = "<group>"; };
+		842AE1683016E36A29EC157539EA6EB9 /* Card.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		87EA6E89547158A0708F3587D55DD1D1 /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
 		8857D92E4C2D9BC419F7A03527428712 /* OHHTTPStubs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OHHTTPStubs-Info.plist"; sourceTree = "<group>"; };
-		8AF3AD680BF5C120A2835698FF093B32 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		8E969FB66A2044380FB08BAC0A6A90B7 /* Kushki-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kushki-dummy.m"; sourceTree = "<group>"; };
-		9167B420B28F8EDAA9315000BD93FF79 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
+		8A0B091C7A2C1AFD963A54B2BCFD4D48 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		902A64370C4BBC2272BF4EC9B502B196 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9388093FE2CAFC752A9D6DC3C62CB601 /* HTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "HTTPStubs+NSURLSessionConfiguration.m"; path = "Sources/OHHTTPStubs/HTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
 		958BFA7F502E96762268A7F181DEAC77 /* SiftIosAppStateCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppStateCollector.h; path = Sift/SiftIosAppStateCollector.h; sourceTree = "<group>"; };
+		96A7F38E476238F695BC4B5D66964615 /* SecureValidationResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SecureValidationResponse.swift; sourceTree = "<group>"; };
 		96C5C153BE4CF925BE46DDF8611ABC9F /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		96FEAEB7A9BD9A919EA9A0BD1A3BA3CF /* Sift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Sift; path = Sift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		974D41C001DBC864FBF5CF9BBC876CF5 /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
 		98EDC360E037E3573535CCC32524F199 /* SiftCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCompatibility.h; path = Sift/SiftCompatibility.h; sourceTree = "<group>"; };
 		9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9C6E961F56111ADC29B536623BB6F87C /* Sift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.debug.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4C4D9C0D7CC4B7BC26CECEB229C1192 /* SiftTokenBucket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftTokenBucket.h; path = Sift/SiftTokenBucket.h; sourceTree = "<group>"; };
+		A4F1CDD5CEEA7C209B40FF2E48CA4A22 /* ConfrontaQuestionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionOptions.swift; sourceTree = "<group>"; };
+		A4FDEB726C5FACB4F21D080E96F6D5E5 /* Kushki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.debug.xcconfig; sourceTree = "<group>"; };
 		A6E4279E596ED757ACDED30778996783 /* SiftUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUtils.h; path = Sift/SiftUtils.h; sourceTree = "<group>"; };
 		A6EC2750D679FC082BBC534004627729 /* Pods-kushki-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A886AA74B83222C4797921B03366E023 /* HTTPStubsMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsMethodSwizzling.m; path = Sources/OHHTTPStubs/HTTPStubsMethodSwizzling.m; sourceTree = "<group>"; };
@@ -214,41 +234,48 @@
 		AD8BE4855DB76C54BAFC7C1A16425212 /* Sift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sift-Info.plist"; sourceTree = "<group>"; };
 		AE35CBC3944C8070DAFDD454E9B5C762 /* OHHTTPStubs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-prefix.pch"; sourceTree = "<group>"; };
 		B3E2D1AAD676F65CD27A82023597D5FA /* HTTPStubs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubs.m; path = Sources/OHHTTPStubs/HTTPStubs.m; sourceTree = "<group>"; };
-		B68540DB2D02938D7A32971191FD7822 /* File */ = {isa = PBXFileReference; includeInIndex = 1; path = File; sourceTree = "<group>"; };
 		B8FDC9F25AB38094596B56E81C216AEC /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = Sources/OHHTTPStubs/include/Compatibility.h; sourceTree = "<group>"; };
 		BB1668DFA6E5FAC7FEC0963EDDEEDE93 /* Pods-kushki-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		BBB105587785B869BFA66AA6162182B3 /* File */ = {isa = PBXFileReference; includeInIndex = 1; path = File; sourceTree = "<group>"; };
 		BC2C0DCCCA69D9FA9D6B88CAEEDF8B97 /* SiftEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftEvent.h; path = Sift/SiftEvent.h; sourceTree = "<group>"; };
 		BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BD97E80A98EFA0F3A963857F63397F8F /* Pods-kushki-ios_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Tests"; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		BE084DA856A436237EE57324D3732669 /* MerchantSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MerchantSettings.swift; sourceTree = "<group>"; };
+		BE6D9D6B4C39617C7DB83620CCDFC851 /* CardInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C3953A449A5301EA268FA48E075CE0AE /* SiftIosAppState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppState.h; path = Sift/SiftIosAppState.h; sourceTree = "<group>"; };
+		C49CDCB9717DA75DD84FEC6584B5609C /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
+		CA3F77D7F26F6A75ED3451BFCB760246 /* OTPSandboxViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OTPSandboxViewController.xib; sourceTree = "<group>"; };
 		CC26D2A75813696B50586B538987B673 /* NSData+GZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+GZIP.h"; path = "Sift/Vendor/NSData+GZIP.h"; sourceTree = "<group>"; };
 		CC9279BE2FF3F9AD3EC745D07AB16521 /* SiftEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftEvent+Private.h"; path = "Sift/SiftEvent+Private.h"; sourceTree = "<group>"; };
+		CCA6DD04D44D81DA6F155E56A1EEB3BD /* Transfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		CDA53213D6DA22474CE328FE26D008D3 /* Sift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sift.modulemap; sourceTree = "<group>"; };
 		CF7C50A280F81A4B0D4126A7515131FB /* HTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "HTTPStubsResponse+JSON.m"; path = "Sources/OHHTTPStubs/HTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
 		D2CF77EE71ADCBEA316E19D8B218B2DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		D43DDE76308AF73D73D44F9DB6CDF9E5 /* SiftCircularBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCircularBuffer.h; path = Sift/SiftCircularBuffer.h; sourceTree = "<group>"; };
+		D4E0E656BEED3FA368F4185F1152AFC3 /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; name = Assets; path = Kushki/Assets/Assets; sourceTree = "<group>"; };
 		D52A6C298584F200F479132FB211B2C7 /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
 		D610826CE27AC962EE7FFF4F271C878A /* HTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsResponse.h; path = Sources/OHHTTPStubs/include/HTTPStubsResponse.h; sourceTree = "<group>"; };
-		DACB192F829D4609B6D5A6AF20546EB3 /* CardInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
-		DE00CF2F8D62A62E7E96A9E86C8E8997 /* EndPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		D92190A1E872A8923D6CF0AF664606B8 /* card_network.svg */ = {isa = PBXFileReference; includeInIndex = 1; path = card_network.svg; sourceTree = "<group>"; };
+		DC4BCCDA85CE79B72BE61BDB798B456B /* EndPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		DF344F9E6BE151DF65DBA3113C729620 /* SiftScienceObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiftScienceObject.swift; sourceTree = "<group>"; };
 		DF399570C0387E177C329C83A3CE0D8A /* SiftQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueue.h; path = Sift/SiftQueue.h; sourceTree = "<group>"; };
+		DF902DF2C6ABA526BBFB70C50CFDD3B4 /* ConfrontaQuestionnarie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionnarie.swift; sourceTree = "<group>"; };
+		E0A4C02D92D76537F2C6FEDC78150CBF /* logo_kushki.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = logo_kushki.png; sourceTree = "<group>"; };
 		E1B758CEDA6E54895484DCFA3F6E36CB /* Pods-kushki-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		E278E35DCEC17E03A5FEBBE70A5AD86C /* OHHTTPStubsSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OHHTTPStubsSwift.swift; path = Sources/OHHTTPStubsSwift/OHHTTPStubsSwift.swift; sourceTree = "<group>"; };
+		E2D573B2416F7A42B3A848AAAA31CEBD /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardinalMobile.framework; path = Kushki/Frameworks/CardinalMobile.framework; sourceTree = "<group>"; };
 		E3DC6E53EFE5D66F664CA8B338AEFBFF /* SiftCircularBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftCircularBuffer.m; path = Sift/SiftCircularBuffer.m; sourceTree = "<group>"; };
 		E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Tests-dummy.m"; sourceTree = "<group>"; };
-		E736B947A3A3AC1CA37A75182A5E2CF5 /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
+		E70850044ED20B01CFFD59B16A048B85 /* Kushki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.release.xcconfig; sourceTree = "<group>"; };
 		E75C26F25E5634F0AE80AEFF44B2A23B /* NSURLRequest+HTTPBodyTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+HTTPBodyTesting.h"; path = "Sources/OHHTTPStubs/include/NSURLRequest+HTTPBodyTesting.h"; sourceTree = "<group>"; };
 		E943CF6C9CDBB2CA88247A495E44A8D1 /* Pods-kushki-ios_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-Info.plist"; sourceTree = "<group>"; };
-		E9535C595F72B750665A6679EE16C235 /* Transfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
-		EB82DDB55F5FACC3F2BDA81538BB68DA /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ED2F093CE470572A7675A489DAEFE680 /* HTTPStubsMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsMethodSwizzling.h; path = Sources/OHHTTPStubs/HTTPStubsMethodSwizzling.h; sourceTree = "<group>"; };
 		ED9E9E9EA61ABF76577E5B641A9BED09 /* OHHTTPStubs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs-dummy.m"; sourceTree = "<group>"; };
 		F456BA58D30AEEC9439F24CFBCFD5C12 /* Sift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Sift.m; path = Sift/Sift.m; sourceTree = "<group>"; };
+		F4F8E090ED57E2542E14EBE33AF76359 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6F3F6CEA04F0BF439630835EE3D97A2 /* Pods-kushki-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F7B0B924B7B0A257E0312D71E59E95AE /* Card.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F7B470409B53E4CEC0B17521D657F18A /* SiftHtDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftHtDictionary.h; path = Sift/SiftHtDictionary.h; sourceTree = "<group>"; };
-		F9A1F1B4F903C218078983296ED9E835 /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
 		FFC47C42D1E0A34F234E4D5288E36FF9 /* Sift+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sift+Private.h"; path = "Sift/Sift+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,23 +288,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		501481B0EB567FD96EE8AEE1394A5B85 /* Frameworks */ = {
+		4ED4AFEEF074C4403ABE70148B4D8B04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				980A056C45258F5105F47CDBDB11E93A /* Foundation.framework in Frameworks */,
+				350EE6EA08D1547B8A8057283B33FA49 /* CoreLocation.framework in Frameworks */,
+				080BB844706C527329BEEC833064A357 /* CoreMotion.framework in Frameworks */,
+				5F7A391E45E3221FC1B67A760F9307A7 /* CoreTelephony.framework in Frameworks */,
+				8526C329BC00185183F55EBEC1595DB6 /* Foundation.framework in Frameworks */,
+				6EB8077BB18E19E4962AC1191CBF65FE /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63D1C1BE5B73A733969FA25FF68AF0BD /* Frameworks */ = {
+		D69F3C418172625593795C39DCBD8E65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A73AB634A8DEB84115A437FA91D19084 /* CoreLocation.framework in Frameworks */,
-				2140E37F25D9316BCA6BB0ED6C7D69B1 /* CoreMotion.framework in Frameworks */,
-				F4B1C5D9B9CDAAE3DD6D335EDE4B6A82 /* CoreTelephony.framework in Frameworks */,
-				76C079782B604A0FC0341C3E9E6F29AC /* Foundation.framework in Frameworks */,
-				65BC1B247714172AB1B73CA1CD214D06 /* UIKit.framework in Frameworks */,
+				D91E737D1212C9F79C056C72F8D0BD9E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,25 +328,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1FD23513476202D925C66C86DD85349E /* Struct */ = {
+		15CEDC40A5B3E1A1A0771C717D4F0757 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E06D031E48315FA7FD57A864D4072C4 /* Amount.swift */,
-				63034EA5BAF8503B79E2772F691D7FC7 /* Bank.swift */,
-				F7B0B924B7B0A257E0312D71E59E95AE /* Card.swift */,
-				DACB192F829D4609B6D5A6AF20546EB3 /* CardInfo.swift */,
-				38B3C65DEF40201DCB8F5A0B1632B302 /* Cash.swift */,
-				7D9AE2BB3EF8985E668D77A1D23163ED /* ConfrontaQuestionnarie.swift */,
-				38ED062963214EB6B93846EFC315873D /* ConfrontaQuestionOptions.swift */,
-				1218A44BFBCD20DBA8D91864499ED9CD /* ConfrontaResponse.swift */,
-				B68540DB2D02938D7A32971191FD7822 /* File */,
-				807A45384CC06B8E9912ADAF1CE32410 /* MerchantSettings.swift */,
-				0FF4D21164FA2F00C96DB69106DF63BD /* SiftScienceObject.swift */,
-				8AF3AD680BF5C120A2835698FF093B32 /* Transaction.swift */,
-				E9535C595F72B750665A6679EE16C235 /* Transfer.swift */,
+				650B29B9193736CF6631B338653827AA /* OTPSandboxViewController.swift */,
+				CA3F77D7F26F6A75ED3451BFCB760246 /* OTPSandboxViewController.xib */,
 			);
-			name = Struct;
-			path = Kushki/Classes/Struct;
+			name = Views;
+			path = Kushki/Classes/Views;
 			sourceTree = "<group>";
 		};
 		2A054ECBD4F98838B66486F341899959 /* Pods-kushki-ios_Example */ = {
@@ -339,14 +355,14 @@
 			path = "Target Support Files/Pods-kushki-ios_Example";
 			sourceTree = "<group>";
 		};
-		2C58E6C4F142CA68E135518F347A60F8 /* Pod */ = {
+		2C1B37502E2B571F96D1E938DE1EBA1F /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				EB82DDB55F5FACC3F2BDA81538BB68DA /* Kushki.podspec */,
-				59FA1FB1982C73D6C804E5E705162CDE /* LICENSE */,
-				60116B16472CEBDD8B1C8B4B4BDE53E0 /* README.md */,
+				DC4BCCDA85CE79B72BE61BDB798B456B /* EndPoint.swift */,
+				0A06839EB5C99DF33ED639D2891271D9 /* KushkiEnvironment.swift */,
 			);
-			name = Pod;
+			name = Infrastructure;
+			path = Kushki/Classes/Infrastructure;
 			sourceTree = "<group>";
 		};
 		2CFCB68CD0952321FB3805BF0B561549 /* Support Files */ = {
@@ -390,12 +406,22 @@
 			name = Swift;
 			sourceTree = "<group>";
 		};
-		38CE914798D1271FD0B8449259D61437 /* Development Pods */ = {
+		34BEE3F215830D93C7F0A070DB42A050 /* Kushki */ = {
 			isa = PBXGroup;
 			children = (
-				7AEA170FC4F110B5C7FFE8630F9295FF /* Kushki */,
+				D4E0E656BEED3FA368F4185F1152AFC3 /* Assets */,
+				87EA6E89547158A0708F3587D55DD1D1 /* Kushki.swift */,
+				C49CDCB9717DA75DD84FEC6584B5609C /* KushkiClient.swift */,
+				E424F1AEFADF7435B655687E431498C3 /* Assets */,
+				BA9B0B2654FB0E87E05C610FB0E708FA /* Frameworks */,
+				2C1B37502E2B571F96D1E938DE1EBA1F /* Infrastructure */,
+				B7557D933F667BD6D366FC70E0DFFF36 /* Pod */,
+				6CFBCAE73CF641363A561004E626AAE2 /* Struct */,
+				66369B759BDF69E128CBDFD745242DF0 /* Support Files */,
+				15CEDC40A5B3E1A1A0771C717D4F0757 /* Views */,
 			);
-			name = "Development Pods";
+			name = Kushki;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		41C8EE611608181A2409EE0B32F1C2B0 /* JSON */ = {
@@ -420,6 +446,21 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		66369B759BDF69E128CBDFD745242DF0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3CEB775B0288EA25714D76FFFDFDCFF4 /* Kushki.modulemap */,
+				5E73A88E599932E1DF9D50F1A8082B3A /* Kushki-dummy.m */,
+				2A634F67CADB0B4C189F807FDDD7D81D /* Kushki-Info.plist */,
+				2D535CF7A361E831316C69DE330B485A /* Kushki-prefix.pch */,
+				5C836D16E8CEFF8652FFCC88094D0F28 /* Kushki-umbrella.h */,
+				A4FDEB726C5FACB4F21D080E96F6D5E5 /* Kushki.debug.xcconfig */,
+				E70850044ED20B01CFFD59B16A048B85 /* Kushki.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Kushki";
+			sourceTree = "<group>";
+		};
 		678ADBD25303D70F4246EB39FA3DDAE8 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,19 +470,31 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6B6ABF6E93816A8A29576B304397AC1D /* Support Files */ = {
+		6CFBCAE73CF641363A561004E626AAE2 /* Struct */ = {
 			isa = PBXGroup;
 			children = (
-				7AE1FE69E821D471F13767ABFB036C18 /* Kushki.modulemap */,
-				8E969FB66A2044380FB08BAC0A6A90B7 /* Kushki-dummy.m */,
-				08E2D45D4894891F9BC77E83A069D546 /* Kushki-Info.plist */,
-				F9A1F1B4F903C218078983296ED9E835 /* Kushki-prefix.pch */,
-				974D41C001DBC864FBF5CF9BBC876CF5 /* Kushki-umbrella.h */,
-				76C39BD895A0536128BE251AFFDA17BA /* Kushki.debug.xcconfig */,
-				13991FB7300FCF1AE96EA7379D85DB45 /* Kushki.release.xcconfig */,
+				6AED385162094F1AEB3634256A693545 /* Amount.swift */,
+				33975D865B69C915260F3F7A6AAA8BB1 /* Bank.swift */,
+				842AE1683016E36A29EC157539EA6EB9 /* Card.swift */,
+				BE6D9D6B4C39617C7DB83620CCDFC851 /* CardInfo.swift */,
+				2BA89E6D48AC8465A0C81BAB35103B9C /* Cash.swift */,
+				DF902DF2C6ABA526BBFB70C50CFDD3B4 /* ConfrontaQuestionnarie.swift */,
+				A4F1CDD5CEEA7C209B40FF2E48CA4A22 /* ConfrontaQuestionOptions.swift */,
+				073823478460EBF9813231D38913583B /* ConfrontaResponse.swift */,
+				BBB105587785B869BFA66AA6162182B3 /* File */,
+				602BDDB24B745A752DC563920F1373A0 /* JwtResponse.swift */,
+				BE084DA856A436237EE57324D3732669 /* MerchantSettings.swift */,
+				6B6872C05427C6B437F3C23096159DB8 /* MerchantSettingsResponse.swift */,
+				03D69832A0D1F9E1B32514735F02AD9A /* SecureValidation.swift */,
+				96A7F38E476238F695BC4B5D66964615 /* SecureValidationResponse.swift */,
+				3B10BD70CDF9C19CBB9717F318D17236 /* Security.swift */,
+				DF344F9E6BE151DF65DBA3113C729620 /* SiftScienceObject.swift */,
+				0C75E5138D380F9A9CC007260ECBC695 /* TokenRequest3DS.swift */,
+				902A64370C4BBC2272BF4EC9B502B196 /* Transaction.swift */,
+				CCA6DD04D44D81DA6F155E56A1EEB3BD /* Transfer.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Kushki";
+			name = Struct;
+			path = Kushki/Classes/Struct;
 			sourceTree = "<group>";
 		};
 		6FE5F1D8D44CAE87C67841D2A5C4F7D1 /* OHHTTPStubs */ = {
@@ -458,20 +511,6 @@
 			path = OHHTTPStubs;
 			sourceTree = "<group>";
 		};
-		7AEA170FC4F110B5C7FFE8630F9295FF /* Kushki */ = {
-			isa = PBXGroup;
-			children = (
-				E736B947A3A3AC1CA37A75182A5E2CF5 /* Kushki.swift */,
-				56D47A7A1AAEB38EC9383F69DE20C011 /* KushkiClient.swift */,
-				8F25B548DE93018E341648D93154F126 /* Infrastructure */,
-				2C58E6C4F142CA68E135518F347A60F8 /* Pod */,
-				1FD23513476202D925C66C86DD85349E /* Struct */,
-				6B6ABF6E93816A8A29576B304397AC1D /* Support Files */,
-			);
-			name = Kushki;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		7C98ED986D2D6AC80F78BF3F76194F12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,16 +521,6 @@
 				96FEAEB7A9BD9A919EA9A0BD1A3BA3CF /* Sift */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8F25B548DE93018E341648D93154F126 /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-				DE00CF2F8D62A62E7E96A9E86C8E8997 /* EndPoint.swift */,
-				9167B420B28F8EDAA9315000BD93FF79 /* KushkiEnvironment.swift */,
-			);
-			name = Infrastructure;
-			path = Kushki/Classes/Infrastructure;
 			sourceTree = "<group>";
 		};
 		A029C800F202127BE6CCF68AD2C6D179 /* Core */ = {
@@ -516,6 +545,24 @@
 				01E3FD952A5F993757B92D0B9F8C8196 /* NSURLRequest+HTTPBodyTesting.m */,
 			);
 			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		B7557D933F667BD6D366FC70E0DFFF36 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				119FE046ECA41C8E6E32930C3ADFFAF2 /* Kushki.podspec */,
+				77F197EC5DD2C26967FBF975EA00B91F /* LICENSE */,
+				8A0B091C7A2C1AFD963A54B2BCFD4D48 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		BA9B0B2654FB0E87E05C610FB0E708FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2D573B2416F7A42B3A848AAAA31CEBD /* CardinalMobile.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C121DCA7443C2840AD21DDB432596786 /* Sift */ = {
@@ -595,7 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				38CE914798D1271FD0B8449259D61437 /* Development Pods */,
+				DE56C5AE0866B4DCA9CDC806CF17DE48 /* Development Pods */,
 				D68CA58901FBF589D75F5E40F1EAF5BA /* Frameworks */,
 				2F9F10CFC5FEDBE8B5C99B0CA4AC7BBA /* Pods */,
 				7C98ED986D2D6AC80F78BF3F76194F12 /* Products */,
@@ -609,6 +656,26 @@
 				5EBC703D318FC35E7FE152A44C3BB5D2 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE56C5AE0866B4DCA9CDC806CF17DE48 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34BEE3F215830D93C7F0A070DB42A050 /* Kushki */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E424F1AEFADF7435B655687E431498C3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5D93FB520C30BB387B6FB3037E9B8B76 /* any_bank.svg */,
+				F4F8E090ED57E2542E14EBE33AF76359 /* Assets.xcassets */,
+				D92190A1E872A8923D6CF0AF664606B8 /* card_network.svg */,
+				E0A4C02D92D76537F2C6FEDC78150CBF /* logo_kushki.png */,
+			);
+			name = Assets;
+			path = Kushki/Assets/Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,33 +697,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76CF2F0892515E40F93E27C40B4364EA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04217CEEAAC4F7E248A1D263BEB4D711 /* NSData+GZIP.h in Headers */,
-				1C2DF9C61EAD8E2ABAAD637D4C9869B3 /* Sift.h in Headers */,
-				5426461F38D21381E163E1125CEED3AB /* Sift+Private.h in Headers */,
-				F9278DD7CAB47A141BBF8C8948731AEA /* Sift-umbrella.h in Headers */,
-				79096045C3A784EF79B2AB696F91A2D9 /* SiftCircularBuffer.h in Headers */,
-				F3CDFF7349AA0D3387D804C0D8070E51 /* SiftCompatibility.h in Headers */,
-				9783266A4BFA4110E1CF51E586A41F90 /* SiftDebug.h in Headers */,
-				BE695FA70E5541DFC8139569AE3B2918 /* SiftEvent.h in Headers */,
-				7683BF4A04E58932CD6685D60DB29F2B /* SiftEvent+Private.h in Headers */,
-				2657FF0D18C691D1F37A6A0FDE4D52C7 /* SiftHtDictionary.h in Headers */,
-				97555B5EE39666DD0299EBE2C56CCC46 /* SiftIosAppState.h in Headers */,
-				D2099757D2639E886400FD22CC06AE90 /* SiftIosAppStateCollector.h in Headers */,
-				73B6E81C9454947CCA6ED5F48E1C496E /* SiftIosAppStateCollector+Private.h in Headers */,
-				2B37E69D884688B0806A75A808289CC0 /* SiftIosDeviceProperties.h in Headers */,
-				16617A8213C3D45D74FFA484DE81857C /* SiftIosDevicePropertiesCollector.h in Headers */,
-				F4E185399842FC99B716257865BAFF1C /* SiftQueue.h in Headers */,
-				DA2FB82E463DC31AF708222A025BB2EE /* SiftQueueConfig.h in Headers */,
-				CF4339D76E098EF4A85D532639661B15 /* SiftTokenBucket.h in Headers */,
-				2423B4BFA24FAF3DB561942B83508825 /* SiftUploader.h in Headers */,
-				A417139E19628AD64BF09D37BEE8A5FA /* SiftUtils.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		79BF8FF3D602332DB9720C936508808B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -672,11 +712,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB61624332516EB46D314FA103E20DC5 /* Headers */ = {
+		7E45CA713AB59F289C391BAB17779C15 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B08619865D6A985B18C001A6BC3F0EF5 /* Kushki-umbrella.h in Headers */,
+				3ABCDC0ABEC022D683C241EE0A2BDAA0 /* NSData+GZIP.h in Headers */,
+				A17B2881F6413420B04ADBDEBFA3E8A9 /* Sift.h in Headers */,
+				E5D656A47E59696A570524C65E87B934 /* Sift+Private.h in Headers */,
+				FFDE6630C447501B7AD2DDCBC9D57AB4 /* Sift-umbrella.h in Headers */,
+				721923A118C6CB7D1CD9FE6C84D0A298 /* SiftCircularBuffer.h in Headers */,
+				51085FAC19F527CCB6D70491901AEBDA /* SiftCompatibility.h in Headers */,
+				EBAF387B68D572D65253C5AAD65B1B7E /* SiftDebug.h in Headers */,
+				754E3A1E081D5C7EE78BCDBD299BCCB3 /* SiftEvent.h in Headers */,
+				E32B85B83B2ED4F8E75BD8EA50E04E26 /* SiftEvent+Private.h in Headers */,
+				1836A7CA6598C3A6FA6EF6F9A15EB8E9 /* SiftHtDictionary.h in Headers */,
+				33C5706785A1B94F0FFA98018CE539BD /* SiftIosAppState.h in Headers */,
+				E5819DEA4AB076FA1A9CF39AA338A0AF /* SiftIosAppStateCollector.h in Headers */,
+				67E82DFBCD9DB53C2E9C47257B3B745E /* SiftIosAppStateCollector+Private.h in Headers */,
+				358B1DD7706AE7AA41D194F49035761D /* SiftIosDeviceProperties.h in Headers */,
+				83D1A32CB6CB1D6D8349D18021CC3592 /* SiftIosDevicePropertiesCollector.h in Headers */,
+				4A44581B262C5A5304CDFA384B498C79 /* SiftQueue.h in Headers */,
+				9109ED9B6CA617AAD201A27D73564238 /* SiftQueueConfig.h in Headers */,
+				0728B5461A777213B72C64A58D0D4715 /* SiftTokenBucket.h in Headers */,
+				84711D0E34C649286DEEB4849DF88DF8 /* SiftUploader.h in Headers */,
+				B702386AEADDD561F5FBBB672C6B29D1 /* SiftUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5B325B14B951C21CD65AD7D7E5072C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EFA617CFFD45C07C6E50970206851B8 /* Kushki-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,8 +762,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				18A1CAA82BE7A00E05EFE188ED464849 /* PBXTargetDependency */,
-				379194FFCC7CB3D53BF41D64D9A7E89C /* PBXTargetDependency */,
+				26984238A341F4A408FE5A2FBA9E773B /* PBXTargetDependency */,
+				DE8EB2AC933303C3F8D89CD7DF7027AD /* PBXTargetDependency */,
 			);
 			name = "Pods-kushki-ios_Tests";
 			productName = Pods_kushki_ios_Tests;
@@ -723,12 +790,12 @@
 		};
 		CD6155AA2FB5F72C43094DA6DBEFA252 /* Sift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D54E37DAA442FEEB6AD89B459279BDC /* Build configuration list for PBXNativeTarget "Sift" */;
+			buildConfigurationList = 0C08A5F0D1AF7CA43CDA289A6A54C7ED /* Build configuration list for PBXNativeTarget "Sift" */;
 			buildPhases = (
-				76CF2F0892515E40F93E27C40B4364EA /* Headers */,
-				8F8DB72FC538B27454AA3B573795AEF4 /* Sources */,
-				63D1C1BE5B73A733969FA25FF68AF0BD /* Frameworks */,
-				669A28FF7D8990C08891A3E133D8EB5D /* Resources */,
+				7E45CA713AB59F289C391BAB17779C15 /* Headers */,
+				91F2F34AFB84575347663CCF092D9873 /* Sources */,
+				4ED4AFEEF074C4403ABE70148B4D8B04 /* Frameworks */,
+				011B343BCEF9158341725B059C9FB620 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -751,8 +818,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				6487AFDFCC3F9BEE49453838A75F6E88 /* PBXTargetDependency */,
-				76B76BBB14E452779D2C9FCA302F611B /* PBXTargetDependency */,
+				CE75C0D6926DF0C993415F975B35EAD7 /* PBXTargetDependency */,
+				5D52B6F83DFC1A6F5D7ED2A7CAF6263B /* PBXTargetDependency */,
 			);
 			name = "Pods-kushki-ios_Example";
 			productName = Pods_kushki_ios_Example;
@@ -761,17 +828,17 @@
 		};
 		FA808475B36E8EAA8E40474777CE8036 /* Kushki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44EFE5A4FE588933810AB949F44DE3CC /* Build configuration list for PBXNativeTarget "Kushki" */;
+			buildConfigurationList = 3786E6EBA306A8CFD36F0E51DF53E75B /* Build configuration list for PBXNativeTarget "Kushki" */;
 			buildPhases = (
-				CB61624332516EB46D314FA103E20DC5 /* Headers */,
-				9CC7F3D65F1107E4B432518DB7B805D5 /* Sources */,
-				501481B0EB567FD96EE8AEE1394A5B85 /* Frameworks */,
-				0E9B19EC59932B130B101F2E4DD63F6E /* Resources */,
+				F5B325B14B951C21CD65AD7D7E5072C6 /* Headers */,
+				0C2EA16A1AEB087AAE950091B994CB61 /* Sources */,
+				D69F3C418172625593795C39DCBD8E65 /* Frameworks */,
+				B0EA33FE94CAD0A6199FC8B108D4A142 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A5F648A06D0BE40E7F48EBD577977C4C /* PBXTargetDependency */,
+				9D00EFFEBF5EF6523BEC9BBF44AF58E6 /* PBXTargetDependency */,
 			);
 			name = Kushki;
 			productName = Kushki;
@@ -810,7 +877,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0E9B19EC59932B130B101F2E4DD63F6E /* Resources */ = {
+		011B343BCEF9158341725B059C9FB620 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -824,10 +891,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		669A28FF7D8990C08891A3E133D8EB5D /* Resources */ = {
+		B0EA33FE94CAD0A6199FC8B108D4A142 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1796B24926EFA17CA6BA917E77438841 /* any_bank.svg in Resources */,
+				DD2C94302CC9C757E444372438DCD35A /* Assets in Resources */,
+				D1BCE0F397AE440D7F088CBB7B3CA9D9 /* Assets.xcassets in Resources */,
+				EC6FC65FA1208406C84B4080F8D2903E /* card_network.svg in Resources */,
+				12F0D98FF621B36EA8255E6F85EDAC2F /* logo_kushki.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,6 +928,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0C2EA16A1AEB087AAE950091B994CB61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97136362A0E9CA7CB705B03ECDE050E /* Amount.swift in Sources */,
+				030292A55E529186E4DAC36FF83E5AC1 /* Bank.swift in Sources */,
+				45D9A639A1DAC866A9200D4FA200381D /* Card.swift in Sources */,
+				54A4E99629B6B33F87A3B552DBCAB2B6 /* CardInfo.swift in Sources */,
+				0BB6382CDDC1A2464CBD8FABDA5BB925 /* Cash.swift in Sources */,
+				DD4A7991E025A5FBE6E6D5812066976B /* ConfrontaQuestionnarie.swift in Sources */,
+				8B3E9E3BE7C3F08DEE410328D1F6DC86 /* ConfrontaQuestionOptions.swift in Sources */,
+				29E360954A552F99FC57E58C8B8A8674 /* ConfrontaResponse.swift in Sources */,
+				CD7052670458078791143FC75DB56476 /* EndPoint.swift in Sources */,
+				C71C0831370553F9749DCF3508F12A3A /* File in Sources */,
+				4835C59BD92EF1DF2642B8441D69E158 /* JwtResponse.swift in Sources */,
+				CEE8D59DCD816C10F820F4D45358ADCE /* Kushki.swift in Sources */,
+				C9F8A0696D20AD2A33741ADB949A4ABD /* Kushki-dummy.m in Sources */,
+				8A456C5A9889CBB00F5807C029EE8A77 /* KushkiClient.swift in Sources */,
+				56F87F1CB454689F8415330514EDD55C /* KushkiEnvironment.swift in Sources */,
+				219A5D520A2E4FEA2E1384F69724F551 /* MerchantSettings.swift in Sources */,
+				F32D3BE7028DB923ECBA4C6AF17BB4CA /* MerchantSettingsResponse.swift in Sources */,
+				6B6400A35C055E868C305B59600D65B6 /* OTPSandboxViewController.swift in Sources */,
+				D8456987CD67030C4823955F50440C36 /* OTPSandboxViewController.xib in Sources */,
+				FE24B2F9A61EB63E6FA3CC4E2A4B60E4 /* SecureValidation.swift in Sources */,
+				ED13EDFB56269B7DE26F6F91D167CE2A /* SecureValidationResponse.swift in Sources */,
+				0ABD053FB7C18953A99489CF88A8420A /* Security.swift in Sources */,
+				2912A06CCD2F63E7A20DDF33F907A7EE /* SiftScienceObject.swift in Sources */,
+				90AC683562ED41F05744F04C27102949 /* TokenRequest3DS.swift in Sources */,
+				41E2EC9AFE0BCE4A40F5A8AE18077576 /* Transaction.swift in Sources */,
+				0EFE1F511C2F3BDCBD299B50101C7005 /* Transfer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		727460F596859EC2E21DA321013FB809 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -872,49 +977,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F8DB72FC538B27454AA3B573795AEF4 /* Sources */ = {
+		91F2F34AFB84575347663CCF092D9873 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7655C03FB398080558562008ED4CEB91 /* NSData+GZIP.m in Sources */,
-				05234587242C6DB721DFD01CF0E406C7 /* Sift.m in Sources */,
-				7F0ECC797FB9E5F00A366175C2D0B1B1 /* Sift-dummy.m in Sources */,
-				0FFCA8BD058A0715F555F19DDC24BB84 /* SiftCircularBuffer.m in Sources */,
-				CE0347FD0207733A5E48FDB033FE56E9 /* SiftEvent.m in Sources */,
-				D3BCE688C7C2500A1801585A2A0BAE84 /* SiftHtDictionary.m in Sources */,
-				B60525916C63995069011A29BC502C04 /* SiftIosAppState.m in Sources */,
-				C939F4E3B48073DE49AE962F2E069B3B /* SiftIosAppStateCollector.m in Sources */,
-				200AF56E204961FFDD7D4848854D272E /* SiftIosDeviceProperties.m in Sources */,
-				27AEA7E4F0F57C204B2B3E1511C1D0C4 /* SiftIosDevicePropertiesCollector.m in Sources */,
-				9978FFD02610C153C48AAC528FEBAAE8 /* SiftQueue.m in Sources */,
-				7102BDCC925960D041B2305097C83361 /* SiftTokenBucket.m in Sources */,
-				E756145883D50467BEBEEE76142AA977 /* SiftUploader.m in Sources */,
-				3080E832DAE69E3C03F18F873A154774 /* SiftUtils.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CC7F3D65F1107E4B432518DB7B805D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D78886764F38F5C38E24CE864DC69369 /* Amount.swift in Sources */,
-				DEEC7FC63A4AA82D6222BA4584B4185A /* Bank.swift in Sources */,
-				907E7C81C368030D223C5FBDC9451BE7 /* Card.swift in Sources */,
-				E14861CC2E97F6FD49BF34FE5E420F33 /* CardInfo.swift in Sources */,
-				FCC14BB0B1CEB84D0D733CF87696365F /* Cash.swift in Sources */,
-				C943C60277119F9547638E32920DA7E3 /* ConfrontaQuestionnarie.swift in Sources */,
-				5D73DF09C2142B7757A1590E6D98881C /* ConfrontaQuestionOptions.swift in Sources */,
-				A07602A81508A244198B8CEAF6F8F6BF /* ConfrontaResponse.swift in Sources */,
-				DBCCE7F3EA25274169EA2CF5E2D4773D /* EndPoint.swift in Sources */,
-				A4F99FD6F9BF3F01B438B51A03DD224C /* File in Sources */,
-				B4D72D2551467A266F68140737DD516F /* Kushki.swift in Sources */,
-				6814FC37060BA1A9B31C964C109BDC03 /* Kushki-dummy.m in Sources */,
-				37A0A047109A0C73C4A6D69C1A052955 /* KushkiClient.swift in Sources */,
-				A28DAE6C1D49F16B3F44FA3D83898DE5 /* KushkiEnvironment.swift in Sources */,
-				3E647819001C6935A2546D35932A7FFD /* MerchantSettings.swift in Sources */,
-				D03E1C62D52650F26798FBD93976D712 /* SiftScienceObject.swift in Sources */,
-				41276D7EF49B51630D44CC7A9D76123C /* Transaction.swift in Sources */,
-				1C83B5EE21DB018D388B9500F32EB60D /* Transfer.swift in Sources */,
+				CB177338F7977547BB2F7B21962B8068 /* NSData+GZIP.m in Sources */,
+				18989CF92E5580C0A0C63E047A3427F8 /* Sift.m in Sources */,
+				0718A4DC2235F1C8043C0468435D910C /* Sift-dummy.m in Sources */,
+				8926C2EA0D8E1D98C3BB9657EA0D199B /* SiftCircularBuffer.m in Sources */,
+				DA11CC89F5CC904262F7571BCA369546 /* SiftEvent.m in Sources */,
+				3282888EF5F7154E22AB51542122C508 /* SiftHtDictionary.m in Sources */,
+				5E4A0CA9D29BA744DB36637FD3FE5E0E /* SiftIosAppState.m in Sources */,
+				AF3023B61727FEC0E4D198703768CAF4 /* SiftIosAppStateCollector.m in Sources */,
+				A1B356DBF68C77FBFC679434ED978DE4 /* SiftIosDeviceProperties.m in Sources */,
+				192B434C1713E869D69E0562D3F56ED1 /* SiftIosDevicePropertiesCollector.m in Sources */,
+				4594361D6DA6E81EAD4CC1EFE67AB5BC /* SiftQueue.m in Sources */,
+				9C83A22CD4909545757252275180379A /* SiftTokenBucket.m in Sources */,
+				2C1EAE9DC700BBEA724DAE1D5627963D /* SiftUploader.m in Sources */,
+				F40BB52DAF9F5307583358FDC546EDAB /* SiftUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,35 +1009,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		18A1CAA82BE7A00E05EFE188ED464849 /* PBXTargetDependency */ = {
+		26984238A341F4A408FE5A2FBA9E773B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OHHTTPStubs;
 			target = A983A2D06C5B6AA3D6ABA5CCC0A16725 /* OHHTTPStubs */;
-			targetProxy = 4B202B4031889E0390AC847D9E112373 /* PBXContainerItemProxy */;
+			targetProxy = 6A624323D9A2FAF3554C72A13ADC4655 /* PBXContainerItemProxy */;
 		};
-		379194FFCC7CB3D53BF41D64D9A7E89C /* PBXTargetDependency */ = {
+		5D52B6F83DFC1A6F5D7ED2A7CAF6263B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-kushki-ios_Example";
-			target = D94A94E222100593E1B38652A61E5409 /* Pods-kushki-ios_Example */;
-			targetProxy = 2250534F0A9BA3357C1A90969F1538A5 /* PBXContainerItemProxy */;
+			name = Sift;
+			target = CD6155AA2FB5F72C43094DA6DBEFA252 /* Sift */;
+			targetProxy = E856497527A8602F45480814E283546B /* PBXContainerItemProxy */;
 		};
-		6487AFDFCC3F9BEE49453838A75F6E88 /* PBXTargetDependency */ = {
+		9D00EFFEBF5EF6523BEC9BBF44AF58E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sift;
+			target = CD6155AA2FB5F72C43094DA6DBEFA252 /* Sift */;
+			targetProxy = 8C43B18CC6C2E3351DF771E4CF7EDDC4 /* PBXContainerItemProxy */;
+		};
+		CE75C0D6926DF0C993415F975B35EAD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Kushki;
 			target = FA808475B36E8EAA8E40474777CE8036 /* Kushki */;
-			targetProxy = 2D05CFA77C5853D3A07922348198CC6C /* PBXContainerItemProxy */;
+			targetProxy = B769564E26512C1F35A6B87188DD2D2D /* PBXContainerItemProxy */;
 		};
-		76B76BBB14E452779D2C9FCA302F611B /* PBXTargetDependency */ = {
+		DE8EB2AC933303C3F8D89CD7DF7027AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Sift;
-			target = CD6155AA2FB5F72C43094DA6DBEFA252 /* Sift */;
-			targetProxy = 15208D36BA554CC1B82135ED831A01BE /* PBXContainerItemProxy */;
-		};
-		A5F648A06D0BE40E7F48EBD577977C4C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sift;
-			target = CD6155AA2FB5F72C43094DA6DBEFA252 /* Sift */;
-			targetProxy = ABB56F81FB5D34D6C788FF857CD0D940 /* PBXContainerItemProxy */;
+			name = "Pods-kushki-ios_Example";
+			target = D94A94E222100593E1B38652A61E5409 /* Pods-kushki-ios_Example */;
+			targetProxy = 891B2FA1C70C04060FFE94BB6853508D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1028,6 +1108,39 @@
 			};
 			name = Debug;
 		};
+		476E767DEFA1136B456D1817C1ACDFE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E70850044ED20B01CFFD59B16A048B85 /* Kushki.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Kushki/Kushki-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kushki/Kushki-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Kushki/Kushki.modulemap";
+				PRODUCT_MODULE_NAME = Kushki;
+				PRODUCT_NAME = Kushki;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		513170B9A8F94761E05DD50F7184943D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63F01492AF5AC23B787A09B583D0CE37 /* Pods-kushki-ios_Tests.release.xcconfig */;
@@ -1056,70 +1169,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		520858510D165CCFB50DD93BA8529F8A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76C39BD895A0536128BE251AFFDA17BA /* Kushki.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Kushki/Kushki-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Kushki/Kushki-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Kushki/Kushki.modulemap";
-				PRODUCT_MODULE_NAME = Kushki;
-				PRODUCT_NAME = Kushki;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		71E638D13381FE89B72F34B76541AC14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E8A2DAF646755095E60FFF69D2D412E /* Sift.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Sift/Sift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Sift/Sift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Sift/Sift.modulemap";
-				PRODUCT_MODULE_NAME = Sift;
-				PRODUCT_NAME = Sift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1164,6 +1213,38 @@
 			};
 			name = Release;
 		};
+		7C339D691D25813D0A48666D550ED42F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E8A2DAF646755095E60FFF69D2D412E /* Sift.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Sift/Sift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Sift/Sift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Sift/Sift.modulemap";
+				PRODUCT_MODULE_NAME = Sift;
+				PRODUCT_NAME = Sift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7CD490FEEA835D11C7C8B7FFFED4E719 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22A07797082FC238B0450CB4DCB08E71 /* Pods-kushki-ios_Example.debug.xcconfig */;
@@ -1192,6 +1273,37 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		80759A74EC5D87AB7359663418867755 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6E961F56111ADC29B536623BB6F87C /* Sift.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Sift/Sift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Sift/Sift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Sift/Sift.modulemap";
+				PRODUCT_MODULE_NAME = Sift;
+				PRODUCT_NAME = Sift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1261,37 +1373,6 @@
 			};
 			name = Release;
 		};
-		B249D10785C0613312AFEBCD6DEDD8D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C6E961F56111ADC29B536623BB6F87C /* Sift.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Sift/Sift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Sift/Sift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Sift/Sift.modulemap";
-				PRODUCT_MODULE_NAME = Sift;
-				PRODUCT_NAME = Sift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		C7D8D579D81A04DAD2665CB3E439A09E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03B5742EF350B6CDD6F97741D631BB3B /* OHHTTPStubs.release.xcconfig */;
@@ -1324,9 +1405,9 @@
 			};
 			name = Release;
 		};
-		DAFBA30247BC4E03BB083185E613162F /* Release */ = {
+		CBA8183CB1635EBD672B590C0E685815 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13991FB7300FCF1AE96EA7379D85DB45 /* Kushki.release.xcconfig */;
+			baseConfigurationReference = A4FDEB726C5FACB4F21D080E96F6D5E5 /* Kushki.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1351,11 +1432,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		E1B2A5FD49C5AA7F863E137074BD107C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1426,6 +1506,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C08A5F0D1AF7CA43CDA289A6A54C7ED /* Build configuration list for PBXNativeTarget "Sift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80759A74EC5D87AB7359663418867755 /* Debug */,
+				7C339D691D25813D0A48666D550ED42F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		16B9D186E741234F74F4E0D0D64CEFA1 /* Build configuration list for PBXNativeTarget "OHHTTPStubs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1444,11 +1533,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44EFE5A4FE588933810AB949F44DE3CC /* Build configuration list for PBXNativeTarget "Kushki" */ = {
+		3786E6EBA306A8CFD36F0E51DF53E75B /* Build configuration list for PBXNativeTarget "Kushki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				520858510D165CCFB50DD93BA8529F8A /* Debug */,
-				DAFBA30247BC4E03BB083185E613162F /* Release */,
+				CBA8183CB1635EBD672B590C0E685815 /* Debug */,
+				476E767DEFA1136B456D1817C1ACDFE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1458,15 +1547,6 @@
 			buildConfigurations = (
 				125C51B0F88E28C868DC90BD45E4E727 /* Debug */,
 				92A3E9AC052A7345115439021B218E3B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D54E37DAA442FEEB6AD89B459279BDC /* Build configuration list for PBXNativeTarget "Sift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B249D10785C0613312AFEBCD6DEDD8D1 /* Debug */,
-				71E638D13381FE89B72F34B76541AC14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

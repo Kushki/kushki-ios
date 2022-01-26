@@ -108,6 +108,16 @@ public class Kushki {
     }
     
     func getMerchantSettings(completion: @escaping (MerchantSettings) -> ()) {
-        self.kushkiClient.get(withMerchantId: self.publicMerchantId, endpoint: EndPoint.merchantSettings.rawValue, withCompletion: completion)
+        self.kushkiClient.getMerchantSettings(withMerchantId: self.publicMerchantId, endpoint: EndPoint.merchantSettings.rawValue, withCompletion: completion)
+    }
+
+    public func requestSecureValidation(secureServiceId: String, otpValue: String, secureService: String, completion: @escaping (SecureValidationResponse)->()) {
+        let requestMessage = kushkiClient.buildParameters(withSecureServiceId: secureServiceId, withOtpValue: otpValue, withSecureService: secureService)
+        self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint: EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
+    }
+
+    public func requestSecureValidation(secureServiceId: String, otpValue: String, completion: @escaping (SecureValidationResponse)->()) {
+        let requestMessage = kushkiClient.buildParameters(withSecureServiceId: secureServiceId, withOtpValue: otpValue)
+        self.kushkiClient.post(withMerchantId: publicMerchantId, endpoint: EndPoint.transferSubscriptionSecureValidation.rawValue, requestMessage: requestMessage, withCompletion: completion)
     }
 }

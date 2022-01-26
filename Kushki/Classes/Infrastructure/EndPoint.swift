@@ -10,4 +10,5 @@ public enum EndPoint: String {
     case cardInfo = "/card/v1/bin/"
     case subscriptionCardAsyncToken = "/subscriptions/v1/card-async/tokens"
     case merchantSettings = "/merchant/v1/merchant/settings"
+    case cybersourceJwt = "/card/v1/authToken"
 }

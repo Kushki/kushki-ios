@@ -21,7 +21,7 @@ class KushkiIntegrationTests: XCTestCase {
     var kushkiTransferSubscriptionUAT: Kushki?
     var totalAmount: Double?
     var transaction: Transaction?
-    
+    var kushki3DSQa: Kushki?
 
     override func setUp() {
         super.setUp()
@@ -32,7 +32,8 @@ class KushkiIntegrationTests: XCTestCase {
         kushkiTransferSubscriptionCI = Kushki(publicMerchantId: "20000000107468104000", currency: "COP", environment: KushkiEnvironment.testing_ci)
         kushkiTransferSubscriptionQA = Kushki(publicMerchantId: "20000000102183993333", currency: "COP", environment: KushkiEnvironment.testing_qa)
         kushkiTransferSubscriptionUAT = Kushki(publicMerchantId: "20000000107415376000", currency: "COP", environment: KushkiEnvironment.testing)
-        transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        kushki3DSQa = Kushki(publicMerchantId: "ca643d9b2c0a45bf9a5cb82ffe7ddad9", currency: "COP", environment: KushkiEnvironment.testing_qa)
+        transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
         
     }
 
@@ -389,7 +390,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "20000000100743782000",
                             currency: "COP",
                             environment: KushkiEnvironment.testing_qa)
-         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
         kushki.requestCashToken(name: "Test name", lastName: "Test lastname", identification: "123456789", totalAmount: 12.12, email: "test@test.com"){
             returnedTransaction in
             transaction = returnedTransaction
@@ -405,7 +406,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "20000000100743782000",
                             currency: "COP",
                             environment: KushkiEnvironment.testing_qa)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
         kushki.requestCashToken(name: "", lastName: "", identification: "", totalAmount: -1, email: ""){
             returnedTransaction in
             transaction = returnedTransaction
@@ -423,7 +424,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
        
         kushki.requestCardAsyncToken( returnUrl: "www.test.com", totalAmount: 100 ){
             returnedTransaction in
@@ -440,7 +441,7 @@ class KushkiIntegrationTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
                             environment: KushkiEnvironment.testing_ci)
-        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+        var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
        
         kushki.requestCardAsyncToken(description: "Test", email: "test@test.com", returnUrl: "www.test.com", totalAmount: 100 ){
             returnedTransaction in
@@ -457,8 +458,8 @@ class KushkiIntegrationTests: XCTestCase {
        let kushki = Kushki(publicMerchantId: merchants.uatMerchantIdCLP.rawValue,
                            currency: "CLP",
                            environment: KushkiEnvironment.testing)
-       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
-      
+       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
+
        kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com", cardNumber: "42424242424242424"){
            returnedTransaction in
            transaction = returnedTransaction
@@ -474,7 +475,8 @@ class KushkiIntegrationTests: XCTestCase {
        let kushki = Kushki(publicMerchantId: merchants.uatMerchantIdCLP.rawValue,
                            currency: "CLP",
                            environment: KushkiEnvironment.testing)
-       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "")
+       var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
+
       
        kushki.requestSubscriptionCardAsyncToken(email: "test@test.com", callbackUrl: "https://www.test.com"){
            returnedTransaction in
@@ -488,6 +490,7 @@ class KushkiIntegrationTests: XCTestCase {
        }
     }
     
+
     func testGetCardInfo(){
         let asyncExpectation = expectation(description: "Get card info")
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
@@ -504,51 +507,111 @@ class KushkiIntegrationTests: XCTestCase {
             XCTAssertNotEqual(cardInfo.bank, "")
             XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
+
     }
-    
+
     func testGetMerchantSettings() {
         let asyncExpectation = expectation(description: "Get merchant settings with valid mid")
         var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
-        
+
         let kushki = Kushki(publicMerchantId: "60320e3f048843358dc7d825f9336e27",
-                            currency: "USD",
-                            environment: KushkiEnvironment.testing_qa)
+                currency: "USD",
+                environment: KushkiEnvironment.testing_qa)
         kushki.getMerchantSettings() {
             response in
             returnedMerchantSettings = response
             asyncExpectation.fulfill()
         }
-        
+
         self.waitForExpectations(timeout: TimeInterval(25)) {
             error in
             XCTAssertEqual(returnedMerchantSettings.processors?.card?[0].processorName, "Credibanco Processor")
-            XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "Redeban Processor")
-            XCTAssertNotNil(returnedMerchantSettings.sandboxAccountId)
-            XCTAssertNil(returnedMerchantSettings.code)
-            XCTAssertNil(returnedMerchantSettings.message)
+                        XCTAssertEqual(returnedMerchantSettings.processors?.card?[1].processorName, "Redeban Processor")
+                        XCTAssertNotNil(returnedMerchantSettings.sandboxAccountId)
+                        XCTAssertNil(returnedMerchantSettings.code)
+                        XCTAssertNil(returnedMerchantSettings.message)
         }
-        
+
     }
-    
+
     func testGetMerchantSettingsWithInvalidMid() {
         let asyncExpectation = expectation(description: "Get merchant settings error info with invalid mid")
         var returnedMerchantSettings = MerchantSettings(processors: nil, processorName: "", country: "", sandboxBaconKey: "", prodBaconKey: "", merchantName: "", sandboxAccountId: "", prodAccountId: "")
-        
+
         let kushki = Kushki(publicMerchantId: "21b90d1013774cd",
-                            currency: "USD",
-                            environment: KushkiEnvironment.testing_qa)
+                currency: "USD",
+                environment: KushkiEnvironment.testing_qa)
         kushki.getMerchantSettings() {
             response in
             returnedMerchantSettings = response
             asyncExpectation.fulfill()
         }
-        
+
         self.waitForExpectations(timeout: TimeInterval(25)) {
             error in
             XCTAssertNotNil(returnedMerchantSettings.code)
             XCTAssertEqual(returnedMerchantSettings.code, "K004")
             XCTAssertNotNil(returnedMerchantSettings.message)
         }
-        
+
+    }
+
+    func testSecureValidationOTPWithAllParameters(){
+        let asyncExpectation = expectation(description: "request secure validation card otp")
+        let asyncExpectationToken = expectation(description: "request token card otp")
+        let kushki = Kushki(publicMerchantId: "20000000108588217776", currency: "USD", environment: KushkiEnvironment.testing_qa)
+        let card2 = Card(name: "Juan Perez", number: "4282793212841887", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        var secureValidationResponse = SecureValidationResponse(code: "", message: "")
+        var transactionResponse = Transaction(code: "", message: "", token: "7d0ef6b0eefc49938768d637419e4457", settlement: 0.0, secureId: "73495b95-bf04-4357-b935-88d5cb937062", secureService: "KushkiOTP", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
+        kushki.requestToken(card: card2, totalAmount: totalAmount!,isTest: true) { returnedTransaction in
+            transactionResponse = returnedTransaction
+            asyncExpectationToken.fulfill()
+        }
+        kushki.requestSecureValidation(secureServiceId: transactionResponse.secureId!, otpValue: "155", secureService: transactionResponse.secureService!){
+            returnedSecureValidation in
+            secureValidationResponse = returnedSecureValidation
+            asyncExpectation.fulfill()
+        }
+
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){
+            resp in
+            XCTAssertEqual(secureValidationResponse.code, "OTP000")
+            XCTAssertEqual(secureValidationResponse.message, "ok")
+        }
+    }
+
+    func testReturnsTokenWhenItHas3ds() {
+        let asyncExpectation = expectation(description: "requestToken")
+        let card2 = Card(name: "John", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "21", months: 2, isDeferred: true)
+        kushki3DSQa!.requestToken(card: card2, totalAmount: totalAmount!,isTest: true) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectation.fulfill()
+        }
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)) { error in
+            XCTAssertEqual(self.tokenLength, self.transaction!.token.count)
+            XCTAssertTrue(self.transaction!.isSuccessful())
+        }
+    }
+
+    func SecureValidation3dsInvalid(){
+        let asyncExpectation = expectation(description: "request secure validation card otp")
+        let asyncExpectationToken = expectation(description: "request token card otp")
+        var secureValidationResponse = SecureValidationResponse(code: "", message: "")
+        let card2 = Card(name: "John", number: "4456530000000106", cvv: "123", expiryMonth: "12", expiryYear: "22")
+        kushki3DSQa!.requestToken(card: card2, totalAmount: totalAmount!,isTest: true) { returnedTransaction in
+            self.transaction = returnedTransaction
+            asyncExpectationToken.fulfill()
+        }
+        kushki3DSQa!.requestSecureValidation(secureServiceId: self.transaction!.secureId!, otpValue: ""){
+            returnedSecureValidation in
+            secureValidationResponse = returnedSecureValidation
+            asyncExpectation.fulfill()
+        }
+
+        self.waitForExpectations(timeout: TimeInterval(timeOutTest)){
+            resp in
+            XCTAssertEqual(secureValidationResponse.code, "Información inválida")
+            XCTAssertEqual(secureValidationResponse.message, "3DS100")
+        }
     }
 }
