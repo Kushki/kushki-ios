@@ -1,4 +1,5 @@
 public struct ConfrontaResponse{
+    
     public let code: String
     public let message: String
     public let questionnarieCode: String

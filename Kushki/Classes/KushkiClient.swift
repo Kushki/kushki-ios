@@ -1,17 +1,36 @@
 import Foundation
 import Sift
+import CardinalMobile
 
-class KushkiClient {
+class KushkiClient: CardinalValidationDelegate {
 
     private let environment: KushkiEnvironment
-    
-    init(environment: KushkiEnvironment, regional: Bool) {
+    private let regional: Bool
+    var session : CardinalSession!
+
+    required init(environment: KushkiEnvironment, regional: Bool) {
+        self.regional = regional
         self.environment = regional ? environment == KushkiEnvironment.production ? KushkiEnvironment.production_regional : KushkiEnvironment.testing_regional : environment
     }
     
     func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (Transaction) -> ()) {
-        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
-            completion(self.parseResponse(jsonResponse: transaction))
+        if(endpoint == EndPoint.token.rawValue) {
+            var settings: MerchantSettingsResponse = MerchantSettingsResponse(active3dsecure: false, code: "", message: "",sandboxEnable: false)
+            self.requestMerchantSetting(mid: publicMerchantId) { response in
+                settings = response
+                if(settings.active3dsecure) {
+                    let isTest: Bool = self.environment != KushkiEnvironment.production || self.environment != KushkiEnvironment.production_regional
+                    self.requestCybersourceFlow(mid: publicMerchantId, isTest: isTest, endpoint: endpoint, requestMessage: requestMessage, isSandboxEnabled: settings.sandboxEnable, completion: completion)
+                } else {
+                    self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
+                        completion(self.parseResponse(jsonResponse: transaction))
+                    }
+                }
+            }
+        } else {
+            self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
+                completion(self.parseResponse(jsonResponse: transaction))
+            }
         }
     }
     
@@ -20,7 +39,19 @@ class KushkiClient {
             completion(self.parseValidationResponse(jsonResponse: response))
         }
     }
- 
+
+    func post(withMerchantId publicMerchantId: String, endpoint: String, requestMessage: String, withCompletion completion: @escaping (SecureValidationResponse) -> ()){
+        showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { response in
+            completion(self.parseSecureValidationResponse(jsonResponse: response))
+        }
+    }
+
+    func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (MerchantSettingsResponse) -> ()){
+        showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) { response in
+            completion(self.parseSettingsResponse(jsonResponse: response))
+        }
+    }
+
     func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping ([Bank]) -> ()) {
         showHttpGetResponse(withMerchantId: publicMerchantId, endpoint: endpoint) {
             bankList in
@@ -35,10 +66,10 @@ class KushkiClient {
         }
     }
     
-    func get(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping(MerchantSettings) -> ()) {
+    func getMerchantSettings(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping(MerchantSettings) -> ()) {
         showHttpGetMerchantSettings(withMerchantId: publicMerchantId, endpoint: endpoint, withCompletion: completion)
     }
-    
+
     func initSiftScience(merchantSettings: MerchantSettings, userId: String) {
         let sift = Sift.sharedInstance
         sift()?.accountId = self.environment == KushkiEnvironment.production ? merchantSettings.prodAccountId : merchantSettings.sandboxAccountId
@@ -46,7 +77,7 @@ class KushkiClient {
         sift()?.userId = userId
         sift()?.allowUsingMotionSensors = true
     }
-    
+
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
         let requestDictionary = buildJsonObject(withCard: card, withCurrency: currency)
         let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
@@ -134,6 +165,20 @@ class KushkiClient {
         return dictFromJson!
     }
     
+    func buildParameters(withSecureServiceId secureServiceId: String, withOtpValue otpValue: String, withSecureService secureService: String) -> String {
+        let requestDictionary = buildJsonObject(withSecureServiceId: secureServiceId, withOtpValue: otpValue, withSecureService: secureService)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+
+    func buildParameters(withSecureServiceId secureServiceId: String, withOtpValue otpValue: String) -> String {
+        let requestDictionary = buildJsonObject(withSecureServiceId: secureServiceId, withOtpValue: otpValue)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+
     func buildJsonObject(withCard card: Card, withCurrency currency: String) -> [String : Any] {
         
         var requestDictionary:[String : Any] = [
@@ -201,7 +246,7 @@ class KushkiClient {
         requestDictionary["totalAmount"] = totalAmount
         requestDictionary["sessionId"] = siftScienceResponse.sessionId
         requestDictionary["userId"] = siftScienceResponse.userId
-        return requestDictionary        
+        return requestDictionary
     }
     
     func buildJsonObject( withAccountNumber accountNumber: String, withAccountType accountType: String, withBankCode bankCode: String, withCurrency currency: String, withDocumentNumber documentNumber: String, withDocumentType documentType: String, withEmail email: String, withLastName lastName: String, withName name: String, withTotalAmount totalAmount: Double) -> [String: Any] {
@@ -295,16 +340,33 @@ class KushkiClient {
     
     func createSiftScienceSession(withMerchantId publicMerchantId: String, card: Card, isTest: Bool, merchantSettings: MerchantSettings) -> SiftScienceObject{
             let cardNumber = card.number
-            let firstIndex = cardNumber.index(cardNumber.startIndex, offsetBy:6)
+        let firstIndex = cardNumber.index(cardNumber.startIndex, offsetBy:CreditCardEspecifications.cardFinalBinPlace.rawValue)
             let endIndex = cardNumber.index(cardNumber.endIndex, offsetBy:-4)
             let processor = cardNumber[..<firstIndex]
             let clientIdentification = cardNumber[endIndex...]
             let session_id = UUID().uuidString;
             let user_id = publicMerchantId + processor + clientIdentification;
-     
+
             return SiftScienceObject(userId: user_id, sessionId: session_id)
         }
-    
+
+    func buildJsonObject(withSecureServiceId secureServiceId: String, withOtpValue otpValue: String, withSecureService secureService: String) -> [String: Any] {
+        let requestDictionary: [String: Any] = [
+            "secureServiceId": secureServiceId,
+            "otpValue": otpValue,
+            "secureService": secureService
+        ]
+        return requestDictionary
+    }
+
+    func buildJsonObject(withSecureServiceId secureServiceId: String, withOtpValue otpValue: String) -> [String: Any] {
+        let requestDictionary: [String: Any] = [
+            "secureServiceId": secureServiceId,
+            "otpValue": otpValue
+        ]
+        return requestDictionary
+    }
+
     private func showHttpResponse(withMerchantId publicMerchantId: String, endpoint: String, requestBody: String, withCompletion completion: @escaping (String) -> ()) {
         
         let url = URL(string: self.environment.rawValue + endpoint)!
@@ -332,6 +394,7 @@ class KushkiClient {
         var settlement: Double?
         var secureId: String?
         var secureService: String?
+        var security: Security = Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: "")
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             if let tokenValue = responseDictionary["token"] as? String {
                 token = tokenValue
@@ -349,13 +412,20 @@ class KushkiClient {
             if let secureServiceValue = responseDictionary["secureService"] as? String{
                 secureService = secureServiceValue
             }
-            
+            if (responseDictionary["security"] != nil) {
+                let acsURL: String = responseDictionary["security"]?["acsURL"] as? String ?? ""
+                let authenticationTransactionId: String = responseDictionary["security"]?["authenticationTransactionId"] as? String ?? ""
+                let authRequired: Bool = responseDictionary["security"]?["authRequired"] as? Bool ?? false
+                let paReq: String = responseDictionary["security"]?["paReq"] as? String ?? ""
+                let specificationVersion: String = responseDictionary["security"]?["specificationVersion"] as? String ?? ""
+                security = Security(acsURL: acsURL, authenticationTransactionId: authenticationTransactionId, authRequired: authRequired, paReq: paReq,specificationVersion: specificationVersion)
+            }
         }
         else {
             code = "002"
             message = "Hubo un error inesperado, intenta nuevamente"
         }
-        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService)
+        return Transaction(code: code, message: message, token: token, settlement: settlement, secureId: secureId, secureService: secureService, security: security)
     }
     
     private func parseValidationResponse(jsonResponse: String) -> ConfrontaResponse {
@@ -416,6 +486,65 @@ class KushkiClient {
         return ConfrontaResponse(code: code, message: message, questionnarieCode: questionnarieCode, questions: questionnarie)
     }
     
+    private func parseSecureValidationResponse(jsonResponse: String) -> SecureValidationResponse {
+        var code: String = "OTP000"
+        var message: String = ""
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let codeValue = responseDictionary["code"] as? String {
+                code = codeValue
+            }
+            if let messageValue = responseDictionary["message"] as? String {
+                message = messageValue
+            }
+        } else {
+            code = "E002"
+            message = "Hubo un error inesperado, intenta nuevamente"
+        }
+
+        return SecureValidationResponse(code: code, message: message)
+    }
+
+    private func parseSettingsResponse(jsonResponse: String) -> MerchantSettingsResponse {
+        var code: String = ""
+        var message: String = ""
+        var active3ds: Bool = false
+        var sandboxEnable: Bool = false
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let active3dSecure = responseDictionary["active_3dsecure"] as? Bool {
+                active3ds = active3dSecure
+            }
+            if let sandboxEnableActive = responseDictionary["sandboxEnable"] as? Bool {
+                sandboxEnable = sandboxEnableActive
+            }
+            if (responseDictionary["code"] as? String) != nil {
+                code = responseDictionary["code"] as? String ?? "001"
+                message = responseDictionary["message"] as? String ?? "Error inesperado"
+            }
+        } else {
+            code = "E002"
+            message = "Hubo un error inesperado, intenta nuevamente"
+        }
+        return MerchantSettingsResponse(active3dsecure: active3ds, code: code, message: message,sandboxEnable: sandboxEnable)
+    }
+
+    private func parseJwtResponse(jsonResponse: String) -> JwtResponse {
+        var jwt: String = ""
+        var code: String = ""
+        var message: String = ""
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            if let jwtResp = responseDictionary["jwt"] as? String {
+                jwt = jwtResp
+            } else {
+                code = responseDictionary["code"] as? String ?? "001"
+                message = responseDictionary["message"] as? String ?? "error inesperado"
+            }
+        } else {
+            code = "E002"
+            message = "Ha ocurrido un error inesperado, intenta nuevamente"
+        }
+        return JwtResponse(jwt: jwt, code: code, message: message)
+    }
+
     // source: http://stackoverflow.com/questions/30480672/how-to-convert-a-json-string-to-a-dictionary
     private func convertStringToDictionary(_ string: String) -> [String:AnyObject]? {
         if let data = string.data(using: String.Encoding.utf8) {
@@ -473,17 +602,17 @@ class KushkiClient {
         }
         task.resume()
     }
-    
+
     private func showHttpGetMerchantSettings(withMerchantId publicMerchantId: String, endpoint: String, withCompletion completion: @escaping (MerchantSettings) -> ()) {
-            
+
             let url = URL(string: self.environment.rawValue + endpoint)!
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.addValue(publicMerchantId, forHTTPHeaderField: "public-merchant-id")
             let task = URLSession.shared.dataTask (with: request) { data, response, error in
-                
+
                 print("Data", String(data: data!, encoding: String.Encoding.utf8)!)
-                
+
                 if let theError = error {
                     print(theError.localizedDescription)
                     return
@@ -493,12 +622,12 @@ class KushkiClient {
                     print("Error decoding merchant settings")
                     return
                 }
-                
+
                 completion(response)
             }
             task.resume()
         }
-    
+
     private func parseGetBankListResponse(jsonResponse: String)   -> [Bank] {
         
         var bankList: [Bank] = []
@@ -538,4 +667,124 @@ class KushkiClient {
         return CardInfo(bank: bank, brand: brand, cardType: cardType)
     }
 
+    private func requestMerchantSetting(mid: String, completion: @escaping(MerchantSettingsResponse)->()) {
+        get(withMerchantId: mid, endpoint: EndPoint.merchantSettings.rawValue, withCompletion: completion)
+    }
+
+    private func requestCybersourceFlow(mid: String, isTest: Bool, endpoint: String, requestMessage: String,isSandboxEnabled:Bool, completion: @escaping(Transaction)->()){
+        showHttpGetResponse(withMerchantId: mid, endpoint: EndPoint.cybersourceJwt.rawValue) { response in
+            let jwtResp: JwtResponse = self.parseJwtResponse(jsonResponse: response)
+            if jwtResp.message == "" {
+                let newTokenRequest: TokenRequest3DS = self.parseTokenRequest3DS(jsonResponse: requestMessage, jwt: jwtResp.jwt)
+                let newRequestMessage: String = self.buildParameters(withTokenRequest3DS: newTokenRequest)
+                self.showHttpResponse(withMerchantId: mid, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
+                    let parsedTransaction = self.parseResponse(jsonResponse: transaction)
+                    if(parsedTransaction.security!.authRequired!){
+                        if(isSandboxEnabled){
+                            self.getMerchantSettings(withMerchantId: mid, endpoint: EndPoint.merchantSettings.rawValue) {
+                                settigs in
+                                DispatchQueue.main.async {
+                                    let topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+                                    let presentedViewController = topMostViewController?.presentedViewController
+                                    let frameworkBundleID  = "org.cocoapods.Kushki";
+                                    let bundle = Bundle(identifier: frameworkBundleID)
+                                    let otp = OTPSandboxViewController(nibName: "OTPSandboxViewController", bundle: bundle)
+                                    otp.initValues(merchantName: settigs.merchantName!, currency: newTokenRequest.currency!, amount: newTokenRequest.totalAmount!, cardNumber: newTokenRequest.number)
+                                    presentedViewController?.present(otp, animated: true)
+                                    completion(parsedTransaction)
+                                }
+                            }
+                        } else {
+                            self.setupCardinalSession(publicMerchantId: mid, jwt: jwtResp.jwt, isTest: isTest, endpoint: endpoint, requestMessage: requestMessage, completion: completion)
+                        }
+                    } else {
+                        completion(parsedTransaction)
+                    }
+                }
+            } else {
+                completion(Transaction(code: jwtResp.code, message: jwtResp.message, token: "", settlement: 0, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: "")))
+            }
+
+        }
+    }
+
+    func setupCardinalSession(publicMerchantId: String, jwt: String, isTest: Bool, endpoint: String, requestMessage: String, completion: @escaping(Transaction)->()) {
+        session = CardinalSession()
+        let config = CardinalSessionConfiguration()
+        config.deploymentEnvironment = isTest ? .staging : .production
+        config.uiType = .both
+        session.configure(config)
+        session.setup(jwtString: jwt, completed: {(consumerSessionId: String) in
+            let newTokenRequest: TokenRequest3DS = self.parseTokenRequest3DS(jsonResponse: requestMessage, jwt: jwt)
+            let newRequestMessage: String = self.buildParameters(withTokenRequest3DS: newTokenRequest)
+            self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
+                let transactionParsed = self.parseResponse(jsonResponse: transaction)
+                if(transactionParsed.security!.specificationVersion!.starts(with: "2.")){
+                    self.session.continueWith(transactionId: transactionParsed.security!.authenticationTransactionId!, payload: transactionParsed.security!.paReq!, validationDelegate: self)
+                }
+                completion(transactionParsed)
+            }
+        }) {(validateResponse: CardinalResponse) in
+            completion(Transaction(code: String(validateResponse.errorNumber), message: validateResponse.errorDescription, token: "", settlement: 0, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: "")))
+        }
+    }
+    
+    func cardinalSession(cardinalSession session: CardinalSession!, stepUpValidated validateResponse: CardinalResponse!, serverJWT: String!) {
+        print("3DSECURE VALIDATED " + validateResponse.isValidated.description)
+    }
+    
+    private func parseTokenRequest3DS(jsonResponse: String, jwt: String) -> TokenRequest3DS {
+        var name: String = ""
+        var number: String = ""
+        var cvv: String = ""
+        var expiryMonth: String = ""
+        var expiryYear: String = ""
+        var isDeferred: Bool = false
+        var months: Int = 0
+        var currency: String = ""
+        var totalAmount: Double = 0
+        if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
+            name = responseDictionary["card"]?["name"] as? String ?? ""
+            number = responseDictionary["card"]?["number"] as? String ?? ""
+            cvv = responseDictionary["card"]?["cvv"] as? String ?? ""
+            expiryMonth = responseDictionary["card"]?["expiryMonth"] as? String ?? ""
+            expiryYear = responseDictionary["card"]?["expiryYear"] as? String ?? ""
+            isDeferred = responseDictionary["card"]?["isDeferred"] as? Bool ?? false
+            months = responseDictionary["card"]?["months"] as? Int ?? 0
+            currency = responseDictionary["currency"] as? String ?? ""
+            totalAmount = responseDictionary["totalAmount"] as? Double ?? 0
+        }
+        return TokenRequest3DS(name: name, number: number, cvv: cvv, expiryMonth: expiryMonth, expiryYear: expiryYear, months: months, isDeferred: isDeferred, jwt: jwt, currency: currency, totalAmount: totalAmount)
+    }
+
+    func buildParameters(withTokenRequest3DS tokenRequest: TokenRequest3DS) -> String {
+        let requestDictionary = buildJsonObject(withTokenRequest3DS: tokenRequest)
+        let jsonData = try! JSONSerialization.data(withJSONObject: requestDictionary, options: .prettyPrinted)
+        let dictFromJson = String(data: jsonData, encoding: String.Encoding.utf8)
+        return dictFromJson!
+    }
+
+    func buildJsonObject(withTokenRequest3DS tokenRequest: TokenRequest3DS) -> [String : Any] {
+
+        var requestDictionary:[String : Any] = [
+            "card": [
+                "name": tokenRequest.name,
+                "number": tokenRequest.number,
+                "expiryMonth": tokenRequest.expiryMonth,
+                "expiryYear": tokenRequest.expiryYear,
+                "cvv": tokenRequest.cvv
+            ],
+            "currency": tokenRequest.currency!,
+            "jwt": tokenRequest.jwt!,
+            "totalAmount": tokenRequest.totalAmount!
+        ]
+
+        if tokenRequest.months != 0 {
+            requestDictionary["months"] = tokenRequest.months
+        }
+        if tokenRequest.isDeferred {
+            requestDictionary["isDeferred"] = tokenRequest.isDeferred
+        }
+        return requestDictionary
+    }
 }

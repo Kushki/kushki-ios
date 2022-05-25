@@ -1,5 +1,6 @@
 
 public struct ConfrontaQuestionOptions{
+    
     public let text: String
     public let  id: String
     

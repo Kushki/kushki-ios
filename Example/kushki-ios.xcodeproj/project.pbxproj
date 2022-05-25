@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1951ACE4C45323C74032B738 /* Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */; };
 		3B4F0B5AB798F7DF31221F1E /* Pods_kushki_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8AE25C19677E8DEA6C8C7F /* Pods_kushki_ios_Tests.framework */; };
 		51C40AA42435284E00D8239F /* SubscriptionCardAsyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C40AA32435284E00D8239F /* SubscriptionCardAsyncController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -30,6 +29,8 @@
 		E43FA231232A8B1400BBF920 /* AnswersSecureValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FA230232A8B1400BBF920 /* AnswersSecureValidationViewController.swift */; };
 		E4AF00DB234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DA234CEBD5002C3B75 /* CardAsyncTokenRequestViewController.swift */; };
 		E4AF00DD234D2BDD002C3B75 /* GetCardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF00DC234D2BDD002C3B75 /* GetCardInfoViewController.swift */; };
+		EFCDE42227C074FB0054C25C /* Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */; };
+		EFCDE42327C074FB0054C25C /* Pods_kushki_ios_Example.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B24457BB0F3C421531BBFD93 /* Pods_kushki_ios_Example.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,20 @@
 			remoteInfo = "kushki-ios";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EFCDE42427C074FB0054C25C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EFCDE42327C074FB0054C25C /* Pods_kushki_ios_Example.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		21EDE058D85655FB8F5D8F7F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -85,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1951ACE4C45323C74032B738 /* Pods_kushki_ios_Example.framework in Frameworks */,
+				EFCDE42227C074FB0054C25C /* Pods_kushki_ios_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +249,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				8EBEF13F2FB1428517D6E801 /* [CP] Embed Pods Frameworks */,
+				EFCDE42427C074FB0054C25C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +292,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = BDY7NP86NV;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -286,6 +303,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = BDY7NP86NV;
 						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -380,11 +398,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-kushki-ios_Example/Pods-kushki-ios_Example-frameworks.sh",
+				"${PODS_ROOT}/../../Kushki/Frameworks/CardinalMobile.framework",
 				"${BUILT_PRODUCTS_DIR}/Kushki/Kushki.framework",
 				"${BUILT_PRODUCTS_DIR}/Sift/Sift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CardinalMobile.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kushki.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sift.framework",
 			);
@@ -599,12 +619,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2633DEB327DBCE77C71823A3 /* Pods-kushki-ios_Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kushki-ios_Example.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BDY7NP86NV;
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -622,12 +641,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BFA99897193F3500082CDA0 /* Pods-kushki-ios_Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kushki-ios_Example.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BDY7NP86NV;
 				INFOPLIST_FILE = "kushki-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -646,7 +664,7 @@
 			baseConfigurationReference = 6682DB8730FDC44D317526EC /* Pods-kushki-ios_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BDY7NP86NV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -669,7 +687,7 @@
 			baseConfigurationReference = CF60D57898B6A7C968498700 /* Pods-kushki-ios_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BDY7NP86NV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;

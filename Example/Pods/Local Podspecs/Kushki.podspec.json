@@ -19,9 +19,13 @@
     "ios": "14.3"
   },
   "source_files": "Kushki/Classes/**/*",
+  "resources": "Kushki/Assets/**/*",
   "dependencies": {
     "Sift": [
 
     ]
+  },
+  "ios": {
+    "vendored_frameworks": "Kushki/Frameworks/CardinalMobile.framework"
   }
 }

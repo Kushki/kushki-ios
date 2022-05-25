@@ -1,4 +1,5 @@
 public struct CardInfo{
+    
     public let bank: String
     public let brand: String
     public let cardType: String
