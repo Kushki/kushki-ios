@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Install Cocoapods
-      run: gem install cocoapods
+      run: brew install cocoapods
     - uses: actions/checkout@v2
     - name: Unit Test and Lint
       run: |
