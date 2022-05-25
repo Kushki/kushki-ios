@@ -5,7 +5,7 @@ on:
       - master  
 jobs:
   deploy:
-    runs-on: macOS-amd64
+    runs-on: self-hosted
     steps:
     - name: Install Cocoapods
       run: gem install cocoapods

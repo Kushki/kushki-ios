@@ -4,7 +4,7 @@ on:
     types: ['opened', 'edited', 'reopened', 'synchronize']
 jobs:
   test-lint:
-    runs-on: macOS-amd64
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Test Dev Environment
