@@ -5,7 +5,7 @@ on:
       - master  
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: macOS-latest
     steps:
     - name: Install Cocoapods
       run: brew install cocoapods
