@@ -15,6 +15,7 @@ jobs:
         chmod +x pipeline/01-unit.sh
         chmod +x pipeline/02-lint.sh
         pipeline/01-unit.sh
+        pipeline/02-lint.sh
     - name: Version Deploy
       id: set-result
       run: echo "VERSION_DEPLOY=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)" >> $GITHUB_ENV
