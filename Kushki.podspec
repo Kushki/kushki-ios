@@ -9,5 +9,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/Kushki/kushki-ios.git', :tag => "v#{s.version.to_s}" }
   s.ios.deployment_target = '14.3'
   s.source_files = 'Kushki/Classes/**/*'
+  s.resources = "Kushki/Assets/**/*"
   s.dependency "Sift"
+  s.ios.vendored_frameworks = 'Kushki/Frameworks/CardinalMobile.framework'
 end

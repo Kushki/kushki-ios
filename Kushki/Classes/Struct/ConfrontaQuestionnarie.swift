@@ -1,4 +1,5 @@
 public struct ConfrontaQuestionnarie{
+    
     public let id: String
     public let text: String
     public let options: [ConfrontaQuestionOptions]

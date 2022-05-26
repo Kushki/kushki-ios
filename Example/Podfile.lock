@@ -16,7 +16,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (9.1.0)
   - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
-  - Sift (2.0.2)
+  - Sift (2.1.0)
 
 DEPENDENCIES:
   - Kushki (from `../`)
@@ -33,10 +33,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Kushki: f6ab28d1340bbce0b55b9114ced1bfa00bf76e7b
+  Kushki: 29e588b4b9ce6b20656dd826e42f79b86cc3add1
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
-  Sift: 74955fd67ce61dc920b441d2d094aff75bfede29
+  Sift: 2cfba1ec36e9bc2635ca10030cbceef73c34b1ad
 
-PODFILE CHECKSUM: da70d7e8e6e3991ee47230c1b9bf846feb255a45
+PODFILE CHECKSUM: de9a1cde032572cb387b4f033da5b28fa72b7c06
 
 COCOAPODS: 1.11.2

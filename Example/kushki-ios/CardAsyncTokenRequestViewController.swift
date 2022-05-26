@@ -30,7 +30,7 @@ class CardAsyncTokenRequestViewController: UIViewController {
         let publicMerchantId = "20000000106145247000"
         let kushki = Kushki(publicMerchantId: publicMerchantId,
                             currency: "CLP",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing_qa)
         kushki.requestCardAsyncToken(description: description, email: email, returnUrl: returnUrl, totalAmount: Double(totalAmount) ?? 0.00){ transaction in
             let message = transaction.isSuccessful() ?
                 transaction.token : transaction.code + ": " + transaction.message
