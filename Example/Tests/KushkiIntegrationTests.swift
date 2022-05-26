@@ -54,7 +54,7 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "1234567", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "Invalid John Doe", number: "12345678", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let isTest = true
         kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
@@ -70,7 +70,7 @@ class KushkiIntegrationTests: XCTestCase {
 
     func testDoesNotReturnTokenWhenCalledWithInvalidCard() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "Invalid John Doe", number: "00000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let isTest = true
         kushki!.requestToken(card: card, totalAmount: totalAmount!, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
@@ -117,7 +117,7 @@ class KushkiIntegrationTests: XCTestCase {
     
     func testReturnsSubscriptionTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestSubscriptionToken")
-        let card = Card(name: "John Doe", number: "1234567", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "John Doe", number: "12345678", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let isTest = true
         kushki!.requestSubscriptionToken(card: card, isTest: isTest) { returnedTransaction in
             self.transaction = returnedTransaction
@@ -582,7 +582,7 @@ class KushkiIntegrationTests: XCTestCase {
 
     func testReturnsTokenWhenItHas3ds() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card2 = Card(name: "John", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "21", months: 2, isDeferred: true)
+        let card2 = Card(name: "John", number: "5300548430205306", cvv: "123", expiryMonth: "12", expiryYear: "22", months: 2, isDeferred: true)
         kushki3DSQa!.requestToken(card: card2, totalAmount: totalAmount!,isTest: true) { returnedTransaction in
             self.transaction = returnedTransaction
             asyncExpectation.fulfill()

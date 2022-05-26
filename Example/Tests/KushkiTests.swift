@@ -153,7 +153,7 @@ class KushkiTests: XCTestCase {
     
     func testDoesNotReturnTokenWhenCalledWithInvalidParams() {
         let asyncExpectation = expectation(description: "requestToken")
-        let card = Card(name: "Invalid John Doe", number: "000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
+        let card = Card(name: "Invalid John Doe", number: "00000000", cvv: "123", expiryMonth: "12", expiryYear: "21")
         let isTest = true
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
                             currency: "USD",
@@ -384,9 +384,9 @@ class KushkiTests: XCTestCase {
     
     func testUnexpectedError() {
         let asyncExpectation = expectation(description: "requestToken with settlement")
-        let card = Card(name: "Name", number: "123123", cvv: "000", expiryMonth: "01", expiryYear: "31")
+        let card = Card(name: "Name", number: "12312312", cvv: "000", expiryMonth: "01", expiryYear: "31")
         let isTest = true
-        let expectedSiftSicenceResponse = SiftScienceObject(userId: "e41151f380a145059b6c8f4d450021305321959352", sessionId: "123")
+        let expectedSiftSicenceResponse = SiftScienceObject(userId: "88a25dc7570b46b9b0e87d4e6b7c28e3", sessionId: "123")
         let expectedRequestMessage = buildRequestMessage(withMerchantId: publicMerchantId!, withCard: card, withAmount: totalAmount!, withCurrency: "USD", withSiftSicenceResponse: expectedSiftSicenceResponse)
         let expectedRequestBody = expectedRequestMessage
         let kushki = Kushki(publicMerchantId: publicMerchantId!,
@@ -683,7 +683,7 @@ class KushkiTests: XCTestCase {
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
                             currency: "USD",
                             environment: KushkiEnvironment.testing_ci)
-        let bin = "465775"
+        let bin = "46577575"
         var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardInfo.rawValue+bin)
@@ -704,7 +704,7 @@ class KushkiTests: XCTestCase {
         self.waitForExpectations(timeout: 5){
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
-            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL, S.A.")
         }
     }
 
