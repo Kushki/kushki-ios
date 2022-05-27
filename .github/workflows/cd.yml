@@ -8,7 +8,7 @@ jobs:
     runs-on: macOS-latest
     steps:
     - name: Install Cocoapods
-      run: brew install cocoapods
+      run: gem install cocoapods
     - uses: actions/checkout@v2
     - name: Unit Test and Lint
       run: |
