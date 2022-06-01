@@ -631,7 +631,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get card async token")
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
-                            environment: KushkiEnvironment.testing_ci)
+                            environment: KushkiEnvironment.testing_qa)
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardAsyncToken.rawValue)
@@ -704,7 +704,7 @@ class KushkiTests: XCTestCase {
         self.waitForExpectations(timeout: 5){
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
-            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL, S.A.")
+            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
         }
     }
 
