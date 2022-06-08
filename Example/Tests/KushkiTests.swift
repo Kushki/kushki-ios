@@ -631,7 +631,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get card async token")
         let kushki = Kushki(publicMerchantId: merchants.ciMerchantIdCLP.rawValue,
                             currency: "CLP",
-                            environment: KushkiEnvironment.testing_qa)
+                            environment: KushkiEnvironment.testing_ci)
         var transaction = Transaction(code: "", message: "", token: "", settlement: nil, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: ""))
         _ = stub(condition: isHost(host.hostCI.rawValue)
             && isPath(EndPoint.cardAsyncToken.rawValue)
