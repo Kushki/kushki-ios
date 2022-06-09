@@ -1,6 +1,5 @@
 import XCTest
 @testable import Kushki
-#test
 
 class KushkiIntegrationTests: XCTestCase {
 
