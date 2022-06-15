@@ -19,17 +19,17 @@ jobs:
     - name: Version Deploy
       id: set-result
       run: echo "VERSION_DEPLOY=$(grep "version.*=" Kushki.podspec | cut -d "'" -f 2)" >> $GITHUB_ENV
-    - name: Create tag
-      uses: actions/github-script@v3
-      with:
-       github-token: ${{ github.token }}
-       script: |
-        github.git.createRef({
-          owner: context.repo.owner,
-          repo: context.repo.repo,
-          ref: `refs/tags/v${process.env.VERSION_DEPLOY}`,
-          sha: context.sha
-        })
+    # - name: Create tag
+    #   uses: actions/github-script@v3
+    #   with:
+    #    github-token: ${{ github.token }}
+    #    script: |
+    #     github.git.createRef({
+    #       owner: context.repo.owner,
+    #       repo: context.repo.repo,
+    #       ref: `refs/tags/v${process.env.VERSION_DEPLOY}`,
+    #       sha: context.sha
+    #     })
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
