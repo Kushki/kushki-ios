@@ -33,7 +33,6 @@ jobs:
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
-        ONLY_ACTIVE_ARCH=YES -allowProvisioningUpdates
-        pod trunk push --allow-warnings
+        pod trunk push --allow-warnings ONLY_ACTIVE_ARCH=YES
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
