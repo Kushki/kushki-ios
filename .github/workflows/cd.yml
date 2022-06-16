@@ -33,6 +33,7 @@ jobs:
     - name: Deploy to Cocoapods
       run: |
         set -eo pipefail
-        pod trunk push --allow-warnings ONLY_ACTIVE_ARCH=YES
+        xcodebuild -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=15.2' -sdk iphonesimulator ONLY_ACTIVE_ARCH=YES
+        pod trunk push --allow-warnings 
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
