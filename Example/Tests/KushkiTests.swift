@@ -682,7 +682,7 @@ class KushkiTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get card info")
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
                             currency: "USD",
-                            environment: KushkiEnvironment.testing)
+                            environment: KushkiEnvironment.testing_ci)
         let bin = "46577575"
         var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
         _ = stub(condition: isHost(host.hostCI.rawValue)
@@ -701,10 +701,10 @@ class KushkiTests: XCTestCase {
             print(returnedCardInfo)
             asyncExpectation.fulfill()
         }
-        self.waitForExpectations(timeout: 15){
+        self.waitForExpectations(timeout: 5){
             error in
             XCTAssertNotEqual(cardInfo.bank, "")
-            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL S.A.")
+            XCTAssertEqual(cardInfo.bank, "BANCO INTERNACIONAL, S.A.")
         }
     }
 
