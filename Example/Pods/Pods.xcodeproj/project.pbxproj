@@ -26,10 +26,12 @@
 		311C925C27A3FF57B58077F98E6BD991 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 6751A8296959D832E6249DD4FA03B280 /* Assets */; };
 		3199E9E4C126488C2051DEB015410A50 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBA72AA6360EE0B9EDF57C4E1D740F /* Card.swift */; };
 		351A550EF40F25CC2D0212B7FACE1229 /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E526468B2B94431CCDDAEBD77A08B613 /* Kushki-dummy.m */; };
+		3D7007B35F33EECD21B59C27 /* Pods_OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9FD158A87D15A80173104A /* Pods_OHHTTPStubs.framework */; };
 		4154ECEEB77F0F832863A907B65390A2 /* Pods-kushki-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */; };
 		41CBC77599980B56D524E5AC0D1BE070 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D212021E82530B5B4517F8ED3726F /* NSData+GZIP.m */; };
 		4C126B975188A8817168D4D68E193F1C /* SiftIosDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBCFF211FAD0AEB867704B12990AC8 /* SiftIosDeviceProperties.m */; };
 		4E71DF8F85D7ECD6E97837CE2A021E68 /* SiftHtDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E30204C52477AAE4836C56A2CFF62F /* SiftHtDictionary.m */; };
+		4F48EE5073AC18E36606C928 /* Pods_Kushki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48745200189E8A259CA13BEB /* Pods_Kushki.framework */; };
 		536FE00B697E4A72DDD02482AE8DA44E /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056519D8BD3BA8ADB6AB202E89E0FC73 /* KushkiClient.swift */; };
 		56F979194D6BF985D23B3F2171D10298 /* SiftUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F384A179640600088D6FA04E1204590 /* SiftUtils.m */; };
 		59E0D4D5441D5B830EEAFD16D18199F0 /* Sift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5723CE63B54FA4C5BA667C5C5E6EA /* Sift-dummy.m */; };
@@ -69,12 +71,14 @@
 		A84314D40605F98950714128B787FF0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
 		A9F870BC85306E0B540E6F76639EB396 /* card_network.svg in Resources */ = {isa = PBXBuildFile; fileRef = C1BCE07DBD3350BBA9E31589F68C4CF1 /* card_network.svg */; };
 		AB7D89D6F336E1F7D9FEDE178F5689B7 /* SiftQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CCAFBF58CD35A489605A1A235921D7BF /* SiftQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B14642962CBF2CF79A8B7E45 /* Pods_Sift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4853DB050065B83F8603DF /* Pods_Sift.framework */; };
 		B45A1F05FA2B81248C9BE8C5FC7F2B6E /* MerchantSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F24390F34E0B8C4C9E27499B6880B4 /* MerchantSettings.swift */; };
 		B55D54C16F8AE4BC675542C61C1E044C /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B400DA0DCE3E51FD9323B28564AE725 /* KushkiEnvironment.swift */; };
 		B729EF801F8504D62F5FE5D9380145E9 /* SiftCircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = EDEEB0DC91ECF4F514E07F73F930DDAA /* SiftCircularBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B78C1DAD1E245DFAC04ECCFEE8BA984A /* SiftCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6A2636855855A54DD4A555E59F212 /* SiftCircularBuffer.m */; };
 		B91A548690E3C99D61BA4A25F8F5C9B8 /* SiftUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7309F5AE8619540572746469C61AE596 /* SiftUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B99FBCCCE906E1FEA33B5D5EBEF7AD2A /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A76E5342A2458044113926D8C830F /* Amount.swift */; };
+		BB17471BC60854FE012D9CE9 /* Pods_Pods_kushki_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2056E8F0B00C82806068EE23 /* Pods_Pods_kushki_ios_Example.framework */; };
 		BBD06A2859332AAF7C685D224F7E7A1A /* HTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */; };
 		BD4AB3028205007841091C65BEA9DA31 /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F34F024B3DC07DF9204A24CC4C4CA81E /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD60D6A07D242F29008D5B6350F2A560 /* SiftIosDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC8A0C4A7E8C8A464AB5E16C07B4961 /* SiftIosDeviceProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -97,6 +101,7 @@
 		EB363C85CEE94D8E503243172CD752A8 /* SiftUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 34904730BFB6177E7D41AF42458650C9 /* SiftUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EE525D95FCA10570020299E63A6D9846 /* NSData+GZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = 2811E826A0D6689973F7BBDE28DB2307 /* NSData+GZIP.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EF75D1D9BD9B2368A84EACA7C86DCA25 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */; };
+		EFF180215665FE19B64ABA88 /* Pods_Pods_kushki_ios_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F66EEC6B672D5E426B3E201 /* Pods_Pods_kushki_ios_Tests.framework */; };
 		F02ED57634B4B4342AD66C79BD3AFCEE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4B577A1A6DE0FAD40A17A399C24CD1 /* Transaction.swift */; };
 		F207C2C7F5AC493C4B9EF29DCE15A80A /* any_bank.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50F158920022AA326E78044E30334A5D /* any_bank.svg */; };
 		F367D80FF4A1FFA0004229CBF0A1061B /* OTPSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37756674D9DA7CD915E2D6AD4795DF9 /* OTPSandboxViewController.swift */; };
@@ -154,8 +159,8 @@
 		043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsResponse.m; path = Sources/OHHTTPStubs/HTTPStubsResponse.m; sourceTree = "<group>"; };
 		056519D8BD3BA8ADB6AB202E89E0FC73 /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
 		075CD2F1941C1130E592D503A49FD421 /* Sift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.release.xcconfig; sourceTree = "<group>"; };
-		07B2AC2DF7A859464767A0809FA41B2A /* Pods-kushki-ios_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Example"; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F384A179640600088D6FA04E1204590 /* SiftUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUtils.m; path = Sift/SiftUtils.m; sourceTree = "<group>"; };
+		0F66EEC6B672D5E426B3E201 /* Pods_Pods_kushki_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8F2C5218750D24962B944E7A21215B /* SiftEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftEvent+Private.h"; path = "Sift/SiftEvent+Private.h"; sourceTree = "<group>"; };
 		10E746F6AA223FCB4642B095917B0E47 /* File */ = {isa = PBXFileReference; includeInIndex = 1; path = File; sourceTree = "<group>"; };
 		159415606555C2A1BD80889AA128580D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -163,6 +168,7 @@
 		1B92B357CBC3DD6C87BFB12F5ECF553F /* Pods-kushki-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		1DCE4C51B7D6D1337D9F81FC935B319D /* logo_kushki.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = logo_kushki.png; sourceTree = "<group>"; };
 		1F8A3354BA0AB119D4662E8CB271FB70 /* SiftIosAppStateCollector+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftIosAppStateCollector+Private.h"; path = "Sift/SiftIosAppStateCollector+Private.h"; sourceTree = "<group>"; };
+		2056E8F0B00C82806068EE23 /* Pods_Pods_kushki_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		228018C2C2A967381624FA3B857B5C35 /* ConfrontaQuestionnarie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionnarie.swift; sourceTree = "<group>"; };
 		22A07797082FC238B0450CB4DCB08E71 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2426DB28B80797F42D170141895D9908 /* Pods-kushki-ios_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -173,12 +179,18 @@
 		3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		3442A6C4543FCF6B0281445327870E78 /* Kushki */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kushki; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34904730BFB6177E7D41AF42458650C9 /* SiftUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUploader.h; path = Sift/SiftUploader.h; sourceTree = "<group>"; };
+		3601478D1ADBE2AE7EC1BCBC /* Pods-Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods-kushki-ios_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pods-kushki-ios_Example/Pods-Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		373DDC9D6B0A3280947AEFD804C75DCC /* SiftCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCompatibility.h; path = Sift/SiftCompatibility.h; sourceTree = "<group>"; };
+		3A9FD158A87D15A80173104A /* Pods_OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE649794271F4C562AE41EA /* Pods-OHHTTPStubs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OHHTTPStubs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OHHTTPStubs/Pods-OHHTTPStubs.debug.xcconfig"; sourceTree = "<group>"; };
 		3F331E78E0DD02D95C857C4A24B12372 /* Pods-kushki-ios_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Example.modulemap"; sourceTree = "<group>"; };
+		3FB0214A24924FBCE6931D62 /* Pods-Kushki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kushki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kushki/Pods-Kushki.debug.xcconfig"; sourceTree = "<group>"; };
 		41647ECC100A4EFAE1F597FF7C2EAE03 /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		437E6F69C3AAD3D3F62785F23AAE9CF1 /* SiftQueueConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueueConfig.h; path = Sift/SiftQueueConfig.h; sourceTree = "<group>"; };
 		439C9C0054DE1AD6681841284AD41FB0 /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		44DB7E33E0C99C0DD6DD4193 /* Pods-Kushki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kushki.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kushki/Pods-Kushki.release.xcconfig"; sourceTree = "<group>"; };
 		44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Example-dummy.m"; sourceTree = "<group>"; };
+		48745200189E8A259CA13BEB /* Pods_Kushki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		494ED028FC3E468A7E0634C40527D399 /* Kushki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.debug.xcconfig; sourceTree = "<group>"; };
 		4A4467924EE3F29BF123F683B036A23B /* SiftHtDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftHtDictionary.h; path = Sift/SiftHtDictionary.h; sourceTree = "<group>"; };
 		4C633F580EFEDAD432E65E2CD7E753D3 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
@@ -199,16 +211,20 @@
 		6493A210FAB665E7F1ED332E267560D5 /* Pods-kushki-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		64A2F8A6B36CB8042CFF68C7916B7522 /* SiftQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftQueue.m; path = Sift/SiftQueue.m; sourceTree = "<group>"; };
 		65FAF0DB185F993A51D187BDBBA50143 /* OHHTTPStubs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.debug.xcconfig; sourceTree = "<group>"; };
+		66CF5C7B749ABAEF224D4270 /* Pods-Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods-kushki-ios_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pods-kushki-ios_Tests/Pods-Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6751A8296959D832E6249DD4FA03B280 /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; name = Assets; path = Kushki/Assets/Assets; sourceTree = "<group>"; };
 		67CC9F18B5BE7F8FB85AF2E9D7A4B3BA /* ConfrontaQuestionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionOptions.swift; sourceTree = "<group>"; };
 		67F6A2636855855A54DD4A555E59F212 /* SiftCircularBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftCircularBuffer.m; path = Sift/SiftCircularBuffer.m; sourceTree = "<group>"; };
 		6B400DA0DCE3E51FD9323B28564AE725 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
 		6BC9F500694BEFD1A03AF3980A1D7BD1 /* Sift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sift.modulemap; sourceTree = "<group>"; };
 		6CFBB26D9BEBACAE1F3D5FE10884B627 /* SiftIosAppState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppState.m; path = Sift/SiftIosAppState.m; sourceTree = "<group>"; };
+		6D4853DB050065B83F8603DF /* Pods_Sift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F4B577A1A6DE0FAD40A17A399C24CD1 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		7022F9CDB95CE717C010C84F8323EB33 /* HTTPStubsPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsPathHelpers.m; path = Sources/OHHTTPStubs/HTTPStubsPathHelpers.m; sourceTree = "<group>"; };
 		705390F5ECB54C6204DD84E87792D928 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		713AA259068BEB9637935358 /* Pods-Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods-kushki-ios_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pods-kushki-ios_Tests/Pods-Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7309F5AE8619540572746469C61AE596 /* SiftUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUtils.h; path = Sift/SiftUtils.h; sourceTree = "<group>"; };
+		773D8BB1A63CE6F0BC756E80 /* Pods-OHHTTPStubs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OHHTTPStubs.release.xcconfig"; path = "Pods/Target Support Files/Pods-OHHTTPStubs/Pods-OHHTTPStubs.release.xcconfig"; sourceTree = "<group>"; };
 		798A2B61EF68E6A173DDCE3C132A528B /* HTTPStubs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubs.h; path = Sources/OHHTTPStubs/include/HTTPStubs.h; sourceTree = "<group>"; };
 		79950B40F480863764AC0ECC34CC1EF7 /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
 		7D99477DABC1C7511774219390F99417 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
@@ -223,6 +239,7 @@
 		9388093FE2CAFC752A9D6DC3C62CB601 /* HTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "HTTPStubs+NSURLSessionConfiguration.m"; path = "Sources/OHHTTPStubs/HTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
 		96C5C153BE4CF925BE46DDF8611ABC9F /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		96FEAEB7A9BD9A919EA9A0BD1A3BA3CF /* Sift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Sift; path = Sift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9857C0935CE82AFAEFF66E0A /* Pods-Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods-kushki-ios_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pods-kushki-ios_Example/Pods-Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9A10576128B41C1C8420123C81070EE1 /* JwtResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JwtResponse.swift; sourceTree = "<group>"; };
 		9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9CCBCFF211FAD0AEB867704B12990AC8 /* SiftIosDeviceProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDeviceProperties.m; path = Sift/SiftIosDeviceProperties.m; sourceTree = "<group>"; };
@@ -251,7 +268,6 @@
 		B8FDC9F25AB38094596B56E81C216AEC /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = Sources/OHHTTPStubs/include/Compatibility.h; sourceTree = "<group>"; };
 		BB1668DFA6E5FAC7FEC0963EDDEEDE93 /* Pods-kushki-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		BD97E80A98EFA0F3A963857F63397F8F /* Pods-kushki-ios_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Tests"; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		BFA5B83248E4F294869E9BF04C99FDF4 /* Sift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.debug.xcconfig; sourceTree = "<group>"; };
 		C1BCE07DBD3350BBA9E31589F68C4CF1 /* card_network.svg */ = {isa = PBXFileReference; includeInIndex = 1; path = card_network.svg; sourceTree = "<group>"; };
@@ -264,7 +280,9 @@
 		D52A6C298584F200F479132FB211B2C7 /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
 		D610826CE27AC962EE7FFF4F271C878A /* HTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsResponse.h; path = Sources/OHHTTPStubs/include/HTTPStubsResponse.h; sourceTree = "<group>"; };
 		D808C61307B2246B198DB64891A472A8 /* Kushki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.release.xcconfig; sourceTree = "<group>"; };
+		D907E0D84108B7775CF982E2 /* Pods-Sift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sift/Pods-Sift.debug.xcconfig"; sourceTree = "<group>"; };
 		D9BB7949F384039B31B7365766269183 /* SiftEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftEvent.h; path = Sift/SiftEvent.h; sourceTree = "<group>"; };
+		DF80683AE528FF1C58793C69 /* Pods-Sift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sift/Pods-Sift.release.xcconfig"; sourceTree = "<group>"; };
 		E1B758CEDA6E54895484DCFA3F6E36CB /* Pods-kushki-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		E278E35DCEC17E03A5FEBBE70A5AD86C /* OHHTTPStubsSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OHHTTPStubsSwift.swift; path = Sources/OHHTTPStubsSwift/OHHTTPStubsSwift.swift; sourceTree = "<group>"; };
 		E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -287,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF3CFFD85F9556BD58C8BFBDFE36E33 /* Foundation.framework in Frameworks */,
+				EFF180215665FE19B64ABA88 /* Pods_Pods_kushki_ios_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +318,7 @@
 				E4E6F831CEDD5A0E9C4BFBAC9D5114A1 /* CoreTelephony.framework in Frameworks */,
 				65BB0DB1AF931FBF1CAA3EE43BEE0E0B /* Foundation.framework in Frameworks */,
 				85F0D630E5084E5757F15C131BBA0047 /* UIKit.framework in Frameworks */,
+				B14642962CBF2CF79A8B7E45 /* Pods_Sift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A84314D40605F98950714128B787FF0D /* Foundation.framework in Frameworks */,
+				4F48EE5073AC18E36606C928 /* Pods_Kushki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0935B625C836434D7385F7DCF560FF3F /* Foundation.framework in Frameworks */,
+				BB17471BC60854FE012D9CE9 /* Pods_Pods_kushki_ios_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +346,7 @@
 			files = (
 				A30F65F16395BF5436088F7F327E8817 /* CFNetwork.framework in Frameworks */,
 				2A090B165CFA5629C9CE47E6318AB38E /* Foundation.framework in Frameworks */,
+				3D7007B35F33EECD21B59C27 /* Pods_OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +421,16 @@
 			children = (
 				6FE5F1D8D44CAE87C67841D2A5C4F7D1 /* OHHTTPStubs */,
 				9083AEE287AE87113B4EC99BEE85916B /* Sift */,
+				3FB0214A24924FBCE6931D62 /* Pods-Kushki.debug.xcconfig */,
+				44DB7E33E0C99C0DD6DD4193 /* Pods-Kushki.release.xcconfig */,
+				3AE649794271F4C562AE41EA /* Pods-OHHTTPStubs.debug.xcconfig */,
+				773D8BB1A63CE6F0BC756E80 /* Pods-OHHTTPStubs.release.xcconfig */,
+				3601478D1ADBE2AE7EC1BCBC /* Pods-Pods-kushki-ios_Example.debug.xcconfig */,
+				9857C0935CE82AFAEFF66E0A /* Pods-Pods-kushki-ios_Example.release.xcconfig */,
+				66CF5C7B749ABAEF224D4270 /* Pods-Pods-kushki-ios_Tests.debug.xcconfig */,
+				713AA259068BEB9637935358 /* Pods-Pods-kushki-ios_Tests.release.xcconfig */,
+				D907E0D84108B7775CF982E2 /* Pods-Sift.debug.xcconfig */,
+				DF80683AE528FF1C58793C69 /* Pods-Sift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -486,8 +519,6 @@
 			children = (
 				3442A6C4543FCF6B0281445327870E78 /* Kushki */,
 				17E33041B314FA837A3CAEB9DF3CDE9F /* OHHTTPStubs */,
-				07B2AC2DF7A859464767A0809FA41B2A /* Pods-kushki-ios_Example */,
-				BD97E80A98EFA0F3A963857F63397F8F /* Pods-kushki-ios_Tests */,
 				96FEAEB7A9BD9A919EA9A0BD1A3BA3CF /* Sift */,
 			);
 			name = Products;
@@ -657,6 +688,11 @@
 			isa = PBXGroup;
 			children = (
 				5EBC703D318FC35E7FE152A44C3BB5D2 /* iOS */,
+				48745200189E8A259CA13BEB /* Pods_Kushki.framework */,
+				3A9FD158A87D15A80173104A /* Pods_OHHTTPStubs.framework */,
+				2056E8F0B00C82806068EE23 /* Pods_Pods_kushki_ios_Example.framework */,
+				0F66EEC6B672D5E426B3E201 /* Pods_Pods_kushki_ios_Tests.framework */,
+				6D4853DB050065B83F8603DF /* Pods_Sift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -757,6 +793,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEC09FAACB01910DF58D75BEBF33D56B /* Build configuration list for PBXNativeTarget "Pods-kushki-ios_Tests" */;
 			buildPhases = (
+				2CA41DF61E30DEA67E4F339C /* [CP] Check Pods Manifest.lock */,
 				4A45D5ECE3EF7DC27BACD2A042B1DBE7 /* Headers */,
 				08B5290AF10A837D41FAA44CC97DD6DC /* Sources */,
 				18BD07DF3637E96320841C3A96CB50C9 /* Frameworks */,
@@ -770,13 +807,13 @@
 			);
 			name = "Pods-kushki-ios_Tests";
 			productName = Pods_kushki_ios_Tests;
-			productReference = BD97E80A98EFA0F3A963857F63397F8F /* Pods-kushki-ios_Tests */;
 			productType = "com.apple.product-type.framework";
 		};
 		A983A2D06C5B6AA3D6ABA5CCC0A16725 /* OHHTTPStubs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16B9D186E741234F74F4E0D0D64CEFA1 /* Build configuration list for PBXNativeTarget "OHHTTPStubs" */;
 			buildPhases = (
+				AC860F98371B60EDDE7AC8EB /* [CP] Check Pods Manifest.lock */,
 				79BF8FF3D602332DB9720C936508808B /* Headers */,
 				727460F596859EC2E21DA321013FB809 /* Sources */,
 				E6C4221503E63AB94BBB9CE997C151A0 /* Frameworks */,
@@ -795,6 +832,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B2F14C3D4DC346AF80CCE991981E02 /* Build configuration list for PBXNativeTarget "Sift" */;
 			buildPhases = (
+				15959C444A6803DF3D5FCDA5 /* [CP] Check Pods Manifest.lock */,
 				B783458D99C012A36D2279C4B8CE90BE /* Headers */,
 				EC2EC7FC6F336218D47CA28879363CEA /* Sources */,
 				563A5965F513C586B7DE25CC8516EE45 /* Frameworks */,
@@ -813,6 +851,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21542D9CAA960EA0A7877C1F0778B334 /* Build configuration list for PBXNativeTarget "Pods-kushki-ios_Example" */;
 			buildPhases = (
+				3C34F3FC53FC09C35901B25E /* [CP] Check Pods Manifest.lock */,
 				218E740C563668A2454D26B38F8BA451 /* Headers */,
 				F5C9A91125DDDFCF8E3BE7A008876F28 /* Sources */,
 				E48C755E6C091EC9770401FA4A2A819C /* Frameworks */,
@@ -826,13 +865,13 @@
 			);
 			name = "Pods-kushki-ios_Example";
 			productName = Pods_kushki_ios_Example;
-			productReference = 07B2AC2DF7A859464767A0809FA41B2A /* Pods-kushki-ios_Example */;
 			productType = "com.apple.product-type.framework";
 		};
 		FA808475B36E8EAA8E40474777CE8036 /* Kushki */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E147E92017660F08F13D5F656D39793B /* Build configuration list for PBXNativeTarget "Kushki" */;
 			buildPhases = (
+				457C68F5BEBA4151FB4B997F /* [CP] Check Pods Manifest.lock */,
 				E9D8FBC9A6BC658193B6FDA12CA7F1DB /* Headers */,
 				E0444E807542FE87641EDC245A09A324 /* Sources */,
 				D369DD195F692A6B8F2553BC19682912 /* Frameworks */,
@@ -857,7 +896,7 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "_Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -921,6 +960,119 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15959C444A6803DF3D5FCDA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CA41DF61E30DEA67E4F339C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pods-kushki-ios_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C34F3FC53FC09C35901B25E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pods-kushki-ios_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		457C68F5BEBA4151FB4B997F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kushki-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC860F98371B60EDDE7AC8EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OHHTTPStubs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08B5290AF10A837D41FAA44CC97DD6DC /* Sources */ = {
@@ -1537,7 +1689,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "_Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				125C51B0F88E28C868DC90BD45E4E727 /* Debug */,

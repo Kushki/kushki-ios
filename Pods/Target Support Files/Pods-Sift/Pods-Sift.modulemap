@@ -1,0 +1,6 @@
+framework module Pods_Sift {
+  umbrella header "Pods-Sift-umbrella.h"
+
+  export *
+  module * { export * }
+}

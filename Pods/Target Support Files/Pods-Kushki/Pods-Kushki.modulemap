@@ -1,0 +1,6 @@
+framework module Pods_Kushki {
+  umbrella header "Pods-Kushki-umbrella.h"
+
+  export *
+  module * { export * }
+}
