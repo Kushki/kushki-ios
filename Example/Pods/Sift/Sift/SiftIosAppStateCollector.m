@@ -14,6 +14,7 @@
 #import "SiftTokenBucket.h"
 #import "SiftUtils.h"
 #import "Sift.h"
+#import "TaskManager.h"
 
 #import "SiftIosAppStateCollector.h"
 #import "SiftIosAppStateCollector+Private.h"
@@ -31,27 +32,16 @@ static const SFTimestamp SF_MAX_COLLECTION_PERIOD = 120000;  // Unit: millisecon
 // And we add 1 second as a margin; so that's 4 seconds.)
 static const unsigned long long SF_HEADING_INTERVAL = 4 * NSEC_PER_SEC;
 
-// Motion sensor parameters.
-static const NSUInteger     SF_MOTION_SENSOR_NUM_READINGS = 10;  // Keep at most 10 readings.
-static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
-
 @implementation SiftIosAppStateCollector {
+    TaskManager *_taskManager;
     // Use serial queue as an alternative to locking.
     dispatch_queue_t _serial;
     dispatch_source_t _source;
     NSString *_archivePath;
     CLLocationManager *_locationManager;
 
-    //// Motion sensors.
-    BOOL _allowUsingMotionSensors;
     BOOL _disallowCollectingLocationData;
-    CMMotionManager *_motionManager;
-    int _numMotionStarted;
     NSOperationQueue *_operationQueue;
-    SF_GENERICS(SiftCircularBuffer, CMDeviceMotion *) *_deviceMotionReadings;
-    SF_GENERICS(SiftCircularBuffer, CMAccelerometerData *) *_accelerometerReadings;
-    SF_GENERICS(SiftCircularBuffer, CMGyroData *) *_gyroReadings;
-    SF_GENERICS(SiftCircularBuffer, CMMagnetometerData *) *_magnetometerReadings;
 
     //// Archived states.
     SiftTokenBucket *_bucket;  // Control the rate of requestCollection.
@@ -61,6 +51,7 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
 - (instancetype)initWithArchivePath:(NSString *)archivePath {
     self = [super init];
     if (self) {
+        _taskManager = [[TaskManager alloc] init];
         _serial = dispatch_queue_create("com.sift.SFIosAppStateCollector", DISPATCH_QUEUE_SERIAL);
         _archivePath = archivePath;
         _locationManager = [CLLocationManager new];
@@ -86,19 +77,7 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
         
         _disallowCollectingLocationData = NO;
 
-        //// Motion sensors.
-
-        _allowUsingMotionSensors = NO;
-
-        // Create a CMMotionManager object but don't start/stop motion sensors unless we are allowed to do so.
-        _motionManager = [CMMotionManager new];
-        _numMotionStarted = 0;
-
         _operationQueue = [NSOperationQueue new];
-        _deviceMotionReadings = [[SiftCircularBuffer alloc] initWithSize:SF_MOTION_SENSOR_NUM_READINGS];
-        _accelerometerReadings = [[SiftCircularBuffer alloc] initWithSize:SF_MOTION_SENSOR_NUM_READINGS];
-        _gyroReadings = [[SiftCircularBuffer alloc] initWithSize:SF_MOTION_SENSOR_NUM_READINGS];
-        _magnetometerReadings = [[SiftCircularBuffer alloc] initWithSize:SF_MOTION_SENSOR_NUM_READINGS];
     }
     return self;
 }
@@ -120,12 +99,11 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
 - (void)didEnterBackground {
     // Suspend serial queue and stop motion sensors (if we have started them).
     // We will not re-start motion sensors when we are back to the foreground.
-    dispatch_async(_serial, ^{
-        [self stopMotionSensors];
+    [_taskManager submitWithTask:^{
         [self->_locationManager stopUpdatingHeading];
         dispatch_suspend(self->_serial);
         self->_serialSuspendCounter++;
-    });
+    } queue:_serial];
 }
 
 - (void)viewControllerDidChange:(NSNotification *)notification {
@@ -138,7 +116,7 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
 - (void)requestCollectionWithTitle:(NSString *)title {
     // We don't care whether the remaining requests are executed if we are gone.
     SiftIosAppStateCollector * __weak weakSelf = self;
-    dispatch_async(_serial, ^{
+    [_taskManager submitWithTask:^{
         SiftIosAppStateCollector *strongSelf = weakSelf;
         if (!strongSelf) {
             return;
@@ -150,31 +128,29 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
         }
 
         [strongSelf collectWithTitle:title andTimestamp:SFCurrentTime()];
-    });
+    } queue:_serial];
 }
 
 - (void)checkAndCollectWhenNoneRecently:(SFTimestamp)now {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [_taskManager submitWithTask:^{
         if (UIApplication.sharedApplication.applicationState == UIApplicationStateBackground) {
             SF_DEBUG(@"Ignore collection request since the app is in the background");
             return;
         }
-        
-        dispatch_async(self->_serial, ^{
+        [self->_taskManager submitWithTask:^{
             if (self->_lastCollectedAt > 0) {
                 if (self->_lastCollectedAt + SF_MAX_COLLECTION_PERIOD >= now) {
                     SF_DEBUG(@"Ignore collection request since it is not long enough since last collection");
                     return;
                 }
             }
-            
             [self collectWithTitle:nil andTimestamp:now];
-        });
-    });
+        } queue:self->_serial];
+    } queue:dispatch_get_main_queue()];
 }
 
 - (void)collectWithTitle:(NSString *)title andTimestamp:(SFTimestamp)now {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [_taskManager submitWithTask:^{
         SF_DEBUG(@"Collect app state...");
         SiftEvent *event = [SiftEvent new];
         event.time = now;
@@ -182,55 +158,31 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
 
         BOOL foreground = UIApplication.sharedApplication.applicationState != UIApplicationStateBackground;
         
-        dispatch_async(self->_serial, ^{
+        [self->_taskManager submitWithTask:^{
             // Don't start compass and motion sensors when you are in the background.
             int64_t delay = 0;
             if (foreground) {
-                if (self->_allowUsingMotionSensors) {
-                    SF_DEBUG(@"Collect motion data...");
-                    [self startMotionSensors];
-                    // Wait for a full cycle of readings plus 0.1 second margin to collect motion sensor readings.
-                    delay = MAX(delay, (SF_MOTION_SENSOR_INTERVAL * SF_MOTION_SENSOR_NUM_READINGS + 0.1) * NSEC_PER_SEC);
-                }
-                
                 [self->_locationManager startUpdatingHeading];
                 delay = MAX(delay, SF_HEADING_INTERVAL);
             }
             
             if (delay > 0) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), self->_serial, ^{
-                    [self stopMotionSensors];
-                    
+                [self->_taskManager scheduleWithTask:^{
                     if ([self canCollectLocationData] && self->_locationManager.location) {
-                        [event.iosAppState setEntry:@"location" value:SFCLLocationToDictionary(self->_locationManager.location).entries];
+                        [event.iosAppState setObject:SFCLLocationToDictionary(self->_locationManager.location) forKey:@"location"];
                     }
                     
-                    // Read heading before we stop location manager (it nullifies heading when stopped).
-                    CLHeading *heading = self->_locationManager.heading;
                     [self->_locationManager stopUpdatingHeading];
                     
-                    if (heading) {
-                        [event.iosAppState setEntry:@"heading" value:SFCLHeadingToDictionary(heading).entries];
-                    }
-                    
-                    [self addReadingsToIosAppState:event.iosAppState];
-                    
-                    SF_DEBUG(@"iosAppState: %@", event.iosAppState.entries);
+                    SF_DEBUG(@"iosAppState: %@", event.iosAppState);
                     [Sift.sharedInstance appendEvent:event];
-                });
+                } queue:self->_serial delay:delay];
             } else {
                 if ([self canCollectLocationData] && self->_locationManager.location) {
-                    [event.iosAppState setEntry:@"location" value:SFCLLocationToDictionary(self->_locationManager.location).entries];
+                    [event.iosAppState setObject:SFCLLocationToDictionary(self->_locationManager.location) forKey:@"location"];
                 }
                 
-                CLHeading *heading = self->_locationManager.heading;
-                if (heading) {
-                    [event.iosAppState setEntry:@"heading" value:SFCLHeadingToDictionary(heading).entries];
-                }
-                
-                [self addReadingsToIosAppState:event.iosAppState];
-                
-                SF_DEBUG(@"iosAppState: %@", event.iosAppState.entries);
+                SF_DEBUG(@"iosAppState: %@", event.iosAppState);
                 [Sift.sharedInstance appendEvent:event];
             }
             
@@ -240,12 +192,12 @@ static const NSTimeInterval SF_MOTION_SENSOR_INTERVAL = 0.5;  // Unit: second.
             if (foreground) {
                 // We don't care whether the remaining requests are executed if we are gone.
                 SiftIosAppStateCollector * __weak weakSelf = self;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, SF_MAX_COLLECTION_PERIOD * NSEC_PER_MSEC), self->_serial, ^{
+                [self->_taskManager scheduleWithTask:^{
                     [weakSelf checkAndCollectWhenNoneRecently:SFCurrentTime()];
-                });
+                } queue:self->_serial delay:SF_MAX_COLLECTION_PERIOD * NSEC_PER_MSEC];
             }
-        });
-    });
+        } queue:self->_serial];
+    } queue:dispatch_get_main_queue()];
 }
 
 #pragma mark - NSKeyedArchiver/NSKeyedUnarchiver
@@ -316,148 +268,6 @@ static NSString * const SF_LAST_COLLECTED_AT = @"lastCollectedAt";
             !_disallowCollectingLocationData;
 }
 
-#pragma mark - Motion sensors
-
-- (BOOL)allowUsingMotionSensors {
-    return _allowUsingMotionSensors;
-}
-
-- (void)setAllowUsingMotionSensors:(BOOL)allowUsingMotionSensors {
-    if (_allowUsingMotionSensors && !allowUsingMotionSensors) {
-        SF_DEBUG(@"We are not allowed to use motion sensors anymore");
-        [self stopMotionSensors];
-    }
-    _allowUsingMotionSensors = allowUsingMotionSensors;
-}
-
-- (void)updateDeviceMotion:(CMDeviceMotion *)data {
-    @synchronized (_deviceMotionReadings) {
-        [_deviceMotionReadings append:data];
-    }
-}
-
-- (void)updateAccelerometerData:(CMAccelerometerData *)data {
-    @synchronized (_accelerometerReadings) {
-        [_accelerometerReadings append:data];
-    }
-}
-
-- (void)updateGyroData:(CMGyroData *)data {
-    @synchronized (_gyroReadings) {
-        [_gyroReadings append:data];
-    }
-}
-
-- (void)updateMagnetometerData:(CMMagnetometerData *)data {
-    @synchronized (_magnetometerReadings) {
-        [_magnetometerReadings append:data];
-    }
-}
-
-- (void)startMotionSensors {
-    if (_numMotionStarted++ > 0) {
-        return;
-    }
-
-    // Prefer device motion over raw sensor data
-    if (_motionManager.isDeviceMotionAvailable) {
-        CMAttitudeReferenceFrame frame;
-        // Need casting here to fix a compiler warning because in Base SDK 8 (shipped with Xcode 6), CMAttitudeReferenceFrame is not defined using NS_ENUM.
-        CMAttitudeReferenceFrame available = (CMAttitudeReferenceFrame)[CMMotionManager availableAttitudeReferenceFrames];
-        if (available & CMAttitudeReferenceFrameXTrueNorthZVertical) {
-            frame = CMAttitudeReferenceFrameXTrueNorthZVertical;
-        } else if (available & CMAttitudeReferenceFrameXMagneticNorthZVertical) {
-            frame = CMAttitudeReferenceFrameXMagneticNorthZVertical;
-        } else if (available & CMAttitudeReferenceFrameXArbitraryCorrectedZVertical) {
-            frame = CMAttitudeReferenceFrameXArbitraryCorrectedZVertical;
-        } else {
-            frame = CMAttitudeReferenceFrameXArbitraryZVertical;
-        }
-        SF_DEBUG(@"Start device motion sensor: frame=%lu", (unsigned long)frame);
-        _motionManager.deviceMotionUpdateInterval = SF_MOTION_SENSOR_INTERVAL;
-        [_motionManager startDeviceMotionUpdatesUsingReferenceFrame:frame toQueue:_operationQueue withHandler:^(CMDeviceMotion *data, NSError *error) {
-            if (error) {
-                SF_DEBUG(@"Device motion error: %@", [error localizedDescription]);
-                return;
-            }
-            [self updateDeviceMotion:data];
-        }];
-    } else {
-        SF_DEBUG(@"Start raw motion sensors");
-        if (_motionManager.accelerometerAvailable) {
-            _motionManager.accelerometerUpdateInterval = SF_MOTION_SENSOR_INTERVAL;
-            [_motionManager startAccelerometerUpdatesToQueue:_operationQueue withHandler:^(CMAccelerometerData *data, NSError *error) {
-                if (error) {
-                    SF_DEBUG(@"Accelerometer error: %@", [error localizedDescription]);
-                    return;
-                }
-                [self updateAccelerometerData:data];
-            }];
-        }
-        if (_motionManager.gyroAvailable) {
-            _motionManager.gyroUpdateInterval = SF_MOTION_SENSOR_INTERVAL;
-            [_motionManager startGyroUpdatesToQueue:_operationQueue withHandler:^(CMGyroData *data, NSError *error) {
-                if (error) {
-                    SF_DEBUG(@"Gyro error: %@", [error localizedDescription]);
-                    return;
-                }
-                [self updateGyroData:data];
-            }];
-        }
-        if (_motionManager.magnetometerAvailable) {
-            _motionManager.magnetometerUpdateInterval = SF_MOTION_SENSOR_INTERVAL;
-            [_motionManager startMagnetometerUpdatesToQueue:_operationQueue withHandler:^(CMMagnetometerData *data, NSError *error) {
-                if (error) {
-                    SF_DEBUG(@"Magnetometer error: %@", [error localizedDescription]);
-                    return;
-                }
-                [self updateMagnetometerData:data];
-            }];
-        }
-    }
-}
-
-- (void)stopMotionSensors {
-    if (--_numMotionStarted > 0) {
-        return;
-    }
-    // Excessive calls to `stopMotionSensors` are no-ops.
-    if (_numMotionStarted < 0) {
-        _numMotionStarted = 0;
-        return;
-    }
-
-    // Prefer device motion over raw sensor data
-    if (_motionManager.isDeviceMotionAvailable) {
-        SF_DEBUG(@"Stop device motion sensors");
-        [_motionManager stopDeviceMotionUpdates];
-    } else {
-        SF_DEBUG(@"Stop raw motion sensors");
-        [_motionManager stopAccelerometerUpdates];
-        [_motionManager stopGyroUpdates];
-        [_motionManager stopMagnetometerUpdates];
-    }
-}
-
-- (void)addReadingsToIosAppState:(SiftHtDictionary *)iosAppState {
-    SF_GENERICS(NSArray, NSDictionary *) *motion = [self convertReadings:_deviceMotionReadings converter:SFCMDeviceMotionToDictionary];
-    if (motion.count) {
-        [iosAppState setEntry:@"motion" value:motion];
-    }
-    SF_GENERICS(NSArray, NSDictionary *) *rawAccelerometer = [self convertReadings:_accelerometerReadings converter:SFCMAccelerometerDataToDictionary];
-    if (rawAccelerometer.count) {
-        [iosAppState setEntry:@"raw_accelerometer" value:rawAccelerometer];
-    }
-    SF_GENERICS(NSArray, NSDictionary *) *rawGyro = [self convertReadings:_gyroReadings converter:SFCMGyroDataToDictionary];
-    if (rawGyro.count) {
-        [iosAppState setEntry:@"raw_gyro" value:rawGyro];
-    }
-    SF_GENERICS(NSArray, NSDictionary *) *rawMagnetometer = [self convertReadings:_magnetometerReadings converter:SFCMMagnetometerDataToDictionary];
-    if (rawMagnetometer.count) {
-        [iosAppState setEntry:@"raw_magnetometer" value:rawMagnetometer];
-    }
-}
-
 - (SF_GENERICS(NSArray, NSDictionary *) *)convertReadings:(SiftCircularBuffer *)buffer converter:(void *)converter {
     SF_GENERICS(NSMutableArray, NSDictionary *) *readings = [NSMutableArray new];
     NSDate *uptime = [NSDate dateWithTimeIntervalSinceNow:-NSProcessInfo.processInfo.systemUptime];
@@ -465,7 +275,7 @@ static NSString * const SF_LAST_COLLECTED_AT = @"lastCollectedAt";
         for (CMLogItem *reading in [buffer shallowCopy]) {
             // CMLogItem records timestamp since device boot.
             SFTimestamp timestamp = [[uptime dateByAddingTimeInterval:reading.timestamp] timeIntervalSince1970] * 1000;
-            [readings addObject:((SiftHtDictionary *(*)(CMLogItem *, SFTimestamp))converter)(reading, timestamp).entries];
+            [readings addObject:((NSDictionary *(*)(CMLogItem *, SFTimestamp))converter)(reading, timestamp)];
         }
         [buffer removeAllObjects];
     }

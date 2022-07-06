@@ -10,101 +10,101 @@
 		0194717FC38FFAE0D1B2C6029A093FB4 /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = E75C26F25E5634F0AE80AEFF44B2A23B /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01D1BCE5AD80B0B843782627D32A9945 /* HTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2D1AAD676F65CD27A82023597D5FA /* HTTPStubs.m */; };
 		042668FFA122D78B6EE074C04C460261 /* OHHTTPStubsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278E35DCEC17E03A5FEBBE70A5AD86C /* OHHTTPStubsSwift.swift */; };
+		05F911850B0C51ABD6FC46EE37BC8478 /* Sift+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE3A85FD9C08A2CA47E8A233652C4E8 /* Sift+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		07AF133A017AB74CC31B5475BFFA92E9 /* HTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7C50A280F81A4B0D4126A7515131FB /* HTTPStubsResponse+JSON.m */; };
 		0884F576C11928EA43B852CA5E2F5411 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909EBCCA9776E1B81CD2680B97F9845 /* Security.swift */; };
 		0935B625C836434D7385F7DCF560FF3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
 		09C4DA95304C05A60EC159203C0F4CF4 /* HTTPStubsResponse+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 59B3F0DAF4C85F05FCC4AACE1C57CD77 /* HTTPStubsResponse+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10A4A200774EF5BE833B22A2DEC92AC3 /* SiftHtDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4467924EE3F29BF123F683B036A23B /* SiftHtDictionary.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		18730130A10915D379CE95D04E195CBB /* SiftScienceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510C281B55E980F309B677772277C7C /* SiftScienceObject.swift */; };
 		19FF16C15407ABBCAB0168CDE44709E1 /* NSURLRequest+HTTPBodyTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E3FD952A5F993757B92D0B9F8C8196 /* NSURLRequest+HTTPBodyTesting.m */; };
+		1CCD62E695160BC0F8660C07787637EC /* SiftIosDevicePropertiesCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA3BCA16423D634F0F515DFD515BD51 /* SiftIosDevicePropertiesCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1D7D55B7CB918B64F7EFC3DD1A924F20 /* SiftIosAppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 23E414F1D31F7627E7ECB12E67D4E352 /* SiftIosAppState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1D7F1AA79CDD39EBC8DF1FE7A45BD479 /* logo_kushki.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DCE4C51B7D6D1337D9F81FC935B319D /* logo_kushki.png */; };
 		1E4EC470CD3E03E04EDAF44DD9774B13 /* Kushki.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC83375FF38A8429822A1D22EE203659 /* Kushki.swift */; };
 		2114F7E4B02770BF53B9B521D0DBC801 /* HTTPStubsMethodSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2F093CE470572A7675A489DAEFE680 /* HTTPStubsMethodSwizzling.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		21FD2F09830F4137EF47520DFBBBFCC3 /* SiftQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DC3B336B7B64B05E3986346235E863 /* SiftQueue.m */; };
 		2365248FC824D0F320A9E8D192BE8FAC /* SecureValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256E01F784211604753743D30AD0A973 /* SecureValidationResponse.swift */; };
 		2A090B165CFA5629C9CE47E6318AB38E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		2A59FE397871DD47FE40575EB57F3BC6 /* SiftEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = D9BB7949F384039B31B7365766269183 /* SiftEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E2C8F0154C2F2F983E2C2A59777B83E /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF840B2D1F32B8E2808451D2B38328 /* NSData+GZIP.m */; };
 		311C925C27A3FF57B58077F98E6BD991 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 6751A8296959D832E6249DD4FA03B280 /* Assets */; };
 		3199E9E4C126488C2051DEB015410A50 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBA72AA6360EE0B9EDF57C4E1D740F /* Card.swift */; };
+		34166E066873518A34F6C1BE9CF1EDDC /* SiftUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CC484C34C5B96B92BF2604AAE59BA /* SiftUploader.m */; };
 		351A550EF40F25CC2D0212B7FACE1229 /* Kushki-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E526468B2B94431CCDDAEBD77A08B613 /* Kushki-dummy.m */; };
+		37D73A1BEFD536DCD251B568372D1999 /* SiftUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 08A3BDE5914C55B6BA691B531E59BE2B /* SiftUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3AC9E20AABF9AD3BA0F2FDE9EBDE0B80 /* SiftIosAppStateCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 464AF0A04700D48CD943CE373CB016EC /* SiftIosAppStateCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3CD2D539315B3001D931DD620D2BE4B5 /* SiftUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 85937E135128CAAFC9A8F1841A6433C2 /* SiftUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3FCC3A5899FA712350A6050749AD12B6 /* SiftTokenBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE3552056FED1031F6B9CFF55F4BC25 /* SiftTokenBucket.m */; };
 		4154ECEEB77F0F832863A907B65390A2 /* Pods-kushki-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */; };
-		41CBC77599980B56D524E5AC0D1BE070 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D212021E82530B5B4517F8ED3726F /* NSData+GZIP.m */; };
-		4C126B975188A8817168D4D68E193F1C /* SiftIosDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCBCFF211FAD0AEB867704B12990AC8 /* SiftIosDeviceProperties.m */; };
-		4E71DF8F85D7ECD6E97837CE2A021E68 /* SiftHtDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E30204C52477AAE4836C56A2CFF62F /* SiftHtDictionary.m */; };
+		4181087B0A67C54B6C1AB766F2849AAB /* TaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 422C4E20E9A14C675994526955853212 /* TaskManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		42707BAFCA1FFE299A45C70B6DCB5D44 /* Sift.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B16179F75B37393E642A4BC84B8B80 /* Sift.m */; };
+		4790D7B1AEBD6D3A0F8CC58D325FA8A3 /* SiftEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = C0ADA2253B37F80C3CE26B59C2A957D7 /* SiftEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B12502F02A099CE91E0316E569BFFC2 /* SiftIosAppStateCollector+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F1A089A8482BBC9A5EDC4327EF657462 /* SiftIosAppStateCollector+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5057151824318824EDBAD5C3548D5A59 /* SiftIosDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = EA606E4F1A2005781CF754C1A46D747F /* SiftIosDeviceProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		536FE00B697E4A72DDD02482AE8DA44E /* KushkiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056519D8BD3BA8ADB6AB202E89E0FC73 /* KushkiClient.swift */; };
-		56F979194D6BF985D23B3F2171D10298 /* SiftUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F384A179640600088D6FA04E1204590 /* SiftUtils.m */; };
-		59E0D4D5441D5B830EEAFD16D18199F0 /* Sift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5723CE63B54FA4C5BA667C5C5E6EA /* Sift-dummy.m */; };
-		5DB72C92FC45AFD89801C02AEC73C66B /* SiftQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F8A6B36CB8042CFF68C7916B7522 /* SiftQueue.m */; };
+		55419CB973EB6E43E26DCC8699E6D7EB /* SiftIosDevicePropertiesCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = F685DC0B2B5E4B29471B247A1CF9EF99 /* SiftIosDevicePropertiesCollector.m */; };
 		5E2FF15EAFEF89119E9FD90C2B46D6E4 /* HTTPStubsMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A886AA74B83222C4797921B03366E023 /* HTTPStubsMethodSwizzling.m */; };
 		5E497D61DA85DF3FE08EE298C1981F63 /* JwtResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10576128B41C1C8420123C81070EE1 /* JwtResponse.swift */; };
+		5EDB15CE7E64BA4AA72A3606B4700B5D /* SiftCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0884D8BBD8F2DF4EEDA937A3880775 /* SiftCircularBuffer.m */; };
+		5F0B4B698CAD96DFB062919FC18FBA4F /* SiftEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F20102133C0D993403C9BE36274DC1 /* SiftEvent.m */; };
 		5F6E86DF36F8AC7D9B15396880AC2DA5 /* HTTPStubsPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7022F9CDB95CE717C010C84F8323EB33 /* HTTPStubsPathHelpers.m */; };
-		608146F81FD3C81ABE4441FB4DF8927F /* SiftIosAppStateCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8F073F54F5D9890F32500548483EB1 /* SiftIosAppStateCollector.m */; };
 		622D4F6AA5A0F7F2FE7522F6CD5FB210 /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = B8FDC9F25AB38094596B56E81C216AEC /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65BB0DB1AF931FBF1CAA3EE43BEE0E0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
 		66F9DA72314F8308C791039A7700F399 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E1931D927294CFA26167DB542E5D0 /* Bank.swift */; };
-		67D967E8093AE3D358FDFEF9624BF6D5 /* Sift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58411C3BCF37E7655E11886B620DB077 /* Sift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0756935BF251D0C795C903AAEC52FF /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840CF20F45D618A671CAC555AD347C4E /* TaskManager.m */; };
 		6CFFE0E02698BCEC2E92AB7C210A96D1 /* Cash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C7B350FFC92EE688043451DF46F440 /* Cash.swift */; };
 		6DFF4A73C709CBF19C4E8732EB18D5A9 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0C2C0603896DDE769DC4DD9A20FB4 /* CardInfo.swift */; };
 		7CF3CFFD85F9556BD58C8BFBDFE36E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
-		7D0DBAD64B485ACF46B66486F6763A3F /* SiftTokenBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3024B312FAD8A5F499EB927F782DE7F3 /* SiftTokenBucket.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		80D6E28F279241FB8C98DCAF562BFE29 /* SiftUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B89A472496DE4D3A87EB368E8AD5B3E2 /* SiftUploader.m */; };
-		813F83A6EAE6BAA7A302507BDE402A1A /* SiftIosAppStateCollector+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8A3354BA0AB119D4662E8CB271FB70 /* SiftIosAppStateCollector+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		841C54CF80AF0CC944BE1CB27EEDC18C /* Sift.m in Sources */ = {isa = PBXBuildFile; fileRef = 02604D2CD89EE2AFC41B5D33CB909D67 /* Sift.m */; };
 		85F0D630E5084E5757F15C131BBA0047 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */; };
 		866BF155E9AB3A58F12ACC61ED44655C /* TokenRequest3DS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D5DA3D44C45BF310C0CC0535847CD /* TokenRequest3DS.swift */; };
 		8A6135DF3532D742992A489E58E8D421 /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D52A6C298584F200F479132FB211B2C7 /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FAAB6A20DBE2F91E0148541EA47D53E /* SecureValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC2E4E44F3953AB6FB5D2744B40222 /* SecureValidation.swift */; };
 		90BBA22AE62C6D103CA45126D916E9B5 /* HTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9388093FE2CAFC752A9D6DC3C62CB601 /* HTTPStubs+NSURLSessionConfiguration.m */; };
-		90D8DD79701028382E1809F08CFA6FA0 /* SiftIosAppState.h in Headers */ = {isa = PBXBuildFile; fileRef = D38687E255B0641D3BCDA7097984E455 /* SiftIosAppState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		91A982CEB002FDB206AAD0F1FF3036FA /* OTPSandboxViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 5B6052D5AF467CD6BD24B158C4C68291 /* OTPSandboxViewController.xib */; };
 		933B029DD56111E2F1D5FD0CED9A50B9 /* ConfrontaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93524A6C14854577BC763B9B8E96B39 /* ConfrontaResponse.swift */; };
 		94A6406A2F97A539CB7F873F1F2D280D /* File in Sources */ = {isa = PBXBuildFile; fileRef = 10E746F6AA223FCB4642B095917B0E47 /* File */; };
-		98EB733EC4F309C23230606903BEC80D /* SiftIosAppStateCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = AB799223031D878A9D00DC4CA1D28619 /* SiftIosAppStateCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9ED302D8D10058BCEC59636BF6501CF0 /* Sift.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C4834E25296B790A45B9981C7BB98E /* Sift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F8B74EAFD3EF702D59C6758DE329332 /* SiftIosDevicePropertiesCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = B66A00222F0ACD9A7CD79F7997095946 /* SiftIosDevicePropertiesCollector.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A0E776EADB9873E2731AD58968733850 /* SiftTokenBucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F1FA1241C03BFF331EF64AEF8C60C /* SiftTokenBucket.m */; };
-		A27494977C6E80939C6DF17F8C4299A2 /* SiftIosAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBB26D9BEBACAE1F3D5FE10884B627 /* SiftIosAppState.m */; };
+		A1C4DB4D5D9B3BADE9D851E1008EEB82 /* SiftTokenBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = 18D4E697F76EF1A15715BA7003C887D1 /* SiftTokenBucket.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A30F65F16395BF5436088F7F327E8817 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D99477DABC1C7511774219390F99417 /* CFNetwork.framework */; };
-		A33FDB13F2B046E1B1F204F72298CAD3 /* SiftEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 931AD906BC9882A5E451D2D5DE640A39 /* SiftEvent.m */; };
+		A4B765072B6BFB2C6094EF5C6927D5D2 /* SiftIosAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3209F4688FBF6BE4CADD0CB74BDFF4FA /* SiftIosAppState.m */; };
 		A75F1D93C20CB25C19260ED16E0DC048 /* OHHTTPStubs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9E9E9EA61ABF76577E5B641A9BED09 /* OHHTTPStubs-dummy.m */; };
 		A84314D40605F98950714128B787FF0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159415606555C2A1BD80889AA128580D /* Foundation.framework */; };
+		A948D27067C2E45D39498A4AB69BB229 /* SiftCircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = CA64B163045BB5EEB72E5F90DCB936BE /* SiftCircularBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A9F870BC85306E0B540E6F76639EB396 /* card_network.svg in Resources */ = {isa = PBXBuildFile; fileRef = C1BCE07DBD3350BBA9E31589F68C4CF1 /* card_network.svg */; };
-		AB7D89D6F336E1F7D9FEDE178F5689B7 /* SiftQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CCAFBF58CD35A489605A1A235921D7BF /* SiftQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B45A1F05FA2B81248C9BE8C5FC7F2B6E /* MerchantSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F24390F34E0B8C4C9E27499B6880B4 /* MerchantSettings.swift */; };
 		B55D54C16F8AE4BC675542C61C1E044C /* KushkiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B400DA0DCE3E51FD9323B28564AE725 /* KushkiEnvironment.swift */; };
-		B729EF801F8504D62F5FE5D9380145E9 /* SiftCircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = EDEEB0DC91ECF4F514E07F73F930DDAA /* SiftCircularBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B78C1DAD1E245DFAC04ECCFEE8BA984A /* SiftCircularBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F6A2636855855A54DD4A555E59F212 /* SiftCircularBuffer.m */; };
-		B91A548690E3C99D61BA4A25F8F5C9B8 /* SiftUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7309F5AE8619540572746469C61AE596 /* SiftUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B99FBCCCE906E1FEA33B5D5EBEF7AD2A /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87A76E5342A2458044113926D8C830F /* Amount.swift */; };
 		BBD06A2859332AAF7C685D224F7E7A1A /* HTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */; };
 		BD4AB3028205007841091C65BEA9DA31 /* Kushki-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F34F024B3DC07DF9204A24CC4C4CA81E /* Kushki-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD60D6A07D242F29008D5B6350F2A560 /* SiftIosDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC8A0C4A7E8C8A464AB5E16C07B4961 /* SiftIosDeviceProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BFB178874F21A854EB3071FBE19814F4 /* Pods-kushki-ios_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */; };
-		C2075BB27BBB64D5C6AD5C24E97BB0A8 /* SiftDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 8568723A4A7E67D85F56C63137EFC409 /* SiftDebug.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C7B76338D17639E16749C5904D35FC7A /* SiftEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F8F2C5218750D24962B944E7A21215B /* SiftEvent+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C0E7601CB0E8DF38E44BAFF3A746930E /* SiftCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ED9637C245C9A0E9D17D961A5D99A7F /* SiftCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C27863BC448719BADB29CDA62F2EB98D /* SiftIosAppStateCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D326BF6ED8ECCBB206EB6A9B4E20E79 /* SiftIosAppStateCollector.m */; };
+		CAEE40A0FE4954121C6E8DB037742571 /* SiftDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 22C8A9B1AF483ABD9C65986EF6B405F0 /* SiftDebug.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CB7E1FE3DB1489A42DE77BF81525A642 /* MerchantSettingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B151CF8E43B25E48A32E832D36BFB17C /* MerchantSettingsResponse.swift */; };
+		CBAB796282DC51BCE27A24EB1576FB11 /* Sift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D056CC0B518721CC3F2C716351EFFFB /* Sift-dummy.m */; };
 		CF2C66B2A4E15D9FFEAC9B9DFE6772F6 /* CreditCardEspecifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6113F547043711BA5BECCE2D0CC649CE /* CreditCardEspecifications.swift */; };
+		D111BD303AE0942CDD63C947A0E42E31 /* Sift.h in Headers */ = {isa = PBXBuildFile; fileRef = 980EF20188593F7D507038EF209296F7 /* Sift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1AA75E25744E797B4D68F6A4CB5D03D /* HTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D610826CE27AC962EE7FFF4F271C878A /* HTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1CCC457A44905490C8A874FC9B03D02 /* Pods-kushki-ios_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2D1F10B9FDC34CCAF7BD5B5785BCFBF /* SiftQueueConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A3BC64ACEF8893C035A648D2739D8ACC /* SiftQueueConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D380B28E218FA690E5398999848DCEE3 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C440B2E08B85154D369BD9DF2B05159 /* EndPoint.swift */; };
 		D3D2746C28C8673237569CF5E699644C /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51831BF1F59E2DA86D9A3D81B36537E1 /* Transfer.swift */; };
+		D4FF124990906C598DB8B8AB62983912 /* SiftEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D0FE95F64F50D9F5B4A76C387BE9FC2B /* SiftEvent+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D5824CA9805D486B21424616DBD667C5 /* Sift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56DEC3DC6EABBDC916BCCE19E96A832E /* Sift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6FBE1C1B1EDDAEEF457115F4DF94A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC54A555446D07D165AAA4E7A7E280B3 /* Assets.xcassets */; };
 		D937579CB7D6CF5A9A0AA7C6A079055D /* Pods-kushki-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFC0707F05C8B31E93ACF5BC719EEF92 /* ConfrontaQuestionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC9F18B5BE7F8FB85AF2E9D7A4B3BA /* ConfrontaQuestionOptions.swift */; };
-		E3CFC5D80C174938B6AB5C831D200784 /* SiftIosDevicePropertiesCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DB87D2B4DFD5CCE14F9FD5511A87AB /* SiftIosDevicePropertiesCollector.m */; };
 		E4E6F831CEDD5A0E9C4BFBAC9D5114A1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */; };
 		E551070A151DC06AF47B84CE7A258AEE /* HTTPStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 798A2B61EF68E6A173DDCE3C132A528B /* HTTPStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E638BF95EF5D005ACF893A414DA70816 /* SiftQueueConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 437E6F69C3AAD3D3F62785F23AAE9CF1 /* SiftQueueConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB363C85CEE94D8E503243172CD752A8 /* SiftUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 34904730BFB6177E7D41AF42458650C9 /* SiftUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EE525D95FCA10570020299E63A6D9846 /* NSData+GZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = 2811E826A0D6689973F7BBDE28DB2307 /* NSData+GZIP.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB345C899B8C3C4D4FFA6C39D0459BE3 /* SiftIosDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3382875B5963D74FF1030120F8A49F /* SiftIosDeviceProperties.m */; };
 		EF75D1D9BD9B2368A84EACA7C86DCA25 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */; };
 		F02ED57634B4B4342AD66C79BD3AFCEE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4B577A1A6DE0FAD40A17A399C24CD1 /* Transaction.swift */; };
 		F207C2C7F5AC493C4B9EF29DCE15A80A /* any_bank.svg in Resources */ = {isa = PBXBuildFile; fileRef = 50F158920022AA326E78044E30334A5D /* any_bank.svg */; };
 		F367D80FF4A1FFA0004229CBF0A1061B /* OTPSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37756674D9DA7CD915E2D6AD4795DF9 /* OTPSandboxViewController.swift */; };
-		F3B3B19E2E4C2516C78B9B9814E2DF58 /* Sift+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = AC9428A119356511F39F3BACF3D51B4F /* Sift+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F53A564ACEE23BC48B80503B35E6C91C /* NSData+GZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = C151E70358C92ABB45F23C28CE7AC5C2 /* NSData+GZIP.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FA0BD1336CB02BBE8FA18D20FA03B242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2CF77EE71ADCBEA316E19D8B218B2DE /* CoreLocation.framework */; };
+		FAA753CAB2A76DD2D511A95BF31C1B69 /* SiftUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 269C2730C3229248FC060545784273F3 /* SiftUtils.m */; };
 		FBA10EDD6E1E7704324E66F6B35540CD /* HTTPStubsPathHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5982454D96C43E5479D28D6401FDE2B0 /* HTTPStubsPathHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC184A1BC58797F0F66D552171EA92DD /* ConfrontaQuestionnarie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228018C2C2A967381624FA3B857B5C35 /* ConfrontaQuestionnarie.swift */; };
-		FFBA842FC8EDD868C3434BFCE14EB401 /* SiftCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 373DDC9D6B0A3280947AEFD804C75DCC /* SiftCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE9D5819BB2BA8EBE7EA8C9DA37A4B4E /* SiftQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = F3390489E1243A074186F77251CEEED8 /* SiftQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,125 +146,123 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00C4834E25296B790A45B9981C7BB98E /* Sift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sift.h; path = Sift/Sift.h; sourceTree = "<group>"; };
 		01E3FD952A5F993757B92D0B9F8C8196 /* NSURLRequest+HTTPBodyTesting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+HTTPBodyTesting.m"; path = "Sources/OHHTTPStubs/NSURLRequest+HTTPBodyTesting.m"; sourceTree = "<group>"; };
-		024F1FA1241C03BFF331EF64AEF8C60C /* SiftTokenBucket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftTokenBucket.m; path = Sift/SiftTokenBucket.m; sourceTree = "<group>"; };
-		02604D2CD89EE2AFC41B5D33CB909D67 /* Sift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Sift.m; path = Sift/Sift.m; sourceTree = "<group>"; };
 		03B5742EF350B6CDD6F97741D631BB3B /* OHHTTPStubs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.release.xcconfig; sourceTree = "<group>"; };
 		043D87BCFDB1176F2E46E5DCB99FEA85 /* HTTPStubsResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsResponse.m; path = Sources/OHHTTPStubs/HTTPStubsResponse.m; sourceTree = "<group>"; };
 		056519D8BD3BA8ADB6AB202E89E0FC73 /* KushkiClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KushkiClient.swift; path = Kushki/Classes/KushkiClient.swift; sourceTree = "<group>"; };
-		075CD2F1941C1130E592D503A49FD421 /* Sift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.release.xcconfig; sourceTree = "<group>"; };
 		07B2AC2DF7A859464767A0809FA41B2A /* Pods-kushki-ios_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Example"; path = Pods_kushki_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F384A179640600088D6FA04E1204590 /* SiftUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUtils.m; path = Sift/SiftUtils.m; sourceTree = "<group>"; };
-		0F8F2C5218750D24962B944E7A21215B /* SiftEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftEvent+Private.h"; path = "Sift/SiftEvent+Private.h"; sourceTree = "<group>"; };
+		08A3BDE5914C55B6BA691B531E59BE2B /* SiftUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUtils.h; path = Sift/SiftUtils.h; sourceTree = "<group>"; };
+		0BC5E807DB23BAC0C3CAC251D3D5C1C5 /* Sift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sift-Info.plist"; sourceTree = "<group>"; };
 		10E746F6AA223FCB4642B095917B0E47 /* File */ = {isa = PBXFileReference; includeInIndex = 1; path = File; sourceTree = "<group>"; };
 		159415606555C2A1BD80889AA128580D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17E33041B314FA837A3CAEB9DF3CDE9F /* OHHTTPStubs */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OHHTTPStubs; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D4E697F76EF1A15715BA7003C887D1 /* SiftTokenBucket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftTokenBucket.h; path = Sift/SiftTokenBucket.h; sourceTree = "<group>"; };
 		1B92B357CBC3DD6C87BFB12F5ECF553F /* Pods-kushki-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		1DCE4C51B7D6D1337D9F81FC935B319D /* logo_kushki.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = logo_kushki.png; sourceTree = "<group>"; };
-		1F8A3354BA0AB119D4662E8CB271FB70 /* SiftIosAppStateCollector+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftIosAppStateCollector+Private.h"; path = "Sift/SiftIosAppStateCollector+Private.h"; sourceTree = "<group>"; };
+		1EE3A85FD9C08A2CA47E8A233652C4E8 /* Sift+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sift+Private.h"; path = "Sift/Sift+Private.h"; sourceTree = "<group>"; };
 		228018C2C2A967381624FA3B857B5C35 /* ConfrontaQuestionnarie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionnarie.swift; sourceTree = "<group>"; };
 		22A07797082FC238B0450CB4DCB08E71 /* Pods-kushki-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		22B16179F75B37393E642A4BC84B8B80 /* Sift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Sift.m; path = Sift/Sift.m; sourceTree = "<group>"; };
+		22C8A9B1AF483ABD9C65986EF6B405F0 /* SiftDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftDebug.h; path = Sift/SiftDebug.h; sourceTree = "<group>"; };
+		23E414F1D31F7627E7ECB12E67D4E352 /* SiftIosAppState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppState.h; path = Sift/SiftIosAppState.h; sourceTree = "<group>"; };
 		2426DB28B80797F42D170141895D9908 /* Pods-kushki-ios_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Example-frameworks.sh"; sourceTree = "<group>"; };
 		256E01F784211604753743D30AD0A973 /* SecureValidationResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SecureValidationResponse.swift; sourceTree = "<group>"; };
-		2811E826A0D6689973F7BBDE28DB2307 /* NSData+GZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+GZIP.h"; path = "Sift/NSData+GZIP.h"; sourceTree = "<group>"; };
+		269C2730C3229248FC060545784273F3 /* SiftUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUtils.m; path = Sift/SiftUtils.m; sourceTree = "<group>"; };
 		2C440B2E08B85154D369BD9DF2B05159 /* EndPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		3024B312FAD8A5F499EB927F782DE7F3 /* SiftTokenBucket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftTokenBucket.h; path = Sift/SiftTokenBucket.h; sourceTree = "<group>"; };
 		3076265417A7AD958C52A4DCB81A9C59 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		3209F4688FBF6BE4CADD0CB74BDFF4FA /* SiftIosAppState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppState.m; path = Sift/SiftIosAppState.m; sourceTree = "<group>"; };
 		3442A6C4543FCF6B0281445327870E78 /* Kushki */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kushki; path = Kushki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34904730BFB6177E7D41AF42458650C9 /* SiftUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUploader.h; path = Sift/SiftUploader.h; sourceTree = "<group>"; };
-		373DDC9D6B0A3280947AEFD804C75DCC /* SiftCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCompatibility.h; path = Sift/SiftCompatibility.h; sourceTree = "<group>"; };
 		3F331E78E0DD02D95C857C4A24B12372 /* Pods-kushki-ios_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-kushki-ios_Example.modulemap"; sourceTree = "<group>"; };
 		41647ECC100A4EFAE1F597FF7C2EAE03 /* Pods-kushki-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
-		437E6F69C3AAD3D3F62785F23AAE9CF1 /* SiftQueueConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueueConfig.h; path = Sift/SiftQueueConfig.h; sourceTree = "<group>"; };
+		422C4E20E9A14C675994526955853212 /* TaskManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TaskManager.h; path = Sift/TaskManager.h; sourceTree = "<group>"; };
 		439C9C0054DE1AD6681841284AD41FB0 /* Kushki.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Kushki.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		44F170DA580328F233E22CAC2A798E5C /* Pods-kushki-ios_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Example-dummy.m"; sourceTree = "<group>"; };
+		464AF0A04700D48CD943CE373CB016EC /* SiftIosAppStateCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppStateCollector.h; path = Sift/SiftIosAppStateCollector.h; sourceTree = "<group>"; };
 		494ED028FC3E468A7E0634C40527D399 /* Kushki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.debug.xcconfig; sourceTree = "<group>"; };
-		4A4467924EE3F29BF123F683B036A23B /* SiftHtDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftHtDictionary.h; path = Sift/SiftHtDictionary.h; sourceTree = "<group>"; };
 		4C633F580EFEDAD432E65E2CD7E753D3 /* Kushki.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kushki.modulemap; sourceTree = "<group>"; };
 		50F158920022AA326E78044E30334A5D /* any_bank.svg */ = {isa = PBXFileReference; includeInIndex = 1; path = any_bank.svg; sourceTree = "<group>"; };
 		51831BF1F59E2DA86D9A3D81B36537E1 /* Transfer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		553C0396200A02A5D1F37CC4919874E7 /* OHHTTPStubs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OHHTTPStubs.modulemap; sourceTree = "<group>"; };
+		56DEC3DC6EABBDC916BCCE19E96A832E /* Sift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sift-umbrella.h"; sourceTree = "<group>"; };
 		576D5DA3D44C45BF310C0CC0535847CD /* TokenRequest3DS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenRequest3DS.swift; sourceTree = "<group>"; };
 		57F479DCCAC6C45B85F0AA6456664497 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		58411C3BCF37E7655E11886B620DB077 /* Sift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sift-umbrella.h"; sourceTree = "<group>"; };
 		5982454D96C43E5479D28D6401FDE2B0 /* HTTPStubsPathHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsPathHelpers.h; path = Sources/OHHTTPStubs/include/HTTPStubsPathHelpers.h; sourceTree = "<group>"; };
 		59B3F0DAF4C85F05FCC4AACE1C57CD77 /* HTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTTPStubsResponse+JSON.h"; path = "Sources/OHHTTPStubs/include/HTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
 		5B6052D5AF467CD6BD24B158C4C68291 /* OTPSandboxViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OTPSandboxViewController.xib; sourceTree = "<group>"; };
 		5BD2E46CA4C37A9B69FB8396CC89703B /* Pods-kushki-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-kushki-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		5E0884D8BBD8F2DF4EEDA937A3880775 /* SiftCircularBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftCircularBuffer.m; path = Sift/SiftCircularBuffer.m; sourceTree = "<group>"; };
 		6113F547043711BA5BECCE2D0CC649CE /* CreditCardEspecifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditCardEspecifications.swift; sourceTree = "<group>"; };
-		614D212021E82530B5B4517F8ED3726F /* NSData+GZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZIP.m"; path = "Sift/NSData+GZIP.m"; sourceTree = "<group>"; };
 		62C7B350FFC92EE688043451DF46F440 /* Cash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Cash.swift; sourceTree = "<group>"; };
 		63F01492AF5AC23B787A09B583D0CE37 /* Pods-kushki-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6493A210FAB665E7F1ED332E267560D5 /* Pods-kushki-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		64A2F8A6B36CB8042CFF68C7916B7522 /* SiftQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftQueue.m; path = Sift/SiftQueue.m; sourceTree = "<group>"; };
 		65FAF0DB185F993A51D187BDBBA50143 /* OHHTTPStubs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OHHTTPStubs.debug.xcconfig; sourceTree = "<group>"; };
 		6751A8296959D832E6249DD4FA03B280 /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; name = Assets; path = Kushki/Assets/Assets; sourceTree = "<group>"; };
 		67CC9F18B5BE7F8FB85AF2E9D7A4B3BA /* ConfrontaQuestionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaQuestionOptions.swift; sourceTree = "<group>"; };
-		67F6A2636855855A54DD4A555E59F212 /* SiftCircularBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftCircularBuffer.m; path = Sift/SiftCircularBuffer.m; sourceTree = "<group>"; };
 		6B400DA0DCE3E51FD9323B28564AE725 /* KushkiEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KushkiEnvironment.swift; sourceTree = "<group>"; };
-		6BC9F500694BEFD1A03AF3980A1D7BD1 /* Sift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sift.modulemap; sourceTree = "<group>"; };
-		6CFBB26D9BEBACAE1F3D5FE10884B627 /* SiftIosAppState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppState.m; path = Sift/SiftIosAppState.m; sourceTree = "<group>"; };
+		6C2CC484C34C5B96B92BF2604AAE59BA /* SiftUploader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUploader.m; path = Sift/SiftUploader.m; sourceTree = "<group>"; };
+		6D056CC0B518721CC3F2C716351EFFFB /* Sift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sift-dummy.m"; sourceTree = "<group>"; };
 		6F4B577A1A6DE0FAD40A17A399C24CD1 /* Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		6FA3BCA16423D634F0F515DFD515BD51 /* SiftIosDevicePropertiesCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDevicePropertiesCollector.h; path = Sift/SiftIosDevicePropertiesCollector.h; sourceTree = "<group>"; };
 		7022F9CDB95CE717C010C84F8323EB33 /* HTTPStubsPathHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsPathHelpers.m; path = Sources/OHHTTPStubs/HTTPStubsPathHelpers.m; sourceTree = "<group>"; };
 		705390F5ECB54C6204DD84E87792D928 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		7309F5AE8619540572746469C61AE596 /* SiftUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUtils.h; path = Sift/SiftUtils.h; sourceTree = "<group>"; };
+		706E79B68D0141515E7A2CE3541B7954 /* Sift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.debug.xcconfig; sourceTree = "<group>"; };
 		798A2B61EF68E6A173DDCE3C132A528B /* HTTPStubs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubs.h; path = Sources/OHHTTPStubs/include/HTTPStubs.h; sourceTree = "<group>"; };
 		79950B40F480863764AC0ECC34CC1EF7 /* Kushki-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-prefix.pch"; sourceTree = "<group>"; };
+		7C3382875B5963D74FF1030120F8A49F /* SiftIosDeviceProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDeviceProperties.m; path = Sift/SiftIosDeviceProperties.m; sourceTree = "<group>"; };
+		7CD930AF06E18C30FFE3982DEA9069C5 /* Sift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sift.modulemap; sourceTree = "<group>"; };
 		7D99477DABC1C7511774219390F99417 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		7DB521A2F6982F34E8619AAD77F46DD8 /* Pods-kushki-ios_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Example-umbrella.h"; sourceTree = "<group>"; };
 		7E1E1931D927294CFA26167DB542E5D0 /* Bank.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
-		81DB87D2B4DFD5CCE14F9FD5511A87AB /* SiftIosDevicePropertiesCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDevicePropertiesCollector.m; path = Sift/SiftIosDevicePropertiesCollector.m; sourceTree = "<group>"; };
-		8568723A4A7E67D85F56C63137EFC409 /* SiftDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftDebug.h; path = Sift/SiftDebug.h; sourceTree = "<group>"; };
+		840CF20F45D618A671CAC555AD347C4E /* TaskManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TaskManager.m; path = Sift/TaskManager.m; sourceTree = "<group>"; };
+		85937E135128CAAFC9A8F1841A6433C2 /* SiftUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftUploader.h; path = Sift/SiftUploader.h; sourceTree = "<group>"; };
 		85F7649623F0BB9D1E731F9293883694 /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardinalMobile.framework; path = Kushki/Frameworks/CardinalMobile.framework; sourceTree = "<group>"; };
 		8857D92E4C2D9BC419F7A03527428712 /* OHHTTPStubs-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OHHTTPStubs-Info.plist"; sourceTree = "<group>"; };
-		8B843F5099CC2355C45DD32F51764C28 /* Sift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sift-Info.plist"; sourceTree = "<group>"; };
-		931AD906BC9882A5E451D2D5DE640A39 /* SiftEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftEvent.m; path = Sift/SiftEvent.m; sourceTree = "<group>"; };
+		8D326BF6ED8ECCBB206EB6A9B4E20E79 /* SiftIosAppStateCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppStateCollector.m; path = Sift/SiftIosAppStateCollector.m; sourceTree = "<group>"; };
+		8ED9637C245C9A0E9D17D961A5D99A7F /* SiftCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCompatibility.h; path = Sift/SiftCompatibility.h; sourceTree = "<group>"; };
 		9388093FE2CAFC752A9D6DC3C62CB601 /* HTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "HTTPStubs+NSURLSessionConfiguration.m"; path = "Sources/OHHTTPStubs/HTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
 		96C5C153BE4CF925BE46DDF8611ABC9F /* Pods-kushki-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-kushki-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		96FEAEB7A9BD9A919EA9A0BD1A3BA3CF /* Sift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Sift; path = Sift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A0E107EAA24BBEBFAA84B4C3C6662D /* Sift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sift-prefix.pch"; sourceTree = "<group>"; };
+		980EF20188593F7D507038EF209296F7 /* Sift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sift.h; path = Sift/Sift.h; sourceTree = "<group>"; };
+		99DC3B336B7B64B05E3986346235E863 /* SiftQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftQueue.m; path = Sift/SiftQueue.m; sourceTree = "<group>"; };
 		9A10576128B41C1C8420123C81070EE1 /* JwtResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JwtResponse.swift; sourceTree = "<group>"; };
 		9C10ED87001E1C60AFAA852FE601405D /* Pods-kushki-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-kushki-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9CCBCFF211FAD0AEB867704B12990AC8 /* SiftIosDeviceProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDeviceProperties.m; path = Sift/SiftIosDeviceProperties.m; sourceTree = "<group>"; };
 		9CCC2E4E44F3953AB6FB5D2744B40222 /* SecureValidation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SecureValidation.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DC8A0C4A7E8C8A464AB5E16C07B4961 /* SiftIosDeviceProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDeviceProperties.h; path = Sift/SiftIosDeviceProperties.h; sourceTree = "<group>"; };
+		9E0AD7369C4C874105B7A732564D8795 /* Sift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.release.xcconfig; sourceTree = "<group>"; };
 		A0E0C2C0603896DDE769DC4DD9A20FB4 /* CardInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		A37756674D9DA7CD915E2D6AD4795DF9 /* OTPSandboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTPSandboxViewController.swift; sourceTree = "<group>"; };
+		A3BC64ACEF8893C035A648D2739D8ACC /* SiftQueueConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueueConfig.h; path = Sift/SiftQueueConfig.h; sourceTree = "<group>"; };
 		A6EC2750D679FC082BBC534004627729 /* Pods-kushki-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-kushki-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A87A76E5342A2458044113926D8C830F /* Amount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		A886AA74B83222C4797921B03366E023 /* HTTPStubsMethodSwizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubsMethodSwizzling.m; path = Sources/OHHTTPStubs/HTTPStubsMethodSwizzling.m; sourceTree = "<group>"; };
 		A93524A6C14854577BC763B9B8E96B39 /* ConfrontaResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfrontaResponse.swift; sourceTree = "<group>"; };
-		AB799223031D878A9D00DC4CA1D28619 /* SiftIosAppStateCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppStateCollector.h; path = Sift/SiftIosAppStateCollector.h; sourceTree = "<group>"; };
 		ABB884B1A2C59FD875DC008C83ADC742 /* Kushki-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Kushki-Info.plist"; sourceTree = "<group>"; };
 		AC83375FF38A8429822A1D22EE203659 /* Kushki.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kushki.swift; path = Kushki/Classes/Kushki.swift; sourceTree = "<group>"; };
-		AC9428A119356511F39F3BACF3D51B4F /* Sift+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sift+Private.h"; path = "Sift/Sift+Private.h"; sourceTree = "<group>"; };
 		AE35CBC3944C8070DAFDD454E9B5C762 /* OHHTTPStubs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-prefix.pch"; sourceTree = "<group>"; };
-		AE876D8D2D1EB8A4A5A88930A5FFB370 /* Sift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sift-prefix.pch"; sourceTree = "<group>"; };
 		B151CF8E43B25E48A32E832D36BFB17C /* MerchantSettingsResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MerchantSettingsResponse.swift; sourceTree = "<group>"; };
-		B3B5723CE63B54FA4C5BA667C5C5E6EA /* Sift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sift-dummy.m"; sourceTree = "<group>"; };
 		B3E2D1AAD676F65CD27A82023597D5FA /* HTTPStubs.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPStubs.m; path = Sources/OHHTTPStubs/HTTPStubs.m; sourceTree = "<group>"; };
-		B4E30204C52477AAE4836C56A2CFF62F /* SiftHtDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftHtDictionary.m; path = Sift/SiftHtDictionary.m; sourceTree = "<group>"; };
-		B66A00222F0ACD9A7CD79F7997095946 /* SiftIosDevicePropertiesCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDevicePropertiesCollector.h; path = Sift/SiftIosDevicePropertiesCollector.h; sourceTree = "<group>"; };
 		B7F24390F34E0B8C4C9E27499B6880B4 /* MerchantSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MerchantSettings.swift; sourceTree = "<group>"; };
-		B89A472496DE4D3A87EB368E8AD5B3E2 /* SiftUploader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftUploader.m; path = Sift/SiftUploader.m; sourceTree = "<group>"; };
 		B8FDC9F25AB38094596B56E81C216AEC /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = Sources/OHHTTPStubs/include/Compatibility.h; sourceTree = "<group>"; };
 		BB1668DFA6E5FAC7FEC0963EDDEEDE93 /* Pods-kushki-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		BC454EF06E24066C528DCB6616FFB1FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BD97E80A98EFA0F3A963857F63397F8F /* Pods-kushki-ios_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-kushki-ios_Tests"; path = Pods_kushki_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF261927E5E709AB354E7202AAB94F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		BFA5B83248E4F294869E9BF04C99FDF4 /* Sift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sift.debug.xcconfig; sourceTree = "<group>"; };
+		C0ADA2253B37F80C3CE26B59C2A957D7 /* SiftEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftEvent.h; path = Sift/SiftEvent.h; sourceTree = "<group>"; };
+		C0FF840B2D1F32B8E2808451D2B38328 /* NSData+GZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZIP.m"; path = "Sift/NSData+GZIP.m"; sourceTree = "<group>"; };
+		C151E70358C92ABB45F23C28CE7AC5C2 /* NSData+GZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+GZIP.h"; path = "Sift/NSData+GZIP.h"; sourceTree = "<group>"; };
 		C1BCE07DBD3350BBA9E31589F68C4CF1 /* card_network.svg */ = {isa = PBXFileReference; includeInIndex = 1; path = card_network.svg; sourceTree = "<group>"; };
-		CCAFBF58CD35A489605A1A235921D7BF /* SiftQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueue.h; path = Sift/SiftQueue.h; sourceTree = "<group>"; };
+		CA64B163045BB5EEB72E5F90DCB936BE /* SiftCircularBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCircularBuffer.h; path = Sift/SiftCircularBuffer.h; sourceTree = "<group>"; };
 		CF7C50A280F81A4B0D4126A7515131FB /* HTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "HTTPStubsResponse+JSON.m"; path = "Sources/OHHTTPStubs/HTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
+		D0FE95F64F50D9F5B4A76C387BE9FC2B /* SiftEvent+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftEvent+Private.h"; path = "Sift/SiftEvent+Private.h"; sourceTree = "<group>"; };
 		D1EBA72AA6360EE0B9EDF57C4E1D740F /* Card.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D1F20102133C0D993403C9BE36274DC1 /* SiftEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftEvent.m; path = Sift/SiftEvent.m; sourceTree = "<group>"; };
 		D2CF77EE71ADCBEA316E19D8B218B2DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		D38687E255B0641D3BCDA7097984E455 /* SiftIosAppState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosAppState.h; path = Sift/SiftIosAppState.h; sourceTree = "<group>"; };
 		D510C281B55E980F309B677772277C7C /* SiftScienceObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiftScienceObject.swift; sourceTree = "<group>"; };
 		D52A6C298584F200F479132FB211B2C7 /* OHHTTPStubs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs-umbrella.h"; sourceTree = "<group>"; };
 		D610826CE27AC962EE7FFF4F271C878A /* HTTPStubsResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsResponse.h; path = Sources/OHHTTPStubs/include/HTTPStubsResponse.h; sourceTree = "<group>"; };
 		D808C61307B2246B198DB64891A472A8 /* Kushki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kushki.release.xcconfig; sourceTree = "<group>"; };
-		D9BB7949F384039B31B7365766269183 /* SiftEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftEvent.h; path = Sift/SiftEvent.h; sourceTree = "<group>"; };
+		DFE3552056FED1031F6B9CFF55F4BC25 /* SiftTokenBucket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftTokenBucket.m; path = Sift/SiftTokenBucket.m; sourceTree = "<group>"; };
 		E1B758CEDA6E54895484DCFA3F6E36CB /* Pods-kushki-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		E278E35DCEC17E03A5FEBBE70A5AD86C /* OHHTTPStubsSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OHHTTPStubsSwift.swift; path = Sources/OHHTTPStubsSwift/OHHTTPStubsSwift.swift; sourceTree = "<group>"; };
 		E47695D2E402FAC22D29F81DEEE711F7 /* Pods-kushki-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-kushki-ios_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -272,12 +270,14 @@
 		E75C26F25E5634F0AE80AEFF44B2A23B /* NSURLRequest+HTTPBodyTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+HTTPBodyTesting.h"; path = "Sources/OHHTTPStubs/include/NSURLRequest+HTTPBodyTesting.h"; sourceTree = "<group>"; };
 		E909EBCCA9776E1B81CD2680B97F9845 /* Security.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		E943CF6C9CDBB2CA88247A495E44A8D1 /* Pods-kushki-ios_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Example-Info.plist"; sourceTree = "<group>"; };
+		EA606E4F1A2005781CF754C1A46D747F /* SiftIosDeviceProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftIosDeviceProperties.h; path = Sift/SiftIosDeviceProperties.h; sourceTree = "<group>"; };
 		EC54A555446D07D165AAA4E7A7E280B3 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED2F093CE470572A7675A489DAEFE680 /* HTTPStubsMethodSwizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTTPStubsMethodSwizzling.h; path = Sources/OHHTTPStubs/HTTPStubsMethodSwizzling.h; sourceTree = "<group>"; };
 		ED9E9E9EA61ABF76577E5B641A9BED09 /* OHHTTPStubs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs-dummy.m"; sourceTree = "<group>"; };
-		EDEEB0DC91ECF4F514E07F73F930DDAA /* SiftCircularBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftCircularBuffer.h; path = Sift/SiftCircularBuffer.h; sourceTree = "<group>"; };
-		EE8F073F54F5D9890F32500548483EB1 /* SiftIosAppStateCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosAppStateCollector.m; path = Sift/SiftIosAppStateCollector.m; sourceTree = "<group>"; };
+		F1A089A8482BBC9A5EDC4327EF657462 /* SiftIosAppStateCollector+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SiftIosAppStateCollector+Private.h"; path = "Sift/SiftIosAppStateCollector+Private.h"; sourceTree = "<group>"; };
+		F3390489E1243A074186F77251CEEED8 /* SiftQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiftQueue.h; path = Sift/SiftQueue.h; sourceTree = "<group>"; };
 		F34F024B3DC07DF9204A24CC4C4CA81E /* Kushki-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kushki-umbrella.h"; sourceTree = "<group>"; };
+		F685DC0B2B5E4B29471B247A1CF9EF99 /* SiftIosDevicePropertiesCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SiftIosDevicePropertiesCollector.m; path = Sift/SiftIosDevicePropertiesCollector.m; sourceTree = "<group>"; };
 		F6F3F6CEA04F0BF439630835EE3D97A2 /* Pods-kushki-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-kushki-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -367,6 +367,47 @@
 			path = Kushki/Classes/Views;
 			sourceTree = "<group>";
 		};
+		293E5D47F2ABA34D9AAC5A2294A7699E /* Sift */ = {
+			isa = PBXGroup;
+			children = (
+				C151E70358C92ABB45F23C28CE7AC5C2 /* NSData+GZIP.h */,
+				C0FF840B2D1F32B8E2808451D2B38328 /* NSData+GZIP.m */,
+				980EF20188593F7D507038EF209296F7 /* Sift.h */,
+				22B16179F75B37393E642A4BC84B8B80 /* Sift.m */,
+				1EE3A85FD9C08A2CA47E8A233652C4E8 /* Sift+Private.h */,
+				CA64B163045BB5EEB72E5F90DCB936BE /* SiftCircularBuffer.h */,
+				5E0884D8BBD8F2DF4EEDA937A3880775 /* SiftCircularBuffer.m */,
+				8ED9637C245C9A0E9D17D961A5D99A7F /* SiftCompatibility.h */,
+				22C8A9B1AF483ABD9C65986EF6B405F0 /* SiftDebug.h */,
+				C0ADA2253B37F80C3CE26B59C2A957D7 /* SiftEvent.h */,
+				D1F20102133C0D993403C9BE36274DC1 /* SiftEvent.m */,
+				D0FE95F64F50D9F5B4A76C387BE9FC2B /* SiftEvent+Private.h */,
+				23E414F1D31F7627E7ECB12E67D4E352 /* SiftIosAppState.h */,
+				3209F4688FBF6BE4CADD0CB74BDFF4FA /* SiftIosAppState.m */,
+				464AF0A04700D48CD943CE373CB016EC /* SiftIosAppStateCollector.h */,
+				8D326BF6ED8ECCBB206EB6A9B4E20E79 /* SiftIosAppStateCollector.m */,
+				F1A089A8482BBC9A5EDC4327EF657462 /* SiftIosAppStateCollector+Private.h */,
+				EA606E4F1A2005781CF754C1A46D747F /* SiftIosDeviceProperties.h */,
+				7C3382875B5963D74FF1030120F8A49F /* SiftIosDeviceProperties.m */,
+				6FA3BCA16423D634F0F515DFD515BD51 /* SiftIosDevicePropertiesCollector.h */,
+				F685DC0B2B5E4B29471B247A1CF9EF99 /* SiftIosDevicePropertiesCollector.m */,
+				F3390489E1243A074186F77251CEEED8 /* SiftQueue.h */,
+				99DC3B336B7B64B05E3986346235E863 /* SiftQueue.m */,
+				A3BC64ACEF8893C035A648D2739D8ACC /* SiftQueueConfig.h */,
+				18D4E697F76EF1A15715BA7003C887D1 /* SiftTokenBucket.h */,
+				DFE3552056FED1031F6B9CFF55F4BC25 /* SiftTokenBucket.m */,
+				85937E135128CAAFC9A8F1841A6433C2 /* SiftUploader.h */,
+				6C2CC484C34C5B96B92BF2604AAE59BA /* SiftUploader.m */,
+				08A3BDE5914C55B6BA691B531E59BE2B /* SiftUtils.h */,
+				269C2730C3229248FC060545784273F3 /* SiftUtils.m */,
+				422C4E20E9A14C675994526955853212 /* TaskManager.h */,
+				840CF20F45D618A671CAC555AD347C4E /* TaskManager.m */,
+				F4CDABB12DC60936BBCE26D4F36D2868 /* Support Files */,
+			);
+			name = Sift;
+			path = Sift;
+			sourceTree = "<group>";
+		};
 		2A054ECBD4F98838B66486F341899959 /* Pods-kushki-ios_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				6FE5F1D8D44CAE87C67841D2A5C4F7D1 /* OHHTTPStubs */,
-				9083AEE287AE87113B4EC99BEE85916B /* Sift */,
+				293E5D47F2ABA34D9AAC5A2294A7699E /* Sift */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -417,21 +458,6 @@
 				CF7C50A280F81A4B0D4126A7515131FB /* HTTPStubsResponse+JSON.m */,
 			);
 			name = JSON;
-			sourceTree = "<group>";
-		};
-		4338F53B5A56953C0BDA86D8585D3E2A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6BC9F500694BEFD1A03AF3980A1D7BD1 /* Sift.modulemap */,
-				B3B5723CE63B54FA4C5BA667C5C5E6EA /* Sift-dummy.m */,
-				8B843F5099CC2355C45DD32F51764C28 /* Sift-Info.plist */,
-				AE876D8D2D1EB8A4A5A88930A5FFB370 /* Sift-prefix.pch */,
-				58411C3BCF37E7655E11886B620DB077 /* Sift-umbrella.h */,
-				BFA5B83248E4F294869E9BF04C99FDF4 /* Sift.debug.xcconfig */,
-				075CD2F1941C1130E592D503A49FD421 /* Sift.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Sift";
 			sourceTree = "<group>";
 		};
 		5EBC703D318FC35E7FE152A44C3BB5D2 /* iOS */ = {
@@ -509,47 +535,6 @@
 				57F479DCCAC6C45B85F0AA6456664497 /* README.md */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		9083AEE287AE87113B4EC99BEE85916B /* Sift */ = {
-			isa = PBXGroup;
-			children = (
-				2811E826A0D6689973F7BBDE28DB2307 /* NSData+GZIP.h */,
-				614D212021E82530B5B4517F8ED3726F /* NSData+GZIP.m */,
-				00C4834E25296B790A45B9981C7BB98E /* Sift.h */,
-				02604D2CD89EE2AFC41B5D33CB909D67 /* Sift.m */,
-				AC9428A119356511F39F3BACF3D51B4F /* Sift+Private.h */,
-				EDEEB0DC91ECF4F514E07F73F930DDAA /* SiftCircularBuffer.h */,
-				67F6A2636855855A54DD4A555E59F212 /* SiftCircularBuffer.m */,
-				373DDC9D6B0A3280947AEFD804C75DCC /* SiftCompatibility.h */,
-				8568723A4A7E67D85F56C63137EFC409 /* SiftDebug.h */,
-				D9BB7949F384039B31B7365766269183 /* SiftEvent.h */,
-				931AD906BC9882A5E451D2D5DE640A39 /* SiftEvent.m */,
-				0F8F2C5218750D24962B944E7A21215B /* SiftEvent+Private.h */,
-				4A4467924EE3F29BF123F683B036A23B /* SiftHtDictionary.h */,
-				B4E30204C52477AAE4836C56A2CFF62F /* SiftHtDictionary.m */,
-				D38687E255B0641D3BCDA7097984E455 /* SiftIosAppState.h */,
-				6CFBB26D9BEBACAE1F3D5FE10884B627 /* SiftIosAppState.m */,
-				AB799223031D878A9D00DC4CA1D28619 /* SiftIosAppStateCollector.h */,
-				EE8F073F54F5D9890F32500548483EB1 /* SiftIosAppStateCollector.m */,
-				1F8A3354BA0AB119D4662E8CB271FB70 /* SiftIosAppStateCollector+Private.h */,
-				9DC8A0C4A7E8C8A464AB5E16C07B4961 /* SiftIosDeviceProperties.h */,
-				9CCBCFF211FAD0AEB867704B12990AC8 /* SiftIosDeviceProperties.m */,
-				B66A00222F0ACD9A7CD79F7997095946 /* SiftIosDevicePropertiesCollector.h */,
-				81DB87D2B4DFD5CCE14F9FD5511A87AB /* SiftIosDevicePropertiesCollector.m */,
-				CCAFBF58CD35A489605A1A235921D7BF /* SiftQueue.h */,
-				64A2F8A6B36CB8042CFF68C7916B7522 /* SiftQueue.m */,
-				437E6F69C3AAD3D3F62785F23AAE9CF1 /* SiftQueueConfig.h */,
-				3024B312FAD8A5F499EB927F782DE7F3 /* SiftTokenBucket.h */,
-				024F1FA1241C03BFF331EF64AEF8C60C /* SiftTokenBucket.m */,
-				34904730BFB6177E7D41AF42458650C9 /* SiftUploader.h */,
-				B89A472496DE4D3A87EB368E8AD5B3E2 /* SiftUploader.m */,
-				7309F5AE8619540572746469C61AE596 /* SiftUtils.h */,
-				0F384A179640600088D6FA04E1204590 /* SiftUtils.m */,
-				4338F53B5A56953C0BDA86D8585D3E2A /* Support Files */,
-			);
-			name = Sift;
-			path = Sift;
 			sourceTree = "<group>";
 		};
 		92F05891351F612EBBCBC07F05E9EC32 /* Kushki */ = {
@@ -681,6 +666,21 @@
 			path = Kushki/Assets/Assets;
 			sourceTree = "<group>";
 		};
+		F4CDABB12DC60936BBCE26D4F36D2868 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CD930AF06E18C30FFE3982DEA9069C5 /* Sift.modulemap */,
+				6D056CC0B518721CC3F2C716351EFFFB /* Sift-dummy.m */,
+				0BC5E807DB23BAC0C3CAC251D3D5C1C5 /* Sift-Info.plist */,
+				97A0E107EAA24BBEBFAA84B4C3C6662D /* Sift-prefix.pch */,
+				56DEC3DC6EABBDC916BCCE19E96A832E /* Sift-umbrella.h */,
+				706E79B68D0141515E7A2CE3541B7954 /* Sift.debug.xcconfig */,
+				9E0AD7369C4C874105B7A732564D8795 /* Sift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Sift";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -715,30 +715,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B783458D99C012A36D2279C4B8CE90BE /* Headers */ = {
+		CEB56CAB206FE9CDAF6E4F0A07D3A242 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE525D95FCA10570020299E63A6D9846 /* NSData+GZIP.h in Headers */,
-				9ED302D8D10058BCEC59636BF6501CF0 /* Sift.h in Headers */,
-				F3B3B19E2E4C2516C78B9B9814E2DF58 /* Sift+Private.h in Headers */,
-				67D967E8093AE3D358FDFEF9624BF6D5 /* Sift-umbrella.h in Headers */,
-				B729EF801F8504D62F5FE5D9380145E9 /* SiftCircularBuffer.h in Headers */,
-				FFBA842FC8EDD868C3434BFCE14EB401 /* SiftCompatibility.h in Headers */,
-				C2075BB27BBB64D5C6AD5C24E97BB0A8 /* SiftDebug.h in Headers */,
-				2A59FE397871DD47FE40575EB57F3BC6 /* SiftEvent.h in Headers */,
-				C7B76338D17639E16749C5904D35FC7A /* SiftEvent+Private.h in Headers */,
-				10A4A200774EF5BE833B22A2DEC92AC3 /* SiftHtDictionary.h in Headers */,
-				90D8DD79701028382E1809F08CFA6FA0 /* SiftIosAppState.h in Headers */,
-				98EB733EC4F309C23230606903BEC80D /* SiftIosAppStateCollector.h in Headers */,
-				813F83A6EAE6BAA7A302507BDE402A1A /* SiftIosAppStateCollector+Private.h in Headers */,
-				BD60D6A07D242F29008D5B6350F2A560 /* SiftIosDeviceProperties.h in Headers */,
-				9F8B74EAFD3EF702D59C6758DE329332 /* SiftIosDevicePropertiesCollector.h in Headers */,
-				AB7D89D6F336E1F7D9FEDE178F5689B7 /* SiftQueue.h in Headers */,
-				E638BF95EF5D005ACF893A414DA70816 /* SiftQueueConfig.h in Headers */,
-				7D0DBAD64B485ACF46B66486F6763A3F /* SiftTokenBucket.h in Headers */,
-				EB363C85CEE94D8E503243172CD752A8 /* SiftUploader.h in Headers */,
-				B91A548690E3C99D61BA4A25F8F5C9B8 /* SiftUtils.h in Headers */,
+				F53A564ACEE23BC48B80503B35E6C91C /* NSData+GZIP.h in Headers */,
+				D111BD303AE0942CDD63C947A0E42E31 /* Sift.h in Headers */,
+				05F911850B0C51ABD6FC46EE37BC8478 /* Sift+Private.h in Headers */,
+				D5824CA9805D486B21424616DBD667C5 /* Sift-umbrella.h in Headers */,
+				A948D27067C2E45D39498A4AB69BB229 /* SiftCircularBuffer.h in Headers */,
+				C0E7601CB0E8DF38E44BAFF3A746930E /* SiftCompatibility.h in Headers */,
+				CAEE40A0FE4954121C6E8DB037742571 /* SiftDebug.h in Headers */,
+				4790D7B1AEBD6D3A0F8CC58D325FA8A3 /* SiftEvent.h in Headers */,
+				D4FF124990906C598DB8B8AB62983912 /* SiftEvent+Private.h in Headers */,
+				1D7D55B7CB918B64F7EFC3DD1A924F20 /* SiftIosAppState.h in Headers */,
+				3AC9E20AABF9AD3BA0F2FDE9EBDE0B80 /* SiftIosAppStateCollector.h in Headers */,
+				4B12502F02A099CE91E0316E569BFFC2 /* SiftIosAppStateCollector+Private.h in Headers */,
+				5057151824318824EDBAD5C3548D5A59 /* SiftIosDeviceProperties.h in Headers */,
+				1CCD62E695160BC0F8660C07787637EC /* SiftIosDevicePropertiesCollector.h in Headers */,
+				FE9D5819BB2BA8EBE7EA8C9DA37A4B4E /* SiftQueue.h in Headers */,
+				D2D1F10B9FDC34CCAF7BD5B5785BCFBF /* SiftQueueConfig.h in Headers */,
+				A1C4DB4D5D9B3BADE9D851E1008EEB82 /* SiftTokenBucket.h in Headers */,
+				3CD2D539315B3001D931DD620D2BE4B5 /* SiftUploader.h in Headers */,
+				37D73A1BEFD536DCD251B568372D1999 /* SiftUtils.h in Headers */,
+				4181087B0A67C54B6C1AB766F2849AAB /* TaskManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,8 +795,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B2F14C3D4DC346AF80CCE991981E02 /* Build configuration list for PBXNativeTarget "Sift" */;
 			buildPhases = (
-				B783458D99C012A36D2279C4B8CE90BE /* Headers */,
-				EC2EC7FC6F336218D47CA28879363CEA /* Sources */,
+				CEB56CAB206FE9CDAF6E4F0A07D3A242 /* Headers */,
+				B932D2BBACD524C7103932F464BD9E8D /* Sources */,
 				563A5965F513C586B7DE25CC8516EE45 /* Frameworks */,
 				562643F0D7FDB4428BAE757DB72638B7 /* Resources */,
 			);
@@ -947,6 +947,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B932D2BBACD524C7103932F464BD9E8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E2C8F0154C2F2F983E2C2A59777B83E /* NSData+GZIP.m in Sources */,
+				42707BAFCA1FFE299A45C70B6DCB5D44 /* Sift.m in Sources */,
+				CBAB796282DC51BCE27A24EB1576FB11 /* Sift-dummy.m in Sources */,
+				5EDB15CE7E64BA4AA72A3606B4700B5D /* SiftCircularBuffer.m in Sources */,
+				5F0B4B698CAD96DFB062919FC18FBA4F /* SiftEvent.m in Sources */,
+				A4B765072B6BFB2C6094EF5C6927D5D2 /* SiftIosAppState.m in Sources */,
+				C27863BC448719BADB29CDA62F2EB98D /* SiftIosAppStateCollector.m in Sources */,
+				EB345C899B8C3C4D4FFA6C39D0459BE3 /* SiftIosDeviceProperties.m in Sources */,
+				55419CB973EB6E43E26DCC8699E6D7EB /* SiftIosDevicePropertiesCollector.m in Sources */,
+				21FD2F09830F4137EF47520DFBBBFCC3 /* SiftQueue.m in Sources */,
+				3FCC3A5899FA712350A6050749AD12B6 /* SiftTokenBucket.m in Sources */,
+				34166E066873518A34F6C1BE9CF1EDDC /* SiftUploader.m in Sources */,
+				FAA753CAB2A76DD2D511A95BF31C1B69 /* SiftUtils.m in Sources */,
+				6A0756935BF251D0C795C903AAEC52FF /* TaskManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0444E807542FE87641EDC245A09A324 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -978,27 +999,6 @@
 				866BF155E9AB3A58F12ACC61ED44655C /* TokenRequest3DS.swift in Sources */,
 				F02ED57634B4B4342AD66C79BD3AFCEE /* Transaction.swift in Sources */,
 				D3D2746C28C8673237569CF5E699644C /* Transfer.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC2EC7FC6F336218D47CA28879363CEA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41CBC77599980B56D524E5AC0D1BE070 /* NSData+GZIP.m in Sources */,
-				841C54CF80AF0CC944BE1CB27EEDC18C /* Sift.m in Sources */,
-				59E0D4D5441D5B830EEAFD16D18199F0 /* Sift-dummy.m in Sources */,
-				B78C1DAD1E245DFAC04ECCFEE8BA984A /* SiftCircularBuffer.m in Sources */,
-				A33FDB13F2B046E1B1F204F72298CAD3 /* SiftEvent.m in Sources */,
-				4E71DF8F85D7ECD6E97837CE2A021E68 /* SiftHtDictionary.m in Sources */,
-				A27494977C6E80939C6DF17F8C4299A2 /* SiftIosAppState.m in Sources */,
-				608146F81FD3C81ABE4441FB4DF8927F /* SiftIosAppStateCollector.m in Sources */,
-				4C126B975188A8817168D4D68E193F1C /* SiftIosDeviceProperties.m in Sources */,
-				E3CFC5D80C174938B6AB5C831D200784 /* SiftIosDevicePropertiesCollector.m in Sources */,
-				5DB72C92FC45AFD89801C02AEC73C66B /* SiftQueue.m in Sources */,
-				A0E776EADB9873E2731AD58968733850 /* SiftTokenBucket.m in Sources */,
-				80D6E28F279241FB8C98DCAF562BFE29 /* SiftUploader.m in Sources */,
-				56F979194D6BF985D23B3F2171D10298 /* SiftUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,7 +1146,7 @@
 		};
 		4081D802D64CABC61F6DDDD6CC491991 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 075CD2F1941C1130E592D503A49FD421 /* Sift.release.xcconfig */;
+			baseConfigurationReference = 9E0AD7369C4C874105B7A732564D8795 /* Sift.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1318,7 +1318,7 @@
 		};
 		8C70E9CDB8772620AE3778804F5C7BF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFA5B83248E4F294869E9BF04C99FDF4 /* Sift.debug.xcconfig */;
+			baseConfigurationReference = 706E79B68D0141515E7A2CE3541B7954 /* Sift.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
