@@ -75,7 +75,7 @@ class KushkiClient: CardinalValidationDelegate {
         sift()?.accountId = self.environment == KushkiEnvironment.production ? merchantSettings.prodAccountId : merchantSettings.sandboxAccountId
         sift()?.beaconKey = self.environment == KushkiEnvironment.production ? merchantSettings.prodBaconKey : merchantSettings.sandboxBaconKey
         sift()?.userId = userId
-        sift()?.allowUsingMotionSensors = true
+        //sift()?.allowUsingMotionSensors = true
     }
 
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
