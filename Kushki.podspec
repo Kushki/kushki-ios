@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description = 'iOS library to integrate with Kushki.'
   s.homepage = 'https://github.com/Kushki/kushki-ios'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
-  s.author = { 'Kushki' => 'soporte@kushkipagos.com' }
+  s.author = { 'Kushki' => 'francisco.quinonez@kushkipagos.com' }
   s.source = { :git => 'https://github.com/Kushki/kushki-ios.git', :tag => "v#{s.version.to_s}" }
   s.ios.deployment_target = '14.3'
   s.source_files = 'Kushki/Classes/**/*'
