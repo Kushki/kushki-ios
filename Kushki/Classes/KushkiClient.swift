@@ -75,7 +75,7 @@ class KushkiClient: CardinalValidationDelegate {
         sift()?.accountId = self.environment == KushkiEnvironment.production ? merchantSettings.prodAccountId : merchantSettings.sandboxAccountId
         sift()?.beaconKey = self.environment == KushkiEnvironment.production ? merchantSettings.prodBaconKey : merchantSettings.sandboxBaconKey
         sift()?.userId = userId
-        //sift()?.allowUsingMotionSensors = true
+        sift()?.allowUsingMotionSensors = true
     }
 
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
@@ -677,30 +677,26 @@ class KushkiClient: CardinalValidationDelegate {
             if jwtResp.message == "" {
                 let newTokenRequest: TokenRequest3DS = self.parseTokenRequest3DS(jsonResponse: requestMessage, jwt: jwtResp.jwt)
                 let newRequestMessage: String = self.buildParameters(withTokenRequest3DS: newTokenRequest)
-                self.showHttpResponse(withMerchantId: mid, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
-                    let parsedTransaction = self.parseResponse(jsonResponse: transaction)
-                    if(parsedTransaction.security!.authRequired!){
                         if(isSandboxEnabled){
-                            self.getMerchantSettings(withMerchantId: mid, endpoint: EndPoint.merchantSettings.rawValue) {
-                                settigs in
-                                DispatchQueue.main.async {
-                                    let topMostViewController = UIApplication.shared.keyWindow?.rootViewController
-                                    let presentedViewController = topMostViewController?.presentedViewController
-                                    let frameworkBundleID  = "org.cocoapods.Kushki";
-                                    let bundle = Bundle(identifier: frameworkBundleID)
-                                    let otp = OTPSandboxViewController(nibName: "OTPSandboxViewController", bundle: bundle)
-                                    otp.initValues(merchantName: settigs.merchantName!, currency: newTokenRequest.currency!, amount: newTokenRequest.totalAmount!, cardNumber: newTokenRequest.number)
-                                    presentedViewController?.present(otp, animated: true)
-                                    completion(parsedTransaction)
+                            self.showHttpResponse(withMerchantId: mid, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
+                                let parsedTransaction = self.parseResponse(jsonResponse: transaction)
+                                self.getMerchantSettings(withMerchantId: mid, endpoint: EndPoint.merchantSettings.rawValue) {
+                                    settigs in
+                                    DispatchQueue.main.async {
+                                        let topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+                                        let presentedViewController = topMostViewController?.presentedViewController
+                                        let frameworkBundleID  = "org.cocoapods.Kushki";
+                                        let bundle = Bundle(identifier: frameworkBundleID)
+                                        let otp = OTPSandboxViewController(nibName: "OTPSandboxViewController", bundle: bundle)
+                                        otp.initValues(merchantName: settigs.merchantName!, currency: newTokenRequest.currency!, amount: newTokenRequest.totalAmount!, cardNumber: newTokenRequest.number)
+                                        presentedViewController?.present(otp, animated: true)
+                                        completion(parsedTransaction)
+                                    }
                                 }
                             }
                         } else {
                             self.setupCardinalSession(publicMerchantId: mid, jwt: jwtResp.jwt, isTest: isTest, endpoint: endpoint, requestMessage: requestMessage, completion: completion)
                         }
-                    } else {
-                        completion(parsedTransaction)
-                    }
-                }
             } else {
                 completion(Transaction(code: jwtResp.code, message: jwtResp.message, token: "", settlement: 0, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: "")))
             }
@@ -719,7 +715,7 @@ class KushkiClient: CardinalValidationDelegate {
             let newRequestMessage: String = self.buildParameters(withTokenRequest3DS: newTokenRequest)
             self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
                 let transactionParsed = self.parseResponse(jsonResponse: transaction)
-                if(transactionParsed.security!.specificationVersion!.starts(with: "2.")){
+                if(transactionParsed.security!.specificationVersion!.starts(with: "2.") && transactionParsed.security!.authRequired!){
                     self.session.continueWith(transactionId: transactionParsed.security!.authenticationTransactionId!, payload: transactionParsed.security!.paReq!, validationDelegate: self)
                 }
                 completion(transactionParsed)
