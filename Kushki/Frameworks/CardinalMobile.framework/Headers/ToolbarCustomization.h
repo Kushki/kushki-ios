@@ -27,9 +27,4 @@
  */
 @property (nonatomic, strong) NSString* buttonText;
 
-/**
- * @property buttonFontSize Font Size for the button.
- */
-@property int buttonFontSize;
-
 @end
