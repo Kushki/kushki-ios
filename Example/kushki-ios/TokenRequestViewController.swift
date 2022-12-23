@@ -22,9 +22,9 @@ class TokenRequestViewController: UIViewController, WKNavigationDelegate {
     
     var transaction: Transaction? = nil
     var message: String = ""
-    var kushki = Kushki(publicMerchantId: "1bf6da01f11d46f8bc059aed82eaca1f",
-                        currency: "MXN",
-                        environment: KushkiEnvironment.testing)
+    var kushki = Kushki(publicMerchantId: "e41151f380a145059b6c8f4d45002130",
+                        currency: "USD",
+                        environment: KushkiEnvironment.testing_qa)
     
     override func viewDidLoad() {
         super.viewDidLoad()
