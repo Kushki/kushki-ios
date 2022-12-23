@@ -495,7 +495,7 @@ class KushkiIntegrationTests: XCTestCase {
         let asyncExpectation = expectation(description: "Get card info")
         let kushki = Kushki(publicMerchantId: "10000002036955013614148494909956",
                             currency: "USD",
-                            environment: KushkiEnvironment.testing_qa)
+                            environment: KushkiEnvironment.testing)
         var cardInfo = CardInfo(bank: "", brand: "", cardType: "")
         kushki.getCardInfo(cardNumber: "4657758223843047"){
             returnedCardInfo in
