@@ -75,7 +75,7 @@ class KushkiClient: CardinalValidationDelegate {
         sift()?.accountId = self.environment == KushkiEnvironment.production ? merchantSettings.prodAccountId : merchantSettings.sandboxAccountId
         sift()?.beaconKey = self.environment == KushkiEnvironment.production ? merchantSettings.prodBaconKey : merchantSettings.sandboxBaconKey
         sift()?.userId = userId
-        sift()?.allowUsingMotionSensors = true
+        // sift()?.allowUsingMotionSensors = true
     }
 
     func buildParameters(withCard card: Card, withCurrency currency: String) -> String {
@@ -695,7 +695,7 @@ class KushkiClient: CardinalValidationDelegate {
                                 }
                             }
                         } else {
-                            self.setupCardinalSession(publicMerchantId: mid, jwt: jwtResp.jwt, isTest: isTest, endpoint: endpoint, requestMessage: requestMessage, completion: completion)
+                            self.setupCardinalSession(publicMerchantId: mid, jwt: jwtResp.jwt, isTest: isTest, endpoint: endpoint, requestMessage: newRequestMessage, completion: completion)
                         }
             } else {
                 completion(Transaction(code: jwtResp.code, message: jwtResp.message, token: "", settlement: 0, secureId: "", secureService: "", security: Security(acsURL: "", authenticationTransactionId: "", authRequired: false, paReq: "",specificationVersion: "")))
@@ -711,9 +711,7 @@ class KushkiClient: CardinalValidationDelegate {
         config.uiType = .both
         session.configure(config)
         session.setup(jwtString: jwt, completed: {(consumerSessionId: String) in
-            let newTokenRequest: TokenRequest3DS = self.parseTokenRequest3DS(jsonResponse: requestMessage, jwt: jwt)
-            let newRequestMessage: String = self.buildParameters(withTokenRequest3DS: newTokenRequest)
-            self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: newRequestMessage) { transaction in
+            self.showHttpResponse(withMerchantId: publicMerchantId, endpoint: endpoint, requestBody: requestMessage) { transaction in
                 let transactionParsed = self.parseResponse(jsonResponse: transaction)
                 if(transactionParsed.security!.specificationVersion!.starts(with: "2.") && transactionParsed.security!.authRequired!){
                     self.session.continueWith(transactionId: transactionParsed.security!.authenticationTransactionId!, payload: transactionParsed.security!.paReq!, validationDelegate: self)
@@ -739,6 +737,8 @@ class KushkiClient: CardinalValidationDelegate {
         var months: Int = 0
         var currency: String = ""
         var totalAmount: Double = 0
+        var userId: String = ""
+        var sessionId: String = ""
         if let responseDictionary = self.convertStringToDictionary(jsonResponse) {
             name = responseDictionary["card"]?["name"] as? String ?? ""
             number = responseDictionary["card"]?["number"] as? String ?? ""
@@ -749,8 +749,10 @@ class KushkiClient: CardinalValidationDelegate {
             months = responseDictionary["card"]?["months"] as? Int ?? 0
             currency = responseDictionary["currency"] as? String ?? ""
             totalAmount = responseDictionary["totalAmount"] as? Double ?? 0
+            userId = responseDictionary["userId"] as? String ?? ""
+            sessionId = responseDictionary["sessionId"] as? String ?? ""
         }
-        return TokenRequest3DS(name: name, number: number, cvv: cvv, expiryMonth: expiryMonth, expiryYear: expiryYear, months: months, isDeferred: isDeferred, jwt: jwt, currency: currency, totalAmount: totalAmount)
+        return TokenRequest3DS(name: name, number: number, cvv: cvv, expiryMonth: expiryMonth, expiryYear: expiryYear, months: months, isDeferred: isDeferred, jwt: jwt, currency: currency, totalAmount: totalAmount, userId: userId, sessionId: sessionId)
     }
 
     func buildParameters(withTokenRequest3DS tokenRequest: TokenRequest3DS) -> String {
@@ -772,7 +774,9 @@ class KushkiClient: CardinalValidationDelegate {
             ],
             "currency": tokenRequest.currency!,
             "jwt": tokenRequest.jwt!,
-            "totalAmount": tokenRequest.totalAmount!
+            "totalAmount": tokenRequest.totalAmount!,
+            "userId": tokenRequest.userId!,
+            "sessionId": tokenRequest.sessionId!
         ]
 
         if tokenRequest.months != 0 {
@@ -784,3 +788,4 @@ class KushkiClient: CardinalValidationDelegate {
         return requestDictionary
     }
 }
+
